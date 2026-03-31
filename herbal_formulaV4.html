@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herbal Formula Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:       #f7f2e8;
+  --cream2:      #efe8d6;
+  --cream3:      #e4d9c3;
+  --parchment:   #d9ccb0;
+  --ink:         #2c2416;
+  --ink-mid:     #5a4e38;
+  --ink-light:   #8c7d60;
+  --ink-faint:   #b8a98a;
+  --sage:        #5c7a52;
+  --sage-light:  #7da06e;
+  --sage-pale:   #c8dcc0;
+  --sage-bg:     #edf4e9;
+  --moss:        #3d5934;
+  --terracotta:  #a05a3a;
+  --terra-pale:  #f0e0d4;
+  --gold:        #9a7a2e;
+  --gold-pale:   #f0e8cc;
+  --border:      #d0c4a8;
+  --border-dark: #b8a882;
+  --shadow:      rgba(44,36,22,0.10);
+  --shadow-sm:   rgba(44,36,22,0.06);
+  --radius-sm:   4px;
+  --radius:      8px;
+  --radius-lg:   14px;
+  --nav-w:       280px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.65;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Subtle grain overlay ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ══════════════════════════════════
+   LEFT NAV SIDEBAR
+══════════════════════════════════ */
+#sidebar {
+  width: var(--nav-w);
+  flex-shrink: 0;
+  background: var(--ink);
+  min-height: 100vh;
+  position: fixed;
+  top: 0; left: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 3px 0 20px rgba(44,36,22,0.18);
+}
+
+/* Sidebar header */
+.sidebar-header {
+  padding: 32px 24px 24px;
+  border-bottom: 1px solid #3a3020;
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.sidebar-logo-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.sidebar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.25;
+}
+
+.sidebar-title span {
+  display: block;
+  font-size: 11px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 300;
+  color: var(--sage-pale);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Sidebar search */
+.sidebar-search {
+  position: relative;
+}
+
+.sidebar-search input {
+  width: 100%;
+  background: #3a3020;
+  border: 1px solid #4a4030;
+  border-radius: var(--radius-sm);
+  color: var(--cream2);
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  padding: 9px 12px 9px 36px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.sidebar-search input::placeholder { color: var(--ink-faint); font-style: italic; }
+.sidebar-search input:focus { border-color: var(--sage); }
+
+.sidebar-search svg {
+  position: absolute;
+  left: 10px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+  flex: 1;
+  padding: 12px 0 24px;
+  overflow-y: auto;
+}
+
+.nav-group {
+  margin-bottom: 2px;
+}
+
+.nav-group-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+  color: var(--cream2);
+}
+
+.nav-group-btn:hover { background: #2a2418; }
+.nav-group-btn.active { background: #2a2418; }
+
+.nav-group-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 9px;
+  color: #fff;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+}
+
+.nav-group-name {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  font-weight: 500;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.nav-group-count {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  color: var(--ink-faint);
+  background: #3a3020;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.nav-group-chevron {
+  color: var(--ink-light);
+  transition: transform 0.25s;
+  flex-shrink: 0;
+}
+
+.nav-group.open .nav-group-chevron { transform: rotate(90deg); }
+
+.nav-subs {
+  display: none;
+  padding-left: 0;
+  background: #1e1a12;
+}
+
+.nav-group.open .nav-subs { display: block; }
+
+.nav-sub-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 20px 8px 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+  color: var(--ink-faint);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.nav-sub-btn:hover { background: #2a2418; color: var(--cream2); }
+.nav-sub-btn.active { color: var(--sage-pale); background: #2a2418; }
+
+.nav-sub-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #4a4030;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.nav-sub-btn.active .nav-sub-dot { background: var(--sage); }
+
+/* Stats at bottom of sidebar */
+.sidebar-stats {
+  padding: 16px 20px;
+  border-top: 1px solid #3a3020;
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--sage-pale);
+  display: block;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9px;
+  color: var(--ink-faint);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 3px;
+}
+
+/* ══════════════════════════════════
+   MAIN CONTENT
+══════════════════════════════════ */
+#main {
+  margin-left: var(--nav-w);
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+.topbar {
+  background: var(--cream2);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 36px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 12px var(--shadow-sm);
+}
+
+.topbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  color: var(--ink-light);
+  letter-spacing: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.bc-sep {
+  color: var(--ink-faint);
+  font-size: 10px;
+}
+
+.bc-group {
+  color: var(--sage);
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bc-sub { color: var(--ink-mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-sm {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.18s;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--border-dark);
+  color: var(--ink-mid);
+}
+
+.btn-outline:hover { background: var(--cream3); border-color: var(--ink-light); }
+
+.btn-primary {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #fff;
+}
+
+.btn-primary:hover { background: var(--moss); border-color: var(--moss); }
+
+/* Result info bar */
+.result-bar {
+  padding: 10px 36px;
+  background: var(--sage-bg);
+  border-bottom: 1px solid var(--sage-pale);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  color: var(--sage);
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-dot {
+  width: 6px; height: 6px;
+  background: var(--sage);
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Content area */
+#content-area {
+  padding: 32px 36px 80px;
+  flex: 1;
+}
+
+/* ── Welcome screen ── */
+.welcome {
+  max-width: 640px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.welcome-icon {
+  margin: 0 auto 28px;
+  width: 72px;
+  height: 72px;
+}
+
+.welcome h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.welcome p {
+  color: var(--ink-mid);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.welcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.welcome-card {
+  background: var(--cream2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.welcome-card:hover {
+  border-color: var(--sage);
+  background: var(--sage-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.wc-name {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.wc-count {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  color: var(--ink-light);
+}
+
+/* ── Section headings ── */
+.section-main-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+}
+
+.smh-accent {
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--sage), var(--sage-pale));
+  flex-shrink: 0;
+  align-self: stretch;
+  min-height: 48px;
+}
+
+.smh-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.smh-text p {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  color: var(--ink-light);
+  letter-spacing: 1px;
+}
+
+/* ── Subgroup section ── */
+.subgroup-section {
+  margin-bottom: 40px;
+}
+
+.subgroup-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.sg-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sage-bg);
+  border: 1px solid var(--sage-pale);
+  border-radius: 20px;
+  padding: 5px 14px 5px 10px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.sg-dot {
+  width: 7px; height: 7px;
+  background: var(--sage);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sg-count {
+  margin-left: 4px;
+  background: var(--sage);
+  color: #fff;
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 9px;
+}
+
+/* ══════════════════════════════════
+   TABLE DESIGN
+══════════════════════════════════ */
+.table-container {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 2px 16px var(--shadow-sm);
+}
+
+table {
+  min-width: 900px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+@media (max-width: 900px) {
+  .table-container {
+    border-radius: var(--radius);
+  }
+}
+
+thead th {
+  background: var(--ink);
+  color: var(--cream2);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 13px 16px;
+  text-align: left;
+  white-space: nowrap;
+  border-right: 1px solid #3a3020;
+}
+
+thead th:last-child { border-right: none; }
+
+/* Alternating rows */
+tbody tr:nth-child(even) { background: var(--cream2); }
+tbody tr:nth-child(odd)  { background: var(--cream); }
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--sage-bg) !important; }
+
+td {
+  padding: 14px 16px;
+  vertical-align: top;
+  border-right: 1px solid var(--border);
+  line-height: 1.55;
+}
+
+td:last-child { border-right: none; }
+
+/* Column widths */
+.col-pinyin    { min-width: 160px; max-width: 180px; }
+.col-actions   { min-width: 180px; max-width: 220px; }
+.col-ingred    { min-width: 200px; max-width: 260px; }
+.col-functions { min-width: 180px; }
+.col-indicate  { min-width: 160px; }
+.col-manifest  { min-width: 160px; }
+.col-modify    { min-width: 180px; }
+.col-latin     { min-width: 200px; max-width: 240px; }
+
+/* Cell content styles */
+.cell-pinyin {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cell-actions {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  color: var(--terracotta);
+  line-height: 1.6;
+}
+
+.cell-ingred {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10.5px;
+  color: var(--ink-mid);
+  line-height: 1.8;
+}
+
+.cell-latin {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-light);
+  line-height: 1.4;
+}
+
+/* Bullet list cells */
+.cell-bullets {
+  list-style: none;
+}
+
+.cell-bullets li {
+  position: relative;
+  padding-left: 13px;
+  color: var(--ink-mid);
+  font-size: 13px;
+  margin-bottom: 3px;
+  line-height: 1.5;
+}
+
+.cell-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 2px; top: 8px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--sage-pale);
+}
+
+/* Modification cell */
+.cell-mod .mod-line {
+  font-size: 12.5px;
+  color: var(--ink-light);
+  margin-bottom: 4px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.cell-mod .mod-cond {
+  font-style: normal;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  background: var(--gold-pale);
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-right: 4px;
+}
+
+/* Empty cell */
+.cell-empty {
+  color: var(--ink-faint);
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ── TTS Button ── */
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  cursor: pointer;
+  color: var(--ink-light);
+  transition: all 0.18s;
+  flex-shrink: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+.tts-btn:hover {
+  background: var(--sage-bg);
+  border-color: var(--sage);
+  color: var(--sage);
+  transform: scale(1.1);
+}
+.tts-btn.playing {
+  background: var(--sage);
+  border-color: var(--moss);
+  color: #fff;
+  animation: tts-pulse 1.4s ease-in-out infinite;
+}
+.tts-btn.playing:hover { background: var(--moss); transform: scale(1.0); }
+@keyframes tts-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(92,122,82,0.4); }
+  50%       { box-shadow: 0 0 0 6px rgba(92,122,82,0); }
+}
+.col-tts { width: 44px; min-width: 44px; text-align: center; }
+
+#tts-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 9000;
+  white-space: nowrap;
+  max-width: 90vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#tts-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+#tts-toast .toast-stop {
+  background: var(--sage);
+  border: none;
+  color: #fff;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+  pointer-events: all;
+}
+#tts-toast .toast-stop:hover { background: var(--moss); }
+
+/* ── No results ── */
+.no-results {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.no-results p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink-light);
+  margin-top: 16px;
+}
+
+/* Search highlight */
+mark {
+  background: #e8f4e0;
+  color: var(--moss);
+  border-radius: 2px;
+  padding: 0 2px;
+  font-style: normal;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--parchment); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-dark); }
+#sidebar ::-webkit-scrollbar-thumb { background: #3a3020; }
+
+/* ══════════════════════════════════
+   FLASH CARD SYSTEM
+══════════════════════════════════ */
+
+/* Flash Card Button in subgroup header */
+.fc-launch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px 5px 10px;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  cursor: pointer;
+  transition: all 0.18s;
+  flex-shrink: 0;
+}
+.fc-launch-btn:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(154,122,46,0.3);
+}
+.fc-launch-btn svg { flex-shrink: 0; }
+
+/* Modal overlay */
+#fc-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44,36,22,0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#fc-modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Modal box */
+.fc-box {
+  background: var(--cream);
+  border-radius: 20px;
+  box-shadow: 0 24px 80px rgba(44,36,22,0.30);
+  width: min(720px, 94vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+#fc-modal.open .fc-box {
+  transform: translateY(0) scale(1);
+}
+
+/* Modal header */
+.fc-header {
+  background: var(--ink);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.fc-header-info { flex: 1; min-width: 0; }
+.fc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cream);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fc-subtitle {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  color: var(--sage-pale);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.fc-close-btn {
+  background: #3a3020;
+  border: none;
+  color: var(--ink-faint);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.fc-close-btn:hover { background: var(--terracotta); color: #fff; }
+
+/* Progress bar */
+.fc-progress-wrap {
+  padding: 12px 24px 0;
+  background: var(--cream2);
+  flex-shrink: 0;
+}
+.fc-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.fc-counter {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  color: var(--ink-light);
+  letter-spacing: 1px;
+}
+.fc-score-display {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  display: flex;
+  gap: 12px;
+}
+.fc-score-know { color: var(--sage); }
+.fc-score-review { color: var(--terracotta); }
+.fc-progress-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.fc-progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--sage), var(--sage-light));
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* Card area */
+.fc-card-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 32px 20px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* The flip card */
+.fc-scene {
+  width: 100%;
+  max-width: 560px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.fc-card {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+}
+.fc-card.flipped { transform: rotateY(180deg); }
+
+.fc-face {
+  position: absolute;
+  inset: 0;
+  min-height: 220px;
+  border-radius: 16px;
+  padding: 30px 32px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+}
+
+/* Front face — Pinyin prompt */
+.fc-front {
+  background: linear-gradient(135deg, var(--ink) 0%, #3d3020 100%);
+  border: 2px solid #3a3020;
+  box-shadow: 0 8px 32px rgba(44,36,22,0.25);
+}
+.fc-face-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sage-pale);
+  opacity: 0.7;
+}
+.fc-pinyin-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.2;
+}
+.fc-latin-hint {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-faint);
+  opacity: 0.8;
+}
+.fc-flip-hint {
+  margin-top: 8px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--sage-pale);
+  opacity: 0.5;
+  animation: fc-pulse-hint 2s ease-in-out infinite;
+}
+@keyframes fc-pulse-hint {
+  0%,100% { opacity:0.35; } 50% { opacity:0.7; }
+}
+
+/* Back face — answer */
+.fc-back {
+  background: var(--cream2);
+  border: 2px solid var(--border-dark);
+  box-shadow: 0 8px 32px rgba(44,36,22,0.10);
+  transform: rotateY(180deg);
+  align-items: flex-start;
+  text-align: left;
+  gap: 14px;
+}
+.fc-answer-section {
+  width: 100%;
+}
+.fc-ans-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 5px;
+  display: block;
+}
+.fc-ans-category {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.fc-ans-pattern {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 12px;
+  color: var(--terracotta);
+  line-height: 1.6;
+}
+.fc-ans-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.fc-ans-functions-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  width: 100%;
+}
+.fc-ans-functions-list li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+.fc-ans-functions-list li::before {
+  content: '';
+  position: absolute;
+  left: 2px; top: 8px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--sage-pale);
+}
+
+/* Card actions */
+.fc-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 0 32px 24px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.fc-action-row {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.fc-btn {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.18s;
+  border: 1.5px solid;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.fc-btn-flip {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+  flex: 1;
+  max-width: 200px;
+  justify-content: center;
+}
+.fc-btn-flip:hover { background: #3d3020; }
+.fc-btn-know {
+  background: var(--sage-bg);
+  border-color: var(--sage);
+  color: var(--sage);
+  flex: 1;
+  justify-content: center;
+}
+.fc-btn-know:hover { background: var(--sage); color: #fff; }
+.fc-btn-review {
+  background: var(--terra-pale);
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+  flex: 1;
+  justify-content: center;
+}
+.fc-btn-review:hover { background: var(--terracotta); color: #fff; }
+.fc-btn-skip {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--ink-light);
+  flex: 1;
+  justify-content: center;
+}
+.fc-btn-skip:hover { background: var(--cream3); }
+
+/* Result screen */
+.fc-result {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.fc-result-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--sage-bg);
+  border: 2px solid var(--sage-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+.fc-result-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.fc-result-stats {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.fc-rs-item { text-align: center; }
+.fc-rs-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  display: block;
+}
+.fc-rs-num.green { color: var(--sage); }
+.fc-rs-num.red { color: var(--terracotta); }
+.fc-rs-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-top: 4px;
+  display: block;
+}
+.fc-result-btns {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+}
+.fc-btn-restart {
+  background: var(--sage);
+  border-color: var(--moss);
+  color: #fff;
+}
+.fc-btn-restart:hover { background: var(--moss); }
+.fc-btn-review-only {
+  background: var(--terra-pale);
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+.fc-btn-review-only:hover { background: var(--terracotta); color: #fff; }
+
+/* keyboard shortcut hints */
+.fc-shortcuts {
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10px;
+  color: var(--ink-faint);
+  letter-spacing: 1px;
+  padding-bottom: 12px;
+}
+.fc-key {
+  display: inline-block;
+  background: var(--cream3);
+  border: 1px solid var(--border-dark);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 9px;
+}
+
+/* Shuffle mode badge */
+.fc-mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-left: 8px;
+}
+.fc-mode-badge.active {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ── Mobile toggle ── */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 200;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--sage);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(92,122,82,0.4);
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  :root { --nav-w: 260px; }
+  #sidebar { transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+  #sidebar.open { transform: translateX(0); }
+  #main { margin-left: 0; }
+  .menu-toggle { display: flex; }
+  .topbar { padding: 16px 20px; }
+  #content-area { padding: 24px 20px 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <svg class="sidebar-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="18" fill="#3d5934" opacity="0.6"/>
+        <path d="M18 8 C18 8 12 13 12 19 C12 23.4 14.7 26 18 26 C21.3 26 24 23.4 24 19 C24 13 18 8 18 8Z" fill="#7da06e"/>
+        <path d="M18 14 C18 14 10 16 10 22" stroke="#c8dcc0" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+        <path d="M18 16 C18 16 26 18 26 24" stroke="#c8dcc0" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+        <line x1="18" y1="26" x2="18" y2="31" stroke="#7da06e" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="sidebar-title">
+        Herbal Formula
+        <span>Reference · TCM</span>
+      </div>
+    </div>
+    <div class="sidebar-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input id="search" type="text" placeholder="Search formulas…" autocomplete="off">
+    </div>
+  </div>
+
+  <nav class="sidebar-nav" id="nav"></nav>
+
+  <div class="sidebar-stats">
+    <div class="stat-item">
+      <span class="stat-num" id="s-formulas">—</span>
+      <span class="stat-label">Formulas</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="s-groups">—</span>
+      <span class="stat-label">Groups</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="s-subs">—</span>
+      <span class="stat-label">Subgroups</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<main id="main">
+  <div class="topbar">
+    <div class="topbar-breadcrumb" id="breadcrumb">
+      <span>All Formulas</span>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn-sm btn-outline" onclick="expandAllSubs()">Expand All</button>
+      <button class="btn-sm btn-outline" onclick="collapseAllSubs()">Collapse</button>
+    </div>
+  </div>
+
+  <div class="result-bar" id="result-bar" style="display:none">
+    <span class="result-dot"></span>
+    <span id="result-text"></span>
+  </div>
+
+  <div id="content-area"></div>
+</main>
+
+<!-- TTS Toast -->
+<div id="tts-toast">
+  <span id="tts-toast-text">▶ Now reading…</span>
+  <button class="toast-stop" onclick="ttsStop()">■ Stop</button>
+</div>
+
+<!-- ══ FLASH CARD MODAL ══ -->
+<div id="fc-modal" role="dialog" aria-modal="true" aria-label="Flash Cards">
+  <div class="fc-box">
+    <!-- Header -->
+    <div class="fc-header">
+      <div class="fc-header-info">
+        <div class="fc-title" id="fc-modal-title">Flash Cards</div>
+        <div class="fc-subtitle" id="fc-modal-subtitle">Pinyin → Category &amp; Pattern</div>
+      </div>
+      <button class="fc-mode-badge" id="fc-shuffle-btn" onclick="fcToggleShuffle()" title="Toggle shuffle">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="16 3 21 3 21 8"/><polyline points="3 21 9 14 3 21"/>
+          <path d="M21 3l-6 9"/><polyline points="3 3 8 3 21 16 21 21 16 21 3 8 3 3"/>
+        </svg>
+        Shuffle
+      </button>
+      <button class="fc-close-btn" onclick="fcClose()" title="Close (Esc)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Progress -->
+    <div class="fc-progress-wrap">
+      <div class="fc-progress-info">
+        <span class="fc-counter" id="fc-counter">1 / 12</span>
+        <span class="fc-score-display">
+          <span class="fc-score-know" id="fc-score-know">✓ 0 Know</span>
+          <span class="fc-score-review" id="fc-score-review">↻ 0 Review</span>
+        </span>
+      </div>
+      <div class="fc-progress-bar"><div class="fc-progress-fill" id="fc-progress-fill" style="width:0%"></div></div>
+    </div>
+
+    <!-- Card area -->
+    <div class="fc-card-area" id="fc-card-area">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Shortcuts hint -->
+    <div class="fc-shortcuts" id="fc-shortcuts">
+      <span class="fc-key">Space</span> flip &nbsp;
+      <span class="fc-key">K</span> know &nbsp;
+      <span class="fc-key">R</span> review &nbsp;
+      <span class="fc-key">→</span> skip &nbsp;
+      <span class="fc-key">Esc</span> close
+    </div>
+  </div>
+</div>
+
+<button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+<script>
+const DATA = [{"row_number": 2, "MainGROUP": "Calming Shen", "SUBGROUP": "Calming Shen", "Formula LATIN": "Cinnabar Pill to Calm the Spirit", "Formula PINYIN": "Zhu Sha An Shen Wan", "Actions": "【acute toxicity / Heart fire + Yin-Blood deficiency】", "Ingredients": "Zhusha 15 gHuanglian 18 gShengdihuang 8 gDanggui 8 gGancao 8 g", "Functions": "•Tranquilize mind and purge heart fire•Only relatively strong calming formula, used for acute insomnia", "Indication": "•Disturbance of the mind by Heart fire with Yin-Blood deficiency•Acute insomnia due to Yin deficiency with fire", "Manifestation": "•insomnia•dreaminess•palpitations with fright•irritability•red tongue tip•weak and rapid pulse", "Modification": "•【phlegm-heat with chest oppression and greasy coating】Gualou Zhuru•【palpitations and insomnia】Longgu Muli Cishi•【Cautions】contraindicated in Spleen-Stomach deficiency; Zhusha is toxic"}, {"row_number": 3, "MainGROUP": "Calming Shen", "SUBGROUP": "Calming Shen", "Formula LATIN": "Sour Jujube Decoction", "Formula PINYIN": "Suan Zao Ren Tang", "Actions": "【Liver Blood deficiency】", "Ingredients": "【Chief】Suanzaoren 15 gZhimu 10 gFuling 10 gChuanxiong 5 gGancao 3 g", "Functions": "•Nourish Liver Blood and calm the mind•Clear heat and relieve irritability", "Indication": "•Disturbance of the mind due to Liver Blood deficiency•Chronic insomnia due to Liver Blood deficiency", "Manifestation": "•insomnia•palpitations•irritability•dizziness•vertigo•dry throat and mouth•reddened tongue•wiry and thready pulse", "Modification": "•【yin deficiency with fire】Baishao Shengdihuang•【night sweating】Wuweizi•【severe anxiety due to Liver Blood deficiency】Longgu Muli"}, {"row_number": 4, "MainGROUP": "Calming Shen", "SUBGROUP": "Calming Shen", "Formula LATIN": "Emperor of Heaven's Pill to Tonify the Heart", "Formula PINYIN": "Tian Wang Bu Xin Dan", "Actions": "【Heart-Kidney disharmony / Kidney Yin deficiency + deficiency fire】", "Ingredients": "【Chief】Shengdihuang 20 gXuanshen 15 gTianmendong 20 gMaidong 20 gDanshen 15 gDanggui 20 gRenshen 15 gFuling 15 gWuweizi 15 gSuanzaoren 20 gYuanzhi 15 gBaiziren 20 gJiegeng 15 g", "Functions": "•Replenish Yin and nourish blood•Tonify the Heart and calm the mind", "Indication": "•Mental derangement due to Yin deficiency and interior heat•Heart-Kidney disharmony pattern", "Manifestation": "•insomnia•palpitations•mental fatigue•nocturnal emissions•amnesia•night sweating•red tongue with little coating•thready rapid pulse", "Modification": "•【mouth ulcers】Huanglian Mudanpi•【constipation】Zhishi Houpo•【dizziness】Chuanxiong Baizhi•【restlessness】Longyanrou Yejiaoteng•【spermatorrhea】Jinyingzi Qianshi•【dry throat】Shihu Lianzixin"}, {"row_number": 5, "MainGROUP": "Calming Shen", "SUBGROUP": "Calming Shen", "Formula LATIN": "Licorice Wheat and Jujube Decoction", "Formula PINYIN": "Gan Mai Da Zao Tang", "Actions": "【calm Shen / Zang Zao】", "Ingredients": "Gancao 20 gXiao Mai 100 gDazao 20 g", "Functions": "•Nourish Heart and calm the mind•Harmonize middle and relieve urgency", "Indication": "•Zang Zao disorder•Emotional disorder due to Heart Yin deficiency", "Manifestation": "•mental instability•frequent crying•yawning", "Modification": ""}, {"row_number": 6, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "Jade Windscreen Powder", "Formula PINYIN": "Yu Ping Feng San", "Actions": "【stop sweating / strengthen Wei Qi】", "Ingredients": "Huangqi 18 gBaizhu 6 gFangfeng 6 g", "Functions": "•Tonify Wei Qi and stop sweating•Strengthen exterior defense", "Indication": "•Wei Qi deficiency", "Manifestation": "•spontaneous sweating•aversion to wind•pale complexion•weak pulse", "Modification": "•【severe sweating】Muli Fuxiaomai•【external wind-cold】combine Guizhi Tang•【seasonal allergy】Xinyihua Cangerzi"}, {"row_number": 8, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "Jade Windscreen powder", "Formula PINYIN": "Yu Ping Feng San", "Actions": "【stop sweating / strengthen Wei Qi】", "Ingredients": "【Chief】Huangqi 18 gBaizhu 6 gFangfeng 6 g", "Functions": "•Replenish Wei Qi and arrest spontaneous sweating•Tonify Wei Qi and stop sweating•Strengthen resistance and prevent colds•Prevent asthma worsening", "Indication": "•Wei Qi deficiency", "Manifestation": "•spontaneous sweating•recurrent colds•pale complexion with aversion to wind•pale tongue with white coating•floating weak pulse", "Modification": "•【severe spontaneous sweating】Muli Fuxiaomai•【external wind-cold】combine Guizhi Tang•【seasonal nasal allergy】Xinyihua Cangerzi"}, {"row_number": 9, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "Tangkuei and Six-yellow Decoction", "Formula PINYIN": "Dang Gui Liu Huang Tang", "Actions": "【Yin deficiency night sweating】", "Ingredients": "DangguiShu Di HuangSheng Di HuangHuang QiHuang QinHuang LianHuang Bai", "Functions": "•Tonify Yin and arrest night sweating", "Indication": "•Night sweating due to Yin deficiency and empty heat", "Manifestation": "•night sweating•feverish sensation•dry mouth and lips•irritability•constipation•red tongue•rapid pulse•spontaneous sweating", "Modification": ""}, {"row_number": 10, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "Oyster Shell Powder", "Formula PINYIN": "Mu Li San", "Actions": "【continuous sweating】", "Ingredients": "Muli 30 gHuangqi 30 gMahuanggen 30 gFuxiaomai 30 g", "Functions": "•Replenish Qi and arrest spontaneous sweating•Preserve Yin and arrest night sweating", "Indication": "•Spontaneous sweating and night sweating damaging Heart", "Manifestation": "•constant sweating•night sweating•palpitations•susceptibility to fright•shortness of breath•lassitude•reddish tongue•thready and feeble pulse", "Modification": "•【Yang deficiency】Baizhu Fuzi Ganjiang Renshen•【Yin deficiency】Baishao Shudihuang Shengdihuang Suanzaoren•【severe blood deficiency】Shudihuang Ejiao•【severe Qi deficiency】Dangshen Baizhu Huangqi"}, {"row_number": 11, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "True Man's Decoction to Nourish the Organs", "Formula PINYIN": "Zhen Ren Yang Zang Tang", "Actions": "【chronic diarrhea / cholera / opium】", "Ingredients": "Ying Su KeKe ZiRen ShenBai ZhuRou Dou KouMu XiangBai ShaoGan Cao", "Functions": "•Warm Spleen and Kidney•Astringe intestines and stop diarrhea", "Indication": "•Chronic severe diarrhea•Acute severe diarrhea leading to dehydration", "Manifestation": "•chronic diarrhea•fecal incontinence•abdominal pain relieved by warmth•cold limbs•fatigue•pale tongue with white coating•deep slow pulse", "Modification": ""}, {"row_number": 12, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "Four-Miracle Pill", "Formula PINYIN": "Si Shen Wan", "Actions": "【dawn diarrhea / Kidney-Spleen Yang deficiency】", "Ingredients": "【Chief】Buguzhi 120 gRoudoukou 60 gWuzhuyu 30 gWuweizi 60 gShengjiang 120 gDazao", "Functions": "•Warm Spleen and Kidney•Astringe intestines and stop diarrhea", "Indication": "•Diarrhea before dawn", "Manifestation": "•early morning diarrhea•protracted diarrhea•abdominal pain relieved by warmth•lower back soreness•cold limbs•fatigue•pale tongue•deep slow weak pulse", "Modification": "•【rectal prolapse】Huangqi Shengma Dangshen•【Kidney deficiency low back pain】Fuzi Rougui"}, {"row_number": 13, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "Metal Lock pill to Stabilize the Essence", "Formula PINYIN": "Jin Suo Gu Jing Wan", "Actions": "【Kidney Qi deficiency spermatorrhea】", "Ingredients": "【Chief】Shayuanjili 60 gQianshi 60 gLianzi 60 gLianzixu 60 gLonggu 30 gMuli 30 g", "Functions": "•Reinforce Kidney and astringe essence", "Indication": "•Spermatorrhea due to Kidney Qi deficiency", "Manifestation": "•spermatorrhea•low back soreness•tinnitus•lassitude•pale tongue with white coating•weak pulse", "Modification": "•【Yin deficiency with fire】Zhimu Huangbai Guiban Nuzhenzi•【Kidney Yang deficiency】Shanyurou Buguzhi•【constipation】Roucongrong Danggui•【loose stools】Wuweizi Buguzhi•【low back pain】Duzhong Xuduan Sangjisheng•【impotence】Yinyanghuo"}, {"row_number": 14, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "Mantis Egg-Case powder", "Formula PINYIN": "Sang Piao Xiao San", "Actions": "【Kidney Yin deficiency unable to restrain fire spermatorrhea】", "Ingredients": "Sang Piao XiaoLong GuRen ShenFu LingShi Cang PuYuan ZhiDang GuiGui Ban", "Functions": "•Spermatorrhea due to Kidney-Heart disharmony", "Indication": "•Sperm emissions due to Kidney-Heart disharmony", "Manifestation": "•sperm emissions•frequent urination•milky urine•mental fatigue•poor memory•confusion•pale tongue•weak pulse", "Modification": ""}, {"row_number": 15, "MainGROUP": "Astringing", "SUBGROUP": "Astringing", "Formula LATIN": "Decoction to Consolidate the Chong Meridian", "Formula PINYIN": "Gu Chong Tang", "Actions": "【Chong vessel deficiency / Kidney deficiency / low back pain / gynecology】", "Ingredients": "【Chief】Huangqi 18 gBaizhu 30 gLonggu 24 gMuli 24 gShanzhuyu 24 gHaipiaoxiao 12 gWubeizi 15 gBaishao 12 gQiancao 9 g", "Functions": "•Tonify Qi and strengthen Spleen•Consolidate Chong and control Blood", "Indication": "•Chong vessel deficiency due to Spleen Qi deficiency", "Manifestation": "•metrorrhagia•profuse menstruation•palpitations•shortness of breath•low back pain•pale tongue•weak pulse", "Modification": "•【cold sensation】Renshen Fuzi"}, {"row_number": 17, "MainGROUP": "Regulating Qi", "SUBGROUP": "Qi Circulation", "Formula LATIN": "Escape Restraint Pill", "Formula PINYIN": "Yue Ju Wan", "Actions": "【Basic / open four gates】", "Ingredients": "Xiangfu 15 gChuanxiong 15 gZhizi 15 gCangzhu 15 gShenqu 15 g", "Functions": "•Promote Qi circulation•Basic general formula similar to Four Gentlemen Decoction•Open four gates", "Indication": "•Stagnation of qi blood fire dampness food and phlegm", "Manifestation": "•chest distress and fullness•epigastric and abdominal distension and pain•acid regurgitation vomiting and indigestion", "Modification": "•【Qi stagnation】Muxiang Chenpi•【blood stagnation】Taoren Honghua Danshen Danggui•【excess fire】Huanglian Lianqiao•【dampness】Fuling Zexie Cheqianzi Yiyiren•【food retention】Shanzha Maiya Jineijin•【phlegm】Gualou Chenpi Banxia"}, {"row_number": 18, "MainGROUP": "Regulating Qi", "SUBGROUP": "Qi Circulation", "Formula LATIN": "Pinellia and Magnolia Bark Decoction", "Formula PINYIN": "Ban Xia Hou Po Tang", "Actions": "【plum-pit Qi】", "Ingredients": "Banxia 12 gHoupo 9 gFuling 12 gShengjiang 9 gZisuye 6 g", "Functions": "•Promote Qi and remove nodules•Direct Qi downward and resolve phlegm", "Indication": "•Globus hystericus", "Manifestation": "•sensation of object in throat•chest distress•coughing or vomiting•greasy whitish tongue coating•wiry and smooth pulse", "Modification": ""}, {"row_number": 19, "MainGROUP": "Regulating Qi", "SUBGROUP": "Qi Circulation", "Formula LATIN": "Unripe Bitter Orange Garlic and Cinnamon Decoction", "Formula PINYIN": "Zhishi Xiebai Guizhi Tang", "Actions": "【chest Bi / obstruction of Yang Qi + phlegm】", "Ingredients": "Gualou 12 gXiebai 9 gZhishi 9 gHoupo 9 gGuizhi 9 g", "Functions": "•Activate Yang and resolve chest stagnation•Bi syndrome in chest", "Indication": "•Chest Bi due to obstruction of Yang Qi by phlegm", "Manifestation": "•chest oppression•dyspnea•cough with sputum•shortness of breath•greasy whitish tongue coating•deep wiry or tense pulse", "Modification": "•【angina】Danshen Chishao Honghua Chuanxiong•【cold】Ganjiang•【phlegm obstruction】Banxia Shengjiang"}, {"row_number": 20, "MainGROUP": "Regulating Qi", "SUBGROUP": "Qi Circulation", "Formula LATIN": "Top-Quality Lindera Powder", "Formula PINYIN": "Tian Tai Wu Yao San", "Actions": "【hernia / contraction pain】", "Ingredients": "Wuyao 12 gXiaohuixiang 6 gQingpi 6 gMuxiang 6 gGaoliangjiang 9 gChuanlianzi 12 gBinlang 9 g", "Functions": "•Promote Liver Qi circulation and dispel cold to stop pain", "Indication": "•Hernia and contraction pain in genital region", "Manifestation": "•lower abdominal pain radiating to testicles•swelling pain in testicle•pale tongue with white coating•deep slow or wiry pulse", "Modification": "•【severe cold】Wuzhuyu Rougui•【dysmenorrhea】Chuanxiong Honghua Danggui"}, {"row_number": 22, "MainGROUP": "Regulating Qi", "SUBGROUP": "Descending Qi", "Formula LATIN": "Perilla Fruit Decoction for Directing Qi Downward", "Formula PINYIN": "Su Zi Jiang Qi Tang", "Actions": "【chronic asthma / Lung + Kidney deficiency】", "Ingredients": "Suzi 9 gBanxia 9 gQianhu 6 gHoupo 6 gRougui 3 gDanggui 6 gZhigancao 6 gShengjiangDazaoZisuye", "Functions": "•Descend Qi resolve phlegm and relieve asthma•Treat chronic asthma due to Kidney Qi deficiency", "Indication": "•Cough with sputum and asthma due to phlegm blocking Lung with Kidney deficiency", "Manifestation": "•cough asthma with white sputum•chest fullness choking sensation•lower back ache•edema of limbs•white slippery or greasy tongue coating•wiry smooth pulse", "Modification": "•【edema】Fuling Baizhu Zexie•【exterior wind-cold with chills and fever】Mahuang Xingren"}, {"row_number": 23, "MainGROUP": "Regulating Qi", "SUBGROUP": "Descending Qi", "Formula LATIN": "Arrest Wheezing Decoction", "Formula PINYIN": "Ding Chuan Tang", "Actions": "【asthma / yellow phlegm】", "Ingredients": "Mahuang 9 gBaiguo 9 gSuzi 6 gXingren 9 gBanxia 9 gKuandonghuaSangbaipi 9 gHuangqin 6 gGancao 3 g", "Functions": "•Descend and disperse Lung Qi•Resolve heat-phlegm and relieve asthma", "Indication": "•Asthma due to heat phlegm", "Manifestation": "•asthma chest fullness•aversion to wind-cold•yellow greasy tongue coating•smooth rapid pulse", "Modification": "•【severe heat-phlegm】Yuxingcao Zhizi Gualou Dannanxing•【chest oppression】Zhiqiao Jupi Houpo•【chills】Zisuye"}, {"row_number": 24, "MainGROUP": "Regulating Qi", "SUBGROUP": "Descending Qi", "Formula LATIN": "Inula and Hematite Decoction", "Formula PINYIN": "Xuan Fu Dai Zhe Tang", "Actions": "【Stomach deficiency / phlegm turbidity upward rebellion】", "Ingredients": "【Chief】Xuanfuhua 9 gDaizheshi 3 gBanxia 9 gShengjiang 12 gRenshen 6 gZhigancao 6 gDazao", "Functions": "•Descend Qi and stop belching•Transform phlegm and harmonize Stomach•Tonify Stomach Qi", "Indication": "•Belching and regurgitation due to Stomach Qi deficiency with phlegm", "Manifestation": "•frequent belching•regurgitation•epigastric fullness•nausea•white slippery tongue coating", "Modification": "•【severe stomach cold】Ganjiang Dingxiang•【phlegm】Chenpi Fuling•【Stomach Yin deficiency】Maidong Shihu•【food stagnation】Shanzha Jineijin•【heat signs】Huanglian Huangqin•【epigastric fullness】Zhishi Jiegeng"}, {"row_number": 25, "MainGROUP": "Regulating Qi", "SUBGROUP": "Descending Qi", "Formula LATIN": "Tangerine Peel and Bamboo Shavings Decoction", "Formula PINYIN": "Ju Pi Zhu Ru Tang", "Actions": "【Yin deficiency / Stomach heat + dry retching】", "Ingredients": "Jupi 12 gZhuru 12 gShengjiang 9 gRenshen 3 gDazaoGancao 6 g", "Functions": "•Regulate Qi descend rebellion•Clear Stomach heat and nourish Yin", "Indication": "•Frequent vomiting due to Stomach heat", "Manifestation": "•rebellious Qi not descending•hiccup or vomiting•red tender tongue•deficient rapid pulse", "Modification": ""}, {"row_number": 26, "MainGROUP": "Regulating Qi", "SUBGROUP": "Descending Qi", "Formula LATIN": "Clove and Persimmon Calyx Decoction", "Formula PINYIN": "Ding Xiang Shi Di Tang", "Actions": "【Stomach cold hiccup】", "Ingredients": "Dingxiang 6 gShidi 6 gRenshen 3 gShengjiang 6 g", "Functions": "•Warm Stomach and descend rebellion•Stop hiccup", "Indication": "•Frequent hiccup due to Stomach cold", "Manifestation": "•hiccup•epigastric fullness•poor appetite•pale tongue with white coating•deep slow weak pulse", "Modification": "•【persistent vomiting】Banxia Fuling•【heat signs】Huanglian Zhuru•【cold with phlegm】Juhong Chenxiang Banxia•【stomach pain】combine An Zhong San•【poor appetite】Shanzha Maiya"}, {"row_number": 28, "MainGROUP": "Regulating Blood", "SUBGROUP": "Regulating Blood", "Formula LATIN": "Drive Out Stasis in the Mansion of Blood Decoction", "Formula PINYIN": "Xue Fu Zhu Yu Tang", "Actions": "【blood stasis chest pain】", "Ingredients": "Taoren 12 gHonghua 9 gDanggui 9 gChuanxiong 5 gShengdihuang 9 gChishao 6 gChaihu 3 gZhiqiao 6 gGancao 3 gNiuxi 9 gJiegeng 5 g", "Functions": "•Promote Qi and blood circulation and remove blood stasis", "Indication": "•Chest pain due to blood stasis", "Manifestation": "•protracted chest pain and headache at fixed location•palpitations•insomnia•irritability•hectic fever•dark purple lips or blackish eyelids•deep red tongue with purple spots•uneven or wiry tense pulse", "Modification": "•【hypochondriac pain】Yujin Xiangfu•【lower abdominal pain dysmenorrhea with cold and clots】Rougui Xiaohuixiang•【body itching rheumatic arthralgia fibromyalgia】Qianghuo Qinjiao•【headache concussion】Shexiang"}, {"row_number": 29, "MainGROUP": "Regulating Blood", "SUBGROUP": "Regulating Blood", "Formula LATIN": "Tonify the Yang to Restore Five Decoction", "Formula PINYIN": "Bu Yang Huan Wu Tang", "Actions": "【Qi deficiency + blood stasis stroke hemiplegia】", "Ingredients": "【Chief】Huangqi 120 gDanggui 6 gChuanxiong 3 gChishao 6 gTaoren 3 gHonghua 3 gDilong 3 g", "Functions": "•Invigorate Qi promote blood circulation and remove blood stasis in channels", "Indication": "•Sequelae of stroke due to Qi deficiency and blood stasis", "Manifestation": "•hemiplegia•deviation of eyes and mouth•salivation•enuresis•deep red tongue with thin white coating•weak slow pulse", "Modification": "•【cold limbs】Fuzi Guizhi•【fatigue】Renshen Baizhu Fuling•【profuse phlegm】Banxia Shengjiang•【speech difficulty】Shichangpu Yuanzhi•【dizziness headache】Gouteng Juhua•【lower limb paralysis】Duzhong Niuxi"}, {"row_number": 30, "MainGROUP": "Regulating Blood", "SUBGROUP": "Regulating Blood", "Formula LATIN": "Peach Pit Decoction to Order the Qi", "Formula PINYIN": "Tao He Cheng Qi Tang", "Actions": "【blood stasis + heat lower abdomen pain】", "Ingredients": "Taoren 12 gGuizhi 6 gDahuang 12 gMangxiao 6 gZhigancao 6 g", "Functions": "•Remove blood stasis and clear heat from lower Jiao", "Indication": "•Blood stasis and heat accumulation in lower Jiao", "Manifestation": "•severe lower abdominal pain with fixed location•postpartum pain•black stool•night fever•delirium•dysmenorrhea•deep uneven pulse", "Modification": ""}, {"row_number": 31, "MainGROUP": "Regulating Blood", "SUBGROUP": "Regulating Blood", "Formula LATIN": "Generating and Transforming Decoction", "Formula PINYIN": "Sheng Hua Tang", "Actions": "【postpartum blood stasis】", "Ingredients": "Danggui 25 gChuanxiong 9 gTaoren 6 gPaojiang 2 gZhigancao 2 g", "Functions": "•Invigorate blood and remove blood stasis", "Indication": "•Postpartum abdominal pain due to blood deficiency and blood stasis", "Manifestation": "•retention of lochia•lower abdominal pain with cold sensation", "Modification": ""}, {"row_number": 32, "MainGROUP": "Regulating Blood", "SUBGROUP": "Regulating Blood", "Formula LATIN": "Revive Health by Invigorating the Blood Decoction", "Formula PINYIN": "Fu Yuan Huo Xue Tang", "Actions": "【trauma hypochondriac area heat】", "Ingredients": "Danggui 9 gDahuang 9 gHonghua 3 gTaoren 6 gChaihu 3 gTianhuafen 9 gGancao 3 g", "Functions": "", "Indication": "•Trauma in hypochondriac area", "Manifestation": "•trauma injury•hypochondriac swelling and stabbing pain•constipation", "Modification": ""}, {"row_number": 33, "MainGROUP": "Regulating Blood", "SUBGROUP": "Regulating Blood", "Formula LATIN": "Cinnamon and Poria Pills", "Formula PINYIN": "Gui Zhi Fu Ling Wan", "Actions": "【uterine fibroid】", "Ingredients": "Guizhi 9 gFuling 9 gMudanpi 6 gChishao 6 gTaoren 6 g", "Functions": "•Uterine fibroid•Early stage blood stasis", "Indication": "", "Manifestation": "•abdominal masses•pain aggravated by pressure•dark purple tongue or purple spots•choppy or deep slow pulse", "Modification": ""}, {"row_number": 34, "MainGROUP": "Regulating Blood", "SUBGROUP": "Regulating Blood", "Formula LATIN": "Sudden Smile Powder", "Formula PINYIN": "Shi Xiao San", "Actions": "【internal blood stasis pain】", "Ingredients": "Puhuang 6 gWulingzhi 6 g", "Functions": "•Pain due to blood stasis obstructing vessels", "Indication": "•Internal sharp pain due to blood stasis", "Manifestation": "•lower abdominal pain•fixed stabbing pain•retention of lochia•irregular menstruation•acute lower abdominal pain•dark tongue or purple spots•wiry choppy pulse", "Modification": ""}, {"row_number": 36, "MainGROUP": "Regulating Blood", "SUBGROUP": "Stop Bleeding", "Formula LATIN": "Coughing of Blood Formula", "Formula PINYIN": "Ke Xue Fang", "Actions": "【Liver fire invading Lung coughing blood】", "Ingredients": "【Chief】Qingdai 6 gGualou 9 gZhizi 9 gHezi 6 gHaifushi 9 g", "Functions": "•Clear Liver fire astringe Lung and stop bleeding", "Indication": "•Cough with blood due to Liver fire invading Lung", "Manifestation": "•cough with blood streaks•difficult expectoration•irritability•chest and hypochondriac pain•dry throat bitter taste•flushed face constipation•red tongue with yellow coating•wiry rapid pulse", "Modification": ""}, {"row_number": 37, "MainGROUP": "Regulating Blood", "SUBGROUP": "Stop Bleeding", "Formula LATIN": "Small Thistle Drink", "Formula PINYIN": "Xiao Ji Yin Zi", "Actions": "【Heart fire hematuria】", "Ingredients": "Xiaoji 15 gPuhuang 9 gShengdihuang 30 gMutong 9 gZhuye 9 gHuashi 15 gGancao 6 gZhizi 9 gOujie 9 gDanggui 6 g", "Functions": "•Clear heat from blood and stop bleeding•Promote urination and relieve stranguria", "Indication": "•Hematuria due to heat", "Manifestation": "•hematuria•frequent painful urination•reddened tongue•rapid pulse", "Modification": ""}, {"row_number": 38, "MainGROUP": "Regulating Blood", "SUBGROUP": "Stop Bleeding", "Formula LATIN": "Yellow Earth Decoction", "Formula PINYIN": "Huang Tu Tang", "Actions": "【Spleen Yang deficiency dark bleeding】", "Ingredients": "【Chief】Zaoxintu 30 gFuzi 9 gGandihuang 9 gBaizhu 9 gEjiao 9 gHuangqin 9 gGancao 9 g", "Functions": "•Warm and strengthen Spleen and stop bleeding", "Indication": "•Bleeding due to Spleen Yang deficiency", "Manifestation": "•hematochezia or hematemesis•epistaxis•metrorrhagia with dark blood•cold limbs•sallow complexion•pale tongue with white coating•deep thready weak pulse", "Modification": ""}, {"row_number": 39, "MainGROUP": "Regulating Blood", "SUBGROUP": "Stop Bleeding", "Formula LATIN": "Sophora Japonica Flower Powder", "Formula PINYIN": "Huai Hua San", "Actions": "【damp-heat bleeding stool】", "Ingredients": "Huaihua 9 gJingjie 9 gZhiqiao 9 gCebaiye 9 g", "Functions": "•Damp-heat causing intestinal wind hemorrhoidal bleeding", "Indication": "•Bloody stool due to damp-heat hemorrhoids", "Manifestation": "", "Modification": ""}, {"row_number": 40, "MainGROUP": "Regulating Blood", "SUBGROUP": "Stop Bleeding", "Formula LATIN": "Ten Charred Substances Powder", "Formula PINYIN": "Shi Hui San", "Actions": "【heat-fire bleeding upper body】", "Ingredients": "DajiXiaojiCebaiyeMudanpiMaogenQiancaoZhiziDahuangHeyeZonglupi", "Functions": "•Bleeding due to heat-fire", "Indication": "•Bleeding in upper body due to heat-fire", "Manifestation": "•vomiting blood•spitting blood•coughing blood•bleeding disorders in digestive and respiratory system", "Modification": ""}, {"row_number": 42, "MainGROUP": "Dryness", "SUBGROUP": "External Dryness", "Formula LATIN": "Apricot Kernel and Perilla Leaf Powder", "Formula PINYIN": "Xing Su San", "Actions": "【cough + clear phlegm】", "Ingredients": "ZhisuyeXingrenBanxiaQianhuJiegeng", "Functions": "•Exterior dryness cold type with Lung Qi constraint•Early stage with thin phlegm•Mild formula", "Indication": "•Exterior dryness cold type•Exterior cold + dryness", "Manifestation": "•fever and aversion to cold•headache without sweating•cough with thin white sputum•nasal congestion dry throat•thin white coating•floating or wiry pulse", "Modification": ""}, {"row_number": 43, "MainGROUP": "Dryness", "SUBGROUP": "External Dryness", "Formula LATIN": "Mulberry Leaf and Apricot Kernel Decoction", "Formula PINYIN": "Sang Xing Tang", "Actions": "【cough + thick phlegm】", "Ingredients": "SangyeXingrenShashenBeimuLipi", "Functions": "•Warm dryness damaging Lung fluids•Second stage with thick phlegm•Mild formula•Clear dryness and moisten Lung stop cough", "Indication": "•Exterior dryness heat type", "Manifestation": "•dry cough without sputum•dry throat thirst•red tongue thin dry coating•rapid pulse", "Modification": ""}, {"row_number": 44, "MainGROUP": "Dryness", "SUBGROUP": "External Dryness", "Formula LATIN": "Eliminate Dryness and Rescue the Lung Decoction", "Formula PINYIN": "Qing Zao Jiu Fei Tang", "Actions": "【Qi deficiency + Yin deficiency】", "Ingredients": "SangyeXingrenShigaoMaidongRenshenEjiaoPipaye", "Functions": "•Qi deficiency + Yin deficiency•Warm dryness damaging Lung with Qi and Yin deficiency", "Indication": "•Severe heat dryness damaging Lung with Qi and Yin deficiency", "Manifestation": "•headache body heat•dry cough without sputum•rebellious Qi wheezing•dry mouth thirst•dry nose throat•dry tongue without coating•deficient large rapid pulse", "Modification": ""}, {"row_number": 45, "MainGROUP": "Dryness", "SUBGROUP": "Internal Dryness", "Formula LATIN": "Lily Bulb Decoction to Preserve the Metal", "Formula PINYIN": "Bai He Gu Jin Tang", "Actions": "【Lung Yin + Kidney Yin deficiency deficiency heat】", "Ingredients": "Shengdihuang 9 gShudihuang 9 gBaihe 9 gShashen 6 gMaidong 6 gXuanshen 6 gBeimu 3 gDanggui 6 gBaishao 6 gJiegeng 3 g", "Functions": "•Nourish Yin clear heat moisten Lung resolve phlegm", "Indication": "•Lung and Kidney Yin deficiency with deficiency heat", "Manifestation": "•dry sore throat•chronic cough•blood in sputum•afternoon fever•hot flashes•five center heat•red tongue little coating•thin rapid pulse", "Modification": "•【chest and hypochondriac fullness】Zhishi Chaihu•【loss of voice sore throat】Tiandong Zhimu•【cough asthma】Xingren Houpo Zhiqiao•【tuberculosis】Baiji Baibu Xiakucao•【thick yellow phlegm】Gualou Zhuru•【blood in sputum】Baimagen Xianhecao•【hemoptysis chest oppression】combine Qi Li San•【bronchiectasis hemoptysis】Qingdai"}, {"row_number": 46, "MainGROUP": "Dryness", "SUBGROUP": "Internal Dryness", "Formula LATIN": "Ophiopogonis Decoction", "Formula PINYIN": "Mai Men Dong Tang", "Actions": "【Lung Yin + Stomach Yin deficiency】", "Ingredients": "【Chief】Maidong 35 gBanxia 5 gRenshen 5 gDazaoGengmiGancao 3 g", "Functions": "•Lung atrophy Lung Qi dysfunction with Yin deficiency dryness", "Indication": "•Lung atrophy due to Yin deficiency dryness in Lung and Stomach", "Manifestation": "", "Modification": ""}, {"row_number": 47, "MainGROUP": "Dryness", "SUBGROUP": "Internal Dryness", "Formula LATIN": "Jade Fluid Decoction", "Formula PINYIN": "Yu Ye Tang", "Actions": "【Xiao Ke】", "Ingredients": "ShanyaoHuangqiGegenZhimuTianhuafenJineijinWuweizi", "Functions": "•Treat Xiao Ke upper middle lower Jiao•Tonify Qi nourish Yin generate fluids", "Indication": "•Xiao Ke with Stomach Qi deficiency and dryness", "Manifestation": "", "Modification": ""}, {"row_number": 48, "MainGROUP": "Dryness", "SUBGROUP": "Internal Dryness", "Formula LATIN": "Increase the Fluids Decoction", "Formula PINYIN": "Zeng Ye Tang", "Actions": "【dryness constipation LI Yin deficiency】", "Ingredients": "Shengdihuang 9 gXuanshen 6 gMaidong 6 g", "Functions": "•Promote bowel movement•Increase body fluids", "Indication": "•Dry stool due to LI dryness Yin deficiency", "Manifestation": "", "Modification": ""}, {"row_number": 50, "MainGROUP": "Wind", "SUBGROUP": "External Wind", "Formula LATIN": "Chuanxiong Powder to Be Taken with Green Tea", "Formula PINYIN": "Chuan Xiong Cha Tiao San", "Actions": "【headache due to external wind】", "Ingredients": "Chuanxiong 120 gQianghuo 60 gBaizhi 60 gFangfeng 45 gXixin 30 gJingjie 120 gBohe 240 gGancao 60 g", "Functions": "•Dispel wind and relieve pain", "Indication": "•Headache due to exogenous wind", "Manifestation": "•headache•vertex headache•aversion to cold with fever•thin white coating•superficial pulse", "Modification": "•【wind-heat headache】Juhua Gouteng•【chronic headache】Jiangcan Quanxie Taoren Honghua"}, {"row_number": 51, "MainGROUP": "Wind", "SUBGROUP": "External Wind", "Formula LATIN": "Eliminate Wind Powder", "Formula PINYIN": "Xiao Feng San", "Actions": "【wind rash itching】", "Ingredients": "Fangfeng 9 gChantui 3 gJingjie 9 gNiubangzi 9 gShigao 15 gCangzhu 6 gKushen 6 gMutong 1.5 gMaziren 9 gDanggui 9 gShengdihuang 12 gZhimu 9 gGancao 1.5 g", "Functions": "•Dispel wind nourish blood clear heat dampness", "Indication": "•Rubella eczema with itching rash", "Manifestation": "•itchy red rash•exudation after scratching•white or yellow coating•superficial rapid pulse", "Modification": "•【toxic wind itching】Lianqiao Jinyinhua•【blood heat】Mudanpi Chishao•【damp-heat】Cheqianzi Fuping"}, {"row_number": 52, "MainGROUP": "Wind", "SUBGROUP": "External Wind", "Formula LATIN": "Xanthium Powder", "Formula PINYIN": "Cang Er Zi San", "Actions": "【rhinitis】", "Ingredients": "CangerziBaizhiBoheXinyihua", "Functions": "", "Indication": "•Bi Yuan sinusitis with wind-heat", "Manifestation": "", "Modification": ""}, {"row_number": 53, "MainGROUP": "Wind", "SUBGROUP": "External Wind", "Formula LATIN": "Lead to Symmetry Powder", "Formula PINYIN": "Qian Zheng San", "Actions": "【facial paralysis wind-phlegm】", "Ingredients": "Baifuzi 9 gJiangcan 9 gQuanxie 9 g", "Functions": "", "Indication": "•Facial paralysis due to wind-phlegm", "Manifestation": "", "Modification": ""}, {"row_number": 54, "MainGROUP": "Wind", "SUBGROUP": "External Wind", "Formula LATIN": "Minor Invigorate the Channels Special Pill", "Formula PINYIN": "Xiao Huo Luo Dan", "Actions": "【acute toxicity / wind-cold-damp Bi】", "Ingredients": "Chuanwu 6 gCaowu 6 gRuxiang 6 gMoyao 6 gTiannanxing 6 gDilong 6 g", "Functions": "•Acute wind-cold-damp Bi syndrome", "Indication": "•Bi syndrome due to wind-cold-damp obstruction", "Manifestation": "", "Modification": ""}, {"row_number": 55, "MainGROUP": "Wind", "SUBGROUP": "Internal Wind", "Formula LATIN": "Sedate the Liver and Extinguish Wind Decoction", "Formula PINYIN": "Zhen Gan Xi Feng Tang", "Actions": "【Liver Yang rising stroke precursor】", "Ingredients": "【Chief】Niuxi 30 gDaizheshi 30 gLonggu 15 gMuli 15 gGuiban 15 gBaishao 15 gXuanshen 5 gTianmendong 15 gQinghao 6 gChuanlianzi 6 gMaiya 6 gGancao 4.5 g", "Functions": "•Tranquilize Liver subdue wind", "Indication": "•Stroke precursor due to Liver Yang rising", "Manifestation": "•hemiplegia tendency•deviation of tongue•vertigo•tinnitus•flushed face•wiry forceful pulse", "Modification": "•【heat】Shigao Zhizi•【eye pain】Shijueming Gouteng Juhua•【phlegm】Dannanxing Beimu•【Liver Kidney deficiency】Shudihuang Shanzhuyu"}, {"row_number": 56, "MainGROUP": "Wind", "SUBGROUP": "Internal Wind", "Formula LATIN": "Antelope Horn and Uncaria Decoction", "Formula PINYIN": "Ling Jiao Gou Teng Tang", "Actions": "【Liver wind due to excess heat】", "Ingredients": "LingyangjiaoGoutengSangyeJuhuaShengdihuangBaishaoZhuyuBeimu", "Functions": "•Clear heat extinguish wind", "Indication": "•Liver wind due to excess heat", "Manifestation": "•high fever•seizure•coma", "Modification": ""}, {"row_number": 57, "MainGROUP": "Wind", "SUBGROUP": "Internal Wind", "Formula LATIN": "Gastrodia and Uncaria Decoction", "Formula PINYIN": "Tian Ma Gou Teng Yin", "Actions": "【Liver Yang rising internal wind】", "Ingredients": "TianmaGoutengZhiziHuangqinYimucaoDuzhongSangjishengFushenYejiaotengNiuxi", "Functions": "", "Indication": "•Liver wind due to Liver Yang rising", "Manifestation": "•dizziness•headache•wiry pulse", "Modification": ""}, {"row_number": 58, "MainGROUP": "Wind", "SUBGROUP": "Internal Wind", "Formula LATIN": "Major Arrest Wind Pearl", "Formula PINYIN": "Da Ding Feng Zhu", "Actions": "【Yin deficiency Liver wind tremor】", "Ingredients": "ShengdihuangMaidongBaishaoGuibanBiejiaMuliEjiaoMazirenWuweiziGancao", "Functions": "•Nourish Yin extinguish wind", "Indication": "•Liver wind due to Yin deficiency", "Manifestation": "•tremor•little coating•weak pulse", "Modification": ""}, {"row_number": 59, "MainGROUP": "Wind", "SUBGROUP": "Internal Wind", "Formula LATIN": "Rehmannia Drink", "Formula PINYIN": "Di Huang Yin Zi", "Actions": "【Kidney deficiency paralysis】", "Ingredients": "ShudihuangShanzhuyuFuziRouguiBajitianRoucongrongMaidongShihuWuweiziYuanzhiFushenShichangpuBoheDazaoShengjiang", "Functions": "•Tonify Kidney Yin and Yang transform phlegm open orifices", "Indication": "•Paralysis due to Kidney deficiency", "Manifestation": "•inability to speak and walk•peeled coating•dry mouth without desire to drink•weak slow pulse", "Modification": ""}, {"row_number": 61, "MainGROUP": "Dampness", "SUBGROUP": "Transform Dampness", "Formula LATIN": "Calm the Stomach Powder", "Formula PINYIN": "Ping Wei San", "Actions": "【basic transform dampness】", "Ingredients": "【Chief】Cangzhu 15 gHoupo 9 gChenpi 9 gZhigancao 4 g", "Functions": "•Dry dampness strengthen Spleen harmonize Stomach", "Indication": "•Dampness retention in Spleen and Stomach", "Manifestation": "•abdominal fullness•poor appetite•reduced sense of taste•nausea and vomiting•regurgitation•heaviness of body•lassitude and sleepiness•thick greasy white coating•slow or smooth pulse", "Modification": "•【food retention】Shenqu Maiya Shanzha•【abdominal distension】Muxiang Sharen•【diarrhea】Fuling Cheqianzi Zexie•【cold abdominal pain】Ganjiang Rougui•【heat】Huanglian Huangqin Zhizi•【alternating chills and fever】Chaihu Huangqin•【constipation】Dahuang Laifuzi"}, {"row_number": 62, "MainGROUP": "Dampness", "SUBGROUP": "Transform Dampness", "Formula LATIN": "Agastache Powder to Rectify Qi", "Formula PINYIN": "Huo Xiang Zheng Qi San", "Actions": "【external + internal dampness Spleen Stomach】", "Ingredients": "Huoxiang 90 gZisuye 30 gBaizhi 30 gFuling 30 gBaizhu 60 gHoupo 60 gBanxia 60 gJiegeng 60 gChenpi 60 gDafupi 30 gZhigancao 75 g", "Functions": "•Release exterior resolve dampness•Harmonize Spleen and Stomach", "Indication": "•Exterior wind-cold with internal dampness in Spleen and Stomach", "Manifestation": "•abdominal pain•vomiting diarrhea•headache•aversion to cold•greasy white coating•superficial or soft pulse", "Modification": ""}, {"row_number": 63, "MainGROUP": "Dampness", "SUBGROUP": "Drain Dampness", "Formula LATIN": "Five-Ingredient Formula with Poria", "Formula PINYIN": "Wu Ling San", "Actions": "【edema】", "Ingredients": "Fuling 9 gZhuling 9 gZexie 15 gBaizhu 9 gGuizhi 6 g", "Functions": "•Promote urination eliminate dampness•Warm Yang transform Qi", "Indication": "•Taiyang syndrome fluid retention in bladder", "Manifestation": "", "Modification": ""}, {"row_number": 64, "MainGROUP": "Dampness", "SUBGROUP": "Drain Dampness", "Formula LATIN": "Polyporus Decoction", "Formula PINYIN": "Zhu Ling Tang", "Actions": "【water retention + heat】", "Ingredients": "Fuling 9 gZhuling 9 gZexie 15 gEjiao 9 gHuashi 9 g", "Functions": "•Promote urination eliminate dampness•Clear heat nourish Yin", "Indication": "•Water retention with heat", "Manifestation": "", "Modification": ""}, {"row_number": 65, "MainGROUP": "Dampness", "SUBGROUP": "Drain Dampness", "Formula LATIN": "Five Peels Decoction", "Formula PINYIN": "Wu Pi San", "Actions": "【Spleen Qi deficiency + stagnation edema】", "Ingredients": "FulingpiChenpiDafupiJiangpiSangbaipi", "Functions": "", "Indication": "•Chronic generalized edema due to Spleen Qi deficiency and stagnation", "Manifestation": "", "Modification": ""}, {"row_number": 66, "MainGROUP": "Dampness", "SUBGROUP": "Drain Dampness", "Formula LATIN": "Stephania and Astragalus Decoction", "Formula PINYIN": "Fang Ji Huang Qi Tang", "Actions": "【wind edema】", "Ingredients": "Huangqi 15 gBaizhu 9 gFangji 12 gZhigancao 6 g", "Functions": "•Tonify Wei Qi dispel wind promote urination", "Indication": "•Wind edema", "Manifestation": "•edema of limbs•sweating•aversion to wind•heavy body•dysuria•pale tongue white coating•superficial pulse", "Modification": ""}, {"row_number": 67, "MainGROUP": "Dampness", "SUBGROUP": "Heat-Dampness", "Formula LATIN": "Artemisiae Yinchenhao Decoction", "Formula PINYIN": "Yin Chen Hao Tang", "Actions": "【jaundice Yang type】", "Ingredients": "Yinchenhao 30 gZhizi 15 gDahuang 9 g", "Functions": "•Clear damp heat relieve jaundice", "Indication": "•Yang jaundice", "Manifestation": "•yellow skin and eyes•abdominal fullness•thirst•dysuria•constipation•yellow greasy coating•slippery rapid pulse", "Modification": ""}, {"row_number": 68, "MainGROUP": "Dampness", "SUBGROUP": "Heat-Dampness", "Formula LATIN": "Eight Herb Powder for Rectification", "Formula PINYIN": "Ba Zheng San", "Actions": "【damp heat stranguria】", "Ingredients": "Cheqianzi 500 gMutong 500 gZhizi 500 gQumai 500 gHuashi 500 gGancao 500 gDahuang 500 gBianxu 500 g", "Functions": "•Clear heat purge fire•Promote urination relieve stranguria", "Indication": "•Stranguria due to damp heat", "Manifestation": "•frequent painful urination•dark turbid urine•lower abdominal fullness•dry mouth throat•yellow greasy coating•smooth rapid pulse", "Modification": ""}, {"row_number": 69, "MainGROUP": "Dampness", "SUBGROUP": "Heat-Dampness", "Formula LATIN": "Two-Marvel Powder", "Formula PINYIN": "Er Miao San", "Actions": "【damp heat lower Jiao gout】", "Ingredients": "Huangbai 15 gCangzhu 15 g", "Functions": "•Clear heat dry dampness", "Indication": "", "Manifestation": "•painful joints•swollen feet knees•gout•genital eczema•dark scanty urine•yellow greasy coating•soft rapid pulse", "Modification": ""}, {"row_number": 70, "MainGROUP": "Dampness", "SUBGROUP": "Heat-Dampness", "Formula LATIN": "Sweet Dew Pill to Eliminate Toxin", "Formula PINYIN": "Gan Lu Xiao Du Dan", "Actions": "【epidemic damp heat toxin】", "Ingredients": "Huashi 450 gYinchenhao 330 gHuangqin 300 gMutong 150 gLianqiao 120 gShegan 120 gBeimu 150 gShichangpu 180 gHuoxiang 120 gBaidoukou 120 gBohe 120 g", "Functions": "•Clear heat resolve dampness eliminate toxin", "Indication": "", "Manifestation": "•fever•lassitude•chest distress•abdominal fullness•thirst sore throat•swollen face•yellow skin eyes•dark urine•diarrhea•yellow greasy coating•rapid pulse", "Modification": ""}, {"row_number": 72, "MainGROUP": "Dampness", "SUBGROUP": "Cold-Dampness", "Formula LATIN": "Poria Cinnamon Twig Atractylodes and Licorice Decoction", "Formula PINYIN": "Ling Gui Zhu Gan Tang", "Actions": "【warm Spleen Yang phlegm-fluid middle Jiao】", "Ingredients": "Fuling 12 gGuizhi 9 gBaizhu 6 gGancao 6 g", "Functions": "•Warm Spleen Yang transform phlegm-fluid", "Indication": "•Phlegm-fluid due to Yang deficiency in middle Jiao", "Manifestation": "•chest and abdominal fullness•vertigo•palpitations•shortness of breath with cough•white glossy coating•slippery pulse", "Modification": ""}, {"row_number": 73, "MainGROUP": "Dampness", "SUBGROUP": "Cold-Dampness", "Formula LATIN": "True Warrior Decoction", "Formula PINYIN": "Zhen Wu Tang", "Actions": "【Kidney Yang deficiency edema】", "Ingredients": "Fuzi 9 gShengjiang 9 gBaizhu 9 gFuling 9 g", "Functions": "•Warm Kidney Yang eliminate water", "Indication": "•Edema due to Kidney Yang deficiency", "Manifestation": "•difficulty urination•heaviness pain in limbs•abdominal pain diarrhea•edema•white coating no thirst•deep pulse", "Modification": ""}, {"row_number": 74, "MainGROUP": "Dampness", "SUBGROUP": "Cold-Dampness", "Formula LATIN": "Bolster the Spleen Decoction", "Formula PINYIN": "Shi Pi Yin", "Actions": "【Spleen + Kidney Yang deficiency edema】", "Ingredients": "FuziShengjiangBaizhuFulingHoupoMuxiangDafupiCaoguo", "Functions": "•Warm Spleen and Kidney Yang eliminate water", "Indication": "•Edema due to Spleen and Kidney Yang deficiency", "Manifestation": "•general edema•lower body edema•abdominal fullness•heavy body poor appetite•cold limbs•loose stool•short urination", "Modification": ""}, {"row_number": 75, "MainGROUP": "Dampness", "SUBGROUP": "Cold-Dampness", "Formula LATIN": "Dioscorea Hypoglauca Decoction to Separate the Clear", "Formula PINYIN": "Bei Xie Fen Qing Yin", "Actions": "【Kidney Yang deficiency turbid dampness lower Jiao】", "Ingredients": "BeixieYizhirenWuyaoShichangpuFuling", "Functions": "•Warm Kidney resolve turbid dampness", "Indication": "•Turbid dampness in lower Jiao due to Kidney Yang deficiency", "Manifestation": "•milky urine•white turbid discharge", "Modification": ""}, {"row_number": 76, "MainGROUP": "Dampness", "SUBGROUP": "Wind-Dampness", "Formula LATIN": "Angelica Pubescentis and Taxillus Decoction", "Formula PINYIN": "Du Huo Ji Sheng Tang", "Actions": "【Bi syndrome lower back Liver Kidney Qi Blood deficiency】", "Ingredients": "Duhuo 9 gFangfeng 6 gQinjiao 6 gXixin 6 gSangjisheng 6 gDuzhong 6 gRenshen 6 gFuling 6 gGancao 6 gDanggui 6 gShudihuang 6 gChuanxiong 6 gBaishao 6 gRougui 6 gNiuxi 6 g", "Functions": "•Dispel wind cold dampness•Relieve Bi syndrome•Tonify Liver Kidney•Tonify Qi and blood", "Indication": "•Bi syndrome lower back with deficiency of Liver Kidney and Qi Blood", "Manifestation": "•low back knee pain•limited movement numbness joints•aversion to cold preference warmth•palpitations shortness of breath•pale tongue white coating•thready weak pulse", "Modification": "•【severe cold】Fuzi•【severe dampness】Fangji Cangzhu•【severe pain】Dilong Honghua•【mild Qi Blood deficiency】omit Renshen Gandihuang Baishao"}, {"row_number": 77, "MainGROUP": "Dampness", "SUBGROUP": "Wind-Dampness", "Formula LATIN": "Notopterygium Decoction to Overcome Dampness", "Formula PINYIN": "Qiang Huo Sheng Shi Tang", "Actions": "【external wind dampness upper back pain】", "Ingredients": "Qianghuo 6 gDuhuo 6 gGaoben 3 gFangfeng 3 gChuanxiong 3 gManjingzi 2 gZhigancao 3 g", "Functions": "•Dispel wind eliminate dampness", "Indication": "•Exterior wind dampness syndrome", "Manifestation": "•head heaviness pain•upper back shoulder pain•body pain difficulty turning•white coating•superficial pulse", "Modification": ""}, {"row_number": 78, "MainGROUP": "Phlegm", "SUBGROUP": "Damp-Phlegm", "Formula LATIN": "Decoction of Two Aged Drugs", "Formula PINYIN": "Er Chen Tang", "Actions": "【basic damp phlegm】", "Ingredients": "Banxia 15 gChenpi 15 gFuling 9 gShengjiang 3 gWumeiGancao 5 g", "Functions": "•Dry dampness resolve phlegm•Regulate Qi harmonize middle Jiao", "Indication": "•Damp phlegm", "Manifestation": "•cough with white sputum•chest fullness•poor appetite•nausea vomiting•lassitude•dizziness palpitations•white greasy coating•smooth pulse", "Modification": "•【dizziness】Tianma•【cold phlegm】Ganjiang Xixin•【heat phlegm】Huangqin Gualou•【chronic phlegm】Tiannanxing Zhishi•【Shen disturbance】Shichangpu Zhuru Renshen•【insomnia】remove Wumei add Zhishi Zhuru"}, {"row_number": 79, "MainGROUP": "Phlegm", "SUBGROUP": "Damp-Phlegm", "Formula LATIN": "Warm Gallbladder Decoction", "Formula PINYIN": "Wen Dan Tang", "Actions": "【phlegm disturbing Gallbladder】", "Ingredients": "Banxia 10 gJuhong 15 gFuling 8 gGancao 5 gZhuru 10 gZhishi 10 gShengjiang 10 gDazao", "Functions": "•Phlegm disturbing Gallbladder", "Indication": "", "Manifestation": "•insomnia•chest fullness with phlegm•nausea vomiting•hiccup•palpitations anxiety•greasy coating bitter taste•wiry slippery pulse", "Modification": ""}, {"row_number": 80, "MainGROUP": "Phlegm", "SUBGROUP": "Heat-Phlegm", "Formula LATIN": "Clear Qi and Transform Phlegm Decoction", "Formula PINYIN": "Qing Qi Hua Tan Tang", "Actions": "【heat phlegm Lung】", "Ingredients": "Chenpi 30 gBanxia 45 gFuling 30 gDannanxing 45 gGualou 30 gHuangqin 30 gXingren 30 gZhishi 30 g", "Functions": "•Clear heat transform phlegm regulate Qi stop cough", "Indication": "•Heat phlegm", "Manifestation": "•yellow thick sputum•chest fullness•yellow greasy coating•rapid pulse", "Modification": ""}, {"row_number": 81, "MainGROUP": "Phlegm", "SUBGROUP": "Heat-Phlegm", "Formula LATIN": "Minor Decoction Stuck in the Chest", "Formula PINYIN": "Xiao Xian Xiong Tang", "Actions": "【heat phlegm chest accumulation】", "Ingredients": "Gualou 30 gHuanglian 6 gBanxia 9 g", "Functions": "•Heat phlegm accumulation in chest", "Indication": "•Chest pain due to heat phlegm", "Manifestation": "•chest oppression pain on pressure•yellow thick sputum•rapid slippery pulse", "Modification": ""}, {"row_number": 82, "MainGROUP": "Phlegm", "SUBGROUP": "Heat-Phlegm", "Formula LATIN": "Vaporize Phlegm Pill", "Formula PINYIN": "Gun Tan Wan", "Actions": "【heat phlegm disturbing Shen】", "Ingredients": "MengshiChenxiangHuangqinDahuang", "Functions": "•Purge fire eliminate phlegm", "Indication": "•Mental disorder due to heat phlegm", "Manifestation": "•mental disorder•seizure•dizziness tinnitus•yellow thick coating•forceful slippery pulse", "Modification": ""}, {"row_number": 83, "MainGROUP": "Phlegm", "SUBGROUP": "Dry-Phlegm", "Formula LATIN": "Fritillaria and Trichosanthis Fruit Powder", "Formula PINYIN": "Bei Mu Gua Lou San", "Actions": "【dryness Lung cough】", "Ingredients": "Beimu 5 gChenpi 3 gGualou 3 gTianhuafen 3 gFuling 3 gJiegeng 3 g", "Functions": "•Moisten Lung clear heat resolve phlegm stop cough", "Indication": "•Dryness cough", "Manifestation": "•dry cough little sputum•dry throat pain•rapid pulse", "Modification": ""}, {"row_number": 84, "MainGROUP": "Phlegm", "SUBGROUP": "Cold-Phlegm", "Formula LATIN": "Poria Licorice Schisandra Ginger and Asarum Decoction", "Formula PINYIN": "Ling Gan Wu Wei Jiang Xin Tang", "Actions": "【cold phlegm fluid】", "Ingredients": "Ganjiang 9 gXixin 6 gWuweizi 6 gFuling 12 gGancao 6 g", "Functions": "•Warm Lung resolve phlegm fluid", "Indication": "•Cold phlegm fluid", "Manifestation": "•cough with thin white sputum•chest fullness•white coating•slippery pulse", "Modification": ""}, {"row_number": 85, "MainGROUP": "Phlegm", "SUBGROUP": "Cold-Phlegm", "Formula LATIN": "Three Seed Decoction to Nourish One’s Parents", "Formula PINYIN": "San Zi Yang Qin Tang", "Actions": "【elderly chronic cough cold phlegm】", "Ingredients": "Baijiezi 6 gSuzi 9 gLaifuzi 9 g", "Functions": "•Cold phlegm chronic cough elderly", "Indication": "", "Manifestation": "•chronic cough•profuse sputum•chest fullness•poor digestion•white greasy coating•slippery pulse", "Modification": ""}, {"row_number": 86, "MainGROUP": "Phlegm", "SUBGROUP": "Wind-Phlegm", "Formula LATIN": "Pinellia Atractylodes and Gastrodia Decoction", "Formula PINYIN": "Ban Xia Bai Zhu Tian Ma Tang", "Actions": "【wind phlegm dizziness】", "Ingredients": "Chenpi 6 gBanxia 9 gFuling 6 gTianma 6 gBaizhu 15 gGancao 4 g", "Functions": "•Dry dampness resolve phlegm pacify wind", "Indication": "•Wind phlegm", "Manifestation": "•dizziness•headache•nausea vomiting•chest fullness•white greasy coating•wiry slippery pulse", "Modification": ""}, {"row_number": 87, "MainGROUP": "Phlegm", "SUBGROUP": "Wind-Phlegm", "Formula LATIN": "Arrest Seizures Pill", "Formula PINYIN": "Ding Xian Wan", "Actions": "【pediatric epilepsy】", "Ingredients": "Tianma 30 gBeimu 30 gDannanxing 15 gBanxia 30 gChenpi 21 gFuling 30 gFushen 30 gDanshen 60 gMaidong 60 gShichangpu 15 gYuanzhi 21 gQuanxieZhuliyShengjiangzhi 20 gGancao 120 g", "Functions": "•Extinguish wind resolve phlegm open orifices calm Shen", "Indication": "", "Manifestation": "", "Modification": ""}, {"row_number": 88, "MainGROUP": "Phlegm", "SUBGROUP": "Wind-Phlegm", "Formula LATIN": "Stop Coughing Powder", "Formula PINYIN": "Zhi Sou San", "Actions": "【post exterior cough throat itch】", "Ingredients": "ZiwanBaibuJingjieBaiqianChenpiJiegengGancao", "Functions": "•Post exterior cough", "Indication": "•Cough due to exterior wind", "Manifestation": "", "Modification": ""}, {"row_number": 89, "MainGROUP": "Digestion", "SUBGROUP": "Digestion", "Formula LATIN": "Preserve Harmony Pill", "Formula PINYIN": "Bao He Wan", "Actions": "【food stagnation Stomach】", "Ingredients": "Shanzha 9 gShenqu 9 gLaifuzi 9 gChenpi 9 gBanxia 9 gFuling 9 gLianqiao 3 g", "Functions": "•Improve digestion regulate Stomach", "Indication": "•Food stagnation", "Manifestation": "", "Modification": ""}, {"row_number": 90, "MainGROUP": "Digestion", "SUBGROUP": "Digestion", "Formula LATIN": "Unripe Bitter Orange Pill to Guide out Stagnation", "Formula PINYIN": "Zhi Shi Dao Zhi Wan", "Actions": "【food stagnation intestine damp heat】", "Ingredients": "Dahuang 9 gZhishi 9 gHuanglian 9 gHuangqin 9 gFuling 6 gZexie 6 gBaizhu 6 gShenqu 6 g", "Functions": "•Clear heat dampness from intestine", "Indication": "•Food stagnation due to damp heat", "Manifestation": "•abdominal fullness•diarrhea or constipation•dark scanty urine•yellow greasy coating•deep forceful pulse", "Modification": ""}, {"row_number": 91, "MainGROUP": "Digestion", "SUBGROUP": "Digestion", "Formula LATIN": "Strengthen the Spleen Pill", "Formula PINYIN": "Jian Pi Wan", "Actions": "【Spleen Qi deficiency food stagnation】", "Ingredients": "Liujunzi 15 gChenpi 9 gShanzha 9 gMaiya 9 gShenqu 9 gShanyao 6 gRoudukou 6 gHuanglian 6 g", "Functions": "•Tonify Spleen improve digestion", "Indication": "•Food stagnation due to Spleen Qi deficiency", "Manifestation": "", "Modification": "•【no damp heat】remove Huanglian•【cold】Ganjiang Fuzi"}, {"row_number": 93, "MainGROUP": "Exterior Wind-Cold", "SUBGROUP": "Taiyang Cold", "Formula LATIN": "Ephedra Decoction", "Formula PINYIN": "Ma Huang Tang", "Actions": "【wind-cold exterior excess】", "Ingredients": "Mahuang 9 gGuizhi 6 gXingren 9 gZhigancao 3 g", "Functions": "•Promote sweating release exterior•Facilitate Lung Qi descending•Relieve cough and asthma", "Indication": "•Wind-cold exterior excess", "Manifestation": "•aversion to cold•fever•headache•body aches•cough dyspnea•no sweating•thin white coating•superficial tense pulse", "Modification": "•【asthma only】omit Guizhi•【high fever】Shigao•【profuse white sputum】replace Guizhi with Qianhu•【upper body edema】Baizhu•【phlegm】Banxia"}, {"row_number": 94, "MainGROUP": "Exterior Wind-Cold", "SUBGROUP": "Taiyang Wind", "Formula LATIN": "Cinnamon Twig Decoction", "Formula PINYIN": "Gui Zhi Tang", "Actions": "【wind-cold exterior deficiency Ying Wei disharmony】", "Ingredients": "Guizhi 9 gBaishao 9 gZhigancao 6 gShengjiang 9 gDazao", "Functions": "•Release exterior wind-cold•Harmonize Ying and Wei", "Indication": "•Wind-cold exterior deficiency", "Manifestation": "•headache•fever•sweating aversion to wind•thin white coating•superficial moderate pulse", "Modification": "•【neck stiffness】Gegen•【cough】Houpo Xingren•【abdominal pain】double Baishao add honey"}, {"row_number": 95, "MainGROUP": "Exterior Wind-Cold", "SUBGROUP": "Taiyang Cold", "Formula LATIN": "Minor Blue Dragon Decoction", "Formula PINYIN": "Xiao Qing Long Tang", "Actions": "【wind-cold exterior with fluid retention】", "Ingredients": "Mahuang 9 gGuizhi 6 gBaishao 9 gXixin 3 gGanjiang 3 gWuweizi 3 gBanxia 9 gGancao 6 g", "Functions": "•Release exterior wind-cold•Warm Lung transform fluid", "Indication": "•Wind-cold with fluid retention", "Manifestation": "•aversion to cold•fever without sweating•headache•cough asthma with thin white sputum•cannot lie down•white coating•superficial pulse", "Modification": "•【mild exterior cold】omit Guizhi replace raw Mahuang•【thirst】replace Banxia with Tianhuafen•【heat signs】Shigao"}, {"row_number": 96, "MainGROUP": "Exterior Wind-Cold", "SUBGROUP": "Taiyang Cold", "Formula LATIN": "Nine-herb Decoction with Notopterygium", "Formula PINYIN": "Jiu Wei Qiang Huo Tang", "Actions": "【wind-cold-damp with interior heat】", "Ingredients": "Qianghuo 5 gBaizhi 3 gFangfeng 5 gCangzhu 5 gChuanxiong 3 gXixin 1 gShengdihuang 3 gHuangqin 3 gGancao 3 g", "Functions": "•Release exterior eliminate dampness•Clear interior heat", "Indication": "•Wind cold dampness with interior heat", "Manifestation": "•aversion to cold•fever•no sweating•headache•body aches•bitter taste slight thirst•white or yellow coating•superficial pulse", "Modification": "•【severe limb pain】double Qianghuo•【no bitter taste only thirst】omit Shengdihuang Huangqin"}, {"row_number": 97, "MainGROUP": "Exterior Wind-Heat", "SUBGROUP": "Exterior Wind-Heat", "Formula LATIN": "Mulberry Leaf and Chrysanthemum Decoction", "Formula PINYIN": "Sang Ju Yin", "Actions": "【early wind-heat cough】", "Ingredients": "Sangye 7.5 gJuhua 3 gBohe 2.5 gXingren 6 gLianqiao 5 gJiegeng 6 gLugen 6 gGancao 2.5 g", "Functions": "•Dispel wind clear heat•Facilitate Lung stop cough", "Indication": "•Wind-heat early stage", "Manifestation": "•dry cough•sore throat•mild fever•slight thirst•red tongue tip•superficial rapid pulse", "Modification": "•【high fever】Zhimu Shigao•【thick yellow sputum】Gualou Huangqin•【thirst】Tianhuafen•【sore throat】Xuanshen Niubangzi"}, {"row_number": 98, "MainGROUP": "Exterior Wind-Heat", "SUBGROUP": "Exterior Wind-Heat", "Formula LATIN": "Honeysuckle and Forsythia Powder", "Formula PINYIN": "Yin Qiao San", "Actions": "【wind-heat toxin sore throat】", "Ingredients": "Jinyinhua 9 gLianqiao 9 gJiegeng 6 gBohe 6 gNiubangzi 9 gZhuye 4 gLugen 9 gJingjie 5 gDandouchi 5 gGancao 5 g", "Functions": "•Release exterior clear heat toxin", "Indication": "•Wind-heat toxin", "Manifestation": "•fever•slight aversion to cold•headache•cough•thirst•sore throat•red tongue•thin yellow coating•floating rapid pulse", "Modification": "•【high fever sweating】replace Jingjie Dandouchi with Shigao Zhimu•【severe sore throat】Xuanshen Mabo•【initial measles】replace Dandouchi with Zicao Chantui"}, {"row_number": 99, "MainGROUP": "Exterior Wind-Heat", "SUBGROUP": "Exterior Wind-Heat", "Formula LATIN": "Ephedra Apricot Kernel Gypsum and Licorice Decoction", "Formula PINYIN": "Ma Xing Shi Gan Tang", "Actions": "【Lung heat asthma】", "Ingredients": "Mahuang 6 gShigao 20-30 gXingren 9 gGancao 6 g", "Functions": "•Clear Lung heat•Facilitate Lung Qi•Relieve asthma", "Indication": "•Lung heat", "Manifestation": "•fever•cough dyspnea•thirst•red tongue yellow coating•superficial rapid pulse", "Modification": "•【Mahuang Shigao ratio】1:5 sweating 1:3 no sweating•【profuse sputum】Tinglizi Sangbaipi•【chest oppression】Gualou Beimu"}, {"row_number": 100, "MainGROUP": "Exterior Wind-Heat", "SUBGROUP": "Exterior Wind-Heat", "Formula LATIN": "Toxin-Vanquishing Powder", "Formula PINYIN": "Bai Du San", "Actions": "【Qi deficiency wind-cold-damp】", "Ingredients": "Qianghuo 30 gDuhuo 30 gChaihu 30 gQianhu 30 gChuanxiong 30 gZhiqiao 30 gFuling 30 gRenshen 30 gJiegeng 30 gGancao 15 g", "Functions": "•Release exterior•Dispel wind cold dampness•Tonify Qi", "Indication": "•Wind cold dampness with Qi deficiency", "Manifestation": "•aversion to cold•fever•headache•body aches•no sweating•nasal obstruction•cough white sputum•chest fullness•pale tongue white coating•superficial weak pulse", "Modification": "•【no Qi deficiency】omit Renshen add Jingjie Fangfeng•【sores ulcers】replace Renshen with Jinyinhua Lianqiao"}, {"row_number": 102, "MainGROUP": "Purgation", "SUBGROUP": "Excess", "Formula LATIN": "Major Order the Qi Decoction", "Formula PINYIN": "Da Cheng Qi Tang", "Actions": "【Yangming Fu excess heat】", "Ingredients": "Dahuang 12 gMangxiao 9 gZhishi 12 gHoupo 15 g", "Functions": "•Drastic purgation eliminate accumulated heat", "Indication": "•Excess heat in Yangming Fu organs", "Manifestation": "•constipation•abdominal pain with tenderness•thirst desire to drink•red tongue dry yellow coating•deep forceful pulse", "Modification": "•【mild constipation】omit Mangxiao•【mild distension】omit Houpo Zhishi•【Qi Blood deficiency】Renshen Danggui•【Yin deficiency】replace Houpo Zhishi with Xuanshen Shengdihuang Maidong"}, {"row_number": 103, "MainGROUP": "Purgation", "SUBGROUP": "Deficiency", "Formula LATIN": "Warm the Spleen Decoction", "Formula PINYIN": "Wen Pi Tang", "Actions": "【Spleen Yang deficiency cold accumulation】", "Ingredients": "Dahuang 12 gMangxiao 9 gFuzi 9 gGanjiang 6 gRenshen 9 gGancao 3 g", "Functions": "•Warm Spleen Yang eliminate cold accumulation", "Indication": "•Constipation due to cold accumulation", "Manifestation": "•abdominal pain•constipation or chronic diarrhea with pus blood•cold limbs•pale tongue thin white coating•deep tight pulse", "Modification": ""}, {"row_number": 104, "MainGROUP": "Purgation", "SUBGROUP": "Deficiency", "Formula LATIN": "Rhubarb and Aconite Decoction", "Formula PINYIN": "Da Huang Fu Zi Tang", "Actions": "【excess cold accumulation】", "Ingredients": "Dahuang 12 gFuzi 9 gXixin 6 g", "Functions": "•Treat constipation due to cold accumulation", "Indication": "•Cold accumulation constipation", "Manifestation": "", "Modification": ""}, {"row_number": 105, "MainGROUP": "Purgation", "SUBGROUP": "Deficiency", "Formula LATIN": "Hemp Seed Pill", "Formula PINYIN": "Ma Zi Ren Wan", "Actions": "【dryness constipation】", "Ingredients": "Dahuang 5 gHoupo 2.5 gZhishi 2.5 gMaziren 5 gBaishao 2.5 gXingren 2.5 g", "Functions": "•Moisten intestines promote bowel movement", "Indication": "•Constipation due to dryness heat in Stomach intestines", "Manifestation": "•dry stool•frequent urination•dry mouth tongue•slight yellow coating", "Modification": "•【hemorrhoids】Diyu Huaihua"}, {"row_number": 106, "MainGROUP": "Purgation", "SUBGROUP": "Deficiency", "Formula LATIN": "Benefit the River Decoction", "Formula PINYIN": "Ji Chuan Jian", "Actions": "【elderly Kidney deficiency constipation】", "Ingredients": "Roucongrong 9 gDanggui 9 gZhishi 3 gNiuxi 6 gZexie 6 gShengma 3 g", "Functions": "•Tonify Kidney promote bowel movement", "Indication": "•Constipation due to Kidney deficiency", "Manifestation": "•elderly•constipation•low back pain•frequent clear urination•pale tongue•weak pulse", "Modification": "•【prolonged constipation】Maziren•【Qi deficiency】Renshen•【Kidney deficiency】Shudihuang•【severe deficiency】omit Zhishi"}, {"row_number": 107, "MainGROUP": "Harmonizing", "SUBGROUP": "Shao Yang", "Formula LATIN": "Minor Bupleurum Decoction", "Formula PINYIN": "Xiao Chai Hu Tang", "Actions": "【Shao Yang disorder half exterior half interior】", "Ingredients": "Chaihu 12 gHuangqin 9 gShengjiang 9 gBanxia 9 gRenshen 6 gDazaoZhigancao 5 g", "Functions": "•Harmonize Shaoyang", "Indication": "•Shao Yang disorder", "Manifestation": "•alternate chills and fever•chest fullness•hypochondriac discomfort•bitter taste•dry throat•restlessness•thin white coating•wiry pulse", "Modification": "•【chest fullness no vomiting】replace Banxia with Gualou•【thirst】replace Banxia with Tianhuafen•【abdominal pain】replace Huangqin with Baishao"}, {"row_number": 108, "MainGROUP": "Harmonizing", "SUBGROUP": "Shao Yang", "Formula LATIN": "Artemisia and Scutellaria Decoction to Clear Gallbladder", "Formula PINYIN": "Hao Qin Qing Dan Tang", "Actions": "【Shao Yang damp heat】", "Ingredients": "Qinghao 6 gHuangqin 6 gBanxia 5 gChenpi 5 gZhiqiao 5 gZhuru 9 gFuling 9 g", "Functions": "•Clear heat dampness in Gallbladder•Harmonize Stomach resolve phlegm", "Indication": "•Damp heat in Shao Yang", "Manifestation": "•alternate chills and fever•bitter taste•chest fullness acid regurgitation•vomiting hiccup•red tongue yellow greasy coating•wiry slippery pulse", "Modification": "•【jaundice】replace Banxia Chenpi with Yinchenhao Zhizi"}, {"row_number": 109, "MainGROUP": "Harmonizing", "SUBGROUP": "LR / SP", "Formula LATIN": "Four Herbs Powder", "Formula PINYIN": "Si Ni San", "Actions": "【Liver Spleen disharmony cold limbs】", "Ingredients": "Chaihu 6 gBaishao 9 gZhishi 6 gZhigancao 6 g", "Functions": "•Soothe Liver regulate Spleen", "Indication": "•Liver Spleen disharmony", "Manifestation": "•cold limbs•hypochondriac fullness•abdominal pain•thin white coating•wiry pulse", "Modification": "•【hypochondriac pain】Xiangfu Yujin Chuanxiong•【jaundice】Yinchenhao Yujin"}, {"row_number": 110, "MainGROUP": "Harmonizing", "SUBGROUP": "LR / SP", "Formula LATIN": "Rambling Powder", "Formula PINYIN": "Xiao Yao San", "Actions": "【Liver Qi stagnation invading Spleen】", "Ingredients": "Chaihu 30 gBaishao 30 gDanggui 30 gBaizhu 30 gFuling 30 gBohe 3 gShengjiang 3 gZhigancao 15 g", "Functions": "•Promote Liver Qi•Nourish blood strengthen Spleen", "Indication": "•Liver Qi stagnation with blood and Spleen deficiency", "Manifestation": "•hypochondriac pain•headache dizziness•depression•poor appetite•irregular menstruation•breast distension•reddish tongue•thready pulse", "Modification": "•【empty heat】Mudanpi Zhizi•【blood deficiency】Shudihuang•【Liver Qi stagnation】Xiangfu Yujin"}, {"row_number": 111, "MainGROUP": "Harmonizing", "SUBGROUP": "LR / SP", "Formula LATIN": "Important Formula for Painful Diarrhea", "Formula PINYIN": "Tong Xie Yao Fang", "Actions": "【Liver stagnation chronic diarrhea】", "Ingredients": "BaizhuBaishao 6 gChenpi 6 gFangfeng 6 g", "Functions": "•Harmonize Liver Spleen stop diarrhea", "Indication": "•Chronic diarrhea due to Liver stagnation", "Manifestation": "", "Modification": "•【chronic diarrhea】Shengma"}, {"row_number": 112, "MainGROUP": "Harmonizing", "SUBGROUP": "SP and ST", "Formula LATIN": "Pinellia Decoction to Drain Epigastrium", "Formula PINYIN": "Ban Xia Xie Xin Tang", "Actions": "【Stomach Spleen disharmony vomiting diarrhea】", "Ingredients": "Banxia 9 gHuangqin 6 gGanjiang 6 gHuanglian 3 gRenshen 6 gDazaoGancao 6 g", "Functions": "•Harmonize Spleen and Stomach", "Indication": "•Spleen Stomach disharmony", "Manifestation": "•epigastric fullness without pain•vomiting borborygmus diarrhea•yellow greasy coating•wiry rapid pulse", "Modification": "•【fullness】replace Renshen with Zhishi•【not deficient】remove Renshen Ganjiang•【vomiting】replace Ganjiang with Shengjiang•【weak Stomach Qi】double Gancao"}, {"row_number": 114, "MainGROUP": "Clearing Heat", "SUBGROUP": "Qi level Heat", "Formula LATIN": "White Tiger Decoction", "Formula PINYIN": "Bai Hu Tang", "Actions": "【Qi level heat Lung Stomach excess heat】", "Ingredients": "Shigao 30 gZhimu 9 gGancao 3 gJingmi 9 g", "Functions": "•Clear heat promote body fluids", "Indication": "•Excess heat in Yangming Qi level", "Manifestation": "•fever•sweating•thirst•strong pulse", "Modification": "•【Qi fluid deficiency】Renshen•【arthritis】Cangzhu•【wind heat with spasm】Gouteng Dilong Lingyangjiao"}, {"row_number": 115, "MainGROUP": "Clearing Heat", "SUBGROUP": "Qi level Heat", "Formula LATIN": "Lophatherus and Gypsum Decoction", "Formula PINYIN": "Zhu Ye Shi Gao Tang", "Actions": "【Qi Yin deficiency late Yangming heat】", "Ingredients": "Shigao 30 gZhuye 6 gGancao 3 gJingmi 9 gRenshen 6 gMaidong 6 gBanxia 6 g", "Functions": "•Clear heat nourish Yin", "Indication": "•Late stage Yangming heat with Qi Yin deficiency", "Manifestation": "•fatigue•red tongue dry coating•nausea•weak rapid pulse", "Modification": ""}, {"row_number": 116, "MainGROUP": "Clearing Heat", "SUBGROUP": "Blood level Heat", "Formula LATIN": "Clear Heat from the Nutritive Level Decoction", "Formula PINYIN": "Qing Ying Tang", "Actions": "【Ying level heat】", "Ingredients": "Xijiao 3 gShengdihuang 15 gXuanshen 9 gMaidong 9 gJinyinhua 9 gLianqiao 6 gDanshen 6 gHuanglian 5 gZhuye 3 g", "Functions": "•Clear Ying level heat nourish Yin", "Indication": "•Heat in Ying level", "Manifestation": "•night fever•delirium•restlessness•thirst•faint rashes•crimson tongue•thready rapid pulse", "Modification": ""}, {"row_number": 117, "MainGROUP": "Clearing Heat", "SUBGROUP": "Blood level Heat", "Formula LATIN": "Rhinoceros Horn and Rehmannia Decoction", "Formula PINYIN": "Xi Jiao Di Huang Tang", "Actions": "【Blood level heat】", "Ingredients": "Xijiao 3 gShengdihuang 30 gChishao 12 gMudanpi 9 g", "Functions": "•Clear heat cool blood resolve stasis", "Indication": "•Heat in blood level", "Manifestation": "•bleeding symptoms•dark tongue•spiky tongue", "Modification": ""}, {"row_number": 118, "MainGROUP": "Clearing Heat", "SUBGROUP": "Zang-Fu Heat", "Formula LATIN": "Guide Out the Red Powder", "Formula PINYIN": "Dao Chi San", "Actions": "【Heart fire】", "Ingredients": "Shengdihuang 10 gMutong 10 gShenggancao 10 gZhuye 10 g", "Functions": "•Clear Heart fire promote urination nourish Yin", "Indication": "•Heart fire transferring to Small Intestine", "Manifestation": "•irritability•chest heat•thirst•flushed face•oral ulcers•dark painful urination•red tongue yellow coating•rapid pulse•insomnia", "Modification": "•【ulcer】Huanglian•【UTI】Xiaoji Zhizi Cheqianzi"}, {"row_number": 119, "MainGROUP": "Clearing Heat", "SUBGROUP": "Zang-Fu Heat", "Formula LATIN": "Gentiana Decoction to Drain the Liver", "Formula PINYIN": "Long Dan Xie Gan Tang", "Actions": "【Liver fire damp heat】", "Ingredients": "Longdancao 6 gHuangqin 9 gZhizi 9 gZexie 12 gMutong 9 gCheqianzi 9 gDanggui 3 gShengdihuang 6 gChaihu 6 gGancao 6 g", "Functions": "•Clear Liver fire drain damp heat", "Indication": "•Liver fire and damp heat in lower jiao", "Manifestation": "•headache•hypochondriac pain•bitter taste•deafness•ear pain•turbid urine•leukorrhagia•red tongue yellow coating•wiry rapid pulse", "Modification": ""}, {"row_number": 120, "MainGROUP": "Clearing Heat", "SUBGROUP": "Zang-Fu Heat", "Formula LATIN": "Left Metal Pill", "Formula PINYIN": "Zuo Jin Wan", "Actions": "【Liver fire invading Stomach】", "Ingredients": "Huanglian 18 gWuzhuyu 3 g", "Functions": "•Clear Liver fire stop vomiting", "Indication": "•Liver fire attacking Stomach", "Manifestation": "•acid reflux•bitter taste vomiting•red tongue yellow coating•wiry rapid pulse", "Modification": "•【ratio】6:1"}, {"row_number": 121, "MainGROUP": "Clearing Heat", "SUBGROUP": "Zang-Fu Heat", "Formula LATIN": "Clear the Stomach Powder", "Formula PINYIN": "Qing Wei San", "Actions": "【Stomach fire】", "Ingredients": "Huanglian 3-5 gShengdihuang 12 gMudanpi 9 gDanggui 6 gShengma 6 g", "Functions": "•Clear Stomach heat cool blood", "Indication": "•Toothache due to Stomach fire", "Manifestation": "•toothache•facial heat•gingival bleeding swelling•foul breath•dry mouth•red tongue yellow coating•rapid pulse", "Modification": "•【bleeding gums】Niuxi•【swelling】Jinyinhua•【constipation】Dahuang"}, {"row_number": 122, "MainGROUP": "Clearing Heat", "SUBGROUP": "Zang-Fu Heat", "Formula LATIN": "Jade Woman Decoction", "Formula PINYIN": "Yu Nu Jian", "Actions": "【Stomach heat Yin deficiency】", "Ingredients": "Shigao 15 gShudihuang 9 gMaidong 6 gZhimu 6 gNiuxi 6 g", "Functions": "•Clear Stomach heat nourish Yin", "Indication": "•Stomach heat with Yin deficiency", "Manifestation": "•toothache loosening teeth•thirst irritability•dry red tongue yellow coating•thready rapid pulse", "Modification": ""}, {"row_number": 123, "MainGROUP": "Clearing Heat", "SUBGROUP": "Zang-Fu Heat", "Formula LATIN": "Drain the White Powder", "Formula PINYIN": "Xie Bai San", "Actions": "【Lung heat Yin deficiency】", "Ingredients": "Sangbaipi 30 gDigupi 30 gGancao 3 gJingmi 3 g", "Functions": "•Drain Lung heat stop cough", "Indication": "•Chronic Lung heat with Yin damage", "Manifestation": "•cough•afternoon fever•red tongue little coating•weak rapid pulse", "Modification": "•【high heat】Huangqin Zhimu•【dry cough】Beimu Gualou•【Yin deficiency】Qinghao Biejia•【thirst】Tianhuafen Zhimu"}, {"row_number": 124, "MainGROUP": "Clearing Heat", "SUBGROUP": "Zang-Fu Heat", "Formula LATIN": "Peony Decoction", "Formula PINYIN": "Shao Yao Tang", "Actions": "【damp heat dysentery】", "Ingredients": "ShaoyaoHuanglianHuangqinDahuangDangguiBinlangMuxiangRouguiZhigancao", "Functions": "•Clear heat regulate blood relieve pain", "Indication": "•Dysentery due to damp heat", "Manifestation": "•abdominal pain•tenesmus•bloody stool•yellow greasy coating•red tongue rapid pulse", "Modification": ""}, {"row_number": 125, "MainGROUP": "Clearing Heat", "SUBGROUP": "Zang-Fu Heat", "Formula LATIN": "Pulsatilla Decoction", "Formula PINYIN": "Bai Tou Weng Tang", "Actions": "【toxic heat dysentery】", "Ingredients": "BaitouwengHuanglianHuangbaiQinpi", "Functions": "•Clear heat toxin cool blood stop dysentery", "Indication": "•Toxic heat dysentery", "Manifestation": "•abdominal pain•bloody stool•tenesmus•yellow coating•wiry rapid pulse", "Modification": ""}, {"row_number": 126, "MainGROUP": "Clearing Heat", "SUBGROUP": "Toxic Heat", "Formula LATIN": "Coptis Decoction to Relieve Toxicity", "Formula PINYIN": "Huang Lian Jie Du Tang", "Actions": "【toxic heat San Jiao】", "Ingredients": "Huanglian 9 gHuangqin 6 gHuangbai 6 gZhizi 9 g", "Functions": "•Purge fire resolve toxin", "Indication": "•Excess toxic heat in San Jiao", "Manifestation": "•high fever•restlessness•thirst•delirium•insomnia•dysentery•sores•red tongue yellow coating•forceful rapid pulse", "Modification": "•【jaundice】Yinchenhao Dahuang•【rash】Mudanpi Shengdihuang•【red peeled tongue】Xuanshen Shengdihuang Maidong•【constipation】replace Huangbai with Dahuang Mangxiao"}, {"row_number": 127, "MainGROUP": "Clearing Heat", "SUBGROUP": "Toxic Heat", "Formula LATIN": "Decoction to Relieve Toxin for Pandemic Disease", "Formula PINYIN": "Qing Wen Bai Du Yin", "Actions": "【heat toxin epidemic】", "Ingredients": "Huanglian 9 gHuangqin 9 gZhizi 9 gShigao 30 gZhimu 9 gXijiao 6 gShengdihuang 9 gChishao 9 gMudanpi 9 gXuanshen 9 gJiegengGancao", "Functions": "•Clear heat toxin", "Indication": "•Epidemic heat toxin", "Manifestation": "", "Modification": ""}, {"row_number": 128, "MainGROUP": "Clearing Heat", "SUBGROUP": "Toxic Heat", "Formula LATIN": "Benefit Decoction to Eliminate Toxin", "Formula PINYIN": "Pu Ji Xiao Du Yin", "Actions": "【epidemic heat toxin head swelling】", "Ingredients": "Huanglian 15 gHuangqin 15 gXuanshen 6 gMabo 3 gBanlangen 3 gNiubangzi 3 gBohe 3 gJiegeng 6 gLianqiao 3 gJiangcan 2 gChenpi 6 gChaihu 6 gShengma 2 gGancao 6 g", "Functions": "•Dispel wind heat clear toxin", "Indication": "•Epidemic heat toxin", "Manifestation": "•fever•swelling head face•sore throat•red tongue coating•rapid forceful pulse", "Modification": ""}, {"row_number": 129, "MainGROUP": "Clearing Heat", "SUBGROUP": "Summer Heat", "Formula LATIN": "Newly Augment Mosla Drink", "Formula PINYIN": "Xin Jia Xiang Ru Yin", "Actions": "【summer heat dampness】", "Ingredients": "Xiangru 15 gBiandou 12 gHoupo 12 gJinyinhua 9 gLianqiao 9 g", "Functions": "•Clear summer heat release exterior resolve dampness", "Indication": "•Summer heat syndrome", "Manifestation": "", "Modification": ""}, {"row_number": 130, "MainGROUP": "Clearing Heat", "SUBGROUP": "Deficiency Heat", "Formula LATIN": "Artemisia Annua and Turtle Shell Decoction", "Formula PINYIN": "Qing Hao Bie Jia Tang", "Actions": "【Yin deficiency deficiency heat】", "Ingredients": "Qinghao 15 gBiejia 15 gZhimu 9 gShengdihuang 12 gMudanpi 9 g", "Functions": "•Nourish Yin clear heat", "Indication": "•Yin deficiency with deficiency heat", "Manifestation": "•night heat•no sweating•red tongue little coating•weak rapid pulse", "Modification": ""}, {"row_number": 132, "MainGROUP": "Warming Interior", "SUBGROUP": "Warming Interior", "Formula LATIN": "Regulate the Middle Pill", "Formula PINYIN": "Li Zhong Wan", "Actions": "【Taiyin Spleen deficiency cold】", "Ingredients": "Ganjiang 5 gRenshen 6 gBaizhu 9 gZhigancao 6 g", "Functions": "•Warm middle Jiao dispel cold•Tonify Qi strengthen Spleen", "Indication": "•Deficiency cold of Spleen and Stomach", "Manifestation": "•epigastric abdominal pain•preference warmth pressure•cold limbs•poor appetite•vomiting•diarrhea•bleeding•chest tightness•pale tongue white coating•deep weak pulse", "Modification": "•【vomiting】replace Baizhu with Shengjiang Banxia•【severe pain】Fuzi•【diarrhea】Shanyao Biandou•【bleeding due to Yang deficiency】Ejiao Aiye•【exterior wind cold】Guizhi"}, {"row_number": 133, "MainGROUP": "Warming Interior", "SUBGROUP": "Warming Interior", "Formula LATIN": "Minor Construct the Middle Decoction", "Formula PINYIN": "Xiao Jian Zhong Tang", "Actions": "【Taiyin deficiency】", "Ingredients": "Guizhi 9 gBaishao 18 gZhigancao 6 gShengjiang 10 gDazaoYitang 30 g", "Functions": "•Warm middle Jiao relieve pain", "Indication": "•Interior deficiency cold due to overconsumption", "Manifestation": "•abdominal pain relieved by warmth pressure•consumption condition•pale tongue white coating•thready wiry slow pulse", "Modification": "•【blood deficiency】Danggui•【Qi deficiency】Huangqi"}, {"row_number": 134, "MainGROUP": "Warming Interior", "SUBGROUP": "Warming Interior", "Formula LATIN": "Major Construct the Middle Decoction", "Formula PINYIN": "Da Jian Zhong Tang", "Actions": "【severe interior cold abdominal pain】", "Ingredients": "Shujiao 3 gRenshen 9 gGanjiang 6 gYitang 18 g", "Functions": "•Warm middle Jiao relieve pain", "Indication": "•Severe cold abdominal pain", "Manifestation": "•cold abdomen pain•vomiting•poor appetite•white slippery coating•pale tongue", "Modification": ""}, {"row_number": 135, "MainGROUP": "Warming Interior", "SUBGROUP": "Warming Interior", "Formula LATIN": "Evodia Decoction", "Formula PINYIN": "Wu Zhu Yu Tang", "Actions": "【Jueyin cold vomiting】", "Ingredients": "Wuzhuyu 9 gRenshen 9 gShengjiang 18 gDazao", "Functions": "•Warm Liver Stomach descend Qi", "Indication": "•Vomiting due to Liver cold affecting Stomach", "Manifestation": "•vertex headache•cold Stomach pain•acid regurgitation•vomiting•pale tongue white coating•deep thready or wiry slow pulse", "Modification": "•【headache】Chuanxiong Danggui•【vomiting】Banxia Sharen Chenpi"}, {"row_number": 136, "MainGROUP": "Warming Interior", "SUBGROUP": "Warming Interior", "Formula LATIN": "Frigid Extremities Decoction", "Formula PINYIN": "Si Ni Tang", "Actions": "【Shao Yin Yang collapse】", "Ingredients": "Fuzi 9 gGanjiang 9 gZhigancao 12 g", "Functions": "•Rescue Yang collapse", "Indication": "•Yang exhaustion", "Manifestation": "•cold limbs•curled posture•vomiting•no thirst•abdominal pain•diarrhea•fatigue•white slippery coating•weak thready pulse", "Modification": "•【weak pulse】Renshen•【pseudo heat】double Ganjiang•【edema】Baizhu Fuling•【coma】Renshen Rougui Shexiang"}, {"row_number": 137, "MainGROUP": "Interior-Exterior", "SUBGROUP": "Interior-Exterior", "Formula LATIN": "Danggui Decoction for Frigid Extremities", "Formula PINYIN": "Dang Gui Si Ni Tang", "Actions": "【blood deficiency cold stagnation channels】", "Ingredients": "Guizhi 9 gBaishao 9 gGancao 5 gDazaoDanggui 12 gMutong 6 gXixin 1.5 g", "Functions": "•Warm channels nourish blood move blood", "Indication": "•Cold limbs due to blood deficiency and cold stagnation", "Manifestation": "•cold limbs•limb pain numbness•aversion to cold•pale tongue white coating•deep thready pulse", "Modification": "•【dysmenorrhea】Wuyao Xiaohuixiang•【lower limb pain】Niuxi Jixueteng Mugua•【abdominal pain vomiting】Wuzhuyu Shengjiang•【numbness】replace Gancao with Huangqi"}, {"row_number": 138, "MainGROUP": "Interior-Exterior", "SUBGROUP": "Interior-Exterior", "Formula LATIN": "Ledebouriella Powder that Sagely Unblocks", "Formula PINYIN": "Fang Feng Tong Sheng San", "Actions": "【Taiyang Yangming excess heat】", "Ingredients": "FangfengJingjieBoheShengjiangMahuangShigaoHuangqinLianqiaoJiegengDahuangMangxiaoZhiziHuashiDangguiBaishaoBaizhuGancao", "Functions": "•Release exterior purge interior clear heat", "Indication": "•Exterior and interior excess heat", "Manifestation": "•fever chills•sore throat•dry mouth bitter taste•constipation•dark urine•yellow greasy coating•rapid pulse", "Modification": "•【Spleen deficiency】use caution•【pregnancy】contraindicated"}, {"row_number": 139, "MainGROUP": "Interior-Exterior", "SUBGROUP": "Interior-Exterior", "Formula LATIN": "Major Bupleurum Decoction", "Formula PINYIN": "Da Chai Hu Tang", "Actions": "【Shao Yang Yangming heat constipation】", "Ingredients": "ChaihuHuangqinBanxiaGancaoShengjiangDazaoZhishiDahuangBaishao", "Functions": "•Harmonize Shaoyang purge Yangming", "Indication": "•Shaoyang and Yangming disorder with constipation", "Manifestation": "•alternate chills fever•hypochondriac fullness•vomiting•bitter taste•abdominal fullness pain•constipation•yellow coating•wiry forceful pulse", "Modification": ""}, {"row_number": 140, "MainGROUP": "Interior-Exterior", "SUBGROUP": "Interior-Exterior", "Formula LATIN": "Kudzu Scutellaria and Coptis Decoction", "Formula PINYIN": "Ge Gen Huang Qin Huang Lian Tang", "Actions": "【exterior heat interior damp heat diarrhea】", "Ingredients": "GegenHuanglianHuangqinGancao", "Functions": "•Clear exterior heat interior damp heat", "Indication": "•Exterior heat with diarrhea", "Manifestation": "•fever•diarrhea foul smell•anal burning•thirst•yellow coating•rapid pulse", "Modification": ""}, {"row_number": 141, "MainGROUP": "Interior-Exterior", "SUBGROUP": "Interior-Exterior", "Formula LATIN": "Five Accumulation Powder", "Formula PINYIN": "Wu Ji San", "Actions": "【cold damp phlegm Qi blood stagnation】", "Ingredients": "MahuangBaizhiGanjiangRouguiCangzhuHoupoFulingBanxiaJiegengZhishiChenpiDangguiChuanxiongChishao", "Functions": "•Release exterior warm interior regulate Qi resolve phlegm invigorate blood", "Indication": "•Five accumulation pattern", "Manifestation": "•fever no sweat•body pain•abdominal pain vomiting•poor appetite•menstrual irregularity", "Modification": ""}, {"row_number": 143, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Qi", "Formula LATIN": "Four Gentleman Decoction", "Formula PINYIN": "Si Jun Zi Tang", "Actions": "【Spleen Qi deficiency】", "Ingredients": "Renshen 10 gBaizhu 9 gFuling 9 gZhigancao 6 g", "Functions": "•Tonify Qi strengthen Spleen", "Indication": "•Spleen Qi deficiency", "Manifestation": "•pale complexion•low voice•shortness of breath•poor appetite•abdominal fullness•loose stool•pale tongue white coating•weak pulse", "Modification": "•【children】Chenpi•【phlegm】Chenpi Banxia•【abdominal fullness】Muxiang Sharen•【Qi Blood deficiency】Danggui Baishao Shudihuang Chuanxiong•【Yang deficiency】Huangqi Rougui Ganjiang"}, {"row_number": 144, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Qi", "Formula LATIN": "Ginseng Poria and Atractylodes Powder", "Formula PINYIN": "Shen Ling Bai Zhu San", "Actions": "【Spleen Qi deficiency dampness】", "Ingredients": "RenshenBaizhuFulingZhigancaoShanyaoLianziBiandouYiyirenSharenJiegeng", "Functions": "•Tonify Spleen Qi transform dampness", "Indication": "•Spleen Qi deficiency with dampness", "Manifestation": "•lassitude•emaciation•poor digestion•vomiting diarrhea•chest fullness•sallow complexion•pale tongue greasy coating•weak moderate pulse", "Modification": ""}, {"row_number": 145, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Qi", "Formula LATIN": "Tonify the Middle and Augment the Qi Decoction", "Formula PINYIN": "Bu Zhong Yi Qi Tang", "Actions": "【Spleen Qi deficiency sinking Qi】", "Ingredients": "Huangqi 15 gRenshen 10 gBaizhu 10 gGancao 5 gDanggui 10 gChenpi 6 gShengma 3 gChaihu 3 g", "Functions": "•Tonify Qi raise Yang", "Indication": "•Spleen Qi deficiency with sinking Qi", "Manifestation": "•poor appetite•lassitude•loose stool•fever•spontaneous sweating•thirst•prolapse•pale large tongue thin white coating", "Modification": ""}, {"row_number": 146, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Qi", "Formula LATIN": "Generate the Pulse Powder", "Formula PINYIN": "Sheng Mai San", "Actions": "【Qi Yin deficiency】", "Ingredients": "Renshen 10 gMaidong 15 gWuweizi 6 g", "Functions": "•Tonify Qi generate fluids astringe Yin", "Indication": "•Qi and Yin deficiency", "Manifestation": "•lassitude•profuse sweating•shortness of breath•fatigue•dry throat thirst•chronic cough•dry red tongue little coating•weak rapid pulse", "Modification": "•【fluid damage】Xuanshen Shengdihuang•【chronic cough】Baibu•【palpitations】Suanzaoren Longgu Muli•【heat】replace Renshen with Xiyangshen"}, {"row_number": 147, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Blood", "Formula LATIN": "Four Substance Decoction", "Formula PINYIN": "Si Wu Tang", "Actions": "【Blood deficiency】", "Ingredients": "Shudihuang 12 gDanggui 10 gBaishao 12 gChuanxiong 8 g", "Functions": "•Nourish blood regulate blood", "Indication": "•Blood deficiency", "Manifestation": "•palpitations•insomnia•dizziness•pale complexion•menstrual disorder•scanty menstruation•anemia pain•pale tongue thready pulse", "Modification": "•【blood stasis】Taoren Honghua•【Qi stagnation】Xiangfu Wuyao Muxiang•【Qi deficiency】Renshen Huangqi•【bleeding】Ejiao Aiye•【cold】Rougui Paojiang"}, {"row_number": 148, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Blood", "Formula LATIN": "Danggui Decoction to Tonify Blood", "Formula PINYIN": "Dang Gui Bu Xue Tang", "Actions": "【Qi deficiency blood deficiency】", "Ingredients": "Huangqi 30 gDanggui 6 g", "Functions": "•Tonify Qi generate blood", "Indication": "•Blood deficiency with floating Yang", "Manifestation": "•fatigue•weakness•feverish sensation•thirst•large empty pulse", "Modification": ""}, {"row_number": 149, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Blood", "Formula LATIN": "Restore the Spleen Decoction", "Formula PINYIN": "Gui Pi Tang", "Actions": "【Heart Spleen deficiency】", "Ingredients": "Renshen 15 gBaizhu 30 gFulingZhigancao 8 gHuangqi 30 gDanggui 3 gLongyanrou 30 gSuanzaoren 30 gYuanzhi 3 gMuxiang 15 g", "Functions": "•Tonify Qi nourish blood strengthen Spleen Heart", "Indication": "•Heart Spleen deficiency", "Manifestation": "•fatigue•palpitations•poor memory•insomnia•poor appetite•metrorrhagia•pale tongue thin white coating•thready weak pulse", "Modification": "•【lower back weakness】Sangjisheng Gouqizi•【indigestion】Shenqu Maiya Shanzha•【bleeding】Ejiao Aiye"}, {"row_number": 150, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Blood", "Formula LATIN": "Honey-Fried Licorice Decoction", "Formula PINYIN": "Zhi Gan Cao Tang", "Actions": "【Qi Blood Yin Yang deficiency】", "Ingredients": "Zhigancao 12 gRenshen 6 gEjiao 9 gDazaoShengdihuang 30 gMaidong 10 gMaziren 10 gGuizhi 9 gShengjiang 9 g", "Functions": "•Tonify Qi blood Yin Yang restore pulse", "Indication": "•Deficiency exhaustion", "Manifestation": "•intermittent pulse•lassitude•shortness of breath•chronic cough•dry red tongue little coating", "Modification": ""}, {"row_number": 151, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Qi & Blood", "Formula LATIN": "Eight Treasure Decoction", "Formula PINYIN": "Ba Zhen Tang", "Actions": "【Qi Blood deficiency】", "Ingredients": "Shudihuang 12 gDanggui 10 gBaishao 10 gChuanxiong 10 gRenshen 10 gBaizhu 8 gFuling 8 gZhigancao 6 g", "Functions": "•Tonify Qi and blood", "Indication": "•Qi and blood deficiency", "Manifestation": "•fatigue•poor appetite•palpitations•insomnia•dizziness•pale complexion•scanty menstruation•anemia•pale tongue thready pulse", "Modification": "•【severe Qi deficiency】Huangqi Rougui•【threatened abortion】replace Fuling with Huangqi Xuduan Huangqin Sharen"}, {"row_number": 152, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Qi & Blood", "Formula LATIN": "All-Inclusive Great Tonifying Decoction", "Formula PINYIN": "Shi Quan Da Bu Tang", "Actions": "【Qi Blood deficiency Yang deficiency】", "Ingredients": "RenshenBaizhuFulingGancaoDangguiChuanxiongShudihuangBaishaoHuangqiRouguiShengjiangDazao", "Functions": "•Warm tonify Qi blood", "Indication": "•Deficiency of Qi blood Yang", "Manifestation": "•fatigue•pale complexion•dizziness•poor appetite•weak limbs•weak pulse", "Modification": "•【poor appetite】Sharen Shanzha•【joint pain】Niuxi Xuduan•【insomnia】Suanzaoren Yejiaoteng•【spermatorrhea】Wuweizi Shanzhuyu Shanyao Maidong•【palpitations】combine Yang Xin Tang•【Spleen deficiency】combine Gui Pi Tang"}, {"row_number": 153, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Qi & Blood", "Formula LATIN": "Ginseng Decoction to Nourish the Nutritive Qi", "Formula PINYIN": "Ren Shen Yang Rong Tang", "Actions": "【Qi Blood deficiency Shen disturbance】", "Ingredients": "RenshenBaizhuFulingZhigancaoDangguiShudihuangBaishaoHuangqiRouguiChenpiWuweiziYuanzhiShengjiangDazao", "Functions": "•Tonify Qi blood calm Shen", "Indication": "•Qi and blood deficiency with Shen disturbance", "Manifestation": "", "Modification": ""}, {"row_number": 155, "MainGROUP": "Tonifying", "SUBGROUP": "Tonifying Yin", "Formula LATIN": "Six-Ingredient Pill with Rehmannia", "Formula PINYIN": "Liu Wei Di Huang Wan", "Actions": "【Kidney Yin deficiency】", "Ingredients": "Shudihuang 24 gZexie 9 gShanzhuyu 12 gMudanpi 9 gShanyao 12 gFuling 9 g", "Functions": "•Kidney Yin deficiency with deficiency heat", "Indication": "•Kidney Yin deficiency", "Manifestation": "•soreness and weakness of the waist and knees•vertigo•tinnitus•deafness•night sweats•seminal emission•feverish palms soles•dry throat•heel pain•dribbling urination•red tongue little coating•weak rapid pulse", "Modification": "•【dizziness eyes】Gouqizi Juhua•【hot flashes night sweat】Zhimu Huangbai•【cough blood】Maidong Wuweizi•【Kidney not grasp Qi】Wuweizi•【tinnitus】Wuweizi Shichangpu Cishi"}, {"row_number": 156, "MainGROUP": "Tonifying", "SUBGROUP": "Tonifying Yin", "Formula LATIN": "Linking Decoction", "Formula PINYIN": "Yi Guan Jian", "Actions": "【Liver Kidney Yin deficiency Qi stagnation】", "Ingredients": "Shengdihuang 30 gShashen 10 gMaidong 10 gDanggui 10 gGouqizi 12 gChuanlianzi 5 g", "Functions": "•Replenish Yin promote Qi movement", "Indication": "•Liver Kidney Yin deficiency with Qi stagnation", "Manifestation": "•hypochondriac pain•acid regurgitation•dry throat mouth•red dry tongue•thready wiry pulse", "Modification": "•【bitter taste acid】Huanglian Wuzhuyu•【abdominal pain】Baishao•【hypochondriac pain】Yanhusuo Xiangfu•【vomiting】Sharen Banxia"}, {"row_number": 157, "MainGROUP": "Tonifying", "SUBGROUP": "Tonifying Yin", "Formula LATIN": "Great Tonify the Yin Pill", "Formula PINYIN": "Da Bu Yin Wan", "Actions": "【Yin deficiency excessive heat】", "Ingredients": "Shudihuang 180 gGuiban 180 gZhimu 120 gHuangbai 120 g", "Functions": "•Nourish Yin drain fire", "Indication": "•Yin deficiency with excess heat", "Manifestation": "•tidal fever•night sweats•seminal emission•weak lower back knees•tinnitus•irritability•heat in bones•thin rapid pulse", "Modification": ""}, {"row_number": 158, "MainGROUP": "Tonifying", "SUBGROUP": "Tonifying Yin", "Formula LATIN": "Restore the Left Pill", "Formula PINYIN": "Zuo Gui Wan", "Actions": "【Kidney Yin deficiency essence deficiency】", "Ingredients": "Shudihuang 24 gShanzhuyu 12 gShanyao 12 gGouqizi 12 gBiejia 12 gNiuxi 10 g", "Functions": "•Nourish Yin tonify Kidney essence", "Indication": "•Pure Yin deficiency", "Manifestation": "•dizziness•weak lower back knees•seminal emission•night sweating•tinnitus deafness•red tongue little coating•thin rapid pulse", "Modification": "•【Spleen weakness】Chenpi Sharen•【Qi deficiency】Dangshen Fuling Baizhu•【heat】Shengdihuang Mudanpi Huangbai Zhimu•【sweating】Fuxiaomai•【insomnia】combine Tian Wang Bu Xin Dan"}, {"row_number": 159, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Yang", "Formula LATIN": "Kidney Qi Pill", "Formula PINYIN": "Shen Qi Wan", "Actions": "【Kidney Yang deficiency】", "Ingredients": "Shudihuang 240 gShanyao 120 gShanzhuyu 120 gZexie 90 gFuling 90 gMudanpi 90 gGuizhi 30 gFuzi 30 g", "Functions": "•Tonify Kidney Yang", "Indication": "•Kidney Yang deficiency", "Manifestation": "•weak lower back knees•edema•cold limbs•dysuria polyuria•pale large tongue•weak pulse", "Modification": "•【edema dysuria】Cheqianzi Niuxi•【impotence】Yinyanghuo Buguzhi Bajitian"}, {"row_number": 160, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Yang", "Formula LATIN": "Kidney Qi Pill to Aid the Living", "Formula PINYIN": "Ji Sheng Shen Qi Wan", "Actions": "【Kidney Yang deficiency edema】", "Ingredients": "ShudihuangShanyaoShanzhuyuZexieFulingMudanpiRouguiFuziNiuxiCheqianzi", "Functions": "•Tonify Kidney Yang promote urination", "Indication": "•Kidney Yang deficiency edema", "Manifestation": "•low back heaviness•edema legs•dysuria•cold limbs•weak lower back knees•pale tongue white coating•deep pulse", "Modification": "•【severe edema】Zhuling Zexie•【dribbling urination】Mutong Bianxu•【low back pain】Duzhong•【Qi deficiency】Renshen Huangqi"}, {"row_number": 161, "MainGROUP": "Tonifying", "SUBGROUP": "Tonify Yang", "Formula LATIN": "Restore the Right Pill", "Formula PINYIN": "You Gui Wan", "Actions": "【Kidney Yang deficiency Mingmen fire decline】", "Ingredients": "Shudihuang 240 gShanyao 120 gShanzhuyu 120 gGouji 30 gRougui 30 gFuzi 30 gLurong 30 gDuzhong 30 gTusizi 30 gDanggui 30 g", "Functions": "•Warm tonify Kidney Yang", "Indication": "•Kidney Yang deficiency", "Manifestation": "•weak lower back knees•fatigue•cold limbs•impotence seminal emission•loose stool•pale tongue white coating•deep slow pulse", "Modification": "•【Qi deficiency】Renshen Baizhu Fuling Huangqi•【diarrhea】Buguzhi•【early morning diarrhea】Wuweizi Roudoukou•【cold digestion】Ganjiang Wuzhuyu•【low back pain】Hutaoren•【impotence】Bajitian Roucongrong Haigoushen"}];
+
+// ── Group data ──
+function groupData(rows) {
+  const g = {};
+  rows.forEach(r => {
+    const mg = r.MainGROUP, sg = r.SUBGROUP;
+    if (!g[mg]) g[mg] = {};
+    if (!g[mg][sg]) g[mg][sg] = [];
+    g[mg][sg].push(r);
+  });
+  return g;
+}
+
+const GROUPED = groupData(DATA);
+const GROUP_NAMES = Object.keys(GROUPED);
+
+// ── Stats ──
+const totalSubs = GROUP_NAMES.reduce((a, g) => a + Object.keys(GROUPED[g]).length, 0);
+document.getElementById('s-formulas').textContent = DATA.length;
+document.getElementById('s-groups').textContent = GROUP_NAMES.length;
+document.getElementById('s-subs').textContent = totalSubs;
+
+// Group icons (first letter)
+const GROUP_ABBR = {};
+GROUP_NAMES.forEach(g => { GROUP_ABBR[g] = g[0].toUpperCase(); });
+
+// ── Build Sidebar Nav ──
+function buildNav() {
+  const nav = document.getElementById('nav');
+  nav.innerHTML = '';
+
+  // "All" button
+  const allBtn = document.createElement('div');
+  allBtn.className = 'nav-group';
+  allBtn.innerHTML = `<button class="nav-group-btn" onclick="showAll()">
+    <div class="nav-group-icon" style="background:var(--moss)">✦</div>
+    <span class="nav-group-name">All Formulas</span>
+    <span class="nav-group-count">${DATA.length}</span>
+  </button>`;
+  nav.appendChild(allBtn);
+
+  GROUP_NAMES.forEach((g, idx) => {
+    const subs = Object.keys(GROUPED[g]);
+    const total = subs.reduce((a, s) => a + GROUPED[g][s].length, 0);
+    const div = document.createElement('div');
+    div.className = 'nav-group';
+    div.id = `nav-mg-${idx}`;
+
+    const subBtns = subs.map((s, si) => `
+      <button class="nav-sub-btn" id="nav-sub-${idx}-${si}"
+        onclick="showSubgroup('${g}','${s}',${idx},${si})">
+        <span class="nav-sub-dot"></span>
+        ${s}
+      </button>
+    `).join('');
+
+    div.innerHTML = `
+      <button class="nav-group-btn" onclick="toggleNavGroup(${idx})">
+        <div class="nav-group-icon">${GROUP_ABBR[g]}</div>
+        <span class="nav-group-name">${g}</span>
+        <span class="nav-group-count">${total}</span>
+        <svg class="nav-group-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+      <div class="nav-subs">${subBtns}</div>
+    `;
+    nav.appendChild(div);
+  });
+}
+
+function toggleNavGroup(idx) {
+  const el = document.getElementById(`nav-mg-${idx}`);
+  el.classList.toggle('open');
+}
+
+// ── State ──
+let currentGroup = null;
+let currentSub = null;
+let currentQuery = '';
+
+// ── Clear active nav ──
+function clearNavActive() {
+  document.querySelectorAll('.nav-group-btn, .nav-sub-btn').forEach(b => b.classList.remove('active'));
+}
+
+// ── Show All ──
+function showAll(query) {
+  currentGroup = null; currentSub = null;
+  clearNavActive();
+  setBreadcrumb('All Formulas');
+  renderContent(DATA, query);
+}
+
+// ── Show Group ──
+function showGroup(g, idx) {
+  currentGroup = g; currentSub = null;
+  clearNavActive();
+  document.querySelector(`#nav-mg-${idx} .nav-group-btn`).classList.add('active');
+  document.getElementById(`nav-mg-${idx}`).classList.add('open');
+  setBreadcrumb(g);
+  const rows = Object.values(GROUPED[g]).flat();
+  renderContent(rows);
+}
+
+// ── Show Subgroup ──
+function showSubgroup(g, s, gIdx, sIdx) {
+  currentGroup = g; currentSub = s;
+  clearNavActive();
+  document.getElementById(`nav-sub-${gIdx}-${sIdx}`).classList.add('active');
+  document.getElementById(`nav-mg-${gIdx}`).classList.add('open');
+  setBreadcrumb(g, s);
+  renderContent(GROUPED[g][s]);
+}
+
+// ── Breadcrumb ──
+function setBreadcrumb(group, sub) {
+  const bc = document.getElementById('breadcrumb');
+  if (!sub) {
+    bc.innerHTML = `<span class="bc-group">${group}</span>`;
+  } else {
+    bc.innerHTML = `
+      <span class="bc-group" style="cursor:pointer" onclick="showGroup('${group}',${GROUP_NAMES.indexOf(group)})">${group}</span>
+      <span class="bc-sep">›</span>
+      <span class="bc-sub">${sub}</span>
+    `;
+  }
+}
+
+// ── Format helpers ──
+function hl(text, q) {
+  if (!q || !text) return text || '';
+  const esc = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text.replace(new RegExp(`(${esc})`, 'gi'), '<mark>$1</mark>');
+}
+
+function parseBullets(text, q) {
+  if (!text) return '';
+  const lines = text.split('•').map(s => s.trim()).filter(Boolean);
+  if (!lines.length) return `<span class="cell-empty">—</span>`;
+  return `<ul class="cell-bullets">${lines.map(l => `<li>${hl(l, q)}</li>`).join('')}</ul>`;
+}
+
+function parseIngredients(text, q) {
+  if (!text) return `<span class="cell-empty">—</span>`;
+  // Split by capital letter followed by lowercase (herb name boundaries)
+  const clean = text.replace(/【.*?】/g, '').trim();
+  // Try to split on 'g' followed by capital
+  const parts = clean.split(/(?<=\d\s*g)(?=[A-Z])/);
+  if (parts.length > 1) {
+    return parts.map(p => `<div>${hl(p.trim(), q)}</div>`).join('');
+  }
+  return hl(clean, q);
+}
+
+function parseMod(text, q) {
+  if (!text) return `<span class="cell-empty">—</span>`;
+  const lines = text.split('•').map(s => s.trim()).filter(Boolean);
+  return lines.map(line => {
+    const m = line.match(/^【(.+?)】(.*)$/);
+    if (m) {
+      return `<div class="mod-line"><span class="mod-cond">${hl(m[1], q)}</span>${hl(m[2].trim(), q)}</div>`;
+    }
+    return `<div class="mod-line">${hl(line, q)}</div>`;
+  }).join('');
+}
+
+// ── Render Content ──
+function renderContent(rows, query) {
+  ttsStop(); // stop any ongoing speech when view changes
+  const q = query !== undefined ? query : currentQuery;
+  const area = document.getElementById('content-area');
+  const resultBar = document.getElementById('result-bar');
+
+  // Filter by search
+  let filtered = rows;
+  if (q) {
+    const lq = q.toLowerCase();
+    filtered = rows.filter(r =>
+      Object.values(r).some(v => v && String(v).toLowerCase().includes(lq))
+    );
+  }
+
+  // Update result bar
+  if (q) {
+    resultBar.style.display = 'flex';
+    document.getElementById('result-text').textContent =
+      `${filtered.length} result${filtered.length !== 1 ? 's' : ''} for "${q}"`;
+  } else {
+    resultBar.style.display = 'none';
+  }
+
+  if (!filtered.length) {
+    area.innerHTML = `
+      <div class="no-results">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--ink-faint)" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <p>No formulas found</p>
+      </div>`;
+    return;
+  }
+
+  // Re-group filtered rows
+  const byGroup = {};
+  filtered.forEach(r => {
+    const mg = r.MainGROUP, sg = r.SUBGROUP;
+    if (!byGroup[mg]) byGroup[mg] = {};
+    if (!byGroup[mg][sg]) byGroup[mg][sg] = [];
+    byGroup[mg][sg].push(r);
+  });
+
+  let html = '';
+  Object.entries(byGroup).forEach(([mg, subs]) => {
+    const total = Object.values(subs).flat().length;
+    html += `
+      <div class="section-main-header">
+        <div class="smh-accent"></div>
+        <div class="smh-text">
+          <h2>${hl(mg, q)}</h2>
+          <p>${total} formula${total !== 1 ? 's' : ''} · ${Object.keys(subs).length} subgroup${Object.keys(subs).length !== 1 ? 's' : ''}</p>
+        </div>
+      </div>`;
+
+    Object.entries(subs).forEach(([sg, rows]) => {
+      html += `
+        <div class="subgroup-section">
+          <div class="subgroup-label">
+            <div class="sg-tag">
+              <span class="sg-dot"></span>
+              ${hl(sg, q)}
+              <span class="sg-count">${rows.length}</span>
+            </div>
+          </div>
+          <div class="table-container">
+            ${buildTable(rows, q)}
+          </div>
+        </div>`;
+    });
+  });
+
+  area.innerHTML = html;
+  // Inject flash card buttons into every subgroup header
+  requestAnimationFrame(injectFCButtons);
+}
+
+function buildTable(rows, q) {
+  const cols = [
+    { key: 'Formula PINYIN',  label: 'Pinyin',         cls: 'col-pinyin',   render: (v,q) => `<span class="cell-pinyin">${hl(v,q)}</span>` },
+    { key: 'Actions',         label: 'Pattern',         cls: 'col-actions',  render: (v,q) => `<span class="cell-actions">${hl(v,q)}</span>` },
+    { key: 'Ingredients',     label: 'Ingredients',     cls: 'col-ingred',   render: (v,q) => `<span class="cell-ingred">${parseIngredients(v,q)}</span>` },
+    { key: 'Functions',       label: 'Functions',       cls: 'col-functions',render: parseBullets },
+    { key: 'Indication',      label: 'Indication',      cls: 'col-indicate', render: parseBullets },
+    { key: 'Manifestation',   label: 'Manifestation',   cls: 'col-manifest', render: parseBullets },
+    { key: 'Modification',    label: 'Modification',    cls: 'col-modify',   render: (v,q) => `<span class="cell-mod">${parseMod(v,q)}</span>` },
+    { key: 'Formula LATIN',   label: 'Formula (Latin)', cls: 'col-latin',    render: (v,q) => `<span class="cell-latin">${hl(v,q)}</span>` },
+  ];
+
+  let h = `<table><thead><tr><th class="col-tts">▶</th>`;
+  cols.forEach(c => { h += `<th class="${c.cls}">${c.label}</th>`; });
+  h += `</tr></thead><tbody>`;
+
+  rows.forEach((r, idx) => {
+    // Encode row data into a safe base64 attribute for TTS
+    const ttsData = btoa(unescape(encodeURIComponent(JSON.stringify({
+      pinyin:       r['Formula PINYIN']  || '',
+      pattern:      r['Actions']         || '',
+      ingredients:  r['Ingredients']     || '',
+      functions:    r['Functions']       || '',
+      indication:   r['Indication']      || '',
+      manifestation:r['Manifestation']   || '',
+      modification: r['Modification']    || '',
+    }))));
+    const btnId = `tts-${r.row_number}`;
+
+    h += `<tr>`;
+    h += `<td class="col-tts" style="text-align:center;vertical-align:middle">
+      <button class="tts-btn" id="${btnId}"
+        data-tts="${ttsData}"
+        onclick="ttsToggle(this)"
+        title="Read aloud">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <path class="tts-wave2" d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path class="tts-wave1" d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </td>`;
+    cols.forEach(c => {
+      const val = r[c.key] || '';
+      h += `<td class="${c.cls}">${c.render(val, q)}</td>`;
+    });
+    h += `</tr>`;
+  });
+
+  h += `</tbody></table>`;
+  return h;
+}
+
+// ══════════════════════════════════
+// TTS ENGINE
+// ══════════════════════════════════
+let ttsCurrentBtn = null;
+
+function ttsStop() {
+  window.speechSynthesis.cancel();
+  if (ttsCurrentBtn) {
+    ttsCurrentBtn.classList.remove('playing');
+    ttsCurrentBtn = null;
+  }
+  hideToast();
+}
+
+function ttsToggle(btn) {
+  // If this button is already playing — stop
+  if (btn.classList.contains('playing')) {
+    ttsStop();
+    return;
+  }
+  // Stop any existing speech
+  ttsStop();
+
+  // Decode data
+  let data;
+  try {
+    data = JSON.parse(decodeURIComponent(escape(atob(btn.dataset.tts))));
+  } catch(e) { return; }
+
+  // Build readable script
+  const clean = t => t
+    .replace(/【(.+?)】/g, '$1. ')
+    .replace(/•/g, '. ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const parts = [];
+  if (data.pinyin)        parts.push(`Formula: ${data.pinyin}.`);
+  if (data.pattern)       parts.push(`Pattern: ${clean(data.pattern)}.`);
+  if (data.ingredients)   parts.push(`Ingredients: ${clean(data.ingredients)}.`);
+  if (data.functions)     parts.push(`Functions: ${clean(data.functions)}.`);
+  if (data.indication)    parts.push(`Indication: ${clean(data.indication)}.`);
+  if (data.manifestation) parts.push(`Manifestation: ${clean(data.manifestation)}.`);
+  if (data.modification)  parts.push(`Modification: ${clean(data.modification)}.`);
+
+  const script = parts.join(' ');
+  if (!script.trim()) return;
+
+  const utt = new SpeechSynthesisUtterance(script);
+  utt.lang  = 'en-US';
+  utt.rate  = 0.88;
+  utt.pitch = 1.0;
+
+  btn.classList.add('playing');
+  ttsCurrentBtn = btn;
+  showToast(data.pinyin || 'Formula');
+
+  utt.onend = utt.onerror = () => {
+    btn.classList.remove('playing');
+    ttsCurrentBtn = null;
+    hideToast();
+  };
+
+  window.speechSynthesis.speak(utt);
+}
+
+function showToast(name) {
+  const toast = document.getElementById('tts-toast');
+  document.getElementById('tts-toast-text').textContent = `▶  ${name}`;
+  toast.classList.add('visible');
+}
+
+function hideToast() {
+  document.getElementById('tts-toast').classList.remove('visible');
+}
+
+// Stop TTS when navigating away
+window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+// ══════════════════════════════════
+// FLASH CARD ENGINE
+// ══════════════════════════════════
+let fcDeck = [];         // full deck for current session
+let fcQueue = [];        // remaining cards
+let fcKnow = 0;
+let fcReview = 0;
+let fcTotal = 0;
+let fcFlipped = false;
+let fcShuffle = false;
+let fcReviewOnly = false;
+
+// ── Inject "Flash Cards" button into each subgroup label ──
+function injectFCButtons() {
+  document.querySelectorAll('.subgroup-label').forEach(label => {
+    if (label.querySelector('.fc-launch-btn')) return; // already injected
+    const sgTag = label.querySelector('.sg-tag');
+    if (!sgTag) return;
+
+    // Find subgroup name from text (strip the count badge text)
+    const btn = document.createElement('button');
+    btn.className = 'fc-launch-btn';
+    btn.title = 'Start Flash Cards for this subgroup';
+    btn.innerHTML = `
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+      </svg>
+      Flash Cards`;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      launchFCFromSubgroup(label);
+    });
+    label.appendChild(btn);
+  });
+}
+
+function launchFCFromSubgroup(label) {
+  // Collect all rows from the table in this subgroup section
+  const section = label.closest('.subgroup-section');
+  if (!section) return;
+
+  // Get subgroup name
+  const sgTag = label.querySelector('.sg-tag');
+  const sgName = sgTag ? sgTag.textContent.trim().replace(/\d+$/, '').trim() : 'Subgroup';
+
+  // Get main group from section-main-header above
+  let mgName = '';
+  let prev = section.previousElementSibling;
+  while (prev) {
+    if (prev.classList.contains('section-main-header')) {
+      mgName = prev.querySelector('h2')?.textContent?.trim() || '';
+      break;
+    }
+    prev = prev.previousElementSibling;
+  }
+
+  // Pull rows from DATA that match this subgroup + main group
+  const rows = DATA.filter(r => {
+    const mgOk = !mgName || r.MainGROUP === mgName;
+    return mgOk && r.SUBGROUP === sgName;
+  });
+
+  if (!rows.length) return;
+
+  // Build deck
+  fcDeck = rows.map(r => ({
+    pinyin:    r['Formula PINYIN'] || '',
+    latin:     r['Formula LATIN']  || '',
+    pattern:   (r['Actions'] || '').replace(/【|】/g, ' ').trim(),
+    functions: r['Functions'] || '',
+    subgroup:  r.SUBGROUP || '',
+    mainGroup: r.MainGROUP || '',
+  }));
+
+  const title = sgName !== mgName ? `${mgName} › ${sgName}` : mgName;
+  fcOpen(fcDeck, title);
+}
+
+// Also allow launching from an entire group (via welcome cards)
+window.launchFCForGroup = function(g) {
+  const rows = Object.values(GROUPED[g]).flat();
+  const deck = rows.map(r => ({
+    pinyin:    r['Formula PINYIN'] || '',
+    latin:     r['Formula LATIN']  || '',
+    pattern:   (r['Actions'] || '').replace(/【|】/g, ' ').trim(),
+    functions: r['Functions'] || '',
+    subgroup:  r.SUBGROUP || '',
+    mainGroup: r.MainGROUP || '',
+  }));
+  fcOpen(deck, g);
+};
+
+function fcOpen(deck, title) {
+  fcDeck = deck.filter(d => d.pinyin); // skip empties
+  if (!fcDeck.length) return;
+  fcTotal    = fcDeck.length;
+  fcKnow     = 0;
+  fcReview   = 0;
+  fcFlipped  = false;
+  fcReviewOnly = false;
+
+  document.getElementById('fc-modal-title').textContent = title;
+  document.getElementById('fc-modal-subtitle').textContent =
+    `${fcTotal} card${fcTotal !== 1 ? 's' : ''} · Pinyin → Category & Pattern & Functions`;
+
+  fcResetQueue();
+  document.getElementById('fc-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  fcRenderCard();
+}
+
+function fcResetQueue() {
+  fcQueue = fcReviewOnly
+    ? fcDeck.filter(d => d._needsReview)
+    : [...fcDeck];
+  if (fcShuffle) {
+    for (let i = fcQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [fcQueue[i], fcQueue[j]] = [fcQueue[j], fcQueue[i]];
+    }
+  }
+  fcKnow = 0;
+  fcReview = 0;
+  fcUpdateProgress();
+}
+
+function fcClose() {
+  document.getElementById('fc-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function fcToggleShuffle() {
+  fcShuffle = !fcShuffle;
+  const btn = document.getElementById('fc-shuffle-btn');
+  btn.classList.toggle('active', fcShuffle);
+}
+
+function fcUpdateProgress() {
+  const done = fcKnow + fcReview;
+  const total = fcQueue.length + done;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById('fc-progress-fill').style.width = pct + '%';
+  document.getElementById('fc-counter').textContent =
+    `${Math.min(done + 1, total)} / ${total}`;
+  document.getElementById('fc-score-know').textContent   = `✓ ${fcKnow} Know`;
+  document.getElementById('fc-score-review').textContent = `↻ ${fcReview} Review`;
+}
+
+function fcParseFunctions(text) {
+  if (!text) return [];
+  return text.split('•').map(s => s.trim()).filter(Boolean);
+}
+
+function fcRenderCard() {
+  const area = document.getElementById('fc-card-area');
+  document.getElementById('fc-shortcuts').style.display = '';
+
+  if (!fcQueue.length) {
+    // All done — show result
+    fcShowResult();
+    return;
+  }
+
+  const card = fcQueue[0];
+  fcFlipped = false;
+  const fns = fcParseFunctions(card.functions);
+
+  area.innerHTML = `
+    <div class="fc-scene" onclick="fcFlipCard()" id="fc-scene">
+      <div class="fc-card" id="fc-card">
+        <!-- Front -->
+        <div class="fc-face fc-front">
+          <span class="fc-face-label">Formula Name — What does this treat?</span>
+          <div class="fc-pinyin-text">${card.pinyin}</div>
+          ${card.latin ? `<div class="fc-latin-hint">${card.latin}</div>` : ''}
+          <div class="fc-flip-hint">tap or press Space to reveal →</div>
+        </div>
+        <!-- Back -->
+        <div class="fc-face fc-back">
+          <div class="fc-answer-section">
+            <span class="fc-ans-label">Category</span>
+            <div class="fc-ans-category">${card.subgroup}${card.mainGroup !== card.subgroup ? ` <span style="font-size:14px;color:var(--ink-light);font-weight:400">· ${card.mainGroup}</span>` : ''}</div>
+          </div>
+          ${card.pattern ? `
+          <div class="fc-ans-divider"></div>
+          <div class="fc-answer-section">
+            <span class="fc-ans-label">Pattern / Actions</span>
+            <div class="fc-ans-pattern">${card.pattern}</div>
+          </div>` : ''}
+          ${fns.length ? `
+          <div class="fc-ans-divider"></div>
+          <div class="fc-answer-section">
+            <span class="fc-ans-label">Functions</span>
+            <ul class="fc-ans-functions-list">
+              ${fns.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+          </div>` : ''}
+        </div>
+      </div>
+    </div>
+    <div style="height:20px"></div>
+    <div class="fc-action-row" id="fc-flip-row">
+      <button class="fc-btn fc-btn-flip" onclick="fcFlipCard()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10"/><path d="M3.51 15a9 9 0 0 0 14.85 3.36L23 14"/></svg>
+        Reveal Answer
+      </button>
+      <button class="fc-btn fc-btn-skip" onclick="fcSkip()">
+        Skip →
+      </button>
+    </div>
+    <div class="fc-action-row" id="fc-judge-row" style="display:none">
+      <button class="fc-btn fc-btn-know" onclick="fcJudge('know')">
+        ✓ Know it
+      </button>
+      <button class="fc-btn fc-btn-review" onclick="fcJudge('review')">
+        ↻ Need Review
+      </button>
+    </div>
+  `;
+
+  fcUpdateProgress();
+}
+
+function fcFlipCard() {
+  const card = document.getElementById('fc-card');
+  if (!card) return;
+  fcFlipped = !fcFlipped;
+  card.classList.toggle('flipped', fcFlipped);
+
+  // Show/hide action rows
+  document.getElementById('fc-flip-row').style.display  = fcFlipped ? 'none' : 'flex';
+  document.getElementById('fc-judge-row').style.display = fcFlipped ? 'flex' : 'none';
+}
+
+function fcJudge(verdict) {
+  if (!fcFlipped) { fcFlipCard(); return; }
+  const card = fcQueue.shift();
+  card._needsReview = (verdict === 'review');
+  if (verdict === 'know')   fcKnow++;
+  else                       fcReview++;
+  fcRenderCard();
+}
+
+function fcSkip() {
+  if (fcQueue.length <= 1) return;
+  const card = fcQueue.shift();
+  fcQueue.push(card); // move to end
+  fcRenderCard();
+}
+
+function fcShowResult() {
+  const area = document.getElementById('fc-card-area');
+  const reviewCards = fcDeck.filter(d => d._needsReview);
+  document.getElementById('fc-shortcuts').style.display = 'none';
+
+  const pct = fcTotal > 0 ? Math.round((fcKnow / fcTotal) * 100) : 0;
+  const emoji = pct >= 80 ? '🌿' : pct >= 50 ? '🌱' : '🔄';
+
+  area.innerHTML = `
+    <div class="fc-result">
+      <div class="fc-result-icon">${emoji}</div>
+      <div class="fc-result-title">Session Complete!</div>
+      <div class="fc-result-stats">
+        <div class="fc-rs-item">
+          <span class="fc-rs-num green">${fcKnow}</span>
+          <span class="fc-rs-label">Know</span>
+        </div>
+        <div class="fc-rs-item">
+          <span class="fc-rs-num red">${fcReview}</span>
+          <span class="fc-rs-label">Review</span>
+        </div>
+        <div class="fc-rs-item">
+          <span class="fc-rs-num" style="color:var(--ink-light)">${pct}%</span>
+          <span class="fc-rs-label">Score</span>
+        </div>
+      </div>
+      <div class="fc-result-btns">
+        <button class="fc-btn fc-btn-restart" onclick="fcRestartAll()">↺ Restart All</button>
+        ${reviewCards.length ? `
+        <button class="fc-btn fc-btn-review-only" onclick="fcRestartReviewOnly()">
+          ↻ Review ${reviewCards.length} Card${reviewCards.length !== 1 ? 's' : ''}
+        </button>` : ''}
+        <button class="fc-btn fc-btn-skip" onclick="fcClose()">Close</button>
+      </div>
+    </div>
+  `;
+}
+
+function fcRestartAll() {
+  fcReviewOnly = false;
+  fcDeck.forEach(d => { d._needsReview = false; });
+  fcResetQueue();
+  fcRenderCard();
+  document.getElementById('fc-shortcuts').style.display = '';
+}
+
+function fcRestartReviewOnly() {
+  fcReviewOnly = true;
+  fcResetQueue();
+  fcRenderCard();
+  document.getElementById('fc-shortcuts').style.display = '';
+}
+
+// ── Keyboard shortcuts ──
+document.addEventListener('keydown', e => {
+  const modal = document.getElementById('fc-modal');
+  if (!modal.classList.contains('open')) return;
+
+  switch (e.key) {
+    case ' ':
+    case 'Enter':
+      e.preventDefault();
+      fcFlipCard();
+      break;
+    case 'ArrowRight':
+    case 'n':
+    case 'N':
+      e.preventDefault();
+      fcSkip();
+      break;
+    case 'k':
+    case 'K':
+      e.preventDefault();
+      fcJudge('know');
+      break;
+    case 'r':
+    case 'R':
+      e.preventDefault();
+      fcJudge('review');
+      break;
+    case 'Escape':
+      e.preventDefault();
+      fcClose();
+      break;
+  }
+});
+
+// Close on backdrop click
+document.getElementById('fc-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('fc-modal')) fcClose();
+});
+
+// ── Expand / Collapse all subgroups ──
+function expandAllSubs() {
+  document.querySelectorAll('.nav-group').forEach(g => g.classList.add('open'));
+}
+function collapseAllSubs() {
+  document.querySelectorAll('.nav-group').forEach(g => g.classList.remove('open'));
+}
+
+// ── Search ──
+document.getElementById('search').addEventListener('input', e => {
+  currentQuery = e.target.value.trim();
+  if (!currentQuery) {
+    showWelcome();
+    return;
+  }
+  currentGroup = null; currentSub = null;
+  clearNavActive();
+  setBreadcrumb('Search Results');
+  renderContent(DATA, currentQuery);
+});
+
+// ── Mobile toggle ──
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ── Welcome Screen ──
+function showWelcome() {
+  currentGroup = null; currentSub = null;
+  clearNavActive();
+  document.getElementById('breadcrumb').innerHTML = '<span>All Formulas</span>';
+  document.getElementById('result-bar').style.display = 'none';
+
+  const cards = GROUP_NAMES.map((g, i) => {
+    const total = Object.values(GROUPED[g]).flat().length;
+    return `<div class="welcome-card" onclick="showGroup('${g}',${i})">
+      <div class="wc-name">${g}</div>
+      <div class="wc-count">${total} formulas</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('content-area').innerHTML = `
+    <div class="welcome">
+      <svg class="welcome-icon" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="36" fill="#edf4e9"/>
+        <path d="M36 16 C36 16 24 26 24 38 C24 46.8 29.4 52 36 52 C42.6 52 48 46.8 48 38 C48 26 36 16 36 16Z" fill="#7da06e"/>
+        <path d="M36 28 C36 28 20 32 20 44" stroke="#c8dcc0" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M36 32 C36 32 52 36 52 48" stroke="#c8dcc0" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="36" y1="52" x2="36" y2="60" stroke="#7da06e" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <h2>Herbal Formula Reference</h2>
+      <p>Browse classical TCM prescriptions organised by therapeutic category. Select a group from the sidebar or search by formula name, actions, or ingredients.</p>
+    </div>
+    <div style="max-width:900px;margin:0 auto">
+      <div style="font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-light);margin-bottom:14px">Browse by Category</div>
+      <div class="welcome-grid">${cards}</div>
+    </div>`;
+}
+
+// ── Init ──
+buildNav();
+showWelcome();
+</script>
+</body>
+</html>
