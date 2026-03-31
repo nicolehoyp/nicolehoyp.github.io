@@ -554,19 +554,10 @@ body::after {
 }
 
 table {
-  min-width: 900px;
-}
-
-table {
   width: 100%;
+  min-width: 900px;
   border-collapse: collapse;
   font-size: 13.5px;
-}
-
-@media (max-width: 900px) {
-  .table-container {
-    border-radius: var(--radius);
-  }
 }
 
 thead th {
@@ -1347,6 +1338,10 @@ mark {
       <span>All Formulas</span>
     </div>
     <div class="topbar-actions">
+      <button class="btn-sm btn-primary" onclick="window.open('https://nicolehoyp.github.io/tcm_quiz.html','_blank','noopener,noreferrer')" style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Practice Quiz
+      </button>
       <button class="btn-sm btn-outline" onclick="expandAllSubs()">Expand All</button>
       <button class="btn-sm btn-outline" onclick="collapseAllSubs()">Collapse</button>
     </div>
