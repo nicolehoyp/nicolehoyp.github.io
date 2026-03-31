@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCM Formula Practice — 22 Questions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f0e8;
+    --surface: #ede6d8;
+    --card: #faf7f2;
+    --border: #d4c8b0;
+    --accent: #7a5c38;
+    --accent2: #a07848;
+    --gold-light: #c49a58;
+    --text: #3a2e22;
+    --text-dim: #8a7660;
+    --correct: #3d7a55;
+    --correct-bg: rgba(61,122,85,0.10);
+    --wrong: #a03830;
+    --wrong-bg: rgba(160,56,48,0.10);
+    --neutral-bg: rgba(122,92,56,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(ellipse at 20% 0%, rgba(122,92,56,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(122,92,56,0.05) 0%, transparent 50%);
+  }
+
+  header {
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--accent2) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .header-desc {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  /* Progress bar */
+  .progress-bar-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 0;
+  }
+
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+
+  /* Score summary */
+  .score-summary {
+    max-width: 860px;
+    margin: 1rem auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .score-chip {
+    padding: 0.3rem 0.9rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .score-chip.answered { background: var(--neutral-bg); color: var(--accent2); border: 1px solid var(--accent); }
+  .score-chip.correct { background: var(--correct-bg); color: var(--correct); border: 1px solid var(--correct); }
+  .score-chip.wrong { background: var(--wrong-bg); color: var(--wrong); border: 1px solid var(--wrong); }
+
+  /* Question cards */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .q-card.answered-correct { border-color: var(--correct); }
+  .q-card.answered-wrong { border-color: var(--wrong); }
+
+  .q-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .q-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(122,92,56,0.10);
+    border: 1px solid rgba(122,92,56,0.30);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .q-category {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  .q-stem {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.03);
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+
+  .option:hover:not(.disabled) {
+    border-color: var(--accent);
+    background: var(--neutral-bg);
+  }
+
+  .option.disabled { cursor: default; }
+
+  .option.selected-correct {
+    background: var(--correct-bg);
+    border-color: var(--correct);
+  }
+
+  .option.selected-wrong {
+    background: var(--wrong-bg);
+    border-color: var(--wrong);
+  }
+
+  .option.reveal-correct {
+    background: var(--correct-bg);
+    border-color: var(--correct);
+    opacity: 0.7;
+  }
+
+  .option-letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    min-width: 22px;
+    color: var(--text-dim);
+    transition: color 0.2s;
+    margin-top: 1px;
+  }
+
+  .option.selected-correct .option-letter { color: var(--correct); }
+  .option.selected-wrong .option-letter { color: var(--wrong); }
+  .option.reveal-correct .option-letter { color: var(--correct); }
+
+  .option-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  .option-icon {
+    margin-left: auto;
+    font-size: 1rem;
+    min-width: 20px;
+    text-align: right;
+  }
+
+  /* Explanation box */
+  .explanation {
+    background: rgba(0,0,0,0.03);
+    border-left: 3px solid var(--accent);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 3px 3px 0;
+    display: none;
+    animation: fadeIn 0.35s ease;
+  }
+
+  .explanation.visible { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .explanation-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .exp-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .exp-row:last-child { border-bottom: none; }
+
+  .exp-opt {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    min-width: 20px;
+  }
+
+  .exp-text { color: var(--text-dim); flex: 1; }
+  .exp-text strong { color: var(--text); font-weight: 600; }
+
+  .exp-verdict {
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  .exp-verdict.ok { color: var(--correct); }
+  .exp-verdict.no { color: var(--wrong); }
+
+  .answer-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+    color: var(--text-dim);
+    text-align: right;
+  }
+
+  .answer-label span {
+    color: var(--correct);
+    font-weight: 700;
+  }
+
+  /* Reset button */
+  .controls {
+    text-align: center;
+    padding: 1rem 0 3rem;
+  }
+
+  .btn-reset {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent2);
+    padding: 0.7rem 2.5rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .btn-reset:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  /* Final score */
+  .final-score {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    background: var(--card);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    margin: 0 2rem;
+    max-width: 860px;
+    margin: 0 auto 2rem;
+  }
+
+  .final-score.visible { display: block; }
+
+  .final-score h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--gold-light), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .final-score p {
+    color: var(--text-dim);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 2rem 1rem 1.5rem; }
+    main { padding: 1.5rem 1rem 3rem; }
+    .q-card { padding: 1.25rem; }
+    .score-summary { padding: 0 1rem; }
+    .progress-bar-wrap { padding: 1.25rem 1rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="subtitle">Traditional Chinese Medicine</div>
+  <h1>Formula Practice Exam</h1>
+  <p class="header-desc">22 clinical cases — select the most appropriate formula</p>
+</header>
+
+<div class="progress-bar-wrap">
+  <div class="progress-meta">
+    <span id="prog-label">0 / 22 answered</span>
+    <span id="prog-pct">0%</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+  </div>
+</div>
+
+<div class="score-summary">
+  <div class="score-chip answered" id="chip-answered">Answered: 0</div>
+  <div class="score-chip correct" id="chip-correct">Correct: 0</div>
+  <div class="score-chip wrong" id="chip-wrong">Wrong: 0</div>
+</div>
+
+<div class="final-score" id="final-score">
+  <h2 id="final-heading">Score: 0 / 22</h2>
+  <p id="final-msg"></p>
+</div>
+
+<main id="quiz-main"></main>
+
+<div class="controls">
+  <button class="btn-reset" onclick="resetQuiz()">Reset All Answers</button>
+</div>
+
+<script>
+const questions = [
+  {
+    id: 1,
+    category: "Calming Shen",
+    stem: "A 19-year-old male has been timid and easily startled since childhood. He experiences excessive dreaming and may awaken from fright. Recently, due to academic stress, his symptoms have worsened. He occasionally has palpitations, fatigue, and dizziness. His tongue is pale with a thin white coating, and his pulse is wiry and thready. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Gui Pi Tang (Restore the Spleen Decoction)" },
+      { letter: "B", text: "An Shen Ding Zhi Wan (Calm the Spirit and Stabilize the Will Pill)" },
+      { letter: "C", text: "Wen Dan Tang (Warm the Gallbladder Decoction)" },
+      { letter: "D", text: "Ban Xia Shu Mi Tang (Pinellia and Millet Decoction)" },
+    ],
+    answer: "B",
+    explanations: [
+      { letter: "A", pattern: "Spleen-heart deficiency", verdict: false, note: "Main symptom is easy startle (heart-gallbladder deficiency), not spleen-heart deficiency." },
+      { letter: "B", pattern: "Heart-gallbladder qi deficiency", verdict: true, note: "Timid, easily startled, palpitations → classic heart-gallbladder qi deficiency. An Shen Ding Zhi Wan is the primary formula." },
+      { letter: "C", pattern: "Phlegm-heat", verdict: false, note: "No signs of phlegm or heat here." },
+      { letter: "D", pattern: "Stomach disharmony", verdict: false, note: "No digestive complaint is the main issue." },
+    ]
+  },
+  {
+    id: 2,
+    category: "Astringing",
+    stem: "Regarding the treatment of deficiency fatigue syndromes, which of the following is most appropriate?\nA. Low back pain, lower abdominal cramping, and difficult urination → Ba Wei Shen Qi Wan\nB. Abdominal urgency, abdominal pain, and nocturnal emission → Da Jian Zhong Tang\nC. Lower abdominal tension, seminal emission, cold genitals → Chai Hu Jia Long Gu Mu Li Tang\nD. Seminal emission or sexual dreams → Suan Zao Ren Tang",
+    options: [
+      { letter: "A", text: "Low back pain + lower abdominal cramping + difficult urination → Ba Wei Shen Qi Wan" },
+      { letter: "B", text: "Abdominal urgency + abdominal pain + nocturnal emission → Da Jian Zhong Tang" },
+      { letter: "C", text: "Lower abdominal tension + seminal emission + cold genitals → Chai Hu Jia Long Gu Mu Li Tang" },
+      { letter: "D", text: "Seminal emission or sexual dreams → Suan Zao Ren Tang" },
+    ],
+    answer: "A",
+    explanations: [
+      { letter: "A", pattern: "Kidney yang deficiency", verdict: true, note: "Ba Wei Shen Qi Wan addresses kidney yang deficiency — low back pain, abdominal cramping, and difficult urination are classic indicators." },
+      { letter: "B", pattern: "Interior cold", verdict: false, note: "Da Jian Zhong Tang treats middle-burner cold, not nocturnal emission." },
+      { letter: "C", pattern: "Shaoyang", verdict: false, note: "Chai Hu Jia Long Gu Mu Li Tang addresses shaoyang imbalance, not this presentation." },
+      { letter: "D", pattern: "Spirit calming", verdict: false, note: "Suan Zao Ren Tang calms the spirit (liver blood deficiency) — not an astringent for seminal emission." },
+    ]
+  },
+  {
+    id: 3,
+    category: "Qi Circulation",
+    stem: "A 68-year-old woman develops a sensation of a foreign body in her throat after an emotional argument. She cannot cough it out or swallow it. This is accompanied by fullness in the chest and hypochondrium. Her tongue is light red with a thick greasy white coating, and her pulse is wiry and slippery. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Chai Hu Shu Gan San (Bupleurum Powder to Spread the Liver)" },
+      { letter: "B", text: "Dan Zhi Xiao Yao San (Augmented Rambling Powder)" },
+      { letter: "C", text: "Ban Xia Hou Po Tang (Pinellia and Magnolia Bark Decoction)" },
+      { letter: "D", text: "Gan Mai Da Zao Tang (Licorice, Wheat, and Jujube Decoction)" },
+    ],
+    answer: "C",
+    explanations: [
+      { letter: "A", pattern: "Qi stagnation (no phlegm)", verdict: false, note: "Chai Hu Shu Gan San moves qi but does not resolve phlegm — the greasy coating and globus sensation indicate phlegm involvement." },
+      { letter: "B", pattern: "Liver depression with heat", verdict: false, note: "No heat signs (no red tongue, no yellow coating)." },
+      { letter: "C", pattern: "Qi stagnation + phlegm obstruction (Plum-pit qi / Mei He Qi)", verdict: true, note: "Globus sensation triggered by emotion + greasy white coating + wiry-slippery pulse = Plum-pit qi. Ban Xia Hou Po Tang is the classic formula." },
+      { letter: "D", pattern: "Zang Zao (emotional/visceral agitation)", verdict: false, note: "Gan Mai Da Zao Tang treats emotional lability and hysteria (Zang Zao), not phlegm-qi obstruction." },
+    ]
+  },
+  {
+    id: 4,
+    category: "Descending Qi / Vomiting",
+    stem: "Which of the following statements regarding the treatment of vomiting is INCORRECT?",
+    options: [
+      { letter: "A", text: "Dry retching with saliva and headache → Wu Zhu Yu Tang" },
+      { letter: "B", text: "Vomiting with borborygmus and epigastric fullness → Ban Xia Xie Xin Tang" },
+      { letter: "C", text: "Dry retching with diarrhea → Huang Qin Jia Ban Xia Sheng Jiang Tang" },
+      { letter: "D", text: "Vomiting with weak pulse, frequent urination, slight fever, and cold extremities → Si Ni San" },
+    ],
+    answer: "D",
+    explanations: [
+      { letter: "A", pattern: "Stomach cold", verdict: true, note: "Correct — Wu Zhu Yu Tang warms the liver-stomach and descends rebellious qi; it is appropriate for cold-type retching with headache." },
+      { letter: "B", pattern: "Cold-heat complex", verdict: true, note: "Correct — Ban Xia Xie Xin Tang addresses mixed cold-heat causing epigastric fullness with borborygmus and vomiting." },
+      { letter: "C", pattern: "Heat pattern diarrhea + retching", verdict: true, note: "Correct — Huang Qin Jia Ban Xia Sheng Jiang Tang treats heat-type diarrhea with dry retching." },
+      { letter: "D", pattern: "Liver qi stagnation", verdict: false, note: "INCORRECT — Si Ni San spreads liver qi and is NOT for vomiting. The presentation (weak pulse, cold extremities, slight fever) suggests yang deficiency, which requires warming yang formulas, not qi-spreading ones." },
+    ]
+  },
+  {
+    id: 5,
+    category: "Regulating Blood",
+    stem: "A 35-year-old woman diagnosed with hyperthyroidism has been treated with Western medicine for 2–3 years. Her palpitations, irritability, insomnia, and tremors have resolved, but thyroid enlargement persists. She has poor appetite and postprandial distension. Her tongue is dark with blood stasis spots, greasy coating, engorged sublingual veins, and a wiry pulse. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Yi Guan Jian (Linking Decoction)" },
+      { letter: "B", text: "Hai Zao Yu Hu Tang (Sargassum Jade Flask Decoction)" },
+      { letter: "C", text: "Tian Wang Bu Xin Dan (Heavenly Emperor's Heart-Nourishing Pill)" },
+      { letter: "D", text: "Zhi Zi Qing Gan Tang (Gardenia Decoction to Clear the Liver)" },
+    ],
+    answer: "B",
+    explanations: [
+      { letter: "A", pattern: "Yin deficiency", verdict: false, note: "Yi Guan Jian nourishes yin and spreads liver qi — no yin-deficiency signs here; the core issue is phlegm and blood stasis." },
+      { letter: "B", pattern: "Phlegm-stasis (goiter / Ying)", verdict: true, note: "Persistent thyroid enlargement with dark tongue, stasis spots, engorged sublingual veins, and greasy coating = phlegm-stasis causing goiter. Hai Zao Yu Hu Tang dissolves phlegm and activates blood, specifically indicated for Ying (goiter)." },
+      { letter: "C", pattern: "Heart yin deficiency", verdict: false, note: "Heart symptoms have already resolved; yin deficiency is not the current pattern." },
+      { letter: "D", pattern: "Liver fire", verdict: false, note: "No active heat/fire signs remain after Western treatment." },
+    ]
+  },
+  {
+    id: 6,
+    category: "Stop Bleeding (Hematuria)",
+    stem: "A 50-year-old male presents with hematuria. Which of the following statements is INCORRECT?",
+    options: [
+      { letter: "A", text: "Burning urination, irritability, thirst, red face and mouth sores, rapid pulse → Xiao Ji Yin Zi" },
+      { letter: "B", text: "Frequent urgent urination, lower abdominal fullness, no desire to drink, slippery rapid pulse → Ba Zheng San" },
+      { letter: "C", text: "Frequent urination, sore lower back and knees, five-center heat, thready rapid pulse → Ji Sheng Shen Qi Wan" },
+      { letter: "D", text: "Frequent urination, poor appetite, fatigue, loose stool, weak pulse → Wu Bi Shan Yao Wan" },
+    ],
+    answer: "C",
+    explanations: [
+      { letter: "A", pattern: "Blood heat", verdict: true, note: "Correct — Xiao Ji Yin Zi clears heat, cools blood, and stops bleeding. Burning urination and heat signs confirm." },
+      { letter: "B", pattern: "Damp-heat", verdict: true, note: "Correct — Ba Zheng San clears damp-heat in the lower burner; urgent/frequent urination with no desire to drink fits damp obstruction." },
+      { letter: "C", pattern: "Kidney yang deficiency", verdict: false, note: "INCORRECT — Five-center heat, thready rapid pulse, and lower back soreness indicate kidney YIN deficiency with heat, NOT kidney yang deficiency. Ji Sheng Shen Qi Wan tonifies kidney yang — wrong pattern match." },
+      { letter: "D", pattern: "Spleen-kidney deficiency", verdict: true, note: "Correct — Poor appetite, fatigue, loose stool, and weak pulse indicate spleen-kidney deficiency; Wu Bi Shan Yao Wan is appropriate." },
+    ]
+  },
+  {
+    id: 7,
+    category: "Wind-Heat Cough",
+    stem: "A 58-year-old male presents with a one-week history of cough, hoarse voice, and thick yellow sputum. His tongue has a thin yellow coating and his pulse is floating and rapid. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Zhi Sou San (Stop Cough Powder)" },
+      { letter: "B", text: "Jing Fang Bai Du San (Schizonepeta and Ledebouriella Powder to Overcome Toxin)" },
+      { letter: "C", text: "Xing Su San (Apricot Kernel and Perilla Leaf Powder)" },
+      { letter: "D", text: "Sang Ju Yin (Mulberry Leaf and Chrysanthemum Decoction)" },
+    ],
+    answer: "D",
+    explanations: [
+      { letter: "A", pattern: "Chronic or mild cough", verdict: false, note: "Zhi Sou San is for lingering or mild cough — not for an acute wind-heat presentation with yellow sputum." },
+      { letter: "B", pattern: "Wind-cold exterior", verdict: false, note: "Jing Fang Bai Du San releases wind-cold; here the signs are wind-heat (yellow sputum, floating-rapid pulse, thin yellow coating)." },
+      { letter: "C", pattern: "Wind-dryness dry cough", verdict: false, note: "Xing Su San treats cool-dryness with dry cough and little sputum — opposite of the thick yellow sputum here." },
+      { letter: "D", pattern: "Wind-heat cough", verdict: true, note: "Floating-rapid pulse + thin yellow coating + yellow sputum + hoarse voice = wind-heat attacking the lung. Sang Ju Yin disperses wind-heat and stops cough." },
+    ]
+  },
+  {
+    id: 8,
+    category: "Wind-Damp",
+    stem: "A 55-year-old woman was exposed to heavy rain without protection. The next day she develops headache, heaviness of the head as if wrapped, heaviness of the body, and loose stool. Her tongue is light red with a greasy white coating, and her pulse is soggy. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Chuan Xiong Cha Tiao San (Ligusticum Tea-Regulating Powder)" },
+      { letter: "B", text: "Ban Xia Bai Zhu Tian Ma Tang (Pinellia, Atractylodes and Gastrodia Decoction)" },
+      { letter: "C", text: "Ren Shen Yang Rong Tang (Ginseng Nutritive Decoction)" },
+      { letter: "D", text: "Qiang Huo Sheng Shi Tang (Notopterygium Decoction to Overcome Dampness)" },
+    ],
+    answer: "D",
+    explanations: [
+      { letter: "A", pattern: "Wind-cold headache", verdict: false, note: "Chuan Xiong Cha Tiao San disperses wind-cold; no dampness component." },
+      { letter: "B", pattern: "Internal phlegm-damp", verdict: false, note: "Ban Xia Bai Zhu Tian Ma Tang addresses internally generated phlegm-damp; this is an external damp invasion after rain exposure." },
+      { letter: "C", pattern: "Qi-blood deficiency", verdict: false, note: "No deficiency signs; onset is acute and clearly tied to external exposure." },
+      { letter: "D", pattern: "Wind-damp exterior", verdict: true, note: "External wind-damp (after rain exposure): head wrapped-heaviness, body heaviness, loose stool, soggy pulse, greasy white coating. Qiang Huo Sheng Shi Tang is the primary formula for external wind-damp." },
+    ]
+  },
+  {
+    id: 9,
+    category: "Phlegm-Heat",
+    stem: "A 38-year-old male enjoys beer, cold drinks, smokes heavily, and rarely exercises. He has high cholesterol, excessive phlegm, chest oppression, afternoon heaviness, insomnia with dreams, frequent belching, and slight constipation. His tongue coating is yellow and greasy, and his pulse is slippery and rapid. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Gan Lu Xiao Du Dan (Sweet Dew Special Pill to Eliminate Toxin)" },
+      { letter: "B", text: "Huang Lian E Jiao Tang (Coptis and Ass-Hide Gelatin Decoction)" },
+      { letter: "C", text: "Wen Dan Tang (Warm the Gallbladder Decoction)" },
+      { letter: "D", text: "Long Dan Xie Gan Tang (Gentiana Decoction to Drain the Liver)" },
+    ],
+    answer: "C",
+    explanations: [
+      { letter: "A", pattern: "Damp-heat toxin", verdict: false, note: "Gan Lu Xiao Du Dan treats severe damp-heat with toxic features (jaundice, etc.) — not the primary pattern here." },
+      { letter: "B", pattern: "Yin deficiency with heat", verdict: false, note: "Huang Lian E Jiao Tang is for heart-kidney yin deficiency with insomnia; no yin-deficiency signs here." },
+      { letter: "C", pattern: "Phlegm-heat disturbing the gallbladder", verdict: true, note: "Yellow greasy coating + slippery rapid pulse + insomnia with dreams + chest oppression + belching = phlegm-heat. Wen Dan Tang clears phlegm-heat from the gallbladder and stomach, calming the spirit." },
+      { letter: "D", pattern: "Liver fire", verdict: false, note: "Long Dan Xie Gan Tang is for excess liver-gallbladder fire, not the phlegm-heat pattern seen here." },
+    ]
+  },
+  {
+    id: 10,
+    category: "Yang Deficiency + Cold-Damp",
+    stem: "A 71-year-old male with a long history of smoking and right-sided heart failure presents with abdominal distension that worsens in the evening. He has epigastric fullness, poor appetite, fatigue, fear of cold, lower limb edema, reduced urination, pale-yellow complexion, a pale swollen purplish tongue, and a deep weak wiry pulse. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Ge Xia Zhu Yu Tang (Drive Out Blood Stasis Below the Diaphragm Decoction)" },
+      { letter: "B", text: "Wei Ling Tang (Calm the Stomach and Poria Decoction)" },
+      { letter: "C", text: "Sheng Mai San (Generate the Pulse Powder)" },
+      { letter: "D", text: "Fu Zi Li Zhong Tang (Aconite Decoction to Regulate the Middle)" },
+    ],
+    answer: "D",
+    explanations: [
+      { letter: "A", pattern: "Blood stasis", verdict: false, note: "Although the tongue is purplish, the dominant pattern is yang deficiency with cold-damp — blood stasis is secondary." },
+      { letter: "B", pattern: "Damp accumulation (not warming)", verdict: false, note: "Wei Ling Tang drains damp but does not warm yang — inadequate for the severe yang deficiency with cold presentation." },
+      { letter: "C", pattern: "Qi-yin deficiency", verdict: false, note: "Sheng Mai San nourishes qi and yin — contradicted here by the predominant cold and yang deficiency." },
+      { letter: "D", pattern: "Spleen-kidney yang deficiency + cold-damp", verdict: true, note: "Fear of cold, pale swollen tongue, edema, fatigue, and deep weak pulse = yang deficiency with cold-damp accumulation. Fu Zi Li Zhong Tang warms the spleen-kidney yang and disperses cold-damp." },
+    ]
+  },
+  {
+    id: 11,
+    category: "Phlegm-Damp Dizziness",
+    stem: "Mr. Huang recently experiences dizziness with a heavy sensation in the head as if wrapped, chest oppression, nausea, poor appetite, and excessive sleepiness. His tongue coating is white and greasy, and his pulse is soft and moderate. Which of the following formulas is most appropriate?",
+    options: [
+      { letter: "A", text: "Gui Pi Tang (Restore the Spleen Decoction)" },
+      { letter: "B", text: "Tian Ma Gou Teng Yin (Gastrodia and Uncaria Decoction)" },
+      { letter: "C", text: "Ban Xia Bai Zhu Tian Ma Tang (Pinellia, Atractylodes and Gastrodia Decoction)" },
+      { letter: "D", text: "You Gui Wan (Restore the Right Kidney Yang Pill)" },
+    ],
+    answer: "C",
+    explanations: [
+      { letter: "A", pattern: "Spleen-heart deficiency", verdict: false, note: "Gui Pi Tang is for deficiency; no phlegm-damp signs." },
+      { letter: "B", pattern: "Liver yang rising", verdict: false, note: "No heat signs, hyperactivity, or liver yang features. Soft-moderate pulse ≠ wiry-rapid." },
+      { letter: "C", pattern: "Phlegm-damp obstructing the middle", verdict: true, note: "Heavy-wrapped head + nausea + greasy white coating + soft-moderate pulse = phlegm-damp rising and blocking clear yang. Ban Xia Bai Zhu Tian Ma Tang dries damp, resolves phlegm, and extinguishes wind." },
+      { letter: "D", pattern: "Kidney yang deficiency", verdict: false, note: "No cold limbs, back soreness, or frequency of urination; yang deficiency is not the primary pattern." },
+    ]
+  },
+  {
+    id: 12,
+    category: "Digestion / Spleen Qi Deficiency",
+    stem: "A 65-year-old woman with a long history of absence epilepsy experiences increased frequency of episodes when fatigued. She has afternoon fatigue, dizziness, poor appetite, abdominal distension, and loose stools. Her tongue is pale with a thin white coating, and her pulse is weak. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Liu Jun Zi Tang (Six Gentlemen Decoction)" },
+      { letter: "B", text: "Da Ding Feng Zhu (Major Stabilize the Wind Pearl)" },
+      { letter: "C", text: "Di Tan Tang (Scour Out Phlegm Decoction)" },
+      { letter: "D", text: "Tian Ma Gou Teng Yin (Gastrodia and Uncaria Decoction)" },
+    ],
+    answer: "A",
+    explanations: [
+      { letter: "A", pattern: "Spleen qi deficiency", verdict: true, note: "Pale tongue, weak pulse, poor appetite, loose stool, and fatigue triggered by exertion = spleen qi deficiency. Liu Jun Zi Tang tonifies qi, strengthens the spleen, and resolves phlegm — treating the root of the epilepsy." },
+      { letter: "B", pattern: "Yin deficiency wind-stirring", verdict: false, note: "Da Ding Feng Zhu treats extreme yin deficiency with convulsions — not the deficiency pattern here." },
+      { letter: "C", pattern: "Phlegm obstruction", verdict: false, note: "Di Tan Tang opens orifices blocked by phlegm — the main pattern is deficiency, not phlegm excess." },
+      { letter: "D", pattern: "Liver yang rising", verdict: false, note: "No liver yang signs; the presentation is purely spleen deficiency." },
+    ]
+  },
+  {
+    id: 13,
+    category: "Digestion / Middle Burner",
+    stem: "A 34-year-old woman has had recurrent abdominal pain for one year after childbirth. The pain is dull and intermittent, prefers warmth and pressure, worsens with hunger or fatigue, and improves after eating or resting. She has loose stools, aversion to cold, fatigue, and shortness of breath. Her tongue is light red with a white coating, and her pulse is deep and thready. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Tian Xiang Zheng Qi San (Heavenly Fragrance Correct Qi Powder)" },
+      { letter: "B", text: "Chai Hu Shu Gan San (Bupleurum Powder to Spread the Liver)" },
+      { letter: "C", text: "Shao Fu Zhu Yu Tang (Drive Out Blood Stasis in the Lower Abdomen Decoction)" },
+      { letter: "D", text: "Xiao Jian Zhong Tang (Minor Construct the Middle Decoction)" },
+    ],
+    answer: "D",
+    explanations: [
+      { letter: "A", pattern: "External damp pathogen", verdict: false, note: "No exterior pattern; this is an internal deficiency condition." },
+      { letter: "B", pattern: "Liver qi stagnation", verdict: false, note: "Pain is dull and relieved by warmth/pressure — not the distending pain of qi stagnation." },
+      { letter: "C", pattern: "Blood stasis in lower abdomen", verdict: false, note: "No stabbing, fixed pain — blood stasis signs are absent." },
+      { letter: "D", pattern: "Middle burner deficiency-cold", verdict: true, note: "Dull intermittent pain relieved by warmth, pressure, and eating; aggravated by hunger/fatigue; loose stools; aversion to cold = middle burner deficiency-cold. Xiao Jian Zhong Tang warms and tonifies the middle burner, relieves spasm." },
+    ]
+  },
+  {
+    id: 14,
+    category: "Asthma Differentiation",
+    stem: "Regarding pattern differentiation and treatment of asthma during an acute attack, which of the following statements is INCORRECT?",
+    options: [
+      { letter: "A", text: "White thin foamy sputum, chest fullness, aversion to cold, headache, white greasy coating, floating tight pulse → Xiao Qing Long Tang" },
+      { letter: "B", text: "Yellow or white sticky sputum, coarse breathing, sweating, no aversion to cold, chest oppression, yellow greasy coating, floating rapid pulse → Ding Chuan Tang" },
+      { letter: "C", text: "Abundant phlegm, wheezing like a saw, severe dyspnea, inability to lie flat, thick greasy coating, slippery pulse → San Zi Yang Qin Tang" },
+      { letter: "D", text: "Scanty sticky sputum, low wheezing, shortness of breath worse with exertion, dry throat, red cheeks, red tongue with little coating, thin rapid pulse → Yue Bi Jia Ban Xia Tang" },
+    ],
+    answer: "D",
+    explanations: [
+      { letter: "A", pattern: "Cold-phlegm exterior", verdict: true, note: "Correct — Xiao Qing Long Tang is the standard formula for cold-phlegm attacking the lung with exterior cold signs." },
+      { letter: "B", pattern: "Phlegm-heat", verdict: true, note: "Correct — Ding Chuan Tang clears phlegm-heat and arrests wheezing; yellow greasy coating + rapid pulse confirm." },
+      { letter: "C", pattern: "Phlegm accumulation blocking the lung", verdict: true, note: "Correct — San Zi Yang Qin Tang reduces food stagnation and transforms phlegm, suitable for abundant phlegm obstructing the airways." },
+      { letter: "D", pattern: "Exterior heat with water (wrong for yin-deficiency pattern)", verdict: false, note: "INCORRECT — The described symptoms (scanty sticky sputum, dry throat, red cheeks, red tongue with little coating, thin rapid pulse) indicate KIDNEY YIN DEFICIENCY. Yue Bi Jia Ban Xia Tang treats exterior heat with water-qi — it is inappropriate for yin-deficiency asthma." },
+    ]
+  },
+  {
+    id: 15,
+    category: "Wind-Heat Cough",
+    stem: "A 58-year-old male presents with a one-week history of cough, hoarse voice, and thick yellow sputum. His tongue has a thin yellow coating and his pulse is floating and rapid. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Zhi Sou San (Stop Cough Powder)" },
+      { letter: "B", text: "Jing Fang Bai Du San (Schizonepeta and Ledebouriella Powder to Overcome Toxin)" },
+      { letter: "C", text: "Xing Su San (Apricot Kernel and Perilla Leaf Powder)" },
+      { letter: "D", text: "Sang Ju Yin (Mulberry Leaf and Chrysanthemum Decoction)" },
+    ],
+    answer: "D",
+    explanations: [
+      { letter: "A", pattern: "Chronic or mild cough", verdict: false, note: "Zhi Sou San is for lingering cough without significant heat signs." },
+      { letter: "B", pattern: "Wind-cold", verdict: false, note: "Jing Fang Bai Du San is for wind-cold exterior; this case is wind-heat." },
+      { letter: "C", pattern: "Cool-dryness", verdict: false, note: "Xing Su San is for dry cough with little or no sputum — opposite of the thick yellow sputum here." },
+      { letter: "D", pattern: "Wind-heat cough", verdict: true, note: "Floating-rapid pulse + thin yellow coating + yellow sputum = wind-heat. Sang Ju Yin disperses wind-heat from the lung and stops cough." },
+    ]
+  },
+  {
+    id: 16,
+    category: "Shaoyang",
+    stem: "A patient presents with alternating chills and fever, fullness in the chest and hypochondrium, bitter taste in the mouth, dry throat, dizziness, poor appetite, irritability, and a tendency to vomit. The tongue coating is thin and white, and the pulse is wiry. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Da Qing Long Tang (Major Blue-Green Dragon Decoction)" },
+      { letter: "B", text: "Xiao Chai Hu Tang (Minor Bupleurum Decoction)" },
+      { letter: "C", text: "Yin Qiao San (Honeysuckle and Forsythia Powder)" },
+      { letter: "D", text: "Si Ni Tang (Frigid Extremities Decoction)" },
+    ],
+    answer: "B",
+    explanations: [
+      { letter: "A", pattern: "Exterior cold with interior heat", verdict: false, note: "Da Qing Long Tang treats a strong exterior cold presentation — not the half-in/half-out Shaoyang pattern." },
+      { letter: "B", pattern: "Shaoyang (half exterior / half interior)", verdict: true, note: "Alternating chills and fever + hypochondriac fullness + bitter mouth + wiry pulse = the four cardinal Shaoyang symptoms. Xiao Chai Hu Tang is the primary Shaoyang formula." },
+      { letter: "C", pattern: "Wind-heat", verdict: false, note: "Yin Qiao San releases exterior wind-heat — the Shaoyang pattern here is not a simple wind-heat exterior." },
+      { letter: "D", pattern: "Yang deficiency with cold extremities", verdict: false, note: "Si Ni Tang warms kidney yang and rescues devastated yang — no yang-collapse signs here." },
+    ]
+  },
+  {
+    id: 17,
+    category: "Heart Fire",
+    stem: "A child behaves normally during the day but cries continuously at night. The child dislikes heat, and crying worsens with light stimulation. During crying, the face and lips are red, with irritability and restlessness, constipation, and a red tongue tip with yellow coating. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Tian Tai Wu Yao San (Top-Quality Lindera Powder)" },
+      { letter: "B", text: "Dao Chi San (Guide Out the Red Powder)" },
+      { letter: "C", text: "Lian Zi Qing Xin Yin (Lotus Seed Decoction to Clear the Heart)" },
+      { letter: "D", text: "Long Dan Xie Gan Tang (Gentiana Decoction to Drain the Liver)" },
+    ],
+    answer: "B",
+    explanations: [
+      { letter: "A", pattern: "Cold pattern", verdict: false, note: "Tian Tai Wu Yao San warms and moves cold qi — completely opposite to the heat presentation." },
+      { letter: "B", pattern: "Heart fire excess", verdict: true, note: "Red tongue tip, yellow coating, dislikes heat, irritability at night, red face = heart fire. Dao Chi San clears heart fire and guides heat downward through the urine." },
+      { letter: "C", pattern: "Heart-kidney disharmony", verdict: false, note: "Lian Zi Qing Xin Yin is for heart-kidney disharmony with yin deficiency — not pure excess fire." },
+      { letter: "D", pattern: "Liver-gallbladder fire", verdict: false, note: "Long Dan Xie Gan Tang drains liver fire — the primary fire here is in the heart (red tongue tip, night crying with heat aversion)." },
+    ]
+  },
+  {
+    id: 18,
+    category: "Warming the Interior",
+    stem: "A 45-year-old woman with a history of lung cancer reports chronic abdominal pain after chemotherapy. The pain is intermittent, accompanied by diarrhea with undigested food, cold limbs, pale complexion, pale tongue, thin white coating, and a deep thready pulse. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Si Ni San (Frigid Extremities Powder)" },
+      { letter: "B", text: "Xiao Yao San (Free and Easy Wanderer Powder)" },
+      { letter: "C", text: "You Gui Wan (Restore the Right Kidney Yang Pill)" },
+      { letter: "D", text: "Fu Zi Li Zhong Tang (Aconite Decoction to Regulate the Middle)" },
+    ],
+    answer: "D",
+    explanations: [
+      { letter: "A", pattern: "Qi stagnation", verdict: false, note: "Si Ni San spreads liver qi and clears heat — incorrect for this cold deficiency pattern." },
+      { letter: "B", pattern: "Liver qi stagnation", verdict: false, note: "Xiao Yao San harmonizes the liver and spleen — not a warming formula." },
+      { letter: "C", pattern: "Kidney yang deficiency", verdict: false, note: "You Gui Wan primarily tonifies kidney yang — the main organ here is the spleen (diarrhea with undigested food = spleen failing to transform)." },
+      { letter: "D", pattern: "Spleen yang deficiency with interior cold", verdict: true, note: "Cold limbs, diarrhea with undigested food, pale tongue, deep thready pulse = spleen yang deficiency causing interior cold. Fu Zi Li Zhong Tang warms the middle burner and rescues yang." },
+    ]
+  },
+  {
+    id: 19,
+    category: "Tonify Qi",
+    stem: "A 65-year-old woman with long-standing absence epilepsy experiences more frequent episodes with fatigue. She has afternoon fatigue, dizziness, poor appetite, abdominal distension, and loose stools. Her tongue is pale with a thin white coating, and her pulse is weak. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Liu Jun Zi Tang (Six Gentlemen Decoction)" },
+      { letter: "B", text: "Da Ding Feng Zhu (Major Stabilize the Wind Pearl)" },
+      { letter: "C", text: "Di Tan Tang (Scour Out Phlegm Decoction)" },
+      { letter: "D", text: "Tian Ma Gou Teng Yin (Gastrodia and Uncaria Decoction)" },
+    ],
+    answer: "A",
+    explanations: [
+      { letter: "A", pattern: "Spleen qi deficiency", verdict: true, note: "Pale tongue, weak pulse, loose stools, poor appetite, fatigue triggered by exertion = spleen qi deficiency. Liu Jun Zi Tang tonifies spleen qi and resolves phlegm." },
+      { letter: "B", pattern: "Yin deficiency wind-stirring", verdict: false, note: "Da Ding Feng Zhu treats convulsions from extreme yin deficiency — not applicable here." },
+      { letter: "C", pattern: "Phlegm obstruction", verdict: false, note: "Di Tan Tang scours phlegm obstructing the orifices; the root here is deficiency, not phlegm excess." },
+      { letter: "D", pattern: "Liver yang rising", verdict: false, note: "No liver yang signs (no wiry-rapid pulse, no headache with heat)." },
+    ]
+  },
+  {
+    id: 20,
+    category: "Bi Syndrome (Painful Obstruction)",
+    stem: "Mr. Pang works in construction, squatting for long periods. He frequently experiences soreness in the lower back and weakness when walking, and feels exhausted after work. His chi position pulse is weak and floating. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Er Miao San (Two-Marvel Powder)" },
+      { letter: "B", text: "Wu Ji San (Five Accumulation Powder)" },
+      { letter: "C", text: "Du Huo Ji Sheng Tang (Angelica Pubescens and Sangjisheng Decoction)" },
+      { letter: "D", text: "Fu Yuan Huo Xue Tang (Revive Health by Invigorating Blood Decoction)" },
+    ],
+    answer: "C",
+    explanations: [
+      { letter: "A", pattern: "Damp-heat", verdict: false, note: "Er Miao San clears damp-heat from the lower burner — no heat signs here." },
+      { letter: "B", pattern: "External cold-damp accumulation", verdict: false, note: "Wu Ji San addresses exterior cold with multiple accumulations — more acute/exterior in focus." },
+      { letter: "C", pattern: "Bi syndrome with liver-kidney deficiency", verdict: true, note: "Chronic lower back soreness, leg weakness, exhaustion, and a weak floating chi pulse = liver-kidney deficiency with wind-cold-damp Bi. Du Huo Ji Sheng Tang dispels wind-damp while tonifying the liver, kidneys, and blood." },
+      { letter: "D", pattern: "Blood stasis", verdict: false, note: "Fu Yuan Huo Xue Tang is for traumatic blood stasis — no trauma or fixed stabbing pain here." },
+    ]
+  },
+  {
+    id: 21,
+    category: "Tonify Qi & Blood (Heart-Gallbladder Deficiency)",
+    stem: "A 19-year-old male has been timid and easily startled since childhood, with excessive dreaming and palpitations. His symptoms have recently worsened with stress. His tongue is pale, and his pulse is wiry and thready. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Gui Pi Tang (Restore the Spleen Decoction)" },
+      { letter: "B", text: "An Shen Ding Zhi Wan (Calm the Spirit and Stabilize the Will Pill)" },
+      { letter: "C", text: "Wen Dan Tang (Warm the Gallbladder Decoction)" },
+      { letter: "D", text: "Ban Xia Shu Mi Tang (Pinellia and Millet Decoction)" },
+    ],
+    answer: "B",
+    explanations: [
+      { letter: "A", pattern: "Spleen-heart deficiency", verdict: false, note: "Gui Pi Tang addresses spleen-heart deficiency (insufficient blood production); the key symptom here is easy startle = heart-gallbladder qi deficiency." },
+      { letter: "B", pattern: "Heart-gallbladder qi deficiency", verdict: true, note: "Timid, easily startled, palpitations, pale tongue, wiry-thready pulse = heart-gallbladder qi deficiency. An Shen Ding Zhi Wan calms the spirit and boosts heart-gallbladder qi." },
+      { letter: "C", pattern: "Phlegm-heat", verdict: false, note: "No heat or phlegm signs; the pattern is deficiency, not excess." },
+      { letter: "D", pattern: "Stomach disharmony insomnia", verdict: false, note: "Ban Xia Shu Mi Tang addresses stomach disharmony causing sleeplessness — not appropriate for fright/startle from deficiency." },
+    ]
+  },
+  {
+    id: 22,
+    category: "Tonify Yin",
+    stem: "A 77-year-old woman with a history of physical labor presents with progressive fatigue, soreness and weakness in the lower back and legs, dizziness, tinnitus, dry mouth, red cheeks, red tongue with little fluid, and a deep thready pulse. Which formula is most appropriate?",
+    options: [
+      { letter: "A", text: "Zuo Gui Wan (Restore the Left Kidney Yin Pill)" },
+      { letter: "B", text: "You Gui Wan (Restore the Right Kidney Yang Pill)" },
+      { letter: "C", text: "Bu Zhong Yi Qi Tang (Tonify the Middle and Augment the Qi Decoction)" },
+      { letter: "D", text: "Ba Zhen Tang (Eight-Treasure Decoction)" },
+    ],
+    answer: "A",
+    explanations: [
+      { letter: "A", pattern: "Kidney yin deficiency", verdict: true, note: "Dry mouth, red cheeks, red tongue with little fluid, dizziness, tinnitus, deep thready pulse = kidney yin deficiency with empty heat. Zuo Gui Wan nourishes kidney yin without the purging action of Liu Wei Di Huang Wan." },
+      { letter: "B", pattern: "Kidney yang deficiency", verdict: false, note: "You Gui Wan warms kidney yang — the heat signs (red cheeks, dry mouth, red tongue) indicate yin deficiency, not yang deficiency." },
+      { letter: "C", pattern: "Spleen-stomach qi sinking", verdict: false, note: "Bu Zhong Yi Qi Tang raises sunken middle qi — not indicated for yin deficiency with lower body weakness." },
+      { letter: "D", pattern: "Qi-blood deficiency", verdict: false, note: "Ba Zhen Tang tonifies both qi and blood — no blood deficiency signs (pale complexion, pale tongue) are present." },
+    ]
+  },
+];
+
+let state = {};
+
+function init() {
+  state = {};
+  questions.forEach(q => { state[q.id] = null; });
+  renderAll();
+}
+
+function renderAll() {
+  const main = document.getElementById('quiz-main');
+  main.innerHTML = '';
+  questions.forEach(q => main.appendChild(renderCard(q)));
+  updateProgress();
+}
+
+function renderCard(q) {
+  const div = document.createElement('div');
+  div.className = 'q-card';
+  div.id = `card-${q.id}`;
+
+  const answered = state[q.id];
+  if (answered) {
+    div.classList.add(answered === q.answer ? 'answered-correct' : 'answered-wrong');
+  }
+
+  div.innerHTML = `
+    <div class="q-header">
+      <div>
+        <div class="q-number">Q${q.id}</div>
+      </div>
+      <div>
+        <div class="q-category">${q.category}</div>
+        <div class="q-stem">${q.stem.replace(/\n/g, '<br>')}</div>
+      </div>
+    </div>
+    <div class="options" id="opts-${q.id}">
+      ${q.options.map(opt => renderOption(q, opt)).join('')}
+    </div>
+    <div class="explanation ${answered ? 'visible' : ''}" id="exp-${q.id}">
+      <div class="explanation-title">Explanation</div>
+      ${q.explanations.map(e => `
+        <div class="exp-row">
+          <div class="exp-opt">${e.letter}.</div>
+          <div class="exp-text"><strong>${e.pattern}</strong> — ${e.note}</div>
+          <div class="exp-verdict ${e.verdict ? 'ok' : 'no'}">${e.verdict ? '✓' : '✗'}</div>
+        </div>
+      `).join('')}
+      <div class="answer-label">Correct Answer: <span>${q.answer}</span></div>
+    </div>
+  `;
+
+  return div;
+}
+
+function renderOption(q, opt) {
+  const answered = state[q.id];
+  let cls = 'option';
+  let icon = '';
+
+  if (answered) {
+    cls += ' disabled';
+    if (opt.letter === answered) {
+      cls += answered === q.answer ? ' selected-correct' : ' selected-wrong';
+      icon = answered === q.answer ? '✓' : '✗';
+    } else if (opt.letter === q.answer && answered !== q.answer) {
+      cls += ' reveal-correct';
+      icon = '✓';
+    }
+  }
+
+  const clickAttr = answered ? '' : `onclick="pick(${q.id}, '${opt.letter}')"`;
+
+  return `
+    <div class="${cls}" ${clickAttr}>
+      <div class="option-letter">${opt.letter}.</div>
+      <div class="option-text">${opt.text}</div>
+      <div class="option-icon">${icon}</div>
+    </div>
+  `;
+}
+
+function pick(qid, letter) {
+  if (state[qid] !== null) return;
+  state[qid] = letter;
+
+  const q = questions.find(q => q.id === qid);
+  const card = document.getElementById(`card-${qid}`);
+  const opts = document.getElementById(`opts-${qid}`);
+  const exp = document.getElementById(`exp-${qid}`);
+
+  // Update card class
+  card.classList.add(letter === q.answer ? 'answered-correct' : 'answered-wrong');
+
+  // Re-render options
+  opts.innerHTML = q.options.map(opt => renderOption(q, opt)).join('');
+
+  // Show explanation
+  exp.classList.add('visible');
+
+  updateProgress();
+}
+
+function updateProgress() {
+  const total = questions.length;
+  const answered = Object.values(state).filter(v => v !== null).length;
+  const correct = questions.filter(q => state[q.id] === q.answer).length;
+  const wrong = answered - correct;
+
+  document.getElementById('prog-label').textContent = `${answered} / ${total} answered`;
+  document.getElementById('prog-pct').textContent = Math.round(answered / total * 100) + '%';
+  document.getElementById('progress-fill').style.width = (answered / total * 100) + '%';
+  document.getElementById('chip-answered').textContent = `Answered: ${answered}`;
+  document.getElementById('chip-correct').textContent = `Correct: ${correct}`;
+  document.getElementById('chip-wrong').textContent = `Wrong: ${wrong}`;
+
+  const fs = document.getElementById('final-score');
+  if (answered === total) {
+    fs.classList.add('visible');
+    document.getElementById('final-heading').textContent = `Final Score: ${correct} / ${total}`;
+    const pct = Math.round(correct / total * 100);
+    let msg = pct >= 90 ? '🏆 Excellent! Outstanding TCM pattern recognition.' :
+              pct >= 75 ? '👍 Good work! Review the explanations for missed questions.' :
+              pct >= 60 ? '📖 Keep practicing — review the explanations carefully.' :
+              '💪 Keep studying — revisit the reasoning for each question.';
+    document.getElementById('final-msg').textContent = `${pct}% — ${msg}`;
+    fs.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } else {
+    fs.classList.remove('visible');
+  }
+}
+
+function resetQuiz() {
+  init();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+init();
+</script>
+</body>
+</html>
