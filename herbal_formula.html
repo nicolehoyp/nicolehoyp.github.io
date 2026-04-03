@@ -369,6 +369,14 @@ body::after {
 
 .btn-primary:hover { background: var(--moss); border-color: var(--moss); }
 
+.btn-golden {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+.btn-golden:hover { background: #7a5e1e; border-color: #7a5e1e; }
+
 /* Result info bar */
 .result-bar {
   padding: 10px 36px;
@@ -1342,6 +1350,10 @@ mark {
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         Practice Quiz
       </button>
+      <button class="btn-sm btn-golden" onclick="launchFCAll()" style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        Flash Card All
+      </button>
       <button class="btn-sm btn-outline" onclick="expandAllSubs()">Expand All</button>
       <button class="btn-sm btn-outline" onclick="collapseAllSubs()">Collapse</button>
     </div>
@@ -1888,6 +1900,26 @@ window.launchFCForGroup = function(g) {
     mainGroup: r.MainGROUP || '',
   }));
   fcOpen(deck, g);
+};
+
+// Launch flash cards for ALL 145 formulas, shuffled
+window.launchFCAll = function() {
+  const deck = DATA.map(r => ({
+    pinyin:    r['Formula PINYIN'] || '',
+    latin:     r['Formula LATIN']  || '',
+    pattern:   (r['Actions'] || '').replace(/【|】/g, ' ').trim(),
+    functions: r['Functions'] || '',
+    subgroup:  r.SUBGROUP || '',
+    mainGroup: r.MainGROUP || '',
+  })).filter(d => d.pinyin);
+
+  // Fisher-Yates shuffle
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+
+  fcOpen(deck, 'All Formulas — Full Deck');
 };
 
 function fcOpen(deck, title) {
