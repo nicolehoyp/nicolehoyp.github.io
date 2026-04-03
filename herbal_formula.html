@@ -1577,13 +1577,31 @@ function parseBullets(text, q) {
 
 function parseIngredients(text, q) {
   if (!text) return `<span class="cell-empty">—</span>`;
-  // Split by capital letter followed by lowercase (herb name boundaries)
   const clean = text.replace(/【.*?】/g, '').trim();
-  // Try to split on 'g' followed by capital
-  const parts = clean.split(/(?<=\d\s*g)(?=[A-Z])/);
-  if (parts.length > 1) {
-    return parts.map(p => `<div>${hl(p.trim(), q)}</div>`).join('');
+
+  // Case 1: has dosages — split on 'g' followed by capital
+  const partsWithDose = clean.split(/(?<=\d[\d.]*\s*g)(?=[A-Z])/);
+  if (partsWithDose.length > 1) {
+    // Each part may still have undosed trailing herbs — apply camel split to last part if needed
+    const finalParts = partsWithDose.flatMap(p => {
+      const trimmed = p.trim();
+      // If this segment has no digits (no dosage), try camel split
+      if (!/\d/.test(trimmed) && /[a-z][A-Z]/.test(trimmed)) {
+        return trimmed.split(/(?<=[a-z])(?=[A-Z])/).map(s => s.trim());
+      }
+      return [trimmed];
+    });
+    return finalParts.map(p => `<div>${hl(p, q)}</div>`).join('');
   }
+
+  // Case 2: no dosages at all — split on camelCase herb name boundaries
+  if (/[a-z][A-Z]/.test(clean)) {
+    const parts = clean.split(/(?<=[a-z])(?=[A-Z])/);
+    if (parts.length > 1) {
+      return parts.map(p => `<div>${hl(p.trim(), q)}</div>`).join('');
+    }
+  }
+
   return hl(clean, q);
 }
 
