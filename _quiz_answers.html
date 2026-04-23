@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture Quiz Answer Sheet</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Segoe UI", "Noto Sans TC", sans-serif; background: #f5f3ee; color: #1a1a2e; }
+header { background: #1a1a2e; color: #fff; padding: 1.5rem; text-align: center; border-bottom: 4px solid #c0392b; }
+header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+header p { font-size: 0.8rem; opacity: 0.6; margin-top: 4px; letter-spacing: 2px; text-transform: uppercase; }
+.controls { background: #ece9e1; padding: 0.8rem; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; align-items: center; border-bottom: 1px solid #d5cfc4; }
+.controls button { border: 2px solid #1a1a2e; background: white; color: #1a1a2e; font-family: inherit; font-size: 0.8rem; font-weight: 600; padding: 0.35rem 1rem; cursor: pointer; }
+.controls button:hover { background: #1a1a2e; color: white; }
+.controls input { border: 2px solid #1a1a2e; padding: 0.35rem 0.7rem; font-family: inherit; font-size: 0.82rem; width: 200px; outline: none; }
+main { max-width: 820px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.card { background: #fff; border: 1px solid #ddd; margin-bottom: 10px; }
+.card-header { display: flex; gap: 10px; padding: 0.9rem 1rem 0.7rem; cursor: pointer; align-items: flex-start; user-select: none; }
+.num { color: #c0392b; font-weight: 700; font-size: 1.1rem; min-width: 28px; flex-shrink: 0; }
+.q-wrap { flex: 1; }
+.q-en { font-weight: 600; font-size: 0.93rem; line-height: 1.5; }
+.q-zh { font-size: 0.84rem; color: #666; margin-top: 2px; }
+.arrow { color: #bbb; font-size: 0.75rem; flex-shrink: 0; margin-top: 4px; transition: transform 0.2s; }
+.card.open .arrow { transform: rotate(180deg); }
+.card-body { display: none; padding: 0 1rem 0.9rem; border-top: 1px dashed #ddd; }
+.card.open .card-body { display: block; }
+.options { margin-top: 8px; }
+.option { display: flex; gap: 8px; padding: 0.35rem 0.6rem; margin-bottom: 4px; border-left: 3px solid transparent; }
+.option.correct { background: #e8f5ee; border-left: 3px solid #1a6b3c; }
+.opt-letter { font-weight: 700; color: #999; min-width: 20px; flex-shrink: 0; }
+.option.correct .opt-letter { color: #1a6b3c; }
+.opt-en { font-size: 0.9rem; }
+.opt-zh { font-size: 0.81rem; color: #666; }
+.badge { display: inline-block; background: #1a6b3c; color: #fff; font-size: 0.72rem; padding: 0.15rem 0.6rem; font-weight: 700; letter-spacing: 1px; margin-top: 8px; }
+.hidden { display: none !important; }
+.no-result { text-align: center; color: #aaa; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Lecture Quiz — Answer Sheet</h1>
+  <p>50 Questions · English + 中文 · 正確答案標示</p>
+</header>
+
+<div class="controls">
+  <button onclick="expandAll()">展開全部 Expand All</button>
+  <button onclick="collapseAll()">收合全部 Collapse All</button>
+  <input type="text" id="search" placeholder="🔍 搜尋 Search..." oninput="filterQ()">
+</div>
+
+<main id="list"></main>
+
+<script>
+const qs = [
+  {en:"Which of the following is considered a key characteristic of a good research question, indicating that the study is actually capable of being conducted?",zh:"下列哪個選項是好研究問題的關鍵特徵，表示該研究確實可以進行？",opts:[{l:"A",en:"Novel",zh:"新穎性"},{l:"B",en:"Feasible",zh:"可行性",c:1},{l:"C",en:"Ethical",zh:"倫理性"},{l:"D",en:"Relevant",zh:"相關性"}]},
+  {en:"When generating a research question, ensuring the study brings new information or has not been done exactly the same way before refers to which criteria?",zh:"確保研究帶來新資訊或以前未以完全相同方式進行，指的是哪個標準？",opts:[{l:"A",en:"Feasible",zh:"可行性"},{l:"B",en:"Ethical",zh:"倫理性"},{l:"C",en:"Novel",zh:"新穎性",c:1},{l:"D",en:"Interesting",zh:"趣味性"}]},
+  {en:"After submitting a manuscript, what is the process where experts examine the study and provide recommendations and feedback?",zh:"將稿件提交後，專家審查研究並向期刊提出建議及向作者提供回饋的過程稱為？",opts:[{l:"A",en:"Grant application",zh:"申請經費"},{l:"B",en:"Industry funding",zh:"產業資助"},{l:"C",en:"Peer-review",zh:"同儕審查",c:1},{l:"D",en:"Editorial assessment",zh:"編輯評估"}]},
+  {en:"The research norm that states scientific knowledge is commonly owned and publicly available is known as:",zh:"主張科學知識為共同擁有且公開可取得的研究規範稱為：",opts:[{l:"A",en:"Universalism",zh:"普遍主義"},{l:"B",en:"Organized Skepticism",zh:"有組織的懷疑主義"},{l:"C",en:"Disinterestedness",zh:"無私性"},{l:"D",en:"Communalism",zh:"共有主義",c:1}]},
+  {en:"The principle that all scientific claims should be subjected to the same rigorous standards and evaluated based on objective criteria is called:",zh:"所有科學主張應接受相同嚴格標準並依客觀標準評估的原則稱為：",opts:[{l:"A",en:"Communalism",zh:"共有主義"},{l:"B",en:"Universalism",zh:"普遍主義",c:1},{l:"C",en:"Disinterestedness",zh:"無私性"},{l:"D",en:"Organized Skepticism",zh:"有組織的懷疑主義"}]},
+  {en:"When scientists work for the good of science rather than personal gain and disclose conflicts of interest, they adhere to:",zh:"科學家為科學事業而非個人利益工作，並揭露利益衝突，此行為遵循的規範是：",opts:[{l:"A",en:"Communalism",zh:"共有主義"},{l:"B",en:"Universalism",zh:"普遍主義"},{l:"C",en:"Disinterestedness",zh:"無私性",c:1},{l:"D",en:"Organized Skepticism",zh:"有組織的懷疑主義"}]},
+  {en:"The scientific norm dictating that studies should be critically examined before they are accepted is known as:",zh:"規定研究在被接受前應受批判性審查的科學規範稱為：",opts:[{l:"A",en:"Universalism",zh:"普遍主義"},{l:"B",en:"Disinterestedness",zh:"無私性"},{l:"C",en:"Communalism",zh:"共有主義"},{l:"D",en:"Organized Skepticism",zh:"有組織的懷疑主義",c:1}]},
+  {en:"In the hierarchy of evidence, which is considered a secondary, pre-appraised, or filtered study?",zh:"在證據層次中，下列哪項被視為次級、預先評估或過濾過的研究？",opts:[{l:"A",en:"Systematic Reviews",zh:"系統性回顧",c:1},{l:"B",en:"Randomized Controlled Trials",zh:"隨機對照試驗"},{l:"C",en:"Cohort Studies",zh:"世代研究"},{l:"D",en:"Case-Control Studies",zh:"病例對照研究"}]},
+  {en:"Based on the ability to control for bias and demonstrate cause and effect in humans, which primary study design is ranked highest?",zh:"基於控制偏差及在人類中展示因果關係的能力，哪種初級研究設計排名最高？",opts:[{l:"A",en:"Cohort Studies",zh:"世代研究"},{l:"B",en:"Randomized Controlled Trial",zh:"隨機對照試驗",c:1},{l:"C",en:"Case Report",zh:"個案報告"},{l:"D",en:"Cross-Sectional Studies",zh:"橫斷面研究"}]},
+  {en:"Which type of primary study falls directly below Randomized Controlled Trials in the evidence hierarchy?",zh:"在證據層次中，哪種初級研究緊接在隨機對照試驗之下？",opts:[{l:"A",en:"Animal & Laboratory Studies",zh:"動物與實驗室研究"},{l:"B",en:"Narrative Reviews",zh:"敘述性回顧"},{l:"C",en:"Cohort Studies",zh:"世代研究",c:1},{l:"D",en:"Case-Control Studies",zh:"病例對照研究"}]},
+  {en:"Which study type sits at the very bottom of the evidence hierarchy?",zh:"哪種研究類型位於證據層次的最底層？",opts:[{l:"A",en:"Case Series",zh:"病例系列"},{l:"B",en:"Narrative Reviews",zh:"敘述性回顧"},{l:"C",en:"Cross-Sectional Studies",zh:"橫斷面研究"},{l:"D",en:"Animal & Laboratory Studies",zh:"動物與實驗室研究",c:1}]},
+  {en:"If a research instrument consistently hits the same spot but misses the bullseye, it is considered:",zh:"若研究工具持續打中靶上同一個點，但完全未打中靶心，則被認為是：",opts:[{l:"A",en:"Reliable but not valid",zh:"可信但不效度",c:1},{l:"B",en:"Valid but not reliable",zh:"效度高但不可信"},{l:"C",en:"Both reliable and valid",zh:"兼具可信與效度"},{l:"D",en:"Neither reliable nor valid",zh:"既不可信也無效度"}]},
+  {en:"The hypothesis that states 'There is no difference in pain improvement between treatment and control' is the:",zh:"「治療組與控制組在疼痛改善上無差異」的假設稱為：",opts:[{l:"A",en:"Alternative hypothesis",zh:"對立假設"},{l:"B",en:"Null hypothesis",zh:"虛無假設",c:1},{l:"C",en:"Statistical hypothesis",zh:"統計假設"},{l:"D",en:"Confounding hypothesis",zh:"干擾假設"}]},
+  {en:"The hypothesis proposing 'Treatment X causes an improvement in pain outcomes versus control' is known as the:",zh:"「治療X相較於控制組改善疼痛結果」的假設稱為：",opts:[{l:"A",en:"Alternative hypothesis",zh:"對立假設",c:1},{l:"B",en:"Null hypothesis",zh:"虛無假設"},{l:"C",en:"Correlation hypothesis",zh:"相關假設"},{l:"D",en:"Invalid hypothesis",zh:"無效假設"}]},
+  {en:"Which study design uses aggregated group data and is highly prone to the ecological fallacy?",zh:"哪種研究設計使用匯總群體數據，且高度容易發生生態謬誤？",opts:[{l:"A",en:"Cohort Studies",zh:"世代研究"},{l:"B",en:"Cross-Sectional Studies",zh:"橫斷面研究"},{l:"C",en:"Correlation/Ecological Studies",zh:"相關/生態研究",c:1},{l:"D",en:"Case-Control Studies",zh:"病例對照研究"}]},
+  {en:"A major limitation of Correlation/Ecological Studies is that researchers cannot:",zh:"相關/生態研究的主要限制是研究者無法：",opts:[{l:"A",en:"Generate hypotheses",zh:"生成假設"},{l:"B",en:"Use existing data",zh:"使用現有數據"},{l:"C",en:"Complete the study quickly",zh:"快速完成研究"},{l:"D",en:"Infer at an individual level",zh:"在個體層面推斷",c:1}]},
+  {en:"Which study design provides a 'snapshot' of what is happening at a particular time and place, such as measuring disease prevalence?",zh:"哪種研究設計提供特定時間和地點的「快照」，例如測量特定疾病的盛行率？",opts:[{l:"A",en:"Cohort Study",zh:"世代研究"},{l:"B",en:"Case-Control Study",zh:"病例對照研究"},{l:"C",en:"Cross-Sectional Study",zh:"橫斷面研究",c:1},{l:"D",en:"Randomized Controlled Trial",zh:"隨機對照試驗"}]},
+  {en:"In a Cross-Sectional Study, when is data typically collected?",zh:"在橫斷面研究中，數據通常何時收集？",opts:[{l:"A",en:"Retrospectively over several years",zh:"回溯性地跨數年"},{l:"B",en:"Prospectively into the future",zh:"前瞻性地進入未來"},{l:"C",en:"At one time, such as via a survey",zh:"在某一時間點，例如透過問卷",c:1},{l:"D",en:"After an intervention is applied",zh:"在干預措施施行後"}]},
+  {en:"Which study design begins with people who have a disease and compares them to a group without the disease?",zh:"哪種研究設計從患有疾病的人開始，並與未患病的人進行比較？",opts:[{l:"A",en:"Cohort Study",zh:"世代研究"},{l:"B",en:"Case-Control Study",zh:"病例對照研究",c:1},{l:"C",en:"Cross-Sectional Study",zh:"橫斷面研究"},{l:"D",en:"Pilot Study",zh:"先驅研究"}]},
+  {en:"In a Cohort Study, how are initial study groups defined before being followed over time?",zh:"在世代研究中，追蹤前如何定義初始研究組別？",opts:[{l:"A",en:"Based on the presence or absence of exposure",zh:"根據是否暴露於危險因子",c:1},{l:"B",en:"Based on the presence or absence of disease",zh:"根據是否患有疾病"},{l:"C",en:"Based on random assignment to treatment",zh:"根據隨機分配至治療組"},{l:"D",en:"Based on aggregated national data",zh:"根據全國匯總數據"}]},
+  {en:"What is the primary purpose of an Experimental Design?",zh:"實驗設計的主要目的是什麼？",opts:[{l:"A",en:"To observe natural correlations in a population over time",zh:"隨時間觀察族群中的自然相關性"},{l:"B",en:"To survey a population at a single point in time",zh:"在單一時間點調查族群"},{l:"C",en:"To study the effects of a treatment to generalize to a larger population",zh:"研究治療效果以推廣至更大族群",c:1},{l:"D",en:"To collect unstructured interview data",zh:"收集非結構化訪談數據"}]},
+  {en:"Which of the following is NOT listed as a type of experimental design?",zh:"下列哪項不屬於實驗設計的類型？",opts:[{l:"A",en:"Pragmatic trials",zh:"實用性試驗"},{l:"B",en:"Pilot studies",zh:"先驅研究"},{l:"C",en:"Non-randomized controlled trials",zh:"非隨機對照試驗"},{l:"D",en:"Case-control studies",zh:"病例對照研究",c:1}]},
+  {en:"A review that evaluates evidence based on papers selected by the author in a non-exhaustive manner is a:",zh:"根據作者非詳盡地選取論文做出結論的回顧是：",opts:[{l:"A",en:"Systematic review",zh:"系統性回顧"},{l:"B",en:"Meta-analysis",zh:"後設分析"},{l:"C",en:"Narrative review",zh:"敘述性回顧",c:1},{l:"D",en:"Cohort study",zh:"世代研究"}]},
+  {en:"Which review relies on standardized methods and a more exhaustive search strategy?",zh:"哪種回顧依賴標準化方法並使用更詳盡的搜索策略？",opts:[{l:"A",en:"Narrative review",zh:"敘述性回顧"},{l:"B",en:"Systematic review",zh:"系統性回顧",c:1},{l:"C",en:"Case series",zh:"病例系列"},{l:"D",en:"Pilot study",zh:"先驅研究"}]},
+  {en:"When selected studies are statistically analyzed and results are pooled by specific inclusion criteria, this is known as a:",zh:"當選定研究依特定納入標準進行統計分析並匯總結果時，稱為：",opts:[{l:"A",en:"Narrative review",zh:"敘述性回顧"},{l:"B",en:"Qualitative survey",zh:"質性調查"},{l:"C",en:"Systematic review",zh:"系統性回顧"},{l:"D",en:"Meta-analysis",zh:"後設分析",c:1}]},
+  {en:"Blood type is an example of what kind of data?",zh:"血型是哪種數據的例子？",opts:[{l:"A",en:"Quantitative discrete",zh:"量化離散數據"},{l:"B",en:"Quantitative continuous",zh:"量化連續數據"},{l:"C",en:"Qualitative categorical",zh:"質性類別數據",c:1},{l:"D",en:"Likert scale",zh:"李克特量表"}]},
+  {en:"The number of cigarettes smoked is an example of what type of data?",zh:"吸菸數量是哪種數據類型的例子？",opts:[{l:"A",en:"Quantitative discrete",zh:"量化離散數據",c:1},{l:"B",en:"Quantitative continuous",zh:"量化連續數據"},{l:"C",en:"Qualitative categorical",zh:"質性類別數據"},{l:"D",en:"Qualitative continuous",zh:"質性連續數據"}]},
+  {en:"A measurement like blood pressure which can include fractions is an example of:",zh:"像血壓這樣可包含小數的測量值，是哪種數據類型的例子？",opts:[{l:"A",en:"Quantitative discrete",zh:"量化離散數據"},{l:"B",en:"Quantitative continuous",zh:"量化連續數據",c:1},{l:"C",en:"Qualitative categorical",zh:"質性類別數據"},{l:"D",en:"Qualitative discrete",zh:"質性離散數據"}]},
+  {en:"In a normal distribution, what percentage of data falls within 1 standard deviation of the mean?",zh:"在常態分佈中，有多少百分比的數據落在平均值的1個標準差內？",opts:[{l:"A",en:"13.6%",zh:"13.6%"},{l:"B",en:"34.1%",zh:"34.1%"},{l:"C",en:"68%",zh:"68%",c:1},{l:"D",en:"95%",zh:"95%"}]},
+  {en:"In a normal distribution, what percentage of data falls within 2 standard deviations of the mean?",zh:"在常態分佈中，有多少百分比的數據落在平均值的2個標準差內？",opts:[{l:"A",en:"68%",zh:"68%"},{l:"B",en:"95%",zh:"95%",c:1},{l:"C",en:"99.7%",zh:"99.7%"},{l:"D",en:"100%",zh:"100%"}]},
+  {en:"In a normal distribution, what percentage of data falls within 3 standard deviations of the mean?",zh:"在常態分佈中，有多少百分比的數據落在平均值的3個標準差內？",opts:[{l:"A",en:"68%",zh:"68%"},{l:"B",en:"95%",zh:"95%"},{l:"C",en:"99.7%",zh:"99.7%",c:1},{l:"D",en:"99.9%",zh:"99.9%"}]},
+  {en:"In inferential statistics, the probability that results are due to chance is known as the:",zh:"在推論統計中，結果源於機率的概率稱為：",opts:[{l:"A",en:"Effect size",zh:"效果量"},{l:"B",en:"Null hypothesis",zh:"虛無假設"},{l:"C",en:"Odds ratio",zh:"勝算比"},{l:"D",en:"P-value",zh:"p值",c:1}]},
+  {en:"What is the standard convention for a statistically significant p-value in clinical research?",zh:"臨床研究中統計顯著p值的標準慣例是什麼？",opts:[{l:"A",en:"p < 0.01",zh:"p < 0.01"},{l:"B",en:"p < 0.05",zh:"p < 0.05",c:1},{l:"C",en:"p < 0.10",zh:"p < 0.10"},{l:"D",en:"p < 0.50",zh:"p < 0.50"}]},
+  {en:"In small or pilot studies, researchers sometimes use a more lenient p-value threshold of:",zh:"在小型或先驅研究中，研究者有時使用較寬鬆的p值門檻：",opts:[{l:"A",en:"p < 0.01",zh:"p < 0.01"},{l:"B",en:"p < 0.05",zh:"p < 0.05"},{l:"C",en:"p < 0.10",zh:"p < 0.10",c:1},{l:"D",en:"p < 0.20",zh:"p < 0.20"}]},
+  {en:"Assuming the null hypothesis is false, p-values are highly sensitive to:",zh:"假設虛無假設為假，p值對以下哪項高度敏感？",opts:[{l:"A",en:"The alternative hypothesis",zh:"對立假設"},{l:"B",en:"Qualitative variables",zh:"質性變數"},{l:"C",en:"Sample size",zh:"樣本大小",c:1},{l:"D",en:"The ecological fallacy",zh:"生態謬誤"}]},
+  {en:"Which is a measure of association/effect size that should NOT be influenced by sample size?",zh:"哪項被視為不應受樣本大小影響的關聯或效果量指標？",opts:[{l:"A",en:"P-value",zh:"p值"},{l:"B",en:"Standard deviation",zh:"標準差"},{l:"C",en:"Relative risk",zh:"相對風險",c:1},{l:"D",en:"Statistical significance",zh:"統計顯著性"}]},
+  {en:"If a study reports an odds ratio of 0.7 for developing diabetes in exercisers vs non-exercisers, what is the correct interpretation?",zh:"若研究報告運動者相較於非運動者罹患糖尿病的勝算比為0.7，正確的解讀是？",opts:[{l:"A",en:"The odds of developing diabetes are 70% lower in exercisers.",zh:"運動者罹患糖尿病的勝算降低70%。"},{l:"B",en:"Exercisers have a 7% chance of developing diabetes.",zh:"運動者有7%的機率罹患糖尿病。"},{l:"C",en:"The odds of developing diabetes are 30% lower in exercisers.",zh:"運動者罹患糖尿病的勝算降低30%。",c:1},{l:"D",en:"Exercisers are 70% more likely to develop diabetes.",zh:"運動者罹患糖尿病的可能性高出70%。"}]},
+  {en:"In a forest plot, if a confidence interval crosses over the number 1, the result is:",zh:"在森林圖中，若信賴區間跨越數字1，結果被認為是：",opts:[{l:"A",en:"Statistically significant",zh:"統計顯著"},{l:"B",en:"Not statistically significant",zh:"統計不顯著",c:1},{l:"C",en:"Highly correlated",zh:"高度相關"},{l:"D",en:"A strong effect size",zh:"強效果量"}]},
+  {en:"When comparing the means of two groups, what does it mean if their 95% confidence intervals overlap?",zh:"比較兩組平均值時，若95%信賴區間重疊代表什麼？",opts:[{l:"A",en:"The results are highly statistically significant.",zh:"結果具有高度統計顯著性。"},{l:"B",en:"The alternative hypothesis is accepted.",zh:"對立假設被接受。"},{l:"C",en:"There is no statistically significant difference.",zh:"兩組之間無統計顯著差異。",c:1},{l:"D",en:"The sample size is too large.",zh:"樣本量過大。"}]},
+  {en:"Which of the following is NOT one of Hill's Criteria for Causality?",zh:"下列哪項不屬於希爾因果性標準？",opts:[{l:"A",en:"Strength of association",zh:"關聯強度"},{l:"B",en:"Plausibility",zh:"合理性"},{l:"C",en:"Dose-response/biological gradient",zh:"劑量反應/生物梯度"},{l:"D",en:"Communalism",zh:"共有主義",c:1}]},
+  {en:"Which of Hill's criteria assesses whether the proposed causal relationship makes sense from a biological standpoint?",zh:"希爾的哪個標準評估提出的因果關係從生物學角度是否合理？",opts:[{l:"A",en:"Plausibility",zh:"合理性",c:1},{l:"B",en:"Temporality",zh:"時序性"},{l:"C",en:"Specificity",zh:"特異性"},{l:"D",en:"Analogy",zh:"類比性"}]},
+  {en:"Which qualitative method involves observing subjects to understand their culture or behavior?",zh:"哪種質性方法涉及觀察研究對象以了解其文化或行為？",opts:[{l:"A",en:"Textual analysis",zh:"文本分析"},{l:"B",en:"Focus group",zh:"焦點團體"},{l:"C",en:"Structured interview",zh:"結構性訪談"},{l:"D",en:"Ethnographic observation",zh:"民族誌觀察",c:1}]},
+  {en:"Which is considered a core strength of qualitative research methods?",zh:"下列哪項被視為質性研究方法的核心優勢？",opts:[{l:"A",en:"Easy replication across studies",zh:"研究間易於複製"},{l:"B",en:"Ability to investigate causality",zh:"調查因果關係的能力"},{l:"C",en:"Providing a holistic view and the participant's perspective",zh:"提供整體觀點和參與者的視角",c:1},{l:"D",en:"Using aggregated data to test hypotheses",zh:"使用匯總數據測試假設"}]},
+  {en:"Qualitative research methods are uniquely valued for which strength during data collection?",zh:"質性研究方法在數據收集中獨特地被重視的優勢是？",opts:[{l:"A",en:"Strict, unchangeable protocols",zh:"嚴格且不可改變的方案"},{l:"B",en:"Flexible ways to perform data collection and respond to changes",zh:"靈活的數據收集方式並能回應變化",c:1},{l:"C",en:"Standardized weighting of evidence",zh:"標準化的證據加權"},{l:"D",en:"Large-scale blinding",zh:"大規模盲法"}]},
+  {en:"Which of the following is a common limitation of qualitative research?",zh:"下列哪項是質性研究的常見限制？",opts:[{l:"A",en:"It gives a snapshot of one moment in time",zh:"它提供某一時刻的快照"},{l:"B",en:"It relies entirely on p-values",zh:"它完全依賴p值"},{l:"C",en:"It can form different conclusions based on the same information",zh:"它可能根據相同信息形成不同結論",c:1},{l:"D",en:"It always forces structured survey responses",zh:"它總是強制結構化的調查回應"}]},
+  {en:"Why is replication often considered difficult in qualitative research?",zh:"為什麼複製在質性研究中常被認為困難？",opts:[{l:"A",en:"Due to strict adherence to the null hypothesis",zh:"由於嚴格遵守虛無假設"},{l:"B",en:"Because of extremely large sample sizes",zh:"因為樣本量極大"},{l:"C",en:"Due to differences in the quality and quantity of information from respondents",zh:"由於受訪者提供的信息質量和數量差異",c:1},{l:"D",en:"Because the data is strictly numerical",zh:"因為數據是嚴格數值型的"}]},
+  {en:"A major limitation of qualitative research regarding cause-and-effect relationships is:",zh:"質性研究在因果關係方面的主要限制是：",opts:[{l:"A",en:"It is too quick to infer causality",zh:"它過於快速地推斷因果關係"},{l:"B",en:"The inability to investigate causality",zh:"無法調查因果關係",c:1},{l:"C",en:"It relies too heavily on random assignment",zh:"它過於依賴隨機分配"},{l:"D",en:"It uses an ecological fallacy to define causality",zh:"它使用生態謬誤定義因果關係"}]},
+  {en:"From a practical standpoint, qualitative research is often criticized for being:",zh:"從實際角度來看，質性研究常被批評為：",opts:[{l:"A",en:"Time consuming and expensive",zh:"耗時且昂貴",c:1},{l:"B",en:"Too fast and cheap",zh:"太快且便宜"},{l:"C",en:"Overly reliant on blinding",zh:"過度依賴盲法"},{l:"D",en:"Restricted to categorical data only",zh:"僅限於類別數據"}]},
+  {en:"Which study design begins with cases (diseased) and controls (non-diseased) and looks backward to determine prior exposures?",zh:"哪種研究設計從病例（患病）和對照（未患病）開始，並回溯時間確定先前暴露？",opts:[{l:"A",en:"Cohort Study",zh:"世代研究"},{l:"B",en:"Experimental Design",zh:"實驗設計"},{l:"C",en:"Case-Control Study",zh:"病例對照研究",c:1},{l:"D",en:"Ecological Study",zh:"生態研究"}]},
+  {en:"Which study design moves forward in time, starting with exposure status and waiting to observe disease development?",zh:"哪種研究設計在時間上向前推進，從暴露狀態開始，等待觀察疾病的發展？",opts:[{l:"A",en:"Cohort Study",zh:"世代研究",c:1},{l:"B",en:"Case-Control Study",zh:"病例對照研究"},{l:"C",en:"Cross-Sectional Study",zh:"橫斷面研究"},{l:"D",en:"Pre-post Study",zh:"前後研究"}]}
+];
+
+function build() {
+  const list = document.getElementById('list');
+  qs.forEach((q, i) => {
+    const ans = q.opts.find(o => o.c);
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.text = (q.en + q.zh + q.opts.map(o=>o.en+o.zh).join('')).toLowerCase();
+
+    const hdr = document.createElement('div');
+    hdr.className = 'card-header';
+    hdr.innerHTML = `<span class="num">${i+1}</span><div class="q-wrap"><div class="q-en">${q.en}</div><div class="q-zh">${q.zh}</div></div><span class="arrow">▼</span>`;
+    hdr.onclick = () => card.classList.toggle('open');
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    body.innerHTML = `<div class="options">${q.opts.map(o=>`<div class="option${o.c?' correct':''}"><span class="opt-letter">${o.l})</span><div><div class="opt-en">${o.en}</div><div class="opt-zh">${o.zh}</div></div></div>`).join('')}</div><span class="badge">✓ Answer: ${ans.l}) ${ans.en} · ${ans.zh}</span>`;
+
+    card.appendChild(hdr);
+    card.appendChild(body);
+    list.appendChild(card);
+  });
+}
+
+function expandAll() { document.querySelectorAll('.card:not(.hidden)').forEach(c=>c.classList.add('open')); }
+function collapseAll() { document.querySelectorAll('.card').forEach(c=>c.classList.remove('open')); }
+function filterQ() {
+  const v = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(c => c.classList.toggle('hidden', !!v && !c.dataset.text.includes(v)));
+}
+
+build();
+</script>
+</body>
+</html>
