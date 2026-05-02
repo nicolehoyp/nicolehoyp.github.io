@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCM Quiz 雙語解析</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f0e0c;--sf:#1a1815;--sf2:#252220;--bd:#352f28;
+  --gold:#c9a84c;--gd:#7a6430;--jade:#5aad8a;--jd:#2e6b56;
+  --red:#c44f3e;--reddim:#7a2f25;
+  --tx:#e8dfc8;--dm:#8a7f6e;--ft:#4a4438;--r:8px
+}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-height:100vh;line-height:1.7;font-size:14px}
+
+/* ── HEADER ── */
+.hd{background:linear-gradient(180deg,#1e1a14,#0f0e0c);border-bottom:1px solid var(--bd);padding:14px 24px;position:sticky;top:0;z-index:300}
+.hd h1{font-size:17px;color:var(--gold);font-weight:700}
+.hd p{font-size:11px;color:var(--dm);font-family:monospace}
+
+/* ── TABS ── */
+.tabs{background:var(--sf);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;position:sticky;top:55px;z-index:200;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:10px 14px;font-size:12px;color:var(--dm);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:monospace;display:flex;align-items:center;gap:4px;flex-shrink:0;user-select:none;transition:all .15s}
+.tab:hover{color:var(--tx);background:var(--sf2)}
+.tab.on{color:var(--gold);border-bottom-color:var(--gold)}
+.tab .n{font-size:10px;background:var(--sf2);padding:1px 5px;border-radius:8px}
+.tab.on .n{background:var(--gd);color:var(--gold)}
+
+/* ── TOOLBAR ── */
+.toolbar{background:var(--sf);border-bottom:1px solid var(--bd);padding:8px 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;position:sticky;top:93px;z-index:100}
+.tbtn{padding:6px 14px;border-radius:var(--r);font-size:12px;font-family:monospace;cursor:pointer;border:1px solid var(--bd);background:var(--sf2);color:var(--dm);transition:all .15s;font-weight:500}
+.tbtn:hover{color:var(--tx);border-color:var(--dm)}
+.tbtn.primary{background:var(--gold);color:#1a1200;border-color:var(--gold)}
+.tbtn.primary:hover{background:#e0bc5f}
+.tbtn.danger{background:var(--reddim);color:var(--red);border-color:var(--reddim)}
+.tbtn.danger:hover{background:var(--red);color:#fff}
+.score-badge{font-size:12px;font-family:monospace;color:var(--dm);margin-left:auto;padding:4px 10px;background:var(--sf2);border:1px solid var(--bd);border-radius:var(--r)}
+.score-badge span{color:var(--gold);font-weight:600}
+
+/* ── MAIN ── */
+.main{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+.sec{display:none}.sec.on{display:block}
+
+/* ── CARD ── */
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:10px;margin-bottom:12px;overflow:hidden;transition:border-color .15s}
+.card:hover{border-color:var(--gd)}
+.qtop{padding:14px 18px 10px;display:flex;gap:10px;align-items:flex-start}
+.qnum{min-width:28px;height:28px;border-radius:50%;background:var(--sf2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:monospace;color:var(--gold);flex-shrink:0;margin-top:2px}
+.qbody{flex:1}
+.qen{display:block;font-size:14px;color:var(--tx);line-height:1.65}
+.qzh{display:block;font-size:13px;color:var(--dm);margin-top:3px;line-height:1.6}
+
+/* ── OPTIONS ── */
+.opts{padding:0 18px 10px;display:flex;flex-direction:column;gap:5px}
+.opt{display:flex;gap:9px;align-items:flex-start;padding:8px 12px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);cursor:pointer;transition:all .15s;user-select:none}
+.opt:hover{border-color:var(--dm)}
+.opt.selected{border-color:var(--gold);background:rgba(201,168,76,.1)}
+.opt.selected .optk{color:var(--gold)}
+/* after grading */
+.opt.graded-correct{background:rgba(46,107,86,.22);border-color:var(--jade);cursor:default}
+.opt.graded-correct .optk{color:var(--jade)}
+.opt.graded-wrong{background:rgba(122,47,37,.22);border-color:var(--red);cursor:default}
+.opt.graded-wrong .optk{color:var(--red)}
+.opt.graded-missed{background:rgba(46,107,86,.1);border-color:var(--jd);cursor:default}
+.opt.graded-missed .optk{color:var(--jade);opacity:.7}
+.opt.graded-neutral{cursor:default;opacity:.6}
+.optk{min-width:18px;font-family:monospace;font-weight:600;color:var(--dm);font-size:12px;flex-shrink:0;padding-top:2px}
+.optv{flex:1}
+.opten{display:block;font-size:13px;color:var(--tx);line-height:1.5}
+.optzh{display:block;font-size:12px;color:var(--dm);margin-top:1px}
+.opt-tag{display:inline-block;font-size:10px;font-family:monospace;padding:1px 5px;border-radius:3px;margin-left:6px;font-weight:600;vertical-align:middle}
+.tag-ok{background:rgba(46,107,86,.3);color:var(--jade)}
+.tag-no{background:rgba(196,79,62,.25);color:var(--red)}
+.tag-missed{background:rgba(46,107,86,.15);color:var(--jade)}
+
+/* ── GRADED STATUS ── */
+.card.answered .qnum{border-color:var(--jade);color:var(--jade)}
+.card.graded-pass .qnum{background:rgba(46,107,86,.2);border-color:var(--jade);color:var(--jade)}
+.card.graded-fail .qnum{background:rgba(122,47,37,.2);border-color:var(--red);color:var(--red)}
+
+/* ── RESULT BAR ── */
+.result-bar{display:none;padding:6px 18px 8px;font-size:12px;font-family:monospace}
+.result-bar.show{display:block}
+.result-pass{color:var(--jade)}
+.result-fail{color:var(--red)}
+
+/* ── EXPLANATION ── */
+.expbar{border-top:1px solid var(--bd)}
+.exptrig{width:100%;display:flex;align-items:center;justify-content:space-between;padding:8px 18px;background:none;border:none;cursor:pointer;font-size:12px;color:var(--dm);font-family:monospace;text-align:left;transition:all .15s}
+.exptrig:hover{color:var(--gold);background:rgba(201,168,76,.04)}
+.chev{font-size:10px;transition:transform .2s}
+.chev.open{transform:rotate(180deg)}
+.expbody{display:none;padding:2px 18px 16px}
+.expbody.show{display:block;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.expbox{background:var(--sf2);border:1px solid var(--bd);border-radius:var(--r);padding:13px 15px;font-size:13px;line-height:1.85}
+.expans{display:flex;align-items:center;gap:6px;margin-bottom:10px;padding:6px 10px;background:rgba(46,107,86,.18);border:1px solid var(--jd);border-radius:5px;font-family:monospace;font-size:12px;color:var(--dm)}
+.expans strong{color:var(--jade);font-size:13px}
+.explabel{font-size:10px;font-family:monospace;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 4px;font-weight:500}
+.exp-en{color:var(--tx);margin-bottom:3px}
+.exp-zh{color:var(--dm)}
+
+
+/* zh hidden by default, shown when exp opens */
+.qzh-hidden { display: none !important; }
+.optzh-hidden { display: none !important; }
+.qzh-visible { display: block !important; }
+.optzh-visible { display: block !important; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:580px){
+  .toolbar{top:90px;padding:7px 12px}
+  .main{padding:16px 10px 50px}
+  .qtop{padding:12px 12px 8px}
+  .opts{padding:0 12px 10px}
+  .exptrig{padding:8px 12px}
+  .expbody{padding:2px 12px 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="hd">
+  <h1>🏥 TCM Quiz 雙語解析</h1>
+  <p>416 questions · 9 categories · 完全離線</p>
+</div>
+
+<div class="tabs" id="tabs"></div>
+
+<div class="toolbar" id="toolbar">
+  <button class="tbtn primary" onclick="gradeAll()">✓ 批改答案</button>
+  <button class="tbtn" onclick="resetAll()">↺ 重設題目</button>
+  <button class="tbtn" onclick="toggleAnswers()">👁 顯示/隱藏答案</button>
+  <button class="tbtn" onclick="toggleAllExp()">💡 顯示/隱藏解析</button>
+  <div class="score-badge" id="scoreBadge" style="display:none">得分：<span id="scoreText">0/0</span></div>
+</div>
+
+<div class="main" id="main"></div>
+
+<script src="quiz_data.js"></script>
+<script>
+(function(){
+  var CATS = Object.keys(QUIZ_DATA);
+  var state = {}; // state[cat][qid] = { selected: [], graded: bool }
+  var showAnswers = false;
+  var showExp = false;
+  var allExpOpen = false;
+
+  /* ── init state ── */
+  function initState(){
+    CATS.forEach(function(cat){
+      state[cat] = {};
+      QUIZ_DATA[cat].questions.forEach(function(q){
+        state[cat][q.id] = { selected: [], graded: false };
+      });
+    });
+  }
+
+  function currentCat(){
+    var t = document.querySelector('.tab.on');
+    return t ? t.dataset.cat : CATS[0];
+  }
+
+  /* ── build tabs ── */
+  var tabWrap = document.getElementById('tabs');
+  CATS.forEach(function(cat, i){
+    var q = QUIZ_DATA[cat];
+    var t = document.createElement('div');
+    t.className = 'tab' + (i===0?' on':'');
+    t.dataset.cat = cat;
+    t.innerHTML = q.icon + ' ' + q.name_zh + '<span class="n">' + q.questions.length + '</span>';
+    t.onclick = function(){ activateCat(cat); };
+    tabWrap.appendChild(t);
+  });
+
+  function activateCat(cat){
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('on', t.dataset.cat===cat); });
+    document.querySelectorAll('.sec').forEach(function(s){ s.classList.toggle('on', s.id==='sec_'+cat); });
+    updateScore();
+  }
+
+  /* ── build sections ── */
+  var mainEl = document.getElementById('main');
+  CATS.forEach(function(cat, ci){
+    var q = QUIZ_DATA[cat];
+    var sec = document.createElement('div');
+    sec.className = 'sec' + (ci===0?' on':'');
+    sec.id = 'sec_' + cat;
+    q.questions.forEach(function(qn, idx){
+      sec.appendChild(buildCard(cat, qn, idx));
+    });
+    mainEl.appendChild(sec);
+  });
+
+  /* ── build one card ── */
+  function buildCard(cat, qn, idx){
+    var ansArr = Array.isArray(qn.answer) ? qn.answer : [qn.answer];
+    var isMulti = ansArr.length > 1;
+    var cid = cat + '_' + qn.id;
+
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.id = 'card_' + cid;
+
+    // question top
+    var qtop = document.createElement('div'); qtop.className = 'qtop';
+    var qnum = document.createElement('div'); qnum.className = 'qnum'; qnum.textContent = idx+1;
+    var qbody = document.createElement('div'); qbody.className = 'qbody';
+    var qen = document.createElement('span'); qen.className = 'qen'; qen.textContent = qn.question_en;
+    qbody.appendChild(qen);
+    if(qn.question_zh && qn.question_zh !== qn.question_en){
+      var qzh = document.createElement('span'); qzh.className = 'qzh qzh-hidden'; qzh.textContent = qn.question_zh;
+      qbody.appendChild(qzh);
+    }
+    if(isMulti){
+      var hint = document.createElement('span');
+      hint.style.cssText = 'font-size:11px;color:var(--gold);margin-left:8px;font-family:monospace';
+      hint.textContent = '(多選)';
+      qen.appendChild(hint);
+    }
+    qtop.appendChild(qnum); qtop.appendChild(qbody);
+    card.appendChild(qtop);
+
+    // options
+    var optsDiv = document.createElement('div'); optsDiv.className = 'opts';
+    Object.keys(qn.options).forEach(function(k){
+      var v = qn.options[k];
+      var opt = document.createElement('div');
+      opt.className = 'opt';
+      opt.id = 'opt_' + cid + '_' + k;
+      opt.dataset.key = k;
+      opt.dataset.correct = v.correct ? '1' : '0';
+
+      var optk = document.createElement('span'); optk.className = 'optk'; optk.textContent = k;
+      var optv = document.createElement('div'); optv.className = 'optv';
+      var opten = document.createElement('span'); opten.className = 'opten'; opten.textContent = v.en;
+      optv.appendChild(opten);
+      if(v.zh && v.zh !== v.en){
+        var optzh = document.createElement('span'); optzh.className = 'optzh optzh-hidden'; optzh.textContent = v.zh;
+        optv.appendChild(optzh);
+      }
+      opt.appendChild(optk); opt.appendChild(optv);
+      opt.onclick = function(){ toggleSelect(cat, qn, k, opt, card); };
+      optsDiv.appendChild(opt);
+    });
+    card.appendChild(optsDiv);
+
+    // result bar
+    var rb = document.createElement('div'); rb.className = 'result-bar'; rb.id = 'rb_' + cid;
+    card.appendChild(rb);
+
+    // explanation
+    var expbar = document.createElement('div'); expbar.className = 'expbar';
+    var trig = document.createElement('button'); trig.className = 'exptrig';
+    trig.innerHTML = '<span>💡 解析</span><span class="chev" id="chev_'+cid+'">▾</span>';
+    var body = document.createElement('div'); body.className = 'expbody'; body.id = 'body_'+cid;
+
+    if(qn.exp_en || qn.exp_zh){
+      var box = document.createElement('div'); box.className = 'expbox';
+      var al = document.createElement('div'); al.className = 'expans';
+      al.innerHTML = '✓ Correct: <strong>' + ansArr.join(', ') + '</strong>';
+      box.appendChild(al);
+      if(qn.exp_en){
+        var lbl = document.createElement('div'); lbl.className = 'explabel'; lbl.textContent = 'Why correct / 核心解析';
+        var een = document.createElement('p'); een.className = 'exp-en'; een.textContent = qn.exp_en;
+        var ezh = document.createElement('p'); ezh.className = 'exp-zh'; ezh.textContent = qn.exp_zh;
+        box.appendChild(lbl); box.appendChild(een); box.appendChild(ezh);
+      }
+      body.appendChild(box);
+    } else {
+      var noexp = document.createElement('p');
+      noexp.style.cssText = 'font-size:12px;color:var(--ft);padding:8px 0;font-family:monospace';
+      noexp.textContent = '此題暫無解析';
+      body.appendChild(noexp);
+    }
+
+    trig.onclick = function(){
+      var open = body.classList.toggle('show');
+      document.getElementById('chev_'+cid).classList.toggle('open', open);
+      // show/hide Chinese on question and options
+      var cardEl = document.getElementById('card_'+cid);
+      cardEl.querySelectorAll('.qzh-hidden, .qzh-visible').forEach(function(el){
+        el.classList.toggle('qzh-hidden', !open);
+        el.classList.toggle('qzh-visible', open);
+      });
+      cardEl.querySelectorAll('.optzh-hidden, .optzh-visible').forEach(function(el){
+        el.classList.toggle('optzh-hidden', !open);
+        el.classList.toggle('optzh-visible', open);
+      });
+    };
+    expbar.appendChild(trig); expbar.appendChild(body);
+    card.appendChild(expbar);
+    return card;
+  }
+
+  /* ── select option ── */
+  function toggleSelect(cat, qn, key, optEl, card){
+    var s = state[cat][qn.id];
+    if(s.graded) return; // locked after grading
+
+    var ansArr = Array.isArray(qn.answer) ? qn.answer : [qn.answer];
+    var isMulti = ansArr.length > 1;
+
+    if(isMulti){
+      var idx = s.selected.indexOf(key);
+      if(idx === -1){ s.selected.push(key); optEl.classList.add('selected'); }
+      else { s.selected.splice(idx,1); optEl.classList.remove('selected'); }
+    } else {
+      // single — deselect others
+      var cid = cat + '_' + qn.id;
+      Object.keys(qn.options).forEach(function(k){
+        document.getElementById('opt_'+cid+'_'+k).classList.remove('selected');
+      });
+      s.selected = [key];
+      optEl.classList.add('selected');
+    }
+    // mark card as answered
+    card.classList.toggle('answered', s.selected.length > 0);
+  }
+
+  /* ── grade all in current category ── */
+  function gradeAll(){
+    var cat = currentCat();
+    var pass = 0, total = 0;
+    QUIZ_DATA[cat].questions.forEach(function(qn){
+      total++;
+      if(gradeQuestion(cat, qn)) pass++;
+    });
+    document.getElementById('scoreBadge').style.display = '';
+    document.getElementById('scoreText').textContent = pass + '/' + total;
+    updateScore();
+  }
+
+  function gradeQuestion(cat, qn){
+    var s = state[cat][qn.id];
+    s.graded = true;
+    var ansArr = Array.isArray(qn.answer) ? qn.answer : [qn.answer];
+    var cid = cat + '_' + qn.id;
+    var card = document.getElementById('card_'+cid);
+    var rb = document.getElementById('rb_'+cid);
+
+    // sort for comparison
+    var sel = s.selected.slice().sort().join(',');
+    var cor = ansArr.slice().sort().join(',');
+    var isPass = sel === cor;
+
+    // style options
+    Object.keys(qn.options).forEach(function(k){
+      var optEl = document.getElementById('opt_'+cid+'_'+k);
+      optEl.onclick = null; // disable clicking
+      var isCorrect = qn.options[k].correct;
+      var wasSelected = s.selected.indexOf(k) !== -1;
+
+      if(wasSelected && isCorrect){
+        optEl.className = 'opt graded-correct';
+        var tag = document.createElement('span'); tag.className='opt-tag tag-ok'; tag.textContent='✓ 正確';
+        optEl.querySelector('.opten').appendChild(tag);
+      } else if(wasSelected && !isCorrect){
+        optEl.className = 'opt graded-wrong';
+        var tag = document.createElement('span'); tag.className='opt-tag tag-no'; tag.textContent='✗ 錯誤';
+        optEl.querySelector('.opten').appendChild(tag);
+      } else if(!wasSelected && isCorrect){
+        optEl.className = 'opt graded-missed';
+        var tag = document.createElement('span'); tag.className='opt-tag tag-missed'; tag.textContent='△ 應選';
+        optEl.querySelector('.opten').appendChild(tag);
+      } else {
+        optEl.className = 'opt graded-neutral';
+      }
+    });
+
+    card.classList.remove('answered');
+    card.classList.add(isPass ? 'graded-pass' : 'graded-fail');
+    rb.className = 'result-bar show';
+    rb.innerHTML = isPass
+      ? '<span class="result-pass">✓ 答對</span>'
+      : '<span class="result-fail">✗ 答錯 — 正確答案：' + ansArr.join(', ') + '</span>';
+
+    return isPass;
+  }
+
+  /* ── reset all in current category ── */
+  function resetAll(){
+    var cat = currentCat();
+    initStateForCat(cat);
+    // rebuild section
+    var sec = document.getElementById('sec_'+cat);
+    while(sec.firstChild) sec.removeChild(sec.firstChild);
+    QUIZ_DATA[cat].questions.forEach(function(qn, idx){
+      sec.appendChild(buildCard(cat, qn, idx));
+    });
+    // restore show-answer / show-exp state
+    if(showAnswers) applyShowAnswers(cat);
+    if(allExpOpen) applyShowExp(cat, true);
+    document.getElementById('scoreBadge').style.display = 'none';
+    updateScore();
+  }
+
+  function initStateForCat(cat){
+    state[cat] = {};
+    QUIZ_DATA[cat].questions.forEach(function(q){
+      state[cat][q.id] = { selected: [], graded: false };
+    });
+  }
+
+  /* ── toggle show answers ── */
+  function toggleAnswers(){
+    showAnswers = !showAnswers;
+    var cat = currentCat();
+    applyShowAnswers(cat);
+  }
+
+  function applyShowAnswers(cat){
+    QUIZ_DATA[cat].questions.forEach(function(qn){
+      var s = state[cat][qn.id];
+      if(s.graded) return;
+      var cid = cat+'_'+qn.id;
+      Object.keys(qn.options).forEach(function(k){
+        var optEl = document.getElementById('opt_'+cid+'_'+k);
+        if(!optEl) return;
+        if(showAnswers && qn.options[k].correct){
+          optEl.style.outline = '2px solid var(--jade)';
+          optEl.style.outlineOffset = '-2px';
+        } else {
+          optEl.style.outline = '';
+          optEl.style.outlineOffset = '';
+        }
+      });
+    });
+  }
+
+  /* ── toggle all explanations ── */
+  function toggleAllExp(){
+    allExpOpen = !allExpOpen;
+    var cat = currentCat();
+    applyShowExp(cat, allExpOpen);
+  }
+
+  function applyShowExp(cat, open){
+    QUIZ_DATA[cat].questions.forEach(function(qn){
+      var cid = cat+'_'+qn.id;
+      var body = document.getElementById('body_'+cid);
+      var chev = document.getElementById('chev_'+cid);
+      if(!body) return;
+      body.classList.toggle('show', open);
+      if(chev) chev.classList.toggle('open', open);
+      var cardEl = document.getElementById('card_'+cid);
+      if(!cardEl) return;
+      cardEl.querySelectorAll('.qzh-hidden, .qzh-visible').forEach(function(el){
+        el.classList.toggle('qzh-hidden', !open);
+        el.classList.toggle('qzh-visible', open);
+      });
+      cardEl.querySelectorAll('.optzh-hidden, .optzh-visible').forEach(function(el){
+        el.classList.toggle('optzh-hidden', !open);
+        el.classList.toggle('optzh-visible', open);
+      });
+    });
+  }
+
+  /* ── score ── */
+  function updateScore(){
+    // just keep badge updated if graded
+  }
+
+  /* ── init ── */
+  initState();
+
+  // expose to global for onclick
+  window.gradeAll = gradeAll;
+  window.resetAll = resetAll;
+  window.toggleAnswers = toggleAnswers;
+  window.toggleAllExp = toggleAllExp;
+
+})();
+</script>
+</body>
+</html>
