@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TCM Quiz 雙語解析</title>
 <style>
+
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0f0e0c;--sf:#1a1815;--sf2:#252220;--bd:#352f28;
@@ -20,16 +21,16 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
 .hd p{font-size:11px;color:var(--dm);font-family:monospace}
 
 /* ── TABS ── */
-.tabs{background:var(--sf);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;position:sticky;top:55px;z-index:200;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{padding:10px 14px;font-size:12px;color:var(--dm);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:monospace;display:flex;align-items:center;gap:4px;flex-shrink:0;user-select:none;transition:all .15s}
+.tabs{background:var(--sf);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;position:sticky;top:var(--hd-h,55px);z-index:200;scrollbar-width:none}
+.tabs::-webkit-scrollbar{height:3px}.tabs::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+.tab{padding:10px 14px;font-size:12px;color:var(--dm);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:monospace;display:flex;align-items:center;gap:4px;flex-shrink:0;min-width:max-content;user-select:none;transition:all .15s}
 .tab:hover{color:var(--tx);background:var(--sf2)}
 .tab.on{color:var(--gold);border-bottom-color:var(--gold)}
 .tab .n{font-size:10px;background:var(--sf2);padding:1px 5px;border-radius:8px}
 .tab.on .n{background:var(--gd);color:var(--gold)}
 
 /* ── TOOLBAR ── */
-.toolbar{background:var(--sf);border-bottom:1px solid var(--bd);padding:8px 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;position:sticky;top:93px;z-index:100}
+.toolbar{background:var(--sf);border-bottom:1px solid var(--bd);padding:8px 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;position:sticky;top:var(--tabs-bottom,93px);z-index:100}
 .tbtn{padding:6px 14px;border-radius:var(--r);font-size:12px;font-family:monospace;cursor:pointer;border:1px solid var(--bd);background:var(--sf2);color:var(--dm);transition:all .15s;font-weight:500}
 .tbtn:hover{color:var(--tx);border-color:var(--dm)}
 .tbtn.primary{background:var(--gold);color:#1a1200;border-color:var(--gold)}
@@ -49,8 +50,8 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
 .qtop{padding:14px 18px 10px;display:flex;gap:10px;align-items:flex-start}
 .qnum{min-width:28px;height:28px;border-radius:50%;background:var(--sf2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:monospace;color:var(--gold);flex-shrink:0;margin-top:2px}
 .qbody{flex:1}
-.qen{display:block;font-size:14px;color:var(--tx);line-height:1.65}
-.qzh{display:block;font-size:13px;color:var(--dm);margin-top:3px;line-height:1.6}
+.qen{display:inline;font-size:14px;color:var(--tx);line-height:1.65}
+.qzh{display:none;font-size:13px;color:var(--dm);margin-left:6px;line-height:1.6}
 
 /* ── OPTIONS ── */
 .opts{padding:0 18px 10px;display:flex;flex-direction:column;gap:5px}
@@ -69,7 +70,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
 .optk{min-width:18px;font-family:monospace;font-weight:600;color:var(--dm);font-size:12px;flex-shrink:0;padding-top:2px}
 .optv{flex:1}
 .opten{display:block;font-size:13px;color:var(--tx);line-height:1.5}
-.optzh{display:block;font-size:12px;color:var(--dm);margin-top:1px}
+.optzh{display:none;font-size:12px;color:var(--dm);margin-left:5px}
 .opt-tag{display:inline-block;font-size:10px;font-family:monospace;padding:1px 5px;border-radius:3px;margin-left:6px;font-weight:600;vertical-align:middle}
 .tag-ok{background:rgba(46,107,86,.3);color:var(--jade)}
 .tag-no{background:rgba(196,79,62,.25);color:var(--red)}
@@ -102,33 +103,31 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
 .exp-en{color:var(--tx);margin-bottom:3px}
 .exp-zh{color:var(--dm)}
 
-
-/* zh hidden by default, shown when exp opens */
-.qzh-hidden { display: none !important; }
-.optzh-hidden { display: none !important; }
-.qzh-visible { display: block !important; }
-.optzh-visible { display: block !important; }
-
 /* ── RESPONSIVE ── */
 @media(max-width:580px){
-  .toolbar{top:90px;padding:7px 12px}
+  .toolbar{top:var(--tabs-bottom,90px);padding:7px 12px}
   .main{padding:16px 10px 50px}
   .qtop{padding:12px 12px 8px}
   .opts{padding:0 12px 10px}
   .exptrig{padding:8px 12px}
   .expbody{padding:2px 12px 14px}
 }
+
+/* zh content shown only when expbody is open */
+.expbody.show .qzh-exp{display:block;font-size:13px;color:var(--dm);margin:6px 0 10px;line-height:1.6;border-left:2px solid var(--bd);padding-left:8px}
+.expbody.show .optzh-exp{display:block;font-size:12px;color:var(--dm);margin-top:2px}
+.qzh-exp{display:none}
+.optzh-exp{display:none}
+
 </style>
 </head>
 <body>
 
 <div class="hd">
   <h1>🏥 TCM Quiz 雙語解析</h1>
-  <p>416 questions · 9 categories · 完全離線</p>
+  <p>563 questions &middot; 9 categories</p>
 </div>
-
 <div class="tabs" id="tabs"></div>
-
 <div class="toolbar" id="toolbar">
   <button class="tbtn primary" onclick="gradeAll()">✓ 批改答案</button>
   <button class="tbtn" onclick="resetAll()">↺ 重設題目</button>
@@ -136,7 +135,6 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
   <button class="tbtn" onclick="toggleAllExp()">💡 顯示/隱藏解析</button>
   <div class="score-badge" id="scoreBadge" style="display:none">得分：<span id="scoreText">0/0</span></div>
 </div>
-
 <div class="main" id="main"></div>
 
 <script src="quiz_data.js"></script>
@@ -211,7 +209,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
     var qen = document.createElement('span'); qen.className = 'qen'; qen.textContent = qn.question_en;
     qbody.appendChild(qen);
     if(qn.question_zh && qn.question_zh !== qn.question_en){
-      var qzh = document.createElement('span'); qzh.className = 'qzh qzh-hidden'; qzh.textContent = qn.question_zh;
+      var qzh = document.createElement('span'); qzh.className = 'qzh'; qzh.textContent = ' ／ ' + qn.question_zh;
       qbody.appendChild(qzh);
     }
     if(isMulti){
@@ -238,7 +236,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
       var opten = document.createElement('span'); opten.className = 'opten'; opten.textContent = v.en;
       optv.appendChild(opten);
       if(v.zh && v.zh !== v.en){
-        var optzh = document.createElement('span'); optzh.className = 'optzh optzh-hidden'; optzh.textContent = v.zh;
+        var optzh = document.createElement('span'); optzh.className = 'optzh'; optzh.textContent = ' ／ ' + v.zh;
         optv.appendChild(optzh);
       }
       opt.appendChild(optk); opt.appendChild(optv);
@@ -257,39 +255,47 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
     trig.innerHTML = '<span>💡 解析</span><span class="chev" id="chev_'+cid+'">▾</span>';
     var body = document.createElement('div'); body.className = 'expbody'; body.id = 'body_'+cid;
 
+    // Build explanation panel: zh question + zh options + explanation
+    var box = document.createElement('div'); box.className = 'expbox';
+
+    // Correct answer bar
+    var al = document.createElement('div'); al.className = 'expans';
+    al.innerHTML = '✓ 正確答案: <strong>' + ansArr.join(', ') + '</strong>';
+    box.appendChild(al);
+
+    // Explanation text
     if(qn.exp_en || qn.exp_zh){
-      var box = document.createElement('div'); box.className = 'expbox';
-      var al = document.createElement('div'); al.className = 'expans';
-      al.innerHTML = '✓ Correct: <strong>' + ansArr.join(', ') + '</strong>';
-      box.appendChild(al);
+      var lbl = document.createElement('div'); lbl.className = 'explabel'; lbl.textContent = '解析';
+      box.appendChild(lbl);
       if(qn.exp_en){
-        var lbl = document.createElement('div'); lbl.className = 'explabel'; lbl.textContent = 'Why correct / 核心解析';
         var een = document.createElement('p'); een.className = 'exp-en'; een.textContent = qn.exp_en;
-        var ezh = document.createElement('p'); ezh.className = 'exp-zh'; ezh.textContent = qn.exp_zh;
-        box.appendChild(lbl); box.appendChild(een); box.appendChild(ezh);
+        box.appendChild(een);
       }
-      body.appendChild(box);
+      if(qn.exp_zh && qn.exp_zh !== qn.exp_en){
+        var ezh = document.createElement('p'); ezh.className = 'exp-zh'; ezh.textContent = qn.exp_zh;
+        box.appendChild(ezh);
+      }
     } else {
       var noexp = document.createElement('p');
-      noexp.style.cssText = 'font-size:12px;color:var(--ft);padding:8px 0;font-family:monospace';
+      noexp.style.cssText = 'font-size:12px;color:var(--ft);padding:4px 0;font-family:monospace';
       noexp.textContent = '此題暫無解析';
-      body.appendChild(noexp);
+      box.appendChild(noexp);
     }
 
-    trig.onclick = function(){
-      var open = body.classList.toggle('show');
-      document.getElementById('chev_'+cid).classList.toggle('open', open);
-      // show/hide Chinese on question and options
-      var cardEl = document.getElementById('card_'+cid);
-      cardEl.querySelectorAll('.qzh-hidden, .qzh-visible').forEach(function(el){
-        el.classList.toggle('qzh-hidden', !open);
-        el.classList.toggle('qzh-visible', open);
-      });
-      cardEl.querySelectorAll('.optzh-hidden, .optzh-visible').forEach(function(el){
-        el.classList.toggle('optzh-hidden', !open);
-        el.classList.toggle('optzh-visible', open);
-      });
-    };
+    body.appendChild(box);
+
+    trig.onclick = (function(b, c, cd){
+      return function(){
+        var open = b.classList.toggle('show');
+        document.getElementById('chev_'+c).classList.toggle('open', open);
+        // Toggle zh text inline in the card
+        var cardEl = document.getElementById('card_'+cd);
+        if(cardEl){
+          cardEl.querySelectorAll('.qzh').forEach(function(el){ el.style.display = open ? 'inline' : 'none'; });
+          cardEl.querySelectorAll('.optzh').forEach(function(el){ el.style.display = open ? 'inline' : 'none'; });
+        }
+      };
+    })(body, cid, cid);
     expbar.appendChild(trig); expbar.appendChild(body);
     card.appendChild(expbar);
     return card;
@@ -446,15 +452,10 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
       body.classList.toggle('show', open);
       if(chev) chev.classList.toggle('open', open);
       var cardEl = document.getElementById('card_'+cid);
-      if(!cardEl) return;
-      cardEl.querySelectorAll('.qzh-hidden, .qzh-visible').forEach(function(el){
-        el.classList.toggle('qzh-hidden', !open);
-        el.classList.toggle('qzh-visible', open);
-      });
-      cardEl.querySelectorAll('.optzh-hidden, .optzh-visible').forEach(function(el){
-        el.classList.toggle('optzh-hidden', !open);
-        el.classList.toggle('optzh-visible', open);
-      });
+      if(cardEl){
+        cardEl.querySelectorAll('.qzh').forEach(function(el){ el.style.display = open ? 'inline' : 'none'; });
+        cardEl.querySelectorAll('.optzh').forEach(function(el){ el.style.display = open ? 'inline' : 'none'; });
+      }
     });
   }
 
@@ -466,6 +467,18 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
   /* ── init ── */
   initState();
 
+
+  // Measure actual header + tabs heights and keep toolbar positioned correctly
+  function updateStickyTops(){
+    var hd = document.querySelector('.hd');
+    var tabs = document.getElementById('tabs');
+    var hdH = hd ? hd.getBoundingClientRect().height : 55;
+    var tabsH = tabs ? tabs.getBoundingClientRect().height : 38;
+    document.documentElement.style.setProperty('--hd-h', Math.round(hdH) + 'px');
+    document.documentElement.style.setProperty('--tabs-bottom', Math.round(hdH + tabsH) + 'px');
+  }
+  updateStickyTops();
+  window.addEventListener('resize', updateStickyTops);
   // expose to global for onclick
   window.gradeAll = gradeAll;
   window.resetAll = resetAll;
