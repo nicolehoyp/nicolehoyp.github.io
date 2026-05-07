@@ -326,7 +326,7 @@ const QUIZ_DATA = {
         "id": 3,
         "question_en": "Sporicides kill fungal spores.",
         "question_zh": "殺孢子劑可殺滅真菌孢子。",
-        "answer": "B",
+        "answer": "A",
         "options": {
           "A": {"en": "True", "zh": "是", "correct": false},
           "B": {"en": "False", "zh": "否", "correct": true}
