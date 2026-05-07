@@ -2852,6 +2852,20 @@ const QUIZ_DATA = {
       },
       {
         "id": 11,
+        "question_en": "Which group of points is correct?均位於前髮際上0.5寸",
+        "question_zh": "以下哪組穴位正確？（均位於前髮際上0.5寸）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "ST-8, UB-4, UB-5, GB-14", "zh": "ST-8、UB-4、UB-5、GB-14", "correct": false},
+          "B": {"en": "ST-8, UB-3, UB-4, GB-13, GB-15", "zh": "ST-8、UB-3、UB-4、GB-13、GB-15", "correct": false},
+          "C": {"en": "ST-8, UB-4, UB-5, GB-15, GB-16", "zh": "ST-8、UB-4、UB-5、GB-15、GB-16", "correct": true},
+          "D": {"en": "ST-8, UB-3, UB-4, DU-23", "zh": "ST-8、UB-3、UB-4、DU-23", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB-14 is 1 cun above the midpoint of the eyebrow, not 0.5 cun within the hairline. | B: Incorrect. This group does not correctly represent points all lying 0.5 cun within the hairline. | C: Correct. ST-8, UB-4, UB-5, GB-15, and GB-16 are all located 0.5 cun within (superior to) the anterior hairline. | D: Incorrect. DU-23 is 1 cun within the hairline, not 0.5 cun.",
+        "exp_zh": "ST-8（頭維）、UB-4（曲差）、UB-5（五處）、GB-15（頭臨泣）、GB-16（目窗）均位於前髮際上0.5寸。"
+      },
+      {
+        "id": 12,
         "question_en": "In ear acupuncture, points related to the digestive tract are distributed around:",
         "question_zh": "在耳針中，消化道相關穴位分佈在：",
         "answer": "D",
@@ -2865,7 +2879,7 @@ const QUIZ_DATA = {
         "exp_zh": "消化道器官在耳甲腔有對應穴位（耳甲腔對應腹腔器官）。耳甲艇對應腹腔，耳甲腔對應胸腔，耳垂對應面部。"
       },
       {
-        "id": 12,
+        "id": 13,
         "question_en": "Which point is located on the radial side of the tendon of flexor carpi ulnaris, 1 cun proximal to the wrist?",
         "question_zh": "哪個穴位位於尺側腕屈肌腱橈側、腕橫紋上1寸處？",
         "answer": "C",
@@ -2879,7 +2893,7 @@ const QUIZ_DATA = {
         "exp_zh": "陰郄（HT-6）是心經郄穴，位於神門（HT-7）上方0.5寸，尺側腕屈肌腱橈側（注：原題說1寸但標準定位0.5寸，以教材為準）。"
       },
       {
-        "id": 13,
+        "id": 14,
         "question_en": "Which point is located 5 cun below the olecranon, on the lateral side of the forearm, between the radius and ulna?",
         "question_zh": "哪個穴位位於尺骨鷹嘴下方5寸、前臂外側、橈尺骨之間？",
         "answer": "C",
@@ -2893,7 +2907,20 @@ const QUIZ_DATA = {
         "exp_zh": "支正（SI-7）位於尺側前臂，腕上5寸（距肘部鷹嘴約7寸），在尺骨背緣。注意SI-7在前臂尺側，非橈側。"
       },
       {
-        "id": 14,
+        "id": 15,
+        "question_en": "Choose the correct influential points for: Bone, Blood, Vessel, Fu Organs",
+        "question_zh": "選擇以下的正確八會穴：骨、血、脈、腑",
+        "answer": "C",
+        "options": {
+          "A": {"en": "UB-17, UB-11, LU-7, RN-17", "zh": "UB-17、UB-11、LU-7、RN-17", "correct": false},
+          "B": {"en": "UB-11, UB-17, LU-9, RN-17", "zh": "UB-11、UB-17、LU-9、RN-17", "correct": false},
+          "C": {"en": "UB-11, UB-17, LU-9, RN-12", "zh": "UB-11、UB-17、LU-9、RN-12", "correct": true}
+        },
+        "exp_en": "A: Incorrect. UB-17 is blood, UB-11 is bone — order is reversed, and LU-7 is not the vessel point. | B: Incorrect. LU-7 is not the Eight Influential point for vessels. | C: Correct. UB-11 (Dazhu) = Bone, UB-17 (Geshu) = Blood, LU-9 (Taiyuan) = Vessels, RN-12 (Zhongwan) = Fu Organs. | D: Incorrect. RN-17 (Shanzhong) is the influential point for Qi, not Fu Organs.",
+        "exp_zh": "八會穴：大杼（UB-11）主骨，膈俞（UB-17）主血，太淵（LU-9）主脈，中脘（RN-12）主腑。"
+      },
+      {
+        "id": 16,
         "question_en": "Which of the following points carries the highest risk of pneumothorax, if needled improperly?",
         "question_zh": "以下哪個穴位針刺不當時氣胸風險最高？",
         "answer": "B",
@@ -2907,7 +2934,7 @@ const QUIZ_DATA = {
         "exp_zh": "日月（GB-24）位於第7肋間，直接覆蓋肺組織，針刺不當有氣胸風險。胸部穴位應斜刺或橫刺。"
       },
       {
-        "id": 15,
+        "id": 17,
         "question_en": "What do the Eight Influential Points influence?",
         "question_zh": "八會穴各自影響什麼？",
         "answer": "B",
@@ -2921,7 +2948,7 @@ const QUIZ_DATA = {
         "exp_zh": "八會穴主管：臟（章門LV13）、腑（中脘CV12）、氣（膻中CV17）、血（膈俞BL17）、筋（陽陵泉GB34）、脈（太淵LU9）、骨（大杼BL11）、髓（懸鐘GB39）。"
       },
       {
-        "id": 16,
+        "id": 18,
         "question_en": "When is the best time to give an acupuncture treatment?",
         "question_zh": "進行針灸治療的最佳時機是什麼時候？",
         "answer": "A",
@@ -2935,7 +2962,7 @@ const QUIZ_DATA = {
         "exp_zh": "最佳治療時機是發作間歇期（緩解期）——患者不處於急性發作中，可進行適當診斷和治療。急性發作時可對症處理，但系統治療宜在間歇期進行。"
       },
       {
-        "id": 17,
+        "id": 19,
         "question_en": "Which waveform in electro-acupuncture is easier for human body to generate adaption?",
         "question_zh": "電針中哪種波形更容易使人體產生適應？",
         "answer": "D",
@@ -2949,7 +2976,7 @@ const QUIZ_DATA = {
         "exp_zh": "連續波最容易使人體產生適應（耐受）。疏密波和斷續波均不易引起適應，因此臨床常用；以上皆非（D）意指兩者均不易適應。"
       },
       {
-        "id": 18,
+        "id": 20,
         "question_en": "What does the Eight Influential Point LU9 (Taiyuan) influence?",
         "question_zh": "八會穴LU9（太淵）影響什麼？",
         "answer": "D",
@@ -2963,7 +2990,7 @@ const QUIZ_DATA = {
         "exp_zh": "太淵（LU9）是脈的八會穴，肺朝百脈，太淵為脈之會，主治血脈相關疾患及脈象異常。"
       },
       {
-        "id": 19,
+        "id": 21,
         "question_en": "Select the therapy in which Acupuncture Syncope will not occur.",
         "question_zh": "以下哪種療法不會發生針刺暈厥？",
         "answer": "A",
@@ -2977,7 +3004,7 @@ const QUIZ_DATA = {
         "exp_zh": "指壓（穴位按壓）使用手指壓力而非針刺，不涉及進針過程，因此不會發生針刺暈厥（暈針）。"
       },
       {
-        "id": 20,
+        "id": 22,
         "question_en": "Which method is used on the four extremity points EX-UE11 (Shixuan)?",
         "question_zh": "十宣穴（EX-UE11）使用哪種針刺方法？",
         "answer": "A",
@@ -2991,7 +3018,7 @@ const QUIZ_DATA = {
         "exp_zh": "十宣穴（十個指尖）使用點刺法放血，常用於急症如中暑、高熱、昏迷等情況。"
       },
       {
-        "id": 21,
+        "id": 23,
         "question_en": "A patient comes in with chills and fever, a painful neck and shoulders and floating pulse. Which channel would you choose to treat this patient?",
         "question_zh": "患者出現惡寒發熱、頸肩疼痛、浮脈，應取哪條經絡治療？",
         "answer": "A",
@@ -3005,7 +3032,7 @@ const QUIZ_DATA = {
         "exp_zh": "惡寒發熱、頸肩疼痛、浮脈為太陽表證（風寒外感）。太陽經（膀胱經+小腸經）循行覆蓋頸後和上背部。"
       },
       {
-        "id": 22,
+        "id": 24,
         "question_en": "Choose the correct front Mu points for the following organs: Urinary Bladder, San Jiao, Stomach, and Pericardium",
         "question_zh": "選擇以下臟腑的正確募穴：膀胱、三焦、胃、心包",
         "answer": "C",
@@ -3019,7 +3046,7 @@ const QUIZ_DATA = {
         "exp_zh": "募穴：膀胱=中極（RN-3）、三焦=石門（RN-5）、胃=中脘（RN-12）、心包=膻中（RN-17）。注意選項C正確。"
       },
       {
-        "id": 23,
+        "id": 25,
         "question_en": "Which alcohol percentage is used in preparing needle site for insertion?",
         "question_zh": "針刺部位消毒使用的酒精濃度是多少？",
         "answer": "B",
@@ -3033,7 +3060,7 @@ const QUIZ_DATA = {
         "exp_zh": "70%（約75%）酒精是針灸前皮膚消毒的標準濃度，兼具殺菌效果和適當蒸發速度。95%酒精蒸發過快，用於火罐。"
       },
       {
-        "id": 24,
+        "id": 26,
         "question_en": "Which one is NOT among the Guasha effects?",
         "question_zh": "以下哪項不是刮痧的功效？",
         "answer": "D",
@@ -3047,7 +3074,7 @@ const QUIZ_DATA = {
         "exp_zh": "「補氣血」不是刮痧的功效。刮痧通過疏散（而非補益）發揮作用：疏通經絡、行氣活血、祛風散寒。補益需要用針灸補法或中藥。"
       },
       {
-        "id": 25,
+        "id": 27,
         "question_en": "Which alcohol percentage is used for fire cupping?",
         "question_zh": "火罐使用的酒精濃度是多少？",
         "answer": "C",
@@ -3061,7 +3088,7 @@ const QUIZ_DATA = {
         "exp_zh": "95%酒精用於火罐，因其點燃快速、燃燒乾淨。70%酒精用於針刺前皮膚消毒（兩者功用不同，需區分記憶）。"
       },
       {
-        "id": 26,
+        "id": 28,
         "question_en": "Which belongs to both the Luo-Connecting and the Eight Confluent Points?",
         "question_zh": "哪個穴位同時屬於絡穴和八脈交會穴？",
         "answer": "D",
@@ -3075,7 +3102,7 @@ const QUIZ_DATA = {
         "exp_zh": "列缺（LU7）既是肺經的絡穴，又是八脈交會穴（通任脈）。此雙重特性在選項中唯列缺獨有。"
       },
       {
-        "id": 27,
+        "id": 29,
         "question_en": "Which point is selected to treat a locked or tight jaw?",
         "question_zh": "治療牙關緊閉（口噤）應選哪個穴位？",
         "answer": "D",
@@ -3089,7 +3116,7 @@ const QUIZ_DATA = {
         "exp_zh": "合谷（LI4）是治療面口疾患的主穴（四總穴之一：「面口合谷收」），用於牙關緊閉、面痛、牙痛等。"
       },
       {
-        "id": 28,
+        "id": 30,
         "question_en": "Which angle is formed by the needle and the surface of the skin when needling CV17 (Tanzhong)?",
         "question_zh": "針刺膻中穴（CV17）時，針與皮膚表面形成的角度是多少？",
         "answer": "D",
@@ -3103,7 +3130,7 @@ const QUIZ_DATA = {
         "exp_zh": "膻中（CV17）在胸骨正中線上，應以約15度橫刺（平刺），沿皮膚方向進針，避免傷及胸骨或胸腔。"
       },
       {
-        "id": 29,
+        "id": 31,
         "question_en": "Name three points which are considered special in the treatment of frozen shoulder?",
         "question_zh": "治療肩周炎的三個特效穴是哪些？",
         "answer": "C",
@@ -3117,7 +3144,7 @@ const QUIZ_DATA = {
         "exp_zh": "治療肩周炎的三個局部特效穴：臑俞（SI-10）、肩髎（TE-14）、肩髃（LI-15），均圍繞肩關節分佈。"
       },
       {
-        "id": 30,
+        "id": 32,
         "question_en": "Choose the confluent points for the following extra channels: Chong channel, Yang Qiao channel, Du channel and Ren channel",
         "question_zh": "選擇以下奇經的交會穴：衝脈、陽蹺脈、督脈、任脈",
         "answer": "C",
@@ -3131,7 +3158,7 @@ const QUIZ_DATA = {
         "exp_zh": "交會穴：衝脈=公孫（SP-4），陽蹺=申脈（UB-62），督脈=後溪（SI-3），任脈=列缺（LU-7）。"
       },
       {
-        "id": 31,
+        "id": 33,
         "question_en": "The following point can nourish Heart Yin, clear Heat and treat night sweating.",
         "question_zh": "以下哪個穴位可養心陰、清熱、治療盜汗？",
         "answer": "C",
@@ -3145,7 +3172,7 @@ const QUIZ_DATA = {
         "exp_zh": "陰郄（HT-6）是心經郄穴，專治急性心病，尤其適用於心陰虛所致盜汗、心悸、胸痛。"
       },
       {
-        "id": 32,
+        "id": 34,
         "question_en": "Choose the Lower He-Sea points for the following organs: Stomach, San Jiao and Urinary Bladder",
         "question_zh": "選擇以下臟腑的下合穴：胃、三焦、膀胱",
         "answer": "C",
@@ -3158,7 +3185,7 @@ const QUIZ_DATA = {
         "exp_zh": "下合穴：胃=足三里（ST-36），三焦=委陽（UB-39），膀胱=委中（UB-40）。六腑的下合穴均在腿部。"
       },
       {
-        "id": 33,
+        "id": 35,
         "question_en": "To treat abdominal pain around the umbilicus, which Lower He-Sea point should be selected?",
         "question_zh": "治療臍周腹痛，應選用哪個下合穴？",
         "answer": "B",
@@ -3172,7 +3199,7 @@ const QUIZ_DATA = {
         "exp_zh": "下巨虛（ST-39）是小腸的下合穴。臍周疼痛對應小腸部位，故取小腸下合穴下巨虛治療。"
       },
       {
-        "id": 34,
+        "id": 36,
         "question_en": "What is FALSE about the selection of distant points?",
         "question_zh": "關於遠端取穴，以下哪項說法是錯誤的？",
         "answer": "D",
@@ -3186,7 +3213,7 @@ const QUIZ_DATA = {
         "exp_zh": "D項錯誤：風池（GB20）位於頸後，是治療眼部疾患的鄰近穴位（非遠端穴位）。遠端穴位是指距離患部較遠的穴位，一般在肘膝以下。"
       },
       {
-        "id": 35,
+        "id": 37,
         "question_en": "What is the best point combination to pain along the entire spine?",
         "question_zh": "治療整個脊柱疼痛的最佳穴位組合是什麼？",
         "answer": "B",
@@ -3200,7 +3227,7 @@ const QUIZ_DATA = {
         "exp_zh": "後溪（SI-3）+ 申脈（UB-62）是督脈的主配對穴，督脈循行整個脊柱，此對穴開通督脈，治療脊柱疼痛。"
       },
       {
-        "id": 36,
+        "id": 38,
         "question_en": "Which specific group of points are Back-Shu Points usually combined in use?",
         "question_zh": "背俞穴通常與哪類特定穴位配合使用？",
         "answer": "D",
@@ -3214,7 +3241,7 @@ const QUIZ_DATA = {
         "exp_zh": "背俞穴通常與募穴配合使用（俞募配穴法），前後相配，治療臟腑疾患。這是中醫針灸配穴的重要原則。"
       },
       {
-        "id": 37,
+        "id": 39,
         "question_en": "Which area of the ear are pelvic cavity points found?",
         "question_zh": "盆腔穴位在耳廓哪個區域？",
         "answer": "C",
@@ -3228,7 +3255,7 @@ const QUIZ_DATA = {
         "exp_zh": "三角窩對應盆腔，包括生殖器官（子宮、卵巢、前列腺）及三焦的對應穴位。"
       },
       {
-        "id": 38,
+        "id": 40,
         "question_en": "Which point is best to treat a patient suffering from red eyes and headaches due to Excess Liver Fire?",
         "question_zh": "治療肝火上炎所致目赤頭痛，最宜選用哪個穴位？",
         "answer": "A",
@@ -3242,7 +3269,7 @@ const QUIZ_DATA = {
         "exp_zh": "行間（LV-2）是肝經的滎穴，屬火，主清瀉肝火（實熱）。太衝（LV-3）更適合肝氣鬱滯和肝陽上亢。"
       },
       {
-        "id": 39,
+        "id": 41,
         "question_en": "Which of the following Eight Confluent Points is communicated with Du/Governor Meridian?",
         "question_zh": "以下哪個八脈交會穴與督脈相通？",
         "answer": "D",
@@ -3256,7 +3283,21 @@ const QUIZ_DATA = {
         "exp_zh": "後溪（SI3）是通督脈的八脈交會穴。申脈通陽蹺，足臨泣通帶脈，外關通陽維脈。"
       },
       {
-        "id": 40,
+        "id": 42,
+        "question_en": "The use of HT7 (Shenmen) and KI6 (Zhaohai) in a prescription is according to all the following principles EXCEPT:",
+        "question_zh": "在處方中同用神門（HT7）和照海（KI6）符合以下所有原則，除了：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Upper and Lower combination", "zh": "上下配穴法", "correct": false},
+          "B": {"en": "Points on the meridian with the same name", "zh": "同名經配穴法", "correct": false},
+          "C": {"en": "Guest and Host combination", "zh": "主客配穴法", "correct": false},
+          "D": {"en": "Application of specifically-grouped points", "zh": "特定穴應用", "correct": true}
+        },
+        "exp_en": "A: Incorrect (this principle DOES apply). HT7 is on the upper limb (wrist) and KI6 is on the lower limb (ankle) — this is an Upper-Lower combination. | B: Incorrect (this principle DOES apply). HT7 is on the Heart (Shao Yin Hand) and KI6 is on the Kidney (Shao Yin Foot) — same meridian name (Shao Yin) combination. | C: Incorrect (this principle DOES apply). Guest-Host combination uses the Yuan-Sou",
+        "exp_zh": "「特定穴應用」不是HT7+KI6配穴的原則。正確的配穴原則：上下配穴（心上腎下）、主客配穴（原絡）、同名經（少陰）。"
+      },
+      {
+        "id": 43,
         "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
         "question_zh": "背俞穴BL13至BL21的針刺深度和方向是？",
         "answer": "A",
@@ -3270,7 +3311,7 @@ const QUIZ_DATA = {
         "exp_zh": "胸段背俞穴（BL13-21）需斜刺向脊柱方向，深度0.5-1寸。若垂直深刺有刺入胸腔引起氣胸的風險。"
       },
       {
-        "id": 41,
+        "id": 44,
         "question_en": "Which waveform in electro-acupuncture is less easy for the human body to generate adaption?",
         "question_zh": "電針中哪種波形不容易使人體產生適應？",
         "answer": "C",
@@ -3284,7 +3325,7 @@ const QUIZ_DATA = {
         "exp_zh": "疏密波（疏密交替）和斷續波均不易引起人體適應（相對於連續波），因此均是答案（C）。"
       },
       {
-        "id": 42,
+        "id": 45,
         "question_en": "What are the Five-Shu points of the Heart?",
         "question_zh": "心經的五輸穴是哪些？",
         "answer": "A",
@@ -3298,7 +3339,7 @@ const QUIZ_DATA = {
         "exp_zh": "心經五輸穴：少衝（HT-9，井）、少府（HT-8，滎）、神門（HT-7，輸/原）、靈道（HT-4，經）、少海（HT-3，合）。"
       },
       {
-        "id": 43,
+        "id": 46,
         "question_en": "Which group of points are all Xi-cleft points?",
         "question_zh": "哪組穴位全部是郄穴？",
         "answer": "D",
@@ -3312,7 +3353,21 @@ const QUIZ_DATA = {
         "exp_zh": "水泉（KD-5）是腎經郄穴，交信（KD-8）是陰蹺脈郄穴，築賓（KD-9）是陰維脈郄穴，三者均是郄穴。"
       },
       {
-        "id": 44,
+        "id": 47,
+        "question_en": "The distance between SI-7 and SI-8 is",
+        "question_zh": "SI-7（支正）至SI-8（小海）的距離是：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "5 cun", "zh": "5寸", "correct": false},
+          "B": {"en": "6 cun", "zh": "6寸", "correct": false},
+          "C": {"en": "7 cun", "zh": "7寸", "correct": true},
+          "D": {"en": "8 cun", "zh": "8寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 5 cun is not the correct distance between SI-7 and SI-8. | B: Incorrect. 6 cun is not the correct distance between SI-7 and SI-8. | C: Correct. SI-7 (Zhizheng) is located 5 cun proximal to the wrist crease. SI-8 (Xiaohai) is at the elbow. The forearm (wrist to elbow) = 12 cun total; therefore the distance from SI-7 to SI-8 = 12 − 5 = 7 cun. | D: Incorrect. 8 cun overestimates the dis",
+        "exp_zh": "支正（SI-7）在腕上5寸，小海（SI-8）在肘部，兩者距離約7寸。"
+      },
+      {
+        "id": 48,
         "question_en": "In ear acupuncture, points related to the digestive tract are distributed around",
         "question_zh": "在耳針中，消化道相關穴位分佈在：",
         "answer": "D",
@@ -3326,7 +3381,7 @@ const QUIZ_DATA = {
         "exp_zh": "消化道（食道至直腸）的穴位分佈在耳甲腔的耳輪腳周圍，耳輪腳本身代表橫膈。"
       },
       {
-        "id": 45,
+        "id": 49,
         "question_en": "Which is the Front-Mu point of Spleen?",
         "question_zh": "脾的募穴是：",
         "answer": "D",
@@ -3340,7 +3395,7 @@ const QUIZ_DATA = {
         "exp_zh": "章門（LR13）是脾的募穴，也是臟之會穴。中脘為胃募穴，天樞為大腸募穴。"
       },
       {
-        "id": 46,
+        "id": 50,
         "question_en": "Choose the group of points located at the same level.",
         "question_zh": "選擇同一水平線上的穴位組合。",
         "answer": "C",
@@ -3354,7 +3409,7 @@ const QUIZ_DATA = {
         "exp_zh": "肓俞（KI-16）、天樞（ST-25）、大橫（SP-15）均位於臍水平線（平臍），是重要的解剖標誌。"
       },
       {
-        "id": 47,
+        "id": 51,
         "question_en": "Where are the Eight Confluent points located?",
         "question_zh": "八脈交會穴位於哪裡？",
         "answer": "D",
@@ -3368,7 +3423,7 @@ const QUIZ_DATA = {
         "exp_zh": "八脈交會穴均位於腕踝關節附近，分佈在四肢末端的十二正經上，是奇經八脈與正經的交匯點。"
       },
       {
-        "id": 48,
+        "id": 52,
         "question_en": "Which pair of points should be selected for a patient with chronic insomnia related to multiple organ disorder?",
         "question_zh": "治療多臟腑失調相關的慢性失眠，應選用哪對穴位？",
         "answer": "D",
@@ -3382,7 +3437,7 @@ const QUIZ_DATA = {
         "exp_zh": "申脈（UB-62）+照海（KI-6）分別開通陽蹺脈和陰蹺脈，陰陽蹺脈主司睡眠，此對穴調節陰陽平衡，治療慢性失眠。"
       },
       {
-        "id": 49,
+        "id": 53,
         "question_en": "What do Siguan-The Four Gates do?",
         "question_zh": "四關穴（合谷+太衝）的主要功效是什麼？",
         "answer": "A",
@@ -3396,7 +3451,7 @@ const QUIZ_DATA = {
         "exp_zh": "四關（雙側合谷LI4+雙側太衝LR3）疏通氣機，行氣活血，是調暢全身氣機的重要組合。"
       },
       {
-        "id": 50,
+        "id": 54,
         "question_en": "Which group of points is best for the treatment of hypochondrial pain caused by Liver disorders?",
         "question_zh": "治療肝病引起的脅肋疼痛，哪組穴位最佳？",
         "answer": "B",
@@ -3410,7 +3465,7 @@ const QUIZ_DATA = {
         "exp_zh": "太衝（LR-3，疏肝理氣）+陽陵泉（GB-34，筋之會、膽下合穴）+章門（LR-13，脾之募穴及臟之會）是治療肝病脅痛的最佳組合。"
       },
       {
-        "id": 51,
+        "id": 55,
         "question_en": "What is TRUE about Lower He-Sea Points?",
         "question_zh": "關於下合穴，以下哪項正確？",
         "answer": "B",
@@ -3424,7 +3479,21 @@ const QUIZ_DATA = {
         "exp_zh": "下合穴只對應六腑（陽）——胃、小腸、大腸、三焦、膀胱、膽，每腑一個，均在腿足部六條陽經上。"
       },
       {
-        "id": 52,
+        "id": 56,
+        "question_en": "Which length needle is ideal for use in scalp acupuncture?",
+        "question_zh": "頭皮針理想使用針的長度是多少？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "0.5 Cun", "zh": "0.5寸", "correct": false},
+          "B": {"en": "1.0 Cun", "zh": "1.0寸", "correct": true},
+          "C": {"en": "2.0 Cun", "zh": "2.0寸", "correct": false},
+          "D": {"en": "3.5 cun", "zh": "3.5寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 0.5 cun is too short to reach the subcutaneous layer of the scalp at the required angle. | B: Correct. A 1-cun needle is the standard length used in scalp acupuncture, allowing insertion into the subcutaneous layer at a 15–30° angle along the scalp lines. | C: Incorrect. A 2-cun needle is too long for standard scalp acupuncture and risks going too deep. | D: Incorrect. 3.5 cun is far",
+        "exp_zh": "頭皮針標準使用1寸針，採用橫刺（平刺）方式，針尖穿入頭皮帽狀腱膜下層，此深度適合頭皮針操作。"
+      },
+      {
+        "id": 57,
         "question_en": "According to the Yuan and Luo theory (Yuan point on the diseased meridian and Luo point on the pairing meridian), which point combination should you use to treat a patient with Kidney deficiency?",
         "question_zh": "根據原絡理論（病變經取原穴，表裡經取絡穴），治療腎虛應取哪組穴位？",
         "answer": "C",
@@ -3438,7 +3507,21 @@ const QUIZ_DATA = {
         "exp_zh": "太溪（KD-3）是腎經原穴；飛揚（UB-58）是膀胱經絡穴。腎虛取腎經原穴太溪，再取表裡經（膀胱）絡穴飛揚。"
       },
       {
-        "id": 53,
+        "id": 58,
+        "question_en": "Name three points which are considered special in the treatment of frozen shoulder?",
+        "question_zh": "治療肩周炎的三個特效穴是哪些？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "LI-4, LI-11, LI-15", "zh": "LI-4、LI-11、LI-15", "correct": false},
+          "B": {"en": "SI-3, TE-5, PC-6", "zh": "SI-3、TE-5、PC-6", "correct": false},
+          "C": {"en": "SI-10, TE-14, LI-15", "zh": "SI-10、TE-14、LI-15", "correct": true},
+          "D": {"en": "GB-20, GB-21, SI-11", "zh": "GB-20、GB-21、SI-11", "correct": false}
+        },
+        "exp_en": "A: Incorrect. LI-4 and LI-11 are distal points; while LI-15 is relevant, this combination is incomplete for frozen shoulder. | B: Incorrect. SI-3, TE-5, PC-6 are Eight Confluent and distal points, not the local/adjacent points specifically for frozen shoulder. | C: Correct. SI-10 (Naoshu), TE-14 (Jianliao), and LI-15 (Jianyu) are the three local shoulder points considered most important for treati",
+        "exp_zh": "臑俞（SI-10）、肩髎（TE-14）、肩髃（LI-15）是肩周炎治療的三個局部特效穴，圍繞肩關節分佈。"
+      },
+      {
+        "id": 59,
         "question_en": "As one of Commanding Points, which body part does BL40 (Weizhong) act on?",
         "question_zh": "作為四總穴之一，委中（BL40）作用於哪個部位？",
         "answer": "C",
@@ -3452,7 +3535,7 @@ const QUIZ_DATA = {
         "exp_zh": "委中（BL40）是腰背部的四總穴——「腰背委中求」。四總穴：列缺（頭頸）、足三里（腹）、委中（腰背）、內關（胸心）。"
       },
       {
-        "id": 54,
+        "id": 60,
         "question_en": "What is a correct order of Five Shu Points from the distal to the proximal based on the generating relationship of Five Elements in a regular Yang meridian?",
         "question_zh": "陽經五輸穴從遠端到近端，根據五行相生順序，正確的排列是：",
         "answer": "C",
@@ -3466,7 +3549,7 @@ const QUIZ_DATA = {
         "exp_zh": "陽經五輸穴五行配屬：井（金）、滎（水）、輸（木）、經（火）、合（土），即金-水-木-火-土。"
       },
       {
-        "id": 55,
+        "id": 61,
         "question_en": "Which of Five Shu Points are generally used to clear Heat?",
         "question_zh": "五輸穴中哪類穴位通常用於清熱？",
         "answer": "A",
@@ -3480,7 +3563,7 @@ const QUIZ_DATA = {
         "exp_zh": "滎穴是清熱的五輸穴——「滎主身熱」。臨床上，無論陰陽經，滎穴都用於清熱瀉火，尤其是發熱性疾患。"
       },
       {
-        "id": 56,
+        "id": 62,
         "question_en": "Choose the correct influential points for: Bone, Blood, Vessel, Fu Organs",
         "question_zh": "選擇以下的正確八會穴：骨、血、脈、腑",
         "answer": "D",
@@ -3494,7 +3577,7 @@ const QUIZ_DATA = {
         "exp_zh": "八會穴：骨=大杼（UB-11），血=膈俞（UB-17），脈=太淵（LU-9），腑=中脘（RN-12）。注意LU-9（非LU-7）主脈。"
       },
       {
-        "id": 57,
+        "id": 63,
         "question_en": "Which of following points is NOT a Luo/Connecting point?",
         "question_zh": "以下哪個穴位不是絡穴？",
         "answer": "C",
@@ -3508,7 +3591,7 @@ const QUIZ_DATA = {
         "exp_zh": "中庭（RN16）不是絡穴。任脈的絡穴是鳩尾（RN15）。光明（GB37）是膽絡，蠡溝（LR5）是肝絡，大包（SP21）是脾大絡。"
       },
       {
-        "id": 58,
+        "id": 64,
         "question_en": "The highest point located on the body is __; the lowest point located on the body is __",
         "question_zh": "人體最高點是___；最低點是___",
         "answer": "C",
@@ -3522,7 +3605,7 @@ const QUIZ_DATA = {
         "exp_zh": "百會（DU-20）在頭頂，是人體最高點；湧泉（KD-1）在腳底，是人體最低點。"
       },
       {
-        "id": 59,
+        "id": 65,
         "question_en": "Which point is often selected to treat Hypertension in any pattern?",
         "question_zh": "以下哪個穴位通常用於治療各種類型的高血壓？",
         "answer": "D",
@@ -3536,7 +3619,7 @@ const QUIZ_DATA = {
         "exp_zh": "曲池（LI11）是治療高血壓的經驗效穴，對各種類型高血壓均有降壓效果，現代研究也支持此點。"
       },
       {
-        "id": 60,
+        "id": 66,
         "question_en": "Auricular point TF4 (shenmen) is located at:",
         "question_zh": "耳穴神門（TF4）的位置在：",
         "answer": "D",
@@ -3550,7 +3633,7 @@ const QUIZ_DATA = {
         "exp_zh": "耳神門（TF4）位於三角窩後1/3的上部（對耳輪上下腳分叉處附近），具有鎮靜安神的功效。"
       },
       {
-        "id": 61,
+        "id": 67,
         "question_en": "Choose the Lower He Sea points for the following organs: Stomach, San Jiao and Urinary Bladder",
         "question_zh": "選擇以下臟腑的下合穴：胃、三焦、膀胱",
         "answer": "C",
@@ -3564,7 +3647,7 @@ const QUIZ_DATA = {
         "exp_zh": "下合穴：胃=足三里（ST-36），三焦=委陽（UB-39），膀胱=委中（UB-40）。"
       },
       {
-        "id": 62,
+        "id": 68,
         "question_en": "Which of the following channels does NOT wrap around the mouth?",
         "question_zh": "以下哪條經絡不環繞口部？",
         "answer": "D",
@@ -3578,7 +3661,7 @@ const QUIZ_DATA = {
         "exp_zh": "大腸經（LI20迎香）終止於鼻旁，不環繞口部。胃經、任脈、督脈均有分支環繞口唇。"
       },
       {
-        "id": 63,
+        "id": 69,
         "question_en": "Which one of the following points is contraindicated for intradermal needle therapy?",
         "question_zh": "以下哪個穴位是皮內針療法的禁忌？",
         "answer": "D",
@@ -3592,7 +3675,7 @@ const QUIZ_DATA = {
         "exp_zh": "犢鼻（ST35）位於膝關節，活動度大，皮內針不適合用於關節處（易脫落且影響活動）。"
       },
       {
-        "id": 64,
+        "id": 70,
         "question_en": "Which insertion method should be used when needling EX-HN3(Yintang)?",
         "question_zh": "針刺印堂穴（EX-HN3）應使用哪種進針方法？",
         "answer": "D",
@@ -3606,7 +3689,7 @@ const QUIZ_DATA = {
         "exp_zh": "印堂（EX-HN3）位於鼻根部，皮膚薄且附著於骨，需提捏皮膚後斜向下進針（提捏進針法）。"
       },
       {
-        "id": 65,
+        "id": 71,
         "question_en": "Which method of three edge needle is used to treat vomiting, diarrhea and heat stroke at points BL40(weizhong) and PC3(quze)?",
         "question_zh": "在委中（BL40）和曲澤（PC3）使用三棱針治療嘔吐、腹瀉和中暑時，應使用哪種刺法？",
         "answer": "C",
@@ -3620,7 +3703,7 @@ const QUIZ_DATA = {
         "exp_zh": "在委中和曲澤使用刺絡放血法（血管刺絡）——刺破局部顯露的靜脈放血，以清熱解毒、急救醒神。"
       },
       {
-        "id": 66,
+        "id": 72,
         "question_en": "What is the general application of Xi-Cleft points in clinic?",
         "question_zh": "郄穴在臨床上的一般應用是什麼？",
         "answer": "C",
@@ -3634,7 +3717,7 @@ const QUIZ_DATA = {
         "exp_zh": "郄穴是氣血深聚之處，主要用於治療急性病症（急性疼痛、急性出血等）。「郄主急痛症」。"
       },
       {
-        "id": 67,
+        "id": 73,
         "question_en": "According to the Yuan and Luo theory (Yuan point on the diseased meridian and Luo point on the pairing meridian), which point combination should you use to treat a patient with Spleen deficiency?",
         "question_zh": "根據原絡理論，治療脾虛應取哪組穴位？",
         "answer": "B",
@@ -3648,7 +3731,7 @@ const QUIZ_DATA = {
         "exp_zh": "太白（SP-3）是脾經原穴；豐隆（ST-40）是胃經絡穴。脾虛取脾原太白，表裡經胃之絡穴豐隆。"
       },
       {
-        "id": 68,
+        "id": 74,
         "question_en": "Choose the Lower He Sea points for the following organs: Stomach, San Jiao and Urinary Bladder.",
         "question_zh": "選擇以下臟腑的下合穴：胃、三焦、膀胱（重複）",
         "answer": "C",
@@ -3662,7 +3745,7 @@ const QUIZ_DATA = {
         "exp_zh": "下合穴：胃=足三里（ST-36），三焦=委陽（UB-39），膀胱=委中（UB-40）。"
       },
       {
-        "id": 69,
+        "id": 75,
         "question_en": "Which insertion method should be used when needling EX-HN3 (Yintang)?",
         "question_zh": "針刺印堂穴（EX-HN3）應使用哪種進針方法？（重複）",
         "answer": "D",
@@ -3676,7 +3759,7 @@ const QUIZ_DATA = {
         "exp_zh": "印堂皮薄骨附，需提捏進針後斜刺向下，此為提捏進針法的標準應用。"
       },
       {
-        "id": 70,
+        "id": 76,
         "question_en": "What is TRUE about Yuan-Source Points?",
         "question_zh": "關於原穴，以下哪項正確？",
         "answer": "D",
@@ -3690,7 +3773,49 @@ const QUIZ_DATA = {
         "exp_zh": "在十二條陰經上，原穴與五輸穴的輸穴重合（同一穴位）。陽經的原穴則獨立於輸穴之外。"
       },
       {
-        "id": 71,
+        "id": 77,
+        "question_en": "What are the Five-Shu points of the Heart?",
+        "question_zh": "心經的五輸穴是哪些？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "HT-3 Shaohai, HT-4 Lingdao, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "少海、靈道、神門、少府、少衝", "correct": true},
+          "B": {"en": "HT-3 Shaohai, HT-5 Tongli, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "少海、通里、神門、少府、少衝", "correct": false},
+          "C": {"en": "HT-2 Qingling, HT-6 Yinxi, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "青靈、陰郄、神門、少府、少衝", "correct": false},
+          "D": {"en": "HT-2 Qingling, HT-5 Tongli, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "青靈、通里、神門、少府、少衝", "correct": false}
+        },
+        "exp_en": "A: Correct. HT-3 (Shaohai) = He-Sea, HT-4 (Lingdao) = Jing-River, HT-7 (Shenmen) = Shu-Stream/Yuan, HT-8 (Shaofu) = Ying-Spring, HT-9 (Shaochong) = Jing-Well. These five constitute the Five-Shu points of the Heart meridian. | B: Incorrect. HT-5 (Tongli) is the Luo-Connecting point, not a Five-Shu point. | C: Incorrect. HT-2 (Qingling) and HT-6 (Yinxi) are not Five-Shu points. | D: Incorrect. HT-2 ",
+        "exp_zh": "心經五輸穴：少衝（HT-9，井）、少府（HT-8，滎）、神門（HT-7，輸/原）、靈道（HT-4，經）、少海（HT-3，合）。"
+      },
+      {
+        "id": 78,
+        "question_en": "What is the best point combination to pain along the entire spine?",
+        "question_zh": "治療整個脊柱疼痛的最佳穴位組合是什麼？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "DU-4, DU-14", "zh": "督脈4（命門）、督脈14（大椎）", "correct": false},
+          "B": {"en": "SI-3, UB-62", "zh": "SI-3（後溪）、UB-62（申脈）", "correct": true},
+          "C": {"en": "UB-40, UB-23", "zh": "UB-40（委中）、UB-23（腎俞）", "correct": false},
+          "D": {"en": "KI-3, UB-23", "zh": "KI-3（太溪）、UB-23（腎俞）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Du-4 and Du-14 are both local points on the Du channel; they address specific spinal regions but not the entire spine. | B: Correct. SI-3 (Houxi) and UB-62 (Shenmai) are Eight Confluent points that open the Du Mai (Governing Vessel), which runs along the entire spine — making this the best combination for pain along the full length of the spine. | C: Incorrect. UB-40 and UB-23 addres",
+        "exp_zh": "後溪（SI-3）+申脈（UB-62）是督脈的主配對穴，開通督脈，治療脊柱疼痛。"
+      },
+      {
+        "id": 79,
+        "question_en": "Which of the following points is NOT a Luo/Connecting point?",
+        "question_zh": "以下哪個穴位不是絡穴？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "GB37 (Guangming)", "zh": "GB37（光明）", "correct": false},
+          "B": {"en": "LR5 (Ligou)", "zh": "LR5（蠡溝）", "correct": false},
+          "C": {"en": "RN16 (Zhongting)", "zh": "RN16（中庭）", "correct": true},
+          "D": {"en": "SP21 (Dabao)", "zh": "SP21（大包）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB37 (Guangming) IS the Luo-Connecting point of the Gallbladder meridian. | B: Incorrect. LR5 (Ligou) IS the Luo-Connecting point of the Liver meridian. | C: Correct. RN16 (Zhongting) is NOT a Luo-Connecting point. The Luo-Connecting point of the Ren Mai is RN15 (Jiuwei). | D: Incorrect. SP21 (Dabao) IS the Great Luo-Connecting point of the Spleen.",
+        "exp_zh": "中庭（RN16）不是絡穴。任脈絡穴為鳩尾（RN15）。"
+      },
+      {
+        "id": 80,
         "question_en": "Which combination of following points is used to treat disorders of the outer canthus, back of ear, cheek, neck and shoulder?",
         "question_zh": "以下哪個穴位組合用於治療外眼角、耳後、頸肩等部位的疾患？",
         "answer": "B",
@@ -3704,7 +3829,21 @@ const QUIZ_DATA = {
         "exp_zh": "足臨泣（GB41）+外關（SJ5）分別開通帶脈和陽維脈，其聯合治療範圍涵蓋外眼角、耳後、頸肩等側面部位。"
       },
       {
-        "id": 72,
+        "id": 81,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5 – 0.8 cun", "zh": "斜刺0.5-0.8寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 – 0.5 cun", "zh": "直刺0.3-0.5寸", "correct": false},
+          "C": {"en": "Obliquely 0.8 – 1.2 cun", "zh": "斜刺0.8-1.2寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 – 0.8 cun", "zh": "直刺0.5-0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴（BL13-21）需斜刺向脊柱方向，深度0.5-1寸，防止刺入胸腔引起氣胸。"
+      },
+      {
+        "id": 82,
         "question_en": "PC-6, Neiguan, can treat the following symptoms:",
         "question_zh": "內關穴（PC-6）可以治療以下哪些症狀？",
         "answer": "D",
@@ -3718,7 +3857,7 @@ const QUIZ_DATA = {
         "exp_zh": "內關（PC-6）是心包經絡穴，又是八脈交會穴（通陰維脈），適應範圍廣：胸痛心悸、噁心嘔吐、失眠焦慮均可使用。"
       },
       {
-        "id": 73,
+        "id": 83,
         "question_en": "Choose the confluent points for the following extra channels: Chong channel, Yang Qiao channel, Du channel and Ren channel.",
         "question_zh": "選擇以下奇經的交會穴：衝脈、陽蹺脈、督脈、任脈（重複）",
         "answer": "C",
@@ -3732,7 +3871,7 @@ const QUIZ_DATA = {
         "exp_zh": "交會穴：衝脈=公孫（SP-4），陽蹺=申脈（UB-62），督脈=後溪（SI-3），任脈=列缺（LU-7）。"
       },
       {
-        "id": 74,
+        "id": 84,
         "question_en": "Choose the correct front Mu points for the following organs: Urinary Bladder, San Jiao, Stomach, and Pericardium.",
         "question_zh": "選擇以下臟腑的正確募穴：膀胱、三焦、胃、心包（重複）",
         "answer": "C",
@@ -3746,7 +3885,7 @@ const QUIZ_DATA = {
         "exp_zh": "募穴：膀胱=中極（RN-3），三焦=石門（RN-5），胃=中脘（RN-12），心包=膻中（RN-17）。"
       },
       {
-        "id": 75,
+        "id": 85,
         "question_en": "The Luo-connecting channel of the Heart separates from the primary channel at which point?",
         "question_zh": "心的絡脈從哪個穴位別出正經？",
         "answer": "B",
@@ -3760,7 +3899,7 @@ const QUIZ_DATA = {
         "exp_zh": "通里（HT-5）是心經的絡穴，心的絡脈從通里別出，聯絡小腸（表裡經）。"
       },
       {
-        "id": 76,
+        "id": 86,
         "question_en": "Which waveform in electro-acupuncture is less easy for the human body to generate adaptation?",
         "question_zh": "電針中哪種波形不容易使人體產生適應？（重複）",
         "answer": "C",
@@ -3774,7 +3913,21 @@ const QUIZ_DATA = {
         "exp_zh": "疏密波和斷續波均不易引起適應，因此均是正確答案（C）。"
       },
       {
-        "id": 77,
+        "id": 87,
+        "question_en": "Which one of the following points is contraindicated for intradermal needle therapy?",
+        "question_zh": "以下哪個穴位是皮內針療法的禁忌？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Ear heart", "zh": "耳心穴", "correct": false},
+          "B": {"en": "BL18 (Ganshu)", "zh": "BL18（肝俞）", "correct": false},
+          "C": {"en": "LI11 (Quchi)", "zh": "LI11（曲池）", "correct": false},
+          "D": {"en": "ST35 (Dubi)", "zh": "ST35（犢鼻）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. The auricular heart point can be used with intradermal (press) needles in ear acupuncture. | B: Incorrect. BL18 (Ganshu) on the back can accommodate intradermal needles. | C: Incorrect. LI11 (Quchi) is on the elbow region; while it has some movement, it is not the primary contraindication. | D: Correct. ST35 (Dubi) is located at the knee joint — a highly mobile area. Intradermal need",
+        "exp_zh": "犢鼻（ST35）在膝關節活動處，皮內針禁忌用於關節部位。"
+      },
+      {
+        "id": 88,
         "question_en": "The highest point located on the body is ___; the lowest point located on the body is ___.",
         "question_zh": "人體最高點是___；最低點是___（重複）",
         "answer": "C",
@@ -3788,7 +3941,7 @@ const QUIZ_DATA = {
         "exp_zh": "百會（DU-20）為最高點，湧泉（KD-1）為最低點。"
       },
       {
-        "id": 78,
+        "id": 89,
         "question_en": "What is crossing point of all six yang channels, and where it is located?",
         "question_zh": "六陽經的交匯點是哪個穴位，位置在哪裡？",
         "answer": "D",
@@ -3802,7 +3955,21 @@ const QUIZ_DATA = {
         "exp_zh": "大椎（DU-14）位於第7頸椎棘突下，是六條陽經（三陽+督脈）的交匯點，主治一切陽病及外感熱病。"
       },
       {
-        "id": 79,
+        "id": 90,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5~0.8 cun", "zh": "斜刺0.5-0.8寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 - 0.5 cun", "zh": "直刺0.3-0.5寸", "correct": false},
+          "C": {"en": "Obliquely 0.8 - 1.2 cun", "zh": "斜刺0.8-1.2寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 ~ 0.8 cun", "zh": "直刺0.5-0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴斜刺0.5-1寸向脊柱方向，避免氣胸。"
+      },
+      {
+        "id": 91,
         "question_en": "Which of the following Eight Confluent Points is communicated with Dai/Girdle Meridian?",
         "question_zh": "以下哪個八脈交會穴與帶脈相通？",
         "answer": "B",
@@ -3816,7 +3983,7 @@ const QUIZ_DATA = {
         "exp_zh": "足臨泣（GB41）是通帶脈的八脈交會穴，與外關（SJ5）配對使用。照海通陰蹺，內關通陰維，後溪通督脈。"
       },
       {
-        "id": 80,
+        "id": 92,
         "question_en": "According to the Yuan and Luo theory (Yuan point on the diseased meridian and Luo point on the pairing meridian), which point combination should you use to treat a patient with which point combination should you use for the treatment of Spleen deficiency?",
         "question_zh": "根據原絡理論，治療脾虛應取哪組穴位？（重複）",
         "answer": "B",
@@ -3830,7 +3997,91 @@ const QUIZ_DATA = {
         "exp_zh": "太白（SP-3，脾原穴）+豐隆（ST-40，胃絡穴）——脾虛取脾原，配表裡經胃之絡。"
       },
       {
-        "id": 81,
+        "id": 93,
+        "question_en": "Which point is used for malposition of the foetus and what is its location?",
+        "question_zh": "哪個穴位用於矯正胎位不正？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "SP-1, medial border...", "zh": "SP-1，甲內側緣...", "correct": false},
+          "B": {"en": "LR-1, lateral border...", "zh": "LR-1，甲外側緣...", "correct": false},
+          "C": {"en": "UB-67, medial border...", "zh": "UB-67，甲內側緣...", "correct": false},
+          "D": {"en": "UB-67, at the junction of lines drawn along the lateral border of the nail and the base of the nail, approximately 0.1 cun from the corner of the nail", "zh": "UB-67，位於甲外側緣與甲根部連線交點，距甲角約0.1寸", "correct": true}
+        },
+        "exp_en": "A: Incorrect. SP-1 is on the medial great toe and is not used for foetal malposition. | B: Incorrect. LR-1 is on the lateral great toe; it is not the standard point for foetal malposition correction. | C: Incorrect. UB-67 is on the lateral side of the 5th toenail, not the medial border. | D: Correct. UB-67 (Zhiyin) is located at the junction of the lateral border of the nail and the base of the na",
+        "exp_zh": "至陰（UB-67）位於足小趾甲外側緣，距甲角0.1寸，艾灸矯正胎位不正。"
+      },
+      {
+        "id": 94,
+        "question_en": "What is crossing point of all six yang channels, and where it is located?",
+        "question_zh": "六陽經交匯點及其位置（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Du-24, midline of the body, 0.5 cun within the anterior hair line", "zh": "督脈24，正中線，前髮際內0.5寸", "correct": false},
+          "B": {"en": "Du-20, midline of the body, 5 cun within the anterior hair line", "zh": "督脈20，正中線，前髮際內5寸", "correct": false},
+          "C": {"en": "Du-14, under the 7th thoracic Spinal vertebra", "zh": "督脈14，第7胸椎棘突下", "correct": false},
+          "D": {"en": "Du-14, under the 7th cervical spinal vertebra", "zh": "督脈14，第7頸椎棘突下", "correct": true}
+        },
+        "exp_en": "A: Incorrect. DU-24 is at the anterior hairline and is not the crossing of all six Yang channels. | B: Incorrect. DU-20 is at the crown but is not described as the crossing of all six Yang channels. | C: Incorrect. DU-14 is not under the 7th thoracic vertebra — that is BL17. | D: Correct. DU-14 (Dazhui) is located below the spinous process of the 7th cervical vertebra and is the meeting point of a",
+        "exp_zh": "大椎（DU-14）在第7頸椎棘突下，是六陽經交匯點。"
+      },
+      {
+        "id": 95,
+        "question_en": "What is FALSE about the selection of distant points?",
+        "question_zh": "關於遠端取穴，以下哪項說法是錯誤的？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "It often refers to those points below the elbow and knee joints.", "zh": "通常指肘膝關節以下的穴位", "correct": false},
+          "B": {"en": "It is the core of the acupuncture prescription.", "zh": "是針灸處方的核心", "correct": false},
+          "C": {"en": "Those points are usually located on the main diseased meridian.", "zh": "這些穴位通常位於主要病變經絡上", "correct": false},
+          "D": {"en": "A good example of this is to select GB20 (Fengchi) for eye disorders", "zh": "選取風池（GB20）治療眼部疾患是一個好例子", "correct": true}
+        },
+        "exp_en": "A: Incorrect (i.e., this statement is TRUE). Distant points do refer to points below the elbow and knee. | B: Incorrect (TRUE). Distant point selection is indeed the core of acupuncture prescription. | C: Incorrect (TRUE). Distant points are usually selected from the main diseased meridian. | D: Correct (this is FALSE). GB20 (Fengchi) is a local/adjacent point near the head and eye region, not a d",
+        "exp_zh": "D項錯誤：風池（GB20）是鄰近穴位，非遠端穴位。遠端取穴指肘膝以下。"
+      },
+      {
+        "id": 96,
+        "question_en": "What is the correct description for the 2nd branch for Bladder Primary channel?",
+        "question_zh": "膀胱正經第二支的正確描述（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Parallel to spine and 0.5 cun lateral to the spine", "zh": "與脊柱平行，位於脊柱外側0.5寸", "correct": false},
+          "B": {"en": "Parallel to the spine and half way from medial border of the scapula to 5pine", "zh": "與脊柱平行，位於肩胛骨內側緣至脊柱中點", "correct": false},
+          "C": {"en": "Parallel to the spine and 1.5 cun from spine", "zh": "與脊柱平行，距脊柱1.5寸", "correct": false},
+          "D": {"en": "On medial border of the scapula and parallel to the spine", "zh": "沿肩胛骨內側緣與脊柱平行", "correct": true}
+        },
+        "exp_en": "A: Incorrect. 0.5 cun lateral to the spine does not correspond to any standard BL branch. | B: Incorrect. This description does not match the standard anatomical reference for the 2nd branch. | C: Incorrect. 1.5 cun from the spine describes the 1st branch of the Bladder channel, not the 2nd. | D: Correct. The 2nd branch of the Bladder Primary channel runs along the medial border of the scapula, pa",
+        "exp_zh": "膀胱正經第二支沿肩胛骨內側緣走行（背部第二線，距脊柱旁開3寸）。"
+      },
+      {
+        "id": 97,
+        "question_en": "The distance between SI-7 and SI-8 is",
+        "question_zh": "SI-7至SI-8的距離（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "5 cur", "zh": "5寸", "correct": false},
+          "B": {"en": "6 cur", "zh": "6寸", "correct": false},
+          "C": {"en": "7 cun", "zh": "7寸", "correct": true},
+          "D": {"en": "8 cun", "zh": "8寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 5 cun is not the correct distance between SI-7 and SI-8. | B: Incorrect. 6 cun is not the correct distance between SI-7 and SI-8. | C: Correct. SI-7 (Zhizheng) is located 5 cun proximal to the wrist crease. SI-8 (Xiaohai) is at the elbow. The forearm (wrist to elbow) = 12 cun total; therefore the distance from SI-7 to SI-8 = 12 − 5 = 7 cun. | D: Incorrect. 8 cun overestimates the dis",
+        "exp_zh": "支正（SI-7）腕上5寸，小海（SI-8）在肘部，兩者距離約7寸。"
+      },
+      {
+        "id": 98,
+        "question_en": "What is the best point combination to pain along the entire spine?",
+        "question_zh": "治療整個脊柱疼痛的最佳穴位組合（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Du-4, Du-14", "zh": "督脈4、督脈14", "correct": false},
+          "B": {"en": "SI-3, UB-62", "zh": "SI-3（後溪）、UB-62（申脈）", "correct": true},
+          "C": {"en": "UB-40, UB-23", "zh": "UB-40、UB-23", "correct": false},
+          "D": {"en": "Kl-3, UB-23", "zh": "KI-3、UB-23", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Du-4 and Du-14 are both local points on the Du channel; they address specific spinal regions but not the entire spine. | B: Correct. SI-3 (Houxi) and UB-62 (Shenmai) are Eight Confluent points that open the Du Mai (Governing Vessel), which runs along the entire spine — making this the best combination for pain along the full length of the spine. | C: Incorrect. UB-40 and UB-23 addres",
+        "exp_zh": "後溪（SI-3）+申脈（UB-62）開通督脈，督脈循行整個脊柱。"
+      },
+      {
+        "id": 99,
         "question_en": "The use of HT7 (Shenmen) and KI6 (Zhaohai) in a prescription is according to all the following principles EXCEPT",
         "question_zh": "在處方中同用神門（HT7）和照海（KI6），以下所有配穴原則均符合，除了：（重複）",
         "answer": "C",
@@ -3844,7 +4095,7 @@ const QUIZ_DATA = {
         "exp_zh": "「特定穴應用」不是HT7+KI6配穴的具體原則。其他三項：上下（心腎）、主客（原絡）、同名經（少陰）均符合。"
       },
       {
-        "id": 82,
+        "id": 100,
         "question_en": "Which length needle is ideal for use in scalp acupuncture?",
         "question_zh": "頭皮針理想使用針的長度（重複）",
         "answer": "C",
@@ -3858,7 +4109,7 @@ const QUIZ_DATA = {
         "exp_zh": "1寸針是頭皮針標準長度，用於橫刺穿入帽狀腱膜下層。"
       },
       {
-        "id": 83,
+        "id": 101,
         "question_en": "Which point is located on the radial side of the tendon of flexor carpi ulnaris, 1 proximal to the wrist?",
         "question_zh": "哪個穴位位於尺側腕屈肌腱橈側、腕橫紋上1寸？（重複）",
         "answer": "C",
@@ -3872,7 +4123,21 @@ const QUIZ_DATA = {
         "exp_zh": "通里（HT-5）位於腕上1寸，尺側腕屈肌腱橈側；陰郄（HT-6）在腕上0.5寸。"
       },
       {
-        "id": 84,
+        "id": 102,
+        "question_en": "The highest point located on the body is _; the lowest point located on the body is",
+        "question_zh": "人體最高點___；最低點___（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Du-24, KD-1", "zh": "督脈24、腎1", "correct": false},
+          "B": {"en": "Du-20, KD-2", "zh": "督脈20、腎2", "correct": false},
+          "C": {"en": "Du-20, KD-1", "zh": "督脈20、腎1", "correct": true},
+          "D": {"en": "Du-24, KD-2", "zh": "督脈24、腎2", "correct": false}
+        },
+        "exp_en": "A: Incorrect. DU-24 is at the anterior hairline, not the highest point; KD-1 on the sole is the lowest — so the second part is correct but the first is wrong. | B: Incorrect. KD-2 is on the medial foot, not the lowest point of the body. | C: Correct. DU-20 (Baihui) is located at the crown of the head and is the highest point on the body. KD-1 (Yongquan) is on the sole of the foot and is the lowest",
+        "exp_zh": "百會（DU-20）最高，湧泉（KD-1）最低。"
+      },
+      {
+        "id": 103,
         "question_en": "In scalp acupuncture, the middle line of the vertex (M55) is located on the vertex of the head. Which two acupoints does this line link?",
         "question_zh": "頭皮針頂中線（MS5）連接哪兩個穴位？",
         "answer": "A",
@@ -3886,7 +4151,35 @@ const QUIZ_DATA = {
         "exp_zh": "頂中線（MS5）從百會（GV20）至前頂（GV21），沿督脈走行於頭頂正中。"
       },
       {
-        "id": 85,
+        "id": 104,
+        "question_en": "Which alcohol percentage is used for fire cupping",
+        "question_zh": "火罐使用的酒精濃度（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "50%", "zh": "50%", "correct": false},
+          "B": {"en": "70%", "zh": "70%", "correct": false},
+          "C": {"en": "95%", "zh": "95%", "correct": true},
+          "D": {"en": "150%", "zh": "150%", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 50% alcohol does not ignite reliably. | B: Incorrect. 70% alcohol can ignite but is not the standard for fire cupping. | C: Correct. 95% alcohol is the standard used for fire cupping — it ignites quickly and burns cleanly to create the required vacuum. | D: Incorrect. 150% alcohol does not exist.",
+        "exp_zh": "95%酒精用於火罐，點火快速燃燒乾淨；70%酒精用於皮膚消毒。"
+      },
+      {
+        "id": 105,
+        "question_en": "Name three points which are considered special in the treatment of frozen shoulder?",
+        "question_zh": "治療肩周炎的三個特效穴（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "LI-4, LI-11, L115", "zh": "LI-4、LI-11、LI-15", "correct": false},
+          "B": {"en": "SI-3, TE-5, PC-6", "zh": "SI-3、TE-5、PC-6", "correct": false},
+          "C": {"en": "SI-10, TE-14, LI15", "zh": "SI-10、TE-14、LI-15", "correct": true},
+          "D": {"en": "GB-20, GB-21, SI-11", "zh": "GB-20、GB-21、SI-11", "correct": false}
+        },
+        "exp_en": "A: Incorrect. LI-4 and LI-11 are distal points; while LI-15 is relevant, this combination is incomplete for frozen shoulder. | B: Incorrect. SI-3, TE-5, PC-6 are Eight Confluent and distal points, not the local/adjacent points specifically for frozen shoulder. | C: Correct. SI-10 (Naoshu), TE-14 (Jianliao), and LI-15 (Jianyu) are the three local shoulder points considered most important for treati",
+        "exp_zh": "臑俞（SI-10）、肩髎（TE-14）、肩髃（LI-15），圍繞肩關節的三個局部特效穴。"
+      },
+      {
+        "id": 106,
         "question_en": "Which method of three edge needle is used to treat vomiting, diarrhea and heat stroke at points BL40 (weizhong) and PC3 (quze)?",
         "question_zh": "在委中（BL40）和曲澤（PC3）使用三棱針治療嘔吐、腹瀉和中暑，應使用哪種刺法？（重複）",
         "answer": "C",
@@ -3900,7 +4193,7 @@ const QUIZ_DATA = {
         "exp_zh": "在委中和曲澤刺絡放血（血管刺絡），刺破淺表靜脈，清熱解毒救急。"
       },
       {
-        "id": 86,
+        "id": 107,
         "question_en": "Which group of points are all on the same line ---- 0.5 cun within the hairline?",
         "question_zh": "哪組穴位全部位於前髮際內0.5寸的同一橫線上？",
         "answer": "B",
@@ -3914,7 +4207,7 @@ const QUIZ_DATA = {
         "exp_zh": "ST-8（頭維）、UB-3（眉衝）、UB-4（曲差）、GB-13（本神）、GB-15（頭臨泣）均位於前髮際後0.5寸的同一橫線上。"
       },
       {
-        "id": 87,
+        "id": 108,
         "question_en": "Choose the correct front Mu points for the following organs: urinary bladder, San Jiao, Stomach, Pericardium",
         "question_zh": "選擇以下臟腑正確募穴：膀胱、三焦、胃、心包（重複）",
         "answer": "C",
@@ -3928,7 +4221,7 @@ const QUIZ_DATA = {
         "exp_zh": "募穴：膀胱=中極（RN-3），三焦=石門（RN-5），胃=中脘（RN-12），心包=膻中（RN-17）。"
       },
       {
-        "id": 88,
+        "id": 109,
         "question_en": "To treat abdominal pain around the umbilicus which Lower He-Sea point should be selected?",
         "question_zh": "治療臍周腹痛應選哪個下合穴？（重複）",
         "answer": "B",
@@ -3942,7 +4235,63 @@ const QUIZ_DATA = {
         "exp_zh": "下巨虛（ST39）是小腸的下合穴，臍周對應小腸部位。"
       },
       {
-        "id": 89,
+        "id": 110,
+        "question_en": "Auricular point TF4 (shenmen) is located at:",
+        "question_zh": "耳穴神門（TF4）的位置（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "The upper part of the superior 1/3 of the triangular fossa", "zh": "三角窩上1/3的上部", "correct": false},
+          "B": {"en": "The lower part of the posterior 1/3 of the triangular fossa", "zh": "三角窩後1/3的下部", "correct": false},
+          "C": {"en": "The lower part of the superior 1/3 of the triangular fossa", "zh": "三角窩上1/3的下部", "correct": false},
+          "D": {"en": "The upper part of the posterior 1/3 of the triangular fossa", "zh": "三角窩後1/3的上部", "correct": true}
+        },
+        "exp_en": "A: Incorrect. The superior 1/3 of the triangular fossa refers to the upper portion along the vertical axis — TF4 is not in the superior 1/3. | B: Incorrect. The lower part of the posterior 1/3 describes a position too far back and low. | C: Incorrect. The lower part of the superior 1/3 is not the standard location for TF4. | D: Correct. Auricular Shenmen (TF4) is located at the upper part (bifurca",
+        "exp_zh": "耳神門（TF4）位於三角窩後1/3的上部（對耳輪上下腳分叉處），鎮靜安神。"
+      },
+      {
+        "id": 111,
+        "question_en": "The highest point located on the body is ______, the lowest point located on the body is ______.",
+        "question_zh": "人體最高點___；最低點___（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Du-24, KD-1", "zh": "督脈24、腎1", "correct": false},
+          "B": {"en": "Du-20, KD-2", "zh": "督脈20、腎2", "correct": false},
+          "C": {"en": "Du-20, KD-1", "zh": "督脈20、腎1", "correct": true},
+          "D": {"en": "Du-24, KD-2", "zh": "督脈24、腎2", "correct": false}
+        },
+        "exp_en": "A: Incorrect. DU-24 is located at the anterior hairline, not the highest point on the body. | B: Incorrect. KD-2 is on the medial arch of the foot, not the lowest point of the body. | C: Correct. DU-20 (Baihui) at the crown of the head is the highest point; KD-1 (Yongquan) on the sole of the foot is the lowest point. | D: Incorrect. DU-24 is not the highest point; it is at the anterior hairline.",
+        "exp_zh": "百會（DU-20）最高，湧泉（KD-1）最低。"
+      },
+      {
+        "id": 112,
+        "question_en": "Which length needle is ideal for use in scalp acupuncture?",
+        "question_zh": "頭皮針理想使用針的長度（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "0.5 Cun", "zh": "0.5寸", "correct": false},
+          "B": {"en": "1 Cun", "zh": "1寸", "correct": true},
+          "C": {"en": "2.0 Cun", "zh": "2寸", "correct": false},
+          "D": {"en": "3.5 cun", "zh": "3.5寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 0.5 cun is too short to reach the subcutaneous layer of the scalp at the required angle. | B: Correct. A 1-cun needle is the standard length used in scalp acupuncture, allowing insertion into the subcutaneous layer at a 15–30° angle along the scalp lines. | C: Incorrect. A 2-cun needle is too long for standard scalp acupuncture and risks going too deep. | D: Incorrect. 3.5 cun is far",
+        "exp_zh": "1寸針是頭皮針標準長度。"
+      },
+      {
+        "id": 113,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5-1 cun", "zh": "斜刺0.5-1寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 - 0.5 cun", "zh": "直刺0.3-0.5寸", "correct": false},
+          "C": {"en": "Obliquely 1-1.5 cun", "zh": "斜刺1-1.5寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 ~ 0.8 cun", "zh": "直刺0.5-0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴斜刺0.5-1寸，避免氣胸。"
+      },
+      {
+        "id": 114,
         "question_en": "Which is an Influential (Ba Hui point) for sinews or tendons?",
         "question_zh": "哪個八會穴主管筋（肌腱/韌帶）？",
         "answer": "B",
@@ -3956,7 +4305,35 @@ const QUIZ_DATA = {
         "exp_zh": "陽陵泉（GB34）是筋之八會穴，主治筋脈相關疾患（痙攣、抽搐、筋傷）。懸鐘（GB39）是髓之會，大杼（BL11）是骨之會。"
       },
       {
-        "id": 90,
+        "id": 115,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5-0.8 cun", "zh": "斜刺0.5-0.8寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 - 0.5 cun", "zh": "直刺0.3-0.5寸", "correct": false},
+          "C": {"en": "Obliquely 0.8-1.2 cun", "zh": "斜刺0.8-1.2寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 - 0.8 cun", "zh": "直刺0.5-0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴斜刺向脊柱方向，深度0.5-1寸。"
+      },
+      {
+        "id": 116,
+        "question_en": "What is TRUE about Yuan-Source Points?",
+        "question_zh": "關於原穴，以下哪項正確？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Each regular and extra meridian has one of them on.", "zh": "每條正經和奇經各有一個", "correct": false},
+          "B": {"en": "They correspond to Zang-organs (Yin) only.", "zh": "只對應臟（陰）器官", "correct": false},
+          "C": {"en": "They are located on either wrist or ankle joints where Source Qi resides.", "zh": "位於腕踝關節，元氣聚集之處", "correct": false},
+          "D": {"en": "They overlap with Shu-Stream Points of Five-Shu points on Yin meridians.", "zh": "在陰經上與五輸穴的輸穴重合", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Extra meridians do not all have Yuan-Source points — only the 12 regular meridians have Yuan-Source points. | B: Incorrect. All 12 regular meridians (both Yin and Yang) have Yuan-Source points, not only Yin meridians. | C: Incorrect. Yuan-Source points are not exclusively at the wrist or ankle — they are distributed at various locations along the meridians near the extremities. | D: ",
+        "exp_zh": "在十二陰經上，原穴與五輸穴的輸穴重合（同一穴位）。陽經原穴則獨立存在。"
+      },
+      {
+        "id": 117,
         "question_en": "Which angle should be formed between the needle body and the scalp in scalp acupuncture?",
         "question_zh": "頭皮針進針時，針體與頭皮應形成多少度角？",
         "answer": "A",
@@ -3970,7 +4347,21 @@ const QUIZ_DATA = {
         "exp_zh": "頭皮針進針角度約15-30度（平刺/橫刺），針尖穿入帽狀腱膜下層。選B（30度）為最接近的正確選項。"
       },
       {
-        "id": 91,
+        "id": 118,
+        "question_en": "Which group of points are all on the same line---- 0.5 cun within the hairline?",
+        "question_zh": "哪組穴位全部位於前髮際內0.5寸同一線（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "ST-8, UB-4, UB-5, GB-14", "zh": "ST-8、UB-4、UB-5、GB-14", "correct": false},
+          "B": {"en": "ST-8, UB-3, UB-4, GB-13, GB-15", "zh": "ST-8、UB-3、UB-4、GB-13、GB-15", "correct": true},
+          "C": {"en": "ST-8, UB-4, UB-5, GB-15, GB-16", "zh": "ST-8、UB-4、UB-5、GB-15、GB-16", "correct": false},
+          "D": {"en": "ST-8, UB-3, UB-4, DU-23", "zh": "ST-8、UB-3、UB-4、督脈23", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB-14 is 1 cun above the midpoint of the eyebrow — not on the hairline. | B: Correct. ST-8, UB-3, UB-4, GB-13, and GB-15 are all located 0.5 cun posterior to the anterior hairline. | C: Incorrect. UB-5 and GB-16 are located further within the scalp, not at 0.5 cun from the hairline. | D: Incorrect. DU-23 is 1 cun within the anterior hairline, not 0.5 cun.",
+        "exp_zh": "ST-8、UB-3、UB-4、GB-13、GB-15均位於前髮際後0.5寸的橫線上。"
+      },
+      {
+        "id": 119,
         "question_en": "Which point is locate on the radial side of the tendon of flexor carpi ulnaris, 1 proximal to the wrist?",
         "question_zh": "哪個穴位位於尺側腕屈肌腱橈側、腕橫紋上1寸？（重複）",
         "answer": "C",
@@ -3984,7 +4375,7 @@ const QUIZ_DATA = {
         "exp_zh": "通里（HT-5）位於腕上1寸，此為標準定位；陰郄（HT-6）在腕上0.5寸。"
       },
       {
-        "id": 92,
+        "id": 120,
         "question_en": "In scalp acupuncture, the middle line of the vertex (MS5) is located on the vertex of the head. Which two acupoints does this line link?",
         "question_zh": "頭皮針頂中線（MS5）連接哪兩個穴位？（重複）",
         "answer": "A",
@@ -3998,7 +4389,7 @@ const QUIZ_DATA = {
         "exp_zh": "頂中線（MS5）從百會（GV20）至前頂（GV21）。"
       },
       {
-        "id": 93,
+        "id": 121,
         "question_en": "Which of the following of the Eight Confluent Points is communicated with Dai/Girdle Meridian?",
         "question_zh": "以下哪個八脈交會穴與帶脈相通？（重複）",
         "answer": "B",
@@ -4012,7 +4403,7 @@ const QUIZ_DATA = {
         "exp_zh": "足臨泣（GB41）通帶脈，與外關（SJ5）配對，治療側頭、耳、肩頸等部位疾患。"
       },
       {
-        "id": 94,
+        "id": 122,
         "question_en": "Based on the Mother-Child relationship, to reduce the Child for excess and reinforce the Mother for deficiency, what point should you select to nourish the Liver Yin?",
         "question_zh": "根據母子關係，滋養肝陰應取哪個穴位？",
         "answer": "A",
@@ -4266,7 +4657,7 @@ const QUIZ_DATA = {
         "options": {
           "A": {"en": "HT/LR", "zh": "心/肝", "correct": false},
           "B": {"en": "LV/GB", "zh": "肝/膽", "correct": false},
-          "C": {"en": "KWLR", "zh": "腎/肝", "correct": true},
+          "C": {"en": "KI/LR", "zh": "腎/肝", "correct": true},
           "D": {"en": "KI/HT", "zh": "腎/心", "correct": false}
         },
         "exp_en": "A: ❌ HT/LR — While Ye Jiao Teng enters the Heart, the dominant action of this combination (anchoring Liver yang, extinguishing Liver wind) targets Liver and Kidney. | B: ❌ LV/GB — Gallbladder is not the primary target; Kidney yin deficiency is the root condition being addressed. | C: ✅ KI/LR — Tian Ma and Gou Teng calm Liver wind; Shi Jue Ming anchors Liver yang; Sang Ji Sheng tonifies Liver and K",
@@ -4708,20 +5099,6 @@ const QUIZ_DATA = {
       },
       {
         "id": 49,
-        "question_en": "Which of the following herbs is neutral in temperature and is especially useful for warm type Bi syndrome in the upper extremities?",
-        "question_zh": "以下哪味草藥性質中性，特別適合治療上肢痹症？（重複）",
-        "answer": "C",
-        "options": {
-          "A": {"en": "Du Huo (angelicae pubescentis radix)", "zh": "獨活", "correct": false},
-          "B": {"en": "Can Sha (bombycis faeces)", "zh": "蠶沙", "correct": false},
-          "C": {"en": "Sang Zhi (mori ramulus)", "zh": "桑枝", "correct": true},
-          "D": {"en": "Mu Gua (chaenomelis fructus)", "zh": "木瓜", "correct": false}
-        },
-        "exp_en": "Answer: C — Sang Zhi (mori ramulus)",
-        "exp_zh": "桑枝（mori ramulus）性平，尤善治上肢痹症，與獨活（下肢）相對，桑枝「橫走四肢」通達上肢關節。"
-      },
-      {
-        "id": 50,
         "question_en": "What precaution should you keep in mind when prescribing Shu Di Huang (rehmanniae radix preparata) to a patient?",
         "question_zh": "開具熟地黃時應注意什麼？",
         "answer": "D",
@@ -4735,7 +5112,7 @@ const QUIZ_DATA = {
         "exp_zh": "熟地黃（shu di huang）注意事項：性黏膩，易礙脾，可能引起消化問題（腹脹、便溏），脾胃虛弱者宜配陳皮、砂仁使用。"
       },
       {
-        "id": 51,
+        "id": 50,
         "question_en": "Which of the following is the best herb for subduing rebellious Stomach Qi to treat nausea and vomiting?",
         "question_zh": "以下哪味草藥最適合降胃氣逆（噦逆）？",
         "answer": "C",
@@ -4749,7 +5126,7 @@ const QUIZ_DATA = {
         "exp_zh": "吳茱萸（evodiae fructus）為降逆止嘔要藥，善治寒飲上逆所致噦逆（呃逆），溫胃散寒降逆，為左金丸等方的核心藥。"
       },
       {
-        "id": 52,
+        "id": 51,
         "question_en": "What is the taste and temperature of Mu Dan Pi (moutan cortex)?",
         "question_zh": "牡丹皮（moutan cortex）的味性是？",
         "answer": "B",
@@ -4763,7 +5140,7 @@ const QUIZ_DATA = {
         "exp_zh": "牡丹皮（moutan cortex）：微寒、辛、苦。辛散血中瘀熱，苦清熱涼血，微寒不傷陽，既涼血又活血。"
       },
       {
-        "id": 53,
+        "id": 52,
         "question_en": "What is the taste and temperature of Dang Gui (angelicae sinensis radix)?",
         "question_zh": "當歸（angelicae sinensis radix）的味性是？（重複）",
         "answer": "B",
@@ -4777,7 +5154,7 @@ const QUIZ_DATA = {
         "exp_zh": "當歸：溫、甘、辛。溫補血活血，甘養血潤腸，辛行氣血，為補血活血的代表藥，婦科要藥。"
       },
       {
-        "id": 54,
+        "id": 53,
         "question_en": "What is the recommended dosage of Shui Niu Jiao (bubali cornu) when used in decoction?",
         "question_zh": "水牛角（bubali cornu）替代犀角使用時，推薦劑量是多少？",
         "answer": "C",
@@ -4791,7 +5168,7 @@ const QUIZ_DATA = {
         "exp_zh": "水牛角替代犀角時劑量需大：30-120克（犀角常用量1-3克），水牛角藥力較弱，需大劑量方能達到犀角的清熱涼血解毒效果。"
       },
       {
-        "id": 55,
+        "id": 54,
         "question_en": "In order to enhance its ability to tonify Qi, how should Gan Cao (glycyrrhizae radix) be prepared?",
         "question_zh": "甘草（glycyrrhizae radix）如何炮製以增強補氣功效？",
         "answer": "A",
@@ -4805,21 +5182,7 @@ const QUIZ_DATA = {
         "exp_zh": "甘草蜜炙（炙甘草）可增強補氣功效，蜂蜜甘潤補中，炙後性由平轉溫，補中益氣力增強。"
       },
       {
-        "id": 56,
-        "question_en": "Which of the following herbs calms restless fetus for excessive kicking due to heat?",
-        "question_zh": "以下哪味草藥可安胎，治療胎動不安？（重複）",
-        "answer": "B",
-        "options": {
-          "A": {"en": "Long Dan Cao (gentianae radix)", "zh": "龍膽草", "correct": false},
-          "B": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩", "correct": true},
-          "C": {"en": "Huang Lian (coptidis rhizoma)", "zh": "黃連", "correct": false},
-          "D": {"en": "Qin Pi (fraxini cortex)", "zh": "秦皮", "correct": false}
-        },
-        "exp_en": "A: ❌ Long Dan Cao (gentianae radix) — Drains Liver-Gallbladder fire; too harsh and not traditionally indicated for calming restless fetus. | B: ✅ Huang Qin (scutellariae radix) — The classic herb to calm restless fetus (安胎). When fetal restlessness is due to heat, Huang Qin clears heat from the upper and middle jiao and has a well-established calming effect on the fetus. Frequently paired with Bai",
-        "exp_zh": "黃芩清熱安胎，治療熱證（胎熱）所致胎動不安，是安胎的主要用藥之一。"
-      },
-      {
-        "id": 57,
+        "id": 55,
         "question_en": "The following herb is used to treat Wind-Cold conditions.",
         "question_zh": "以下哪味草藥用於治療風寒表證？",
         "answer": "C",
@@ -4833,7 +5196,7 @@ const QUIZ_DATA = {
         "exp_zh": "防風（Radix Saposhnikoviae）為治風之要藥，性溫辛甘，發散力緩和，適治風寒表證，且兼除濕，是「風藥之潤劑」。"
       },
       {
-        "id": 58,
+        "id": 56,
         "question_en": "Wen Dan Tang (Warm the Gallbladder Decoction) includes the formula Er Chen Tang (Two Aged Decoction) plus which of the following herb sets?",
         "question_zh": "溫膽湯在二陳湯基礎上加入了哪兩味草藥？",
         "answer": "C",
@@ -4847,7 +5210,7 @@ const QUIZ_DATA = {
         "exp_zh": "溫膽湯=二陳湯（半夏、陳皮、茯苓、炙甘草）+竹茹（清熱化痰）+枳實（行氣消痰）+薑棗，共奏清膽化痰之功。"
       },
       {
-        "id": 59,
+        "id": 57,
         "question_en": "How does Du Huo (angelicae pubescentis radix) treat Bi syndrome?",
         "question_zh": "獨活（angelicae pubescentis radix）通過哪種機制治療痹症？",
         "answer": "C",
@@ -4861,7 +5224,7 @@ const QUIZ_DATA = {
         "exp_zh": "獨活治痹症機制：祛風寒濕（散寒除濕通痹），擅長治療下肢和腰部風寒濕痹，為「下部痹症要藥」。"
       },
       {
-        "id": 60,
+        "id": 58,
         "question_en": "Which of the following herbs tonifies original Qi to treat qi collapse, with such symptoms as lethargy, pale complexion, cold extremities, difficult breathing, and deep, weak pulse?",
         "question_zh": "以下哪味草藥可大補元氣，治療氣脫危症？",
         "answer": "D",
@@ -4875,7 +5238,7 @@ const QUIZ_DATA = {
         "exp_zh": "人參（Ren Shen）大補元氣，為補氣第一要藥，能治療氣脫危症（大出血、心衰等緊急情況）。黨參、太子參力度不及。"
       },
       {
-        "id": 61,
+        "id": 59,
         "question_en": "Which form of Zhi Zi (gardeniae fructus) is best for stopping bleeding?",
         "question_zh": "梔子（gardeniae fructus）的哪種炮製形式最適合止血？",
         "answer": "D",
@@ -4889,7 +5252,7 @@ const QUIZ_DATA = {
         "exp_zh": "梔子炭（炒炭）：炭化後增強收澀止血功效，用於血熱出血，「炒炭存性，增澀止血」。"
       },
       {
-        "id": 62,
+        "id": 60,
         "question_en": "Which herb has the following functions: clears Liver heat and brightens the eyes, moistens the Large Intestine to relieve constipation, lowers high blood pressure and cholesterol?",
         "question_zh": "以下哪味草藥可清肝熱、明目並潤腸通便？（重複）",
         "answer": "A",
@@ -4903,7 +5266,7 @@ const QUIZ_DATA = {
         "exp_zh": "決明子（cassiae semen）清肝熱明目+潤腸通便，一藥兩用，適合肝熱型便秘兼目赤患者。"
       },
       {
-        "id": 63,
+        "id": 61,
         "question_en": "Which formula is used for Kidney Yang Deficiency with Edema?",
         "question_zh": "哪個方劑用於治療腎陽虛水腫？",
         "answer": "C",
@@ -4917,23 +5280,7 @@ const QUIZ_DATA = {
         "exp_zh": "真武湯（Zhen Wu Tang）治療腎陽虛水腫：附子溫腎陽，白朮健脾利水，茯苓滲濕利水，白芍養陰，生薑溫中。"
       },
       {
-        "id": 64,
-        "question_en": "A 48 years old female patient has been suffering from constipation… Which of the six stages is involved in this pattern?",
-        "question_zh": "48歲女性便秘患者（重複），屬於六經辨證哪個階段？",
-        "answer": "B",
-        "options": {
-          "A": {"en": "Tai Yang", "zh": "太陽", "correct": false},
-          "B": {"en": "Yang Ming", "zh": "陽明", "correct": true},
-          "C": {"en": "Shao Yang", "zh": "少陽", "correct": false},
-          "D": {"en": "Tai Yin", "zh": "太陰", "correct": false},
-          "E": {"en": "Shao Yin", "zh": "少陰", "correct": false},
-          "F": {"en": "Jue Yin", "zh": "厥陰", "correct": false}
-        },
-        "exp_en": "Answer: B — Yang Ming",
-        "exp_zh": "陽明腑實：腹硬塊（燥屎積結）、便秘、舌紅苔黃厚、脈沉有力，屬六經陽明病腑實證。"
-      },
-      {
-        "id": 65,
+        "id": 62,
         "question_en": "Sang Ji Sheng (taxilli herba) treats Bi syndrome through which method?",
         "question_zh": "桑寄生（taxilli herba）通過哪種機制治療痹症？（重複）",
         "answer": "C",
@@ -4947,7 +5294,7 @@ const QUIZ_DATA = {
         "exp_zh": "桑寄生補肝腎陰強筋骨，適合肝腎虧虛型痹症（腰膝酸軟），非通過祛風散寒發揮作用。"
       },
       {
-        "id": 66,
+        "id": 63,
         "question_en": "Which of the following herbs resolves toxicity and expels pus for sores, carbuncles, and breast abscess?",
         "question_zh": "以下哪味草藥可解毒排膿，治療瘡癰？",
         "answer": "A",
@@ -4961,7 +5308,7 @@ const QUIZ_DATA = {
         "exp_zh": "天花粉（Tian Hua Fen）解毒消腫排膿，治療瘡癰腫毒（外科消腫）+清熱生津（消渴），一藥多用。"
       },
       {
-        "id": 67,
+        "id": 64,
         "question_en": "In warming the interior, what is Pao Jiang’s (zingiberis rhizoma preparatum) specialty?",
         "question_zh": "炮薑（zingiberis rhizoma praeparata）在溫裏方面的特殊功效是什麼？",
         "answer": "C",
@@ -4975,7 +5322,7 @@ const QUIZ_DATA = {
         "exp_zh": "炮薑（溫烤的乾薑）溫經止血，用於虛寒型出血（崩漏、便血、吐血），炮後收澀止血力增強。"
       },
       {
-        "id": 68,
+        "id": 65,
         "question_en": "Which of the following herb pairs harmonizes the Ying (Nutritive) and Wei (Protective)?",
         "question_zh": "以下哪組草藥配伍可調和營衛？",
         "answer": "B",
@@ -4989,7 +5336,7 @@ const QUIZ_DATA = {
         "exp_zh": "白芍+桂枝調和營衛（桂枝湯核心配伍）：桂枝辛溫發汗解表（衛氣），白芍酸斂護陰（營氣），一散一收，調和表衛。"
       },
       {
-        "id": 69,
+        "id": 66,
         "question_en": "Besides treating by syndrome, which of the following herbs can also be used to treat jaundice due to damp-heat?",
         "question_zh": "以下哪味草藥除辨證治療外，也可按部位使用（治療筋骨疼痛）？",
         "answer": "B",
@@ -5003,7 +5350,7 @@ const QUIZ_DATA = {
         "exp_zh": "秦艽（gentianae macrophyllae cortex）除辨證治痹外，可按部位治療下肢疼痛，兼退虛熱，適合寒熱均可的痹症。"
       },
       {
-        "id": 70,
+        "id": 67,
         "question_en": "In which of the following patients is Ma Huang Tang contraindicated?",
         "question_zh": "以下哪類患者麻黃湯禁忌？",
         "answer": "D",
@@ -5017,7 +5364,7 @@ const QUIZ_DATA = {
         "exp_zh": "麻黃湯禁忌：①有汗者（衛氣開）②咽痛口渴（化熱）③四肢冷（陽虛）——以上皆禁忌，麻黃湯為純辛溫發汗劑。"
       },
       {
-        "id": 71,
+        "id": 68,
         "question_en": "Which of the following herbs clears summerheat and generates fluids, for thirst, dark scanty urine, and dry heaves?",
         "question_zh": "以下哪味草藥可清暑熱、生津止渴（消暑止渴）？",
         "answer": "C",
@@ -5031,7 +5378,7 @@ const QUIZ_DATA = {
         "exp_zh": "西瓜（Xi Gua）清暑熱生津，為「天然白虎湯」，清暑退熱、生津止渴、利尿，治暑熱口渴、小便黃。"
       },
       {
-        "id": 72,
+        "id": 69,
         "question_en": "Which of the following herbs enters the Heart channel, treating conditions such as irregular heartbeat and palpitation?",
         "question_zh": "以下哪味草藥歸心經，可治療心氣虛相關疾患？",
         "answer": "B",
@@ -5045,7 +5392,7 @@ const QUIZ_DATA = {
         "exp_zh": "甘草（Gan Cao）入心經，調和諸藥外，還能補益心氣，治心氣虛型心律不整（炙甘草湯中甘草補心氣）。"
       },
       {
-        "id": 73,
+        "id": 70,
         "question_en": "Overdosing on Long Dan Xie Gan Tang often causes the following symptom:",
         "question_zh": "龍膽瀉肝湯過量常導致哪種症狀？（重複）",
         "answer": "D",
@@ -5059,7 +5406,7 @@ const QUIZ_DATA = {
         "exp_zh": "龍膽瀉肝湯大苦大寒，過量敗胃，導致脾胃受損出現腹瀉（苦寒直折，損傷脾胃陽氣）。"
       },
       {
-        "id": 74,
+        "id": 71,
         "question_en": "A patient taking Long Dan Xie Gan Tang develops redness and itching around his genitalia. What is the best modification for the formula?",
         "question_zh": "服用龍膽瀉肝湯的患者出現外陰紅腫瘙癢，應如何加減？",
         "answer": "C",
@@ -5073,7 +5420,7 @@ const QUIZ_DATA = {
         "exp_zh": "龍膽瀉肝湯加減：外陰紅腫瘙癢=濕熱下注，去柴胡（升散不宜），加連翹（解毒）+黃連（燥濕）+大黃（通下導濕熱出路）。"
       },
       {
-        "id": 75,
+        "id": 72,
         "question_en": "Which two herbs can be used together to rescue devastated yang?",
         "question_zh": "哪兩味草藥配伍可回陽救逆？",
         "answer": "B",
@@ -5087,7 +5434,7 @@ const QUIZ_DATA = {
         "exp_zh": "制附子+乾薑=回陽救逆的黃金配伍（四逆湯核心），附子大辛大熱回陽，乾薑溫中固守，兩者相須，急救亡陽。"
       },
       {
-        "id": 76,
+        "id": 73,
         "question_en": "Chuan Xiong Cha Tiao San treats headache because it performs which of the following?",
         "question_zh": "川芎茶調散治療頭痛的機制是什麼？",
         "answer": "B",
@@ -5101,7 +5448,7 @@ const QUIZ_DATA = {
         "exp_zh": "川芎茶調散：川芎為君，辛溫上行頭面，其餘諸藥均疏散頭面風邪，共奏疏散風邪、止頭痛之功。"
       },
       {
-        "id": 77,
+        "id": 74,
         "question_en": "What is the most likely tongue and pulse presentation for a person needing Ping Wei San (Calm the Stomach Powder)?",
         "question_zh": "以下哪種舌脈表現最適合使用平胃散治療？（重複）",
         "answer": "A",
@@ -5115,7 +5462,7 @@ const QUIZ_DATA = {
         "exp_zh": "平胃散（燥濕化痰）適應舌象：舌胖大苔白厚膩（濕邪）+脈濡（濕脈），提示寒濕阻於中焦。"
       },
       {
-        "id": 78,
+        "id": 75,
         "question_en": "The following formula best addresses which S/Sx: Ge Gen, Huang Qin, Huang Lian?",
         "question_zh": "以下方劑最能治療哪些症狀？（葛根、黃芩、黃連）",
         "answer": "A",
@@ -5129,7 +5476,7 @@ const QUIZ_DATA = {
         "exp_zh": "葛根芩連湯（葛根+黃芩+黃連）：葛根清陽明熱退發熱，芩連清熱燥濕，治發熱（非惡寒）+臭穢腹瀉（濕熱）+不口渴（熱在腸而非傷津）。"
       },
       {
-        "id": 79,
+        "id": 76,
         "question_en": "Which two herbs can be used to stabilize the exterior, strengthen the wei qi, and stop sweating?",
         "question_zh": "哪兩味草藥配伍可固表益氣止汗？",
         "answer": "C",
@@ -5143,7 +5490,7 @@ const QUIZ_DATA = {
         "exp_zh": "黃芪+白朮固表止汗配伍（玉屏風散核心）：黃芪補衛氣固表，白朮健脾益氣，兩者合用益氣固表止汗。"
       },
       {
-        "id": 80,
+        "id": 77,
         "question_en": "Which of the following herbs cools the blood, but also invigorates blood as well?",
         "question_zh": "以下哪味草藥既能涼血，又能活血？",
         "answer": "B",
@@ -5157,7 +5504,7 @@ const QUIZ_DATA = {
         "exp_zh": "牡丹皮（moutan cortex）特殊性質：既涼血（清血熱）又活血（散瘀），可治熱入血分+血瘀兩種情況，一藥兼顧。"
       },
       {
-        "id": 81,
+        "id": 78,
         "question_en": "What statement is true of Du Huo (angelicae pubescentis radix)?",
         "question_zh": "關於獨活（angelicae pubescentis radix），以下哪項陳述正確？",
         "answer": "D",
@@ -5171,7 +5518,7 @@ const QUIZ_DATA = {
         "exp_zh": "獨活辛溫而入下焦，擅長治療下肢及腰部風寒濕痹（相對羌活治上肢），為「下部痹症要藥」。"
       },
       {
-        "id": 82,
+        "id": 79,
         "question_en": "Which of the following herbs softens and comforts the Liver to treat painful spasms, cramping, and contraction?",
         "question_zh": "以下哪味草藥能柔肝養血，治療腹痛拘急？",
         "answer": "B",
@@ -5185,7 +5532,7 @@ const QUIZ_DATA = {
         "exp_zh": "白芍（paeoniae radix alba）柔肝養血、緩急止痛，治療肝血不足所致腹痛拘急、脅肋疼痛，補血不上火。"
       },
       {
-        "id": 83,
+        "id": 80,
         "question_en": "Which of the following herbs calms restless fetus to prevent miscarriage?",
         "question_zh": "以下哪味草藥可安胎防止流產？",
         "answer": "D",
@@ -5199,7 +5546,7 @@ const QUIZ_DATA = {
         "exp_zh": "白朮（atractylodis macrocephalae rhizoma）健脾益氣安胎，通過健脾固氣達到安胎目的，為安胎要藥之一（多用於脾虛胎動）。"
       },
       {
-        "id": 84,
+        "id": 81,
         "question_en": "Which of the following herbs is best for clearing heat from the Stomach and Heart?",
         "question_zh": "以下哪味草藥最擅長清胃熱？",
         "answer": "A",
@@ -5213,7 +5560,7 @@ const QUIZ_DATA = {
         "exp_zh": "黃連（coptidis rhizoma）最擅長清胃火：大苦大寒，清中焦（胃）熱毒，治胃熱嘔吐、消渴、口瘡，為清胃最強藥。"
       },
       {
-        "id": 85,
+        "id": 82,
         "question_en": "What are the entering channels of Dan Zhu Ye (lophatheri herba)?",
         "question_zh": "淡竹葉（lophatheri herba）歸哪些經？",
         "answer": "C",
@@ -5227,21 +5574,7 @@ const QUIZ_DATA = {
         "exp_zh": "淡竹葉入心、小腸、胃三經：清心火除煩（心），利尿通淋導熱下行（小腸），清胃熱止渴（胃）。"
       },
       {
-        "id": 86,
-        "question_en": "In which of the following patients is Ma Huang Tang (Ephedra Decoction) contraindicated?",
-        "question_zh": "以下哪類患者麻黃湯禁忌？（重複）",
-        "answer": "D",
-        "options": {
-          "A": {"en": "Patient with chills and fever, headache, sweating and body aches", "zh": "惡寒發熱、頭痛、有汗", "correct": false},
-          "B": {"en": "Patient with chills and fever, sore throat, thirst and sweating", "zh": "惡寒發熱、咽痛、口渴", "correct": false},
-          "C": {"en": "Patient with chills and fever, cold limbs, a pale tongue and a deep, slow pulse", "zh": "惡寒發熱、四肢冷、舌淡", "correct": false},
-          "D": {"en": "All of the above", "zh": "以上皆是", "correct": true}
-        },
-        "exp_en": "Answer: D — All of the above",
-        "exp_zh": "麻黃湯禁忌：①有汗（衛氣開，再發汗則傷陽）②咽痛口渴（化熱，純辛溫不宜）③肢冷（陽虛，峻汗更傷陽）——三種情況均禁用。"
-      },
-      {
-        "id": 87,
+        "id": 83,
         "question_en": "Over-dosage of Qi Regulating herbs can damage the following?",
         "question_zh": "過量使用理氣藥可能損傷以下哪種物質？",
         "answer": "D",
@@ -5255,7 +5588,7 @@ const QUIZ_DATA = {
         "exp_zh": "過量理氣藥（如枳實、厚朴）辛溫燥烈，耗散氣陰，既傷氣（耗散正氣）又傷陰（辛燥傷津），故傷氣與陰（Qi and Yin）。"
       },
       {
-        "id": 88,
+        "id": 84,
         "question_en": "Which of the following herbs kills parasites and stops itching; for genital itching and vaginal discharge?",
         "question_zh": "以下哪味草藥可殺蟲止癢，用於陰部瘙癢等？",
         "answer": "C",
@@ -5269,7 +5602,7 @@ const QUIZ_DATA = {
         "exp_zh": "苦參（Ku Shen）殺蟲止癢，用於外陰濕疹瘙癢、滴蟲感染，外用或內服均可，為治皮膚濕熱瘙癢要藥。"
       },
       {
-        "id": 89,
+        "id": 85,
         "question_en": "A 40-year-old male patient presents with a history of hypertension, bitter taste in the mouth, dark urine, irritability, bloodshot eyes, headache and halitosis. He presents with a red tongue with yellow coating and wiry, rapid pulse. Which formula treats the pattern seen in the patient mentioned above?",
         "question_zh": "40歲男性，高血壓病史，頭痛眩暈，情緒波動，面紅耳赤，舌紅苔黃，脈弦數。最合適的方劑是？",
         "answer": "D",
@@ -5283,7 +5616,7 @@ const QUIZ_DATA = {
         "exp_zh": "高血壓、口苦、頭痛、面紅、舌紅苔黃、脈弦數=肝膽濕熱上擾，龍膽瀉肝湯清瀉肝膽濕熱最合適。"
       },
       {
-        "id": 90,
+        "id": 86,
         "question_en": "What is the thermal nature of Gan Jiang (Rhizoma Zingiberis Preparatum)?",
         "question_zh": "乾薑（Rhizoma Zingiberis Preparatum）的性質是？",
         "answer": "C",
@@ -5297,7 +5630,7 @@ const QUIZ_DATA = {
         "exp_zh": "乾薑性熱（hot），為溫裏散寒要藥，溫中散寒、回陽通脈、溫肺化飲，藥性強烈，與薑的辛熱性質相符。"
       },
       {
-        "id": 91,
+        "id": 87,
         "question_en": "A 48-year-old female patient has been suffering from constipation. She presents in the clinic with feeling of fullness in the lower abdominal area, frequent flatulence and lower abdominal area pain that feels worse when pressed. Her pulse is deep and strong, and her tongue is red with a yellow coating. Which of the six stages is involved in this pattern?",
         "question_zh": "48歲女性便秘患者（重複），屬於六經辨證哪個階段？",
         "answer": "B",
@@ -5313,7 +5646,7 @@ const QUIZ_DATA = {
         "exp_zh": "陽明腑實：便秘+腹部硬塊+苔黃厚+脈沉有力，六經辨證屬陽明病（陽明腑實證）。"
       },
       {
-        "id": 92,
+        "id": 88,
         "question_en": "A 25-year-old female patient presents at clinic with a history of whooping cough for 6 weeks. She exhibits dry cough and breathlessness with a feeling of heat of the skin. Her tongue body is red with thin yellow coating, and her pulse is thin and rapid. Which formula treats the pattern seen in the patient mentioned above?",
         "question_zh": "25歲女性百日咳患者（重複），最合適的方劑是？",
         "answer": "B",
@@ -5327,7 +5660,7 @@ const QUIZ_DATA = {
         "exp_zh": "百日咳肺熱傷陰（乾咳、舌紅、脈數），瀉白散清肺熱、瀉肺氣而不傷陰，適合肺熱咳嗽（非外感風寒）。"
       },
       {
-        "id": 93,
+        "id": 89,
         "question_en": "Besides warming the interior, what is another important function of Hua Jiao (zanthoxyli pericarpium)?",
         "question_zh": "胡椒（piperis fructus）除溫裏外，另一重要功效是什麼？",
         "answer": "C",
@@ -5341,7 +5674,7 @@ const QUIZ_DATA = {
         "exp_zh": "胡椒除溫中散寒外，另一功效：殺蟲（如蛔蟲）和抗真菌感染，可外用或少量內服。"
       },
       {
-        "id": 94,
+        "id": 90,
         "question_en": "What do the following herbs have in common? Ai Ye (Folium Artemisiae Officinalis) Bai Ji (Rhizoma Bletillae) San Qi (Radix Notoginsing) Pu Huang (Pollen Typhae)",
         "question_zh": "以下草藥有何共同點？艾葉（Folium Artemisiae Argyi）、棕櫚炭、地榆炭、仙鶴草、三七",
         "answer": "B",
@@ -5355,7 +5688,7 @@ const QUIZ_DATA = {
         "exp_zh": "艾葉、棕櫚炭、地榆炭、仙鶴草、三七共同功效：止血。各自機制不同（溫、澀、涼止），但均具止血作用。"
       },
       {
-        "id": 95,
+        "id": 91,
         "question_en": "The following formula best addresses which S/Sxs: Ge Gen (Radix Puerariae) Huang Qin (Radix Scutellariae) Huang Lian (Rhizoma Coptidis)",
         "question_zh": "以下方劑（葛根、黃芩、黃連）最能治療哪些症狀？（重複）",
         "answer": "A",
@@ -5369,7 +5702,7 @@ const QUIZ_DATA = {
         "exp_zh": "葛根芩連湯：發熱+不口渴（熱在腸非傷津）+臭穢腹瀉（濕熱），與選項A完全吻合。"
       },
       {
-        "id": 96,
+        "id": 92,
         "question_en": "A 40-year-old female patient presents at clinic with history of the abdominal pain and constipation with cold limbs. She presents with a white greasy tongue coating and wiry tight pulse. Which formula treats the pattern seen in the patient mentioned above?",
         "question_zh": "40歲女性，慢性便秘，舌紅苔黃，脈洪數。最合適方劑是？（重複）",
         "answer": "D",
@@ -5383,7 +5716,7 @@ const QUIZ_DATA = {
         "exp_zh": "慢性便秘兼陽虛寒象，大黃附子湯溫陽散寒通便（大黃瀉積，附子溫陽，細辛散寒），適合寒積便秘。"
       },
       {
-        "id": 97,
+        "id": 93,
         "question_en": "Which of the following herb categories is NOT appropriate for treating internal Wind?",
         "question_zh": "以下哪類草藥不適合治療陰虛病症？",
         "answer": "D",
@@ -5398,7 +5731,7 @@ const QUIZ_DATA = {
         "exp_zh": "陰虛患者禁用辛味藥：辛能散能行，辛溫燥熱，直接耗散陰液，加重陰虛症狀（如麻黃、乾薑等）。"
       },
       {
-        "id": 98,
+        "id": 94,
         "question_en": "What is the most likely tongue and pulse presentation for a person needing Ping Wei San (Calm the Stomach Powder)?",
         "question_zh": "以下哪種舌脈表現最適合使用平胃散治療？（重複）",
         "answer": "A",
@@ -5412,7 +5745,7 @@ const QUIZ_DATA = {
         "exp_zh": "平胃散（Ping Wei San）舌象：舌胖大苔白厚膩（寒濕中阻）+脈濡緩（濕邪），提示脾虛濕阻中焦。"
       },
       {
-        "id": 99,
+        "id": 95,
         "question_en": "A patient taking Long Dan Xie Gan Tang (Gentiana Decoction to Drain the Liver) for hypertension develops redness and itching around his genitalia. What is the best modification for the formula?",
         "question_zh": "服用龍膽瀉肝湯患者出現陰部瘙癢，應如何加減？（重複）",
         "answer": "C",
@@ -5426,7 +5759,7 @@ const QUIZ_DATA = {
         "exp_zh": "龍膽瀉肝湯加減外陰瘙癢：去柴胡升散，加連翹（清熱解毒）+黃連（清熱燥濕）+大黃（瀉下導熱），增強清下焦濕熱之力。"
       },
       {
-        "id": 100,
+        "id": 96,
         "question_en": "What precaution should you keep in mind when prescribing herbs from the category Herbs that Warm the Interior and Expel Cold?",
         "question_zh": "開具滋陰類草藥時需注意什麼？",
         "answer": "A",
@@ -5440,7 +5773,7 @@ const QUIZ_DATA = {
         "exp_zh": "發汗解表藥（如麻黃、桂枝）性溫辛燥，注意：陰虛患者慎用，因辛溫發汗耗陰傷津，加重陰虛。"
       },
       {
-        "id": 101,
+        "id": 97,
         "question_en": "Xiao Qing Long Tang (Minor Bluegreen Dragon Decoction) treats which of the following?",
         "question_zh": "小青龍湯治療哪種病症？",
         "answer": "B",
@@ -5454,7 +5787,7 @@ const QUIZ_DATA = {
         "exp_zh": "小青龍湯主治：外感風寒（表實無汗）兼內有痰飲積聚（痰稀白、胸滿喘咳），麻黃桂枝解表，乾薑半夏化痰飲。"
       },
       {
-        "id": 102,
+        "id": 98,
         "question_en": "Which of the following is a contraindication for the use of Li Zhong Wan (Regulate the Middle Pill)?",
         "question_zh": "以下哪種情況是理中丸的禁忌？",
         "answer": "C",
@@ -5468,21 +5801,7 @@ const QUIZ_DATA = {
         "exp_zh": "理中丸（溫中祛寒）禁忌：陰虛患者。理中丸辛熱補陽，陰虛者使用會加重陰液耗損，助熱傷陰。"
       },
       {
-        "id": 103,
-        "question_en": "In warming the interior, what is Pao Jiangs (zingiberis rhizoma preparatums) specialty?",
-        "question_zh": "炮薑（zingiberis rhizoma preparata）在溫裏方面的特殊功效是什麼？（重複）",
-        "answer": "C",
-        "options": {
-          "A": {"en": "Treats bi syndrome", "zh": "治療痹症", "correct": false},
-          "B": {"en": "Releases the exterior", "zh": "解表散寒", "correct": false},
-          "C": {"en": "Stops bleeding due to cold", "zh": "溫經止血", "correct": true},
-          "D": {"en": "Treats shan disorder and hernia pain", "zh": "治疝氣疼痛", "correct": false}
-        },
-        "exp_en": "Answer: C — Stops bleeding due to cold",
-        "exp_zh": "炮薑溫經止血，用於虛寒出血，炮製後收澀力增強，是溫陽止血（非清熱止血）的代表藥。"
-      },
-      {
-        "id": 104,
+        "id": 99,
         "question_en": "Which of the following herbs clears heat, but also tonifies yin and moistens dryness, meaning it can be used for both excess and deficiency heat?",
         "question_zh": "以下哪味草藥能清熱，同時又能補陰潤燥？",
         "answer": "A",
@@ -5496,7 +5815,7 @@ const QUIZ_DATA = {
         "exp_zh": "知母（anemarrhenae rhizoma）清熱瀉火（實熱）兼補陰潤燥（陰虛），可用於氣分實熱（白虎湯）和陰虛骨蒸（知柏地黃丸）。"
       },
       {
-        "id": 105,
+        "id": 100,
         "question_en": "Which of the following herbs is neutral in temperature and is especially useful for warm type bi syndrome in the upper extremities?",
         "question_zh": "以下哪味草藥性質中性，特別適合治療上肢痹症？（重複）",
         "answer": "C",
@@ -5510,7 +5829,7 @@ const QUIZ_DATA = {
         "exp_zh": "桑枝（mori ramulus）性平，尤適合上肢痹症，溫熱型（熱痹）亦可用，是治上肢風濕痹痛的要藥。"
       },
       {
-        "id": 106,
+        "id": 101,
         "question_en": "Which of the following herbs can descend floating heat, treating such conditions as Kidney and Heart not communicating, heat above with cold below, or false heat with true cold?",
         "question_zh": "以下哪味草藥可引火歸元（降浮熱），治療上熱下寒等症？",
         "answer": "C",
@@ -5524,35 +5843,7 @@ const QUIZ_DATA = {
         "exp_zh": "肉桂（cinnamomi cortex）能引火歸元：溫補命門真火，使浮游之陽氣重歸丹田，治上熱下寒（腎陽虛格陽于上）。"
       },
       {
-        "id": 107,
-        "question_en": "What precaution should you keep in mind when prescribing Shu Di Huang (rehmanniae radix preparata) to a patient? Test a",
-        "question_zh": "開具熟地黃時應注意什麼？（重複）",
-        "answer": "D",
-        "options": {
-          "A": {"en": "Shu Di Huang is cold and bitter; it may damage the Spleen", "zh": "性寒苦，可能損傷脾胃", "correct": false},
-          "B": {"en": "Shu Di Huang strongly invigorates blood; use caution during pregnancy", "zh": "活血力強，孕婦慎用", "correct": false},
-          "C": {"en": "Shu Di Huang is toxic; use a smaller than average dosage", "zh": "有毒性，劑量宜小", "correct": false},
-          "D": {"en": "Shu Di Huang is sticky and cloying; it may cause digestion problems", "zh": "性黏膩，可能影響消化", "correct": true}
-        },
-        "exp_en": "Answer: D — Shu Di Huang is sticky and cloying; it may cause digestion problems",
-        "exp_zh": "熟地黃（Shu Di Huang）注意：黏膩礙胃，可能引起消化問題（腹脹、食慾減退），需配理氣健脾藥（砂仁、陳皮）。"
-      },
-      {
-        "id": 108,
-        "question_en": "Which of the following is the best herb for subduing rebellious Stomach qi to treat nausea and vomiting?",
-        "question_zh": "以下哪味草藥最適合降胃氣逆（噦逆）？（重複）",
-        "answer": "C",
-        "options": {
-          "A": {"en": "Gao Liang Jiang (alpiniae officarum rhizoma)", "zh": "高良薑", "correct": false},
-          "B": {"en": "Zhi Fu Zi (aconiti radix lateralis preparata)", "zh": "制附子", "correct": false},
-          "C": {"en": "Wu Zhu Yu  (evodiae fructus)", "zh": "吳茱萸", "correct": true},
-          "D": {"en": "Xiao Hui Xiang (foeniculi fructus)", "zh": "小茴香", "correct": false}
-        },
-        "exp_en": "Answer: C — Wu Zhu Yu  (evodiae fructus)",
-        "exp_zh": "吳茱萸降逆止嘔，溫胃散寒，為治寒性噦逆（呃逆）的首選藥，也是左金丸、溫經湯的重要組成。"
-      },
-      {
-        "id": 109,
+        "id": 102,
         "question_en": "Besides treating bi syndrome, which of the following herbs can also be used to treat jaundice due to damp-heat?",
         "question_zh": "以下哪味草藥除治療痹症外，也可用於治療腳氣？",
         "answer": "B",
@@ -5566,7 +5857,7 @@ const QUIZ_DATA = {
         "exp_zh": "秦艽（gentianae macrophyllae cortex）除辨證治痹外，也可按症狀部位使用，兼能退骨蒸虛熱（治療關節炎兼發熱）。"
       },
       {
-        "id": 110,
+        "id": 103,
         "question_en": "Which of the following herbs resolves toxicity and expels pus for sores, carbuncles, and breast abscess?",
         "question_zh": "以下哪味草藥可解毒排膿，治療瘡癰？（重複）",
         "answer": "A",
@@ -5580,7 +5871,7 @@ const QUIZ_DATA = {
         "exp_zh": "天花粉（Tian Hua Fen）解毒排膿消腫，治療瘡癰腫毒，促進膿液排出，同時清熱生津（治消渴）。"
       },
       {
-        "id": 111,
+        "id": 104,
         "question_en": "What is the taste and temperature of Xuan Shen (scrophulariae radix)?",
         "question_zh": "玄參（scrophulariae radix）的味性是？",
         "answer": "B",
@@ -5594,7 +5885,7 @@ const QUIZ_DATA = {
         "exp_zh": "玄參（scrophulariae radix）：寒、鹹、甘、苦。寒清熱，鹹軟堅散結（治癭瘤），甘滋陰，苦涼血解毒，四性兼備。"
       },
       {
-        "id": 112,
+        "id": 105,
         "question_en": "A patient taking Long Dan Xie Gan Tang (Gentiana Decoction to Drain the Liver) for hypertension develops redness and itching around his genitalia. What is the best modification for the formula?",
         "question_zh": "服用龍膽瀉肝湯患者出現外陰紅腫瘙癢（重複），應如何加減？",
         "answer": "C",
@@ -5608,7 +5899,7 @@ const QUIZ_DATA = {
         "exp_zh": "龍膽瀉肝湯外陰紅腫瘙癢：同Q74，去柴胡，加連翹+黃連+大黃，清下焦濕熱解毒。"
       },
       {
-        "id": 113,
+        "id": 106,
         "question_en": "Which of the following conditions calls for a formula that stabilizes and astringes?",
         "question_zh": "以下哪種情況需要使用收澀固脫方劑？",
         "answer": "C",
@@ -5622,7 +5913,7 @@ const QUIZ_DATA = {
         "exp_zh": "收澀固脫方劑適應症：脾氣虛型白帶（帶脈不固，濕邪下注），需固攝帶脈、健脾止帶。濕熱腹瀉和肝火出血均需清法，非收澀。"
       },
       {
-        "id": 114,
+        "id": 107,
         "question_en": "Which of the following herbs is best for clearing heat from the Stomach and Heart?",
         "question_zh": "以下哪味草藥最擅長清胃熱？（重複）",
         "answer": "A",
@@ -5636,49 +5927,7 @@ const QUIZ_DATA = {
         "exp_zh": "黃連（coptidis rhizoma）清胃熱最強：大苦大寒，直清中焦胃火，為清胃要藥，治胃熱嘔吐、牙痛、口瘡。"
       },
       {
-        "id": 115,
-        "question_en": "What statement is true of Du Huo (angelicae pubescentis radixs)?",
-        "question_zh": "關於獨活，以下哪項陳述正確？（重複）",
-        "answer": "D",
-        "options": {
-          "A": {"en": "Treats bi syndrome in the upper body", "zh": "治療上肢痹症", "correct": false},
-          "B": {"en": "Treats itching and skin rash due to wind", "zh": "治療風所致皮膚瘙癢", "correct": false},
-          "C": {"en": "Treats hot bi (Re Bi)", "zh": "治療熱痹", "correct": false},
-          "D": {"en": "Treats bi syndrome in the lower body", "zh": "治療下肢痹症", "correct": true}
-        },
-        "exp_en": "Answer: D — Treats bi syndrome in the lower body",
-        "exp_zh": "獨活入下肢：辛溫苦，下行性強，主治下肢腰腹寒濕痹症，「獨活治下，羌活治上」。"
-      },
-      {
-        "id": 116,
-        "question_en": "Which of the following herbs resolves toxicity and expels pus; for sores, carbuncles, and breast abscess?",
-        "question_zh": "以下哪味草藥可解毒排膿？（重複）",
-        "answer": "A",
-        "options": {
-          "A": {"en": "Tian Hua Fen  (tricosanthis fructus)", "zh": "天花粉", "correct": true},
-          "B": {"en": "Zhi Mu (anemarrhenae rhizoma)", "zh": "知母", "correct": false},
-          "C": {"en": "Zhi Zi (gardeniae fructus)", "zh": "梔子", "correct": false},
-          "D": {"en": "Lu Gen (phragmitis rhizoma)", "zh": "蘆根", "correct": false}
-        },
-        "exp_en": "Answer: A — Tian Hua Fen  (tricosanthis fructus)",
-        "exp_zh": "天花粉解毒消腫排膿，用於瘡癰膿成未潰或已潰，促進消腫或膿液引流，兼清熱生津。"
-      },
-      {
-        "id": 117,
-        "question_en": "In order to enhance its ability to tonify qi, how should Gan Cao (glycyrrhizae radi) be prepared?",
-        "question_zh": "甘草如何炮製以增強補氣功效？（重複）",
-        "answer": "A",
-        "options": {
-          "A": {"en": "Stir-fry in honey", "zh": "蜂蜜炒（蜜炙）", "correct": true},
-          "B": {"en": "Char until blackened", "zh": "炒至焦黑", "correct": false},
-          "C": {"en": "Stir-fry with ginger", "zh": "薑汁炒", "correct": false},
-          "D": {"en": "Boil 30-60 minutes longer than the rest of the decoction", "zh": "先比其他藥多煮30-60分鐘", "correct": false}
-        },
-        "exp_en": "Answer: A — Stir-fry in honey",
-        "exp_zh": "甘草蜜炙（Zhi Gan Cao）：蜂蜜甘潤補中，炙後增強補氣健脾功效，性由平轉溫，補益力增。"
-      },
-      {
-        "id": 118,
+        "id": 108,
         "question_en": "Which formula best treats nasal sinusitis?",
         "question_zh": "哪個方劑最適合治療鼻竇炎？",
         "answer": "A",
@@ -5692,7 +5941,7 @@ const QUIZ_DATA = {
         "exp_zh": "蒼耳子湯（Cang Er Zi Tang）：蒼耳子+辛夷+白芷+薄荷，宣通鼻竅為主，是治療鼻竇炎（鼻淵）的专方。"
       },
       {
-        "id": 119,
+        "id": 109,
         "question_en": "Which of the following statements best describes the action of Long Yan Rou (longan arillus)?",
         "question_zh": "以下哪項最能描述龍眼肉（longan arillus）的功效？",
         "answer": "D",
@@ -5706,7 +5955,7 @@ const QUIZ_DATA = {
         "exp_zh": "龍眼肉（longan arillus）補心血安神，適合心血虛型心悸失眠健忘，「補益心脾，養血安神」。"
       },
       {
-        "id": 120,
+        "id": 110,
         "question_en": "Which two herbs can be used to stabilize the exterior, strengthen the wei qi, and stop sweating?",
         "question_zh": "哪兩味草藥配伍可固表益氣止汗？（重複）",
         "answer": "C",
@@ -5720,7 +5969,7 @@ const QUIZ_DATA = {
         "exp_zh": "黃芪+白朮（玉屏風散）固表止汗：黃芪補衛氣固表（為君），白朮健脾益氣（培土生金），相須配伍增強止汗效果。"
       },
       {
-        "id": 121,
+        "id": 111,
         "question_en": "What is the function of Xia Ku Cao (prunellae spica)?",
         "question_zh": "夏枯草（prunellae spica）的功效是什麼？",
         "answer": "C",
@@ -5734,7 +5983,7 @@ const QUIZ_DATA = {
         "exp_zh": "夏枯草（prunellae spica）清痰火散結：清肝熱、散鬱結，治甲狀腺腫（癭瘤）、淋巴結腫大（瘰癧），為消腫散結要藥。"
       },
       {
-        "id": 122,
+        "id": 112,
         "question_en": "Which of the following is the best herb for subduing rebellious Stomach qi to treat nausea and vomiting?",
         "question_zh": "以下哪味草藥最適合降胃氣逆？（重複）",
         "answer": "D",
@@ -5748,7 +5997,7 @@ const QUIZ_DATA = {
         "exp_zh": "吳茱萸為降逆止嘔要藥，尤其針對寒性嘔吐噦逆，溫胃散寒，引熱下行，是治療寒性噦逆最佳選擇。"
       },
       {
-        "id": 123,
+        "id": 113,
         "question_en": "Which of the following herbs clears heat from all three jiao; for heat in the chest causing irritability, heat due to Liver constraint, jaundice and lin syndrome due to damp-heat, and bleeding due to heat in the blood?",
         "question_zh": "以下哪味草藥可清三焦熱，治療熱毒瘡癰？",
         "answer": "A",
@@ -5762,35 +6011,7 @@ const QUIZ_DATA = {
         "exp_zh": "梔子（gardeniae fructus）清三焦熱：上焦（瀉心肺火）、中焦（清胃熱）、下焦（清膀胱濕熱），且涼血解毒，用途廣泛。"
       },
       {
-        "id": 124,
-        "question_en": "What is the primary TCM pattern addressed by the following combination: Tian Ma (Rhizoma Gastrodiae) + Gou Teng (Ramulus Uncariae cum Uncis) + Shi Jue Ming (Concha Haliotidis) +Ye Jiao Teng (Caulis Polygoni Multiflori) + Sang Ji Sheng (Ramulus Taxilli)",
-        "question_zh": "以下草藥組合主要針對哪種中醫證型？（重複）",
-        "answer": "C",
-        "options": {
-          "A": {"en": "Heart and Kidney not communicating", "zh": "心腎不交", "correct": false},
-          "B": {"en": "Kidney and Liver Yin Deficiency", "zh": "腎肝陰虛", "correct": false},
-          "C": {"en": "Liver Wind", "zh": "肝風內動", "correct": true},
-          "D": {"en": "Liver and Heart Blood Deficiency", "zh": "肝心血虛", "correct": false}
-        },
-        "exp_en": "Answer: C — Liver Wind",
-        "exp_zh": "天麻鉤藤飲主治肝風內動（肝陽上亢化風），天麻+鉤藤平肝息風，石決明潛陽明目，共奏平肝息風之功。"
-      },
-      {
-        "id": 125,
-        "question_en": "Which of the following herbs clears heat due to Kidney yin deficiency; for night sweats, steaming bones, tidal fever, or spermatorrhea?",
-        "question_zh": "以下哪味草藥可清腎陰虛之熱，治療盜汗、骨蒸、潮熱？（重複）",
-        "answer": "B",
-        "options": {
-          "A": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩", "correct": false},
-          "B": {"en": "Huang Bai  (phellodendri cortex)", "zh": "黃柏", "correct": true},
-          "C": {"en": "Qin Pi (fraxini cortex)", "zh": "秦皮", "correct": false},
-          "D": {"en": "Huang Lian (coptidis rhizoma)", "zh": "黃連", "correct": false}
-        },
-        "exp_en": "Answer: B — Huang Bai  (phellodendri cortex)",
-        "exp_zh": "黃柏（phellodendri cortex）清腎陰虛相火：入腎，瀉相火，清下焦虛熱，治骨蒸盜汗潮熱（腎陰虛）。"
-      },
-      {
-        "id": 126,
+        "id": 114,
         "question_en": "Which of the following herbs clears Heat due to Kidney Yin deficiency; for night sweats, steaming bones, tidal fever, or spermatorrhea?",
         "question_zh": "在補血方面，枸杞子（lycii fructus）的特殊功效是什麼？",
         "answer": "C",
@@ -5804,7 +6025,7 @@ const QUIZ_DATA = {
         "exp_zh": "E Jiao（阿膠）補血兼滋陰，同時能清虛熱、止血，而非主要清腎陰虛熱（黃柏才是）。此題考查辨別。"
       },
       {
-        "id": 127,
+        "id": 115,
         "question_en": "Fred, aged 5, was diagnosed with mumps. His face is still swollen beneath the ears, with local heat and tenderness. His temperature is 38 degrees Celsius. He complains of slight thirst and a sore throat. His tongue is red with yellow coating, his pulse is rapid and floating. Which of the following formulas is most appropriate for this child?",
         "question_zh": "5歲Fred腮腺炎（重複），最合適的方劑是？",
         "answer": "A",
@@ -5818,7 +6039,7 @@ const QUIZ_DATA = {
         "exp_zh": "Fred腮腺炎（風熱毒邪，腮部腫痛）用銀翹散：疏散風熱+清熱解毒消腫，是溫病初起風熱的代表方。"
       },
       {
-        "id": 128,
+        "id": 116,
         "question_en": "Which of the following herbs clears heat from all three jiao; for heat in the chest causing irritability, heat due to Liver constraint, jaundice and lin syndrome due to damp-heat, and bleeding due to heat in the blood?",
         "question_zh": "以下哪味草藥可清三焦熱？（重複）",
         "answer": "A",
@@ -5832,7 +6053,7 @@ const QUIZ_DATA = {
         "exp_zh": "梔子清三焦之熱，能瀉心、肺、胃、膀胱之火，適用於熱毒熾盛多個部位的熱毒瘡癰。"
       },
       {
-        "id": 129,
+        "id": 117,
         "question_en": "Which category is Shan Zha (Fructus Crataegi) from?",
         "question_zh": "山楂（Fructus Crataegi）屬於哪一類草藥？",
         "answer": "B",
@@ -5846,7 +6067,7 @@ const QUIZ_DATA = {
         "exp_zh": "山楂（Fructus Crataegi）屬消食藥，善消肉食積滯（油膩肉食），活血化瘀（治產後血瘀腹痛），是消導類代表藥。"
       },
       {
-        "id": 130,
+        "id": 118,
         "question_en": "A 47 years old female patient complains of menopausal symptoms. She presents with uncomfortable hot flashes from deep inside, weight loss, dizziness and night sweats. Her tongue body is red with scanty coating and her pulse is thready and rapid. Which formula treats the pattern seen in the patient mentioned above?",
         "question_zh": "47歲女性更年期症狀，潮熱盜汗，腰膝酸軟，舌紅少苔，脈細數。最合適方劑是？",
         "answer": "A",
@@ -5860,7 +6081,7 @@ const QUIZ_DATA = {
         "exp_zh": "更年期潮熱盜汗（腎陰虛虛熱）+無汗（非真陰虛骨蒸那麼嚴重），清骨散（青蒿、地骨皮）清退虛熱、退骨蒸最合適。"
       },
       {
-        "id": 131,
+        "id": 119,
         "question_en": "Which of the following herbs clears heat due to Kidney yin deficiency; for night sweats, steaming bones, tidal fever, or spermatorrhea?",
         "question_zh": "以下哪味草藥可清腎陰虛之熱？（重複）",
         "answer": "B",
@@ -5874,7 +6095,7 @@ const QUIZ_DATA = {
         "exp_zh": "黃柏清腎陰虛相火（虛熱），入腎膀胱，是治療陰虛火旺（骨蒸盜汗、遺精、帶下黃稠）的要藥。"
       },
       {
-        "id": 132,
+        "id": 120,
         "question_en": "Which formula is used for Kidney Yang Deficiency with Edema?",
         "question_zh": "哪個方劑用於治療腎陽虛水腫？（重複）",
         "answer": "C",
@@ -5888,7 +6109,7 @@ const QUIZ_DATA = {
         "exp_zh": "真武湯（Zhen Wu Tang）溫腎利水：附子溫腎陽，白朮+茯苓健脾利水，白芍護陰，治腎陽虛水腫。"
       },
       {
-        "id": 133,
+        "id": 121,
         "question_en": "Which herb has the following functions: clears Liver heat and brightens the eyes, moistens the Large Intestine to relieve constipation, lowers high blood pressure and cholesterol?",
         "question_zh": "以下哪味草藥可清肝熱、明目並潤腸？（重複）",
         "answer": "A",
@@ -5902,7 +6123,7 @@ const QUIZ_DATA = {
         "exp_zh": "決明子清肝熱明目+潤腸通便，善治肝熱目赤、頭痛和習慣性便秘，為兩用要藥。"
       },
       {
-        "id": 134,
+        "id": 122,
         "question_en": "What is the taste and temperature of Wei Ling Xian (clematidis radix)?",
         "question_zh": "威靈仙（clematidis radix）的味性是？",
         "answer": "A",
@@ -5916,7 +6137,7 @@ const QUIZ_DATA = {
         "exp_zh": "威靈仙（clematidis radix）：溫、辛、鹹。辛散風寒，溫通經絡，鹹軟化骨鯁（特殊功效），善治各種痹症和骨刺。"
       },
       {
-        "id": 135,
+        "id": 123,
         "question_en": "Ba Zhen Tang (Eight Precious Decoction) is a combination of which of the following formulae?",
         "question_zh": "八珍湯是哪兩個方劑的組合？",
         "answer": "D",
@@ -5930,7 +6151,7 @@ const QUIZ_DATA = {
         "exp_zh": "八珍湯=四物湯（補血：熟地、當歸、白芍、川芎）+四君子湯（補氣：人參/黨參、白朮、茯苓、炙甘草），氣血雙補。"
       },
       {
-        "id": 136,
+        "id": 124,
         "question_en": "Which of the following herbs enters the Heart channel, treating conditions such as irregular heartbeat and palpitation?",
         "question_zh": "以下哪味草藥歸心經，可治療心律不整？（重複）",
         "answer": "B",
@@ -5944,7 +6165,7 @@ const QUIZ_DATA = {
         "exp_zh": "甘草入心經，補益心氣，治心氣虛型心律不整（炙甘草湯），同時調和諸藥，是中藥中唯一能廣泛調和的藥。"
       },
       {
-        "id": 137,
+        "id": 125,
         "question_en": "Which of the following statements best describes the action of Long Yan Rou (longan arillus)?",
         "question_zh": "以下哪項最能描述龍眼肉的功效？（重複）",
         "answer": "D",
@@ -5958,7 +6179,7 @@ const QUIZ_DATA = {
         "exp_zh": "龍眼肉（longan arillus）補心血安神，歸脾湯的重要組成，治療心脾兩虛型失眠、健忘、心悸。"
       },
       {
-        "id": 138,
+        "id": 126,
         "question_en": "What are the entering channels of Shi Gao (gypsum fibrosum)?",
         "question_zh": "石膏（gypsum fibrosum）歸哪些經？",
         "answer": "A",
@@ -5972,7 +6193,7 @@ const QUIZ_DATA = {
         "exp_zh": "石膏（gypsum fibrosum）入肺、胃兩經：清肺熱（退熱止咳）+清胃火（止牙痛頭痛渴），為清氣分熱要藥。"
       },
       {
-        "id": 139,
+        "id": 127,
         "question_en": "Which of the following is best for drying Damp in the middle warmer?",
         "question_zh": "以下哪個方劑最擅長燥化中焦濕邪？",
         "answer": "D",
@@ -5986,7 +6207,7 @@ const QUIZ_DATA = {
         "exp_zh": "平胃散（蒼朮、厚朴、陳皮、炙甘草）燥濕化痰，最擅長燥化中焦（脾胃）濕邪，用於濕阻中焦（脘腹脹滿、苔白膩）。"
       },
       {
-        "id": 140,
+        "id": 128,
         "question_en": "What is the recommended dosage of Shui Niu Jiao (bubali cornu) when used in decoction?",
         "question_zh": "水牛角替代犀角的推薦劑量是多少？（重複）",
         "answer": "C",
@@ -6000,7 +6221,7 @@ const QUIZ_DATA = {
         "exp_zh": "水牛角替代犀角需大劑量：30-120克，因水牛角藥效遠弱於犀角（1-3克），須增量10-30倍方可。"
       },
       {
-        "id": 141,
+        "id": 129,
         "question_en": "What are the entering channels of Mu Gua (chaenomelis fructus)?",
         "question_zh": "木瓜（chaenomelis fructus）歸哪些經？",
         "answer": "D",
@@ -6014,7 +6235,7 @@ const QUIZ_DATA = {
         "exp_zh": "木瓜（chaenomelis fructus）入肝、脾兩經：肝主筋（舒筋活絡止痙攣），脾主肌肉（化濕和中），治痹症和腳氣水腫。"
       },
       {
-        "id": 142,
+        "id": 130,
         "question_en": "Which of the following signs and symptoms are typically associated with Xue-Level (aka Blood-Level) heat?",
         "question_zh": "以下哪組症狀與氣分熱（陽明經熱）相關？",
         "answer": "D",
@@ -6028,7 +6249,7 @@ const QUIZ_DATA = {
         "exp_zh": "熱入營血分（營分/血分），出現煩躁神昏、斑疹、出血，為溫病後期熱毒深陷血分的表現（四大症為氣分熱）。"
       },
       {
-        "id": 143,
+        "id": 131,
         "question_en": "Which of the following herbs tonifies blood and also invigorates blood?",
         "question_zh": "以下哪味草藥既能補血又能活血？",
         "answer": "B",
@@ -6042,7 +6263,7 @@ const QUIZ_DATA = {
         "exp_zh": "當歸（angelicae sinensis radix）補血兼活血：既能補益（熟用補血）又能行血（酒炒活血），是補血活血的雙重要藥。"
       },
       {
-        "id": 144,
+        "id": 132,
         "question_en": "What is the taste and temperature of Bai Shao (paeoniae radix alba)?",
         "question_zh": "白芍（paeoniae radix alba）的味性是？",
         "answer": "D",
@@ -6056,7 +6277,7 @@ const QUIZ_DATA = {
         "exp_zh": "白芍（paeoniae radix alba）：涼、苦、酸。涼清肝熱，苦燥濕，酸收斂（斂陰止汗、緩急止痛），是柔肝斂陰要藥。"
       },
       {
-        "id": 145,
+        "id": 133,
         "question_en": "Which of the following herbs warms the Lung, treating cough with thin, watery, white mucus?",
         "question_zh": "以下哪味草藥能溫肺，治療稀白痰咳嗽？",
         "answer": "C",
@@ -6070,7 +6291,7 @@ const QUIZ_DATA = {
         "exp_zh": "乾薑（zingiberis rhizoma）溫肺化飲：溫化肺中寒飲（痰稀白泡沫），治寒飲咳嗽（小青龍湯中乾薑的作用）。"
       },
       {
-        "id": 146,
+        "id": 134,
         "question_en": "What are the entering channels of Xia Ku Cao (prunellae spica)?",
         "question_zh": "夏枯草（prunellae spica）歸哪些經？",
         "answer": "D",
@@ -6084,7 +6305,7 @@ const QUIZ_DATA = {
         "exp_zh": "夏枯草（prunellae spica）入肝、膽兩經：清肝膽熱、散鬱結（肝主筋，膽主決斷），治肝火型目赤、淋巴結腫。"
       },
       {
-        "id": 147,
+        "id": 135,
         "question_en": "What function is related to Dan Zhu Ye (lophatheri herba)?",
         "question_zh": "淡竹葉（lophatheri herba）的功效是什麼？",
         "answer": "B",
@@ -6098,7 +6319,7 @@ const QUIZ_DATA = {
         "exp_zh": "淡竹葉清心胃熱，治心煩（心火上炎）+口瘡（胃火）+牙齦腫痛，導熱下行從小便排出。"
       },
       {
-        "id": 148,
+        "id": 136,
         "question_en": "In clearing heat, what is Qin Pis (fraxini cortexs) specialty?",
         "question_zh": "秦皮（fraxini cortex）在清熱方面的特殊功效是什麼？",
         "answer": "A",
@@ -6112,7 +6333,7 @@ const QUIZ_DATA = {
         "exp_zh": "秦皮（fraxini cortex）清大腸濕熱，治濕熱腹瀉和痢疾（膿血便），為清腸止痢的要藥，也可清肝明目。"
       },
       {
-        "id": 149,
+        "id": 137,
         "question_en": "Beth, aged 62, has had lower back pain for about 6 years. The pain was stable but seems worse on cold or rainy days. She uses a heating pad to relieve the pain. She reports weakness in the knees and has heart palpitations. Her tongue is pale, coated white. Her pulse is thin and feeble. The diagnosis of Bi syndrome is due to which pattern?",
         "question_zh": "Beth，62歲，腰痛6年，受寒加重，舌紅苔黃膩，脈濡數。診斷是？",
         "answer": "D",
@@ -6126,7 +6347,7 @@ const QUIZ_DATA = {
         "exp_zh": "Beth腰痛+症狀複雜（寒熱交錯、舌紅苔黃膩、脈濡數），診斷為寒濕兼血氣虧虛、肝腎不足型痹症，需複法治療。"
       },
       {
-        "id": 150,
+        "id": 138,
         "question_en": "What are the signs and symptoms associated with Yang Ming channel disease?",
         "question_zh": "陽明經病的症狀是什麼？",
         "answer": "D",
@@ -6140,7 +6361,7 @@ const QUIZ_DATA = {
         "exp_zh": "陽明經證（白虎湯證）：壯熱、大汗、大渴、脈洪大（四大症），熱盛于陽明經，未入腑（無便秘）。"
       },
       {
-        "id": 151,
+        "id": 139,
         "question_en": "Which is true of Gui Zhi Tang (Cinnamon Twig Decoction) and Ma Huang Tang (Ephedra Decoction)?",
         "question_zh": "關於桂枝湯和麻黃湯，以下哪項正確？",
         "answer": "B",
@@ -6154,7 +6375,7 @@ const QUIZ_DATA = {
         "exp_zh": "桂枝湯（有汗，微汗惡風）vs 麻黃湯（無汗，惡寒重）：一治有汗表虛，一治無汗表實，均治外感風寒但出汗情況不同。"
       },
       {
-        "id": 152,
+        "id": 140,
         "question_en": "Besides tonifying blood, what is another important function of Shu Di Huang (rehmanniae radix preparata)?",
         "question_zh": "熟地黃除補血外，另一重要功效是什麼？",
         "answer": "D",
@@ -6168,7 +6389,7 @@ const QUIZ_DATA = {
         "exp_zh": "熟地黃（rehmanniae radix preparata）除補血外，另一重要功效：填精補陰（腎陰），治腎陰不足（骨蒸、腰膝酸軟）。"
       },
       {
-        "id": 153,
+        "id": 141,
         "question_en": "What is that taste and temperature of Dan Zhu Ye (lophatheri herba)?",
         "question_zh": "淡竹葉的味性是？（重複）",
         "answer": "B",
@@ -6182,7 +6403,7 @@ const QUIZ_DATA = {
         "exp_zh": "淡竹葉：寒、甘、淡。三個性質缺一不可，寒清熱，甘和緩，淡滲利水，是清心利水的典型藥。"
       },
       {
-        "id": 154,
+        "id": 142,
         "question_en": "Which form of Zhi Zi (gardeniae fructus) is best for stopping bleeding?",
         "question_zh": "梔子的哪種炮製形式最適合止血？（重複）",
         "answer": "D",
@@ -6196,7 +6417,7 @@ const QUIZ_DATA = {
         "exp_zh": "梔子炭增強收澀止血之力，用於血熱出血，「炒炭存性」——保留清熱但增強止血收澀，是止血的最佳炮製形式。"
       },
       {
-        "id": 155,
+        "id": 143,
         "question_en": "Which of the following herb categories is NOT appropriate for treating Internal Wind?",
         "question_zh": "以下哪類草藥不適合治療陰虛病症？（重複）",
         "answer": "D",
@@ -6210,7 +6431,7 @@ const QUIZ_DATA = {
         "exp_zh": "陰虛患者忌用辛味藥：辛能散能行，辛溫燥烈直傷陰液，苦味藥雖苦燥但可清熱，辛味藥更直接耗陰。"
       },
       {
-        "id": 156,
+        "id": 144,
         "question_en": "How does Mu Gua (chaenomelis fructus) address bi syndrome?",
         "question_zh": "木瓜（chaenomelis fructus）如何治療痹症？",
         "answer": "D",
@@ -6224,7 +6445,7 @@ const QUIZ_DATA = {
         "exp_zh": "木瓜治痹症：舒筋活絡通痹，柔筋緩急止痙，治療痹症引起的肌肉筋脈攣縮，尤其適合筋脈拘急型。"
       },
       {
-        "id": 157,
+        "id": 145,
         "question_en": "Which of the following herbs clears Lung heat; for fever, thirst, and cough with thick, yellow sputum?",
         "question_zh": "以下哪味草藥能清肺熱，治療發熱、口渴、咳嗽？",
         "answer": "A",
@@ -6238,7 +6459,7 @@ const QUIZ_DATA = {
         "exp_zh": "黃芩（scutellariae radix）清肺熱：入肺，清上焦肺熱，治肺熱咳嗽（黃痰、發熱、口渴），為清肺要藥之一。"
       },
       {
-        "id": 158,
+        "id": 146,
         "question_en": "What organs/channels does the following formula act on? Tian Ma + Gou Teng + Shi Jue Ming + Ye Jiao Teng + Sang Ji Sheng",
         "question_zh": "以下方劑（天麻+鉤藤+石決明等）作用於哪些臟腑/經絡？（重複）",
         "answer": "C",
@@ -6252,7 +6473,7 @@ const QUIZ_DATA = {
         "exp_zh": "天麻鉤藤飲作用臟腑：腎（腎陰不足）+肝（肝陽化風），KI/LR（腎/肝），滋腎陰以潛肝陽，平肝息風。"
       },
       {
-        "id": 159,
+        "id": 147,
         "question_en": "What is the thermal nature of Gan Cao (Radix Glycyrrhizae)?",
         "question_zh": "甘草（Radix Glycyrrhizae）的性質是？",
         "answer": "B",
@@ -6266,7 +6487,7 @@ const QUIZ_DATA = {
         "exp_zh": "甘草（Radix Glycyrrhizae）生用性平，炙用性溫。生甘草清熱解毒（平），炙甘草補氣（溫），此題考查生甘草——平。"
       },
       {
-        "id": 160,
+        "id": 148,
         "question_en": "In tonifying blood, what is Gou Qi Zi's (lycii fructus) specialty?",
         "question_zh": "在補血方面，枸杞子（lycii fructus）的特殊功效是什麼？",
         "answer": "B",
@@ -6280,7 +6501,7 @@ const QUIZ_DATA = {
         "exp_zh": "枸杞子（lycii fructus）在補血方面特殊功效：明目。補肝腎之陰，以滋養目竅，治療肝腎虧虛所致視力減退。"
       },
       {
-        "id": 161,
+        "id": 149,
         "question_en": "What is the taste and temperature of Shui Niu Jiao (bubali cornu)?",
         "question_zh": "水牛角（bubali cornu）的味性是？",
         "answer": "C",
@@ -6294,21 +6515,7 @@ const QUIZ_DATA = {
         "exp_zh": "水牛角（bubali cornu）：寒、苦、鹹。寒清熱，苦涼血，鹹入血分，直清血分熱毒，為涼血解毒要藥。"
       },
       {
-        "id": 162,
-        "question_en": "A 40-year-old male patient presents with hypertension, bitter taste, dark urine, irritability, bloodshot eyes, headache, halitosis, red tongue with yellow coating, wiry rapid pulse. Which formula treats the pattern?",
-        "question_zh": "40歲男性高血壓（重複），最合適方劑是？",
-        "answer": "D",
-        "options": {
-          "A": {"en": "Tian Ma Gou Yin", "zh": "天麻鉤藤飲", "correct": false},
-          "B": {"en": "Liu Di Huang Wan", "zh": "六味地黃丸", "correct": false},
-          "C": {"en": "Yi Guan Jian", "zh": "一貫煎", "correct": false},
-          "D": {"en": "Long Dan Xie Gan Tang", "zh": "龍膽瀉肝湯", "correct": true}
-        },
-        "exp_en": "Answer: D — Long Dan Xie Gan Tang",
-        "exp_zh": "高血壓、口苦、頭痛（肝火旺）、面紅目赤、舌紅苔黃、脈弦數=肝火上炎，龍膽瀉肝湯清肝膽濕熱下行。"
-      },
-      {
-        "id": 163,
+        "id": 150,
         "question_en": "What is the thermal nature of Gan Jiang (Rhizoma Zingiberis Preparatum)?",
         "question_zh": "乾薑（Rhizoma Zingiberis Preparatum）的性質是？（重複）",
         "answer": "C",
@@ -6322,7 +6529,7 @@ const QUIZ_DATA = {
         "exp_zh": "乾薑性熱（hot），溫中散寒回陽，藥性比鮮薑更強烈，是溫裏藥的代表，治脾胃虛寒、亡陽厥逆。"
       },
       {
-        "id": 164,
+        "id": 151,
         "question_en": "Which herbal modification would you use to augment Da Huang Fu Zi Tang to treat constipation with abdominal pain?",
         "question_zh": "大黃附子湯的加減方法（增強其溫腸通便功效）是？",
         "answer": "B",
@@ -6336,7 +6543,7 @@ const QUIZ_DATA = {
         "exp_zh": "大黃附子湯加木香（理氣）+厚朴（消積）：增強行氣通腑消積作用，強化其溫下寒積的效果。"
       },
       {
-        "id": 165,
+        "id": 152,
         "question_en": "Which herb clears heat, tonifies yin, moistens dryness—used for both excess and deficiency heat?",
         "question_zh": "哪味草藥能清熱、補陰、潤燥，可用於外感和內傷？",
         "answer": "A",
@@ -6350,7 +6557,7 @@ const QUIZ_DATA = {
         "exp_zh": "知母（anemarrhenae rhizoma）清熱補陰潤燥，可治外感實熱（白虎湯）和內傷陰虛（知柏地黃丸），為兼能清補的特殊藥。"
       },
       {
-        "id": 166,
+        "id": 153,
         "question_en": "Which herb is neutral in temperature and especially useful for warm type bi syndrome in the upper extremities?",
         "question_zh": "哪味草藥性質中性，特別適用於溫熱型痹症？",
         "answer": "C",
@@ -6364,7 +6571,7 @@ const QUIZ_DATA = {
         "exp_zh": "桑枝（mori ramulus）性平偏涼，適合溫熱型痹症（熱痹），不偏寒熱，上肢風濕疼痛熱象者最宜。"
       },
       {
-        "id": 167,
+        "id": 154,
         "question_en": "Which herb enters the Heart channel, treating irregular heartbeat and palpitation?",
         "question_zh": "哪味草藥歸心經，可治療心律不整和心氣虛？（重複）",
         "answer": "B",
@@ -6378,7 +6585,7 @@ const QUIZ_DATA = {
         "exp_zh": "甘草入心，補益心氣，治療心氣虛型心律不整（炙甘草湯），同時緩和藥性，調和諸藥。"
       },
       {
-        "id": 168,
+        "id": 155,
         "question_en": "What statement is true of Du Huo (angelicae pubescentis radix)?",
         "question_zh": "關於獨活，以下哪項陳述正確？（重複）",
         "answer": "D",
@@ -6392,7 +6599,7 @@ const QUIZ_DATA = {
         "exp_zh": "獨活「治下部痹症」：辛溫下行，善治腰膝腿部寒濕痹症，與羌活（治上）形成上下分工。"
       },
       {
-        "id": 169,
+        "id": 156,
         "question_en": "Which herb has the following functions: clears Liver heat, brightens the eyes, moistens the Large Intestine to relieve constipation, lowers high blood pressure and cholesterol?",
         "question_zh": "哪味草藥能清肝熱、明目、潤腸？（重複）",
         "answer": "A",
@@ -6406,7 +6613,7 @@ const QUIZ_DATA = {
         "exp_zh": "決明子清肝明目+潤腸通便，「一藥兩用」，為肝熱便秘患者理想選擇，兼明目防眼疾。"
       },
       {
-        "id": 170,
+        "id": 157,
         "question_en": "Which herb clears summerheat and generates fluids; for thirst, dark scanty urine, and dry heaves?",
         "question_zh": "哪味草藥能清暑熱、生津，治療口渴、尿黃？（重複）",
         "answer": "C",
@@ -6420,21 +6627,7 @@ const QUIZ_DATA = {
         "exp_zh": "西瓜（Xi Gua）天然清暑飲料，清暑熱生津，治夏季暑熱口渴、尿黃、煩躁，「天然白虎湯」。"
       },
       {
-        "id": 171,
-        "question_en": "Which herb raises the clear yang of the Spleen to counter prolapse?",
-        "question_zh": "哪味草藥能升脾清陽，對抗臟器下垂？",
-        "answer": "C",
-        "options": {
-          "A": {"en": "Gan Cao", "zh": "甘草", "correct": false},
-          "B": {"en": "Ren Shen", "zh": "人參", "correct": false},
-          "C": {"en": "Yi Tang", "zh": "飴糖", "correct": true},
-          "D": {"en": "Huang Qi (astragali radix)", "zh": "黃芪", "correct": false}
-        },
-        "exp_en": "Answer: C — Yi Tang",
-        "exp_zh": "飴糖（Yi Tang，maltosum）雖補脾，但補中益氣湯中升脾清陽對抗脫垂的主藥是黃芪（大補元氣、升提中氣）。"
-      },
-      {
-        "id": 172,
+        "id": 158,
         "question_en": "Besides tonifying qi, what is another important function of Shan Yao (dioscorea rhizoma)?",
         "question_zh": "山藥（dioscorae rhizoma）除補氣外，另一重要功效是什麼？",
         "answer": "B",
@@ -6448,35 +6641,7 @@ const QUIZ_DATA = {
         "exp_zh": "山藥（dioscorae rhizoma）除補氣外另一功效：固腎澀精，治療腎氣不固型尿頻、遺精、帶下，補而不滯。"
       },
       {
-        "id": 173,
-        "question_en": "In tonifying Spleen qi, what is Bai Bian Dou's (lablab semen album) specialty?",
-        "question_zh": "白扁豆在健脾益氣方面的特殊功效是什麼？（重複）",
-        "answer": "B",
-        "options": {
-          "A": {"en": "Raises Spleen yang to counter prolapse", "zh": "升脾陽對抗脫垂", "correct": false},
-          "B": {"en": "Transforms dampness to stop diarrhea", "zh": "化濕止瀉", "correct": true},
-          "C": {"en": "Treats abdominal pain due to deficiency", "zh": "治療虛寒腹痛", "correct": false},
-          "D": {"en": "Regenerates flesh to heal longstanding sores", "zh": "生肌斂瘡", "correct": false}
-        },
-        "exp_en": "Answer: B — Transforms dampness to stop diarrhea",
-        "exp_zh": "白扁豆化濕止瀉，健脾化濕，治療脾虛夾濕所致腹瀉，是健脾同時化濕的溫和補益藥。"
-      },
-      {
-        "id": 174,
-        "question_en": "Chuan Xiong Cha Tiao San treats headache because it:",
-        "question_zh": "川芎茶調散治療頭痛的機制是什麼？（重複）",
-        "answer": "B",
-        "options": {
-          "A": {"en": "Expels Cold to relieve pain", "zh": "散寒止痛", "correct": false},
-          "B": {"en": "Disperses Wind to relieve pain", "zh": "疏散風邪止痛", "correct": true},
-          "C": {"en": "Soothes the Liver to relieve pain", "zh": "疏肝止痛", "correct": false},
-          "D": {"en": "Nourishes the Blood to relieve pain", "zh": "養血止痛", "correct": false}
-        },
-        "exp_en": "Answer: B — Disperses Wind to relieve pain",
-        "exp_zh": "川芎茶調散（川芎+茶葉等）：疏散風邪止頭痛，以川芎上行頭面為君，所有藥均疏散風邪，不通過養血止痛。"
-      },
-      {
-        "id": 175,
+        "id": 159,
         "question_en": "What is the taste and temperature of Dang Gui (angelicae sinensis radix)?",
         "question_zh": "當歸（angelicae sinensis radix）的味性是？（重複）",
         "answer": "B",
@@ -6490,7 +6655,7 @@ const QUIZ_DATA = {
         "exp_zh": "當歸：溫、甘、酸（或辛）。此題選B（warm, sweet, acid）——考查當歸的酸味，酸斂養血。"
       },
       {
-        "id": 176,
+        "id": 160,
         "question_en": "Fred, age 5, mumps with swollen face, local heat, tenderness, fever 38°C, slight thirst, sore throat, red tongue with yellow coating, rapid floating pulse. Correct treatment principle?",
         "question_zh": "5歲Fred腮腺炎（重複），正確治療原則是？",
         "answer": "B",
@@ -6504,21 +6669,7 @@ const QUIZ_DATA = {
         "exp_zh": "腮腺炎（溫毒風熱）治則：疏散風熱+清熱解毒消腫，銀翹散加減是標準治法。"
       },
       {
-        "id": 177,
-        "question_en": "Ba Zhen Tang (Eight Precious Decoction) is a combination of which formulae?",
-        "question_zh": "八珍湯是哪兩個方劑的組合？（重複）",
-        "answer": "D",
-        "options": {
-          "A": {"en": "Si Shen Wan + Si Miao Wan", "zh": "四神丸+四妙丸", "correct": false},
-          "B": {"en": "Wu Ji San + San Ren Tang", "zh": "五積散+三仁湯", "correct": false},
-          "C": {"en": "Er Xian Tang + Liu Wei Di Huang Wan", "zh": "二仙湯+六味地黃丸", "correct": false},
-          "D": {"en": "Si Wu Tang + Si Jun Zi Tang", "zh": "四物湯+四君子湯", "correct": true}
-        },
-        "exp_en": "Answer: D — Si Wu Tang + Si Jun Zi Tang",
-        "exp_zh": "八珍湯=四物湯（熟地、當歸、白芍、川芎，補血）+四君子湯（人參/黨參、白朮、茯苓、炙甘草，補氣），氣血雙補。"
-      },
-      {
-        "id": 178,
+        "id": 161,
         "question_en": "Which herb clears damp-heat from the skin; for skin lesions, diaper rash, vaginal itching, burns?",
         "question_zh": "哪味草藥能清皮膚濕熱，治療皮疹、尿布疹？",
         "answer": "D",
@@ -6532,7 +6683,7 @@ const QUIZ_DATA = {
         "exp_zh": "牡丹皮清皮膚濕熱：涼血活血，清熱解毒，治皮膚濕熱性皮疹（滲出型、紅腫型），清血分熱從肌膚透出。"
       },
       {
-        "id": 179,
+        "id": 162,
         "question_en": "Overdosage of Qi Regulating herbs can damage the following?",
         "question_zh": "過量使用理氣藥可能損傷以下哪種物質？（重複）",
         "answer": "C",
@@ -6545,7 +6696,7 @@ const QUIZ_DATA = {
         "exp_zh": "理氣藥（如枳實、厚朴、木香）辛燥，過量則耗散氣陰，以傷陰為主（辛燥傷陰液），此題答案為陰（Yin）。"
       },
       {
-        "id": 180,
+        "id": 163,
         "question_en": "Claire, age 65, skin itching for 3 years, worse in evening, very dry skin with scabs. Which formula?",
         "question_zh": "Claire，65歲，皮膚瘙癢3年，傍晚加重，皮膚極乾，舌淡，脈細弱。最合適方劑是？",
         "answer": "C",
@@ -6559,7 +6710,7 @@ const QUIZ_DATA = {
         "exp_zh": "Claire皮膚瘙癢（血虛生風）：皮膚乾燥、傍晚加重（陰血不足）、舌淡脈細，四物湯補血養血、熄風止癢。"
       },
       {
-        "id": 181,
+        "id": 164,
         "question_en": "Which herb has the following functions: clears heat and cools the blood, nourishes yin, softens hardness and dissipates nodules?",
         "question_zh": "以下哪味草藥能清熱涼血、滋陰（重複）？",
         "answer": "B",
@@ -6573,7 +6724,7 @@ const QUIZ_DATA = {
         "exp_zh": "玄參（scrophulariae radix）清熱涼血+滋陰解毒，善治血分熱毒（斑疹、咽喉腫毒），寒鹹苦，清而兼補。"
       },
       {
-        "id": 182,
+        "id": 165,
         "question_en": "A 38-year-old male with chronic diarrhea, daily diarrhea, continuous abdominal pain, poor appetite, cold extremities, pale tongue, thin deep pulse. Which formula?",
         "question_zh": "38歲男性，慢性腹瀉（重複），最合適方劑是？",
         "answer": "D",
@@ -6587,7 +6738,7 @@ const QUIZ_DATA = {
         "exp_zh": "38歲男性慢性腹瀉、完谷不化、肢冷（陽虛），理中丸（乾薑+人參+白朮+甘草）溫中健脾，治脾胃虛寒腹瀉。"
       },
       {
-        "id": 183,
+        "id": 166,
         "question_en": "A 25-year-old female with whooping cough for 6 weeks, dry cough, breathlessness, heat of skin, red tongue, thin yellow coating, thin rapid pulse. Which formula?",
         "question_zh": "25歲女性百日咳（重複），最合適方劑是？",
         "answer": "B",
@@ -6601,35 +6752,7 @@ const QUIZ_DATA = {
         "exp_zh": "百日咳（Lung Heat）後期陰傷，乾咳、舌紅、脈數，瀉白散清肺熱瀉肺氣，治肺熱咳嗽。"
       },
       {
-        "id": 184,
-        "question_en": "Claire, age 65, skin itching for 3 years, worse in evening, very dry skin with scabs. Which guiding formula is best?",
-        "question_zh": "Claire，65歲，皮膚瘙癢（重複），最合適方劑是？",
-        "answer": "C",
-        "options": {
-          "A": {"en": "Xiaofeng San", "zh": "消風散", "correct": false},
-          "B": {"en": "Long Dan Xie Gan Tang", "zh": "龍膽瀉肝湯", "correct": false},
-          "C": {"en": "Si Wu Tang", "zh": "四物湯", "correct": true},
-          "D": {"en": "Er Chen Tang", "zh": "二陳湯", "correct": false}
-        },
-        "exp_en": "A: ❌ Xiaofeng San — Best for acute wind-heat/wind-damp itching with moist lesions; not suitable as the guiding formula for chronic blood deficiency with dry scabs. | B: ❌ Long Dan Xie Gan Tang — Addresses damp-heat excess in the Liver channel; contraindicated here as the pattern is deficiency with dryness, not excess with dampness. | C: ✅ Si Wu Tang — As the guiding (base) formula for blood defici",
-        "exp_zh": "Claire血虛皮膚瘙癢：四物湯養血活血，血充則肌膚得養，「治風先治血，血行風自滅」。"
-      },
-      {
-        "id": 185,
-        "question_en": "What is the primary TCM pattern addressed by: Tian Ma + Gou Teng + Shi Jue Ming + Ye Jiao Teng + Sang Ji Sheng?",
-        "question_zh": "以下草藥組合（天麻+鉤藤+石決明等）主要針對哪種中醫證型？（重複）",
-        "answer": "C",
-        "options": {
-          "A": {"en": "Heart and Kidney not communicating", "zh": "心腎不交", "correct": false},
-          "B": {"en": "Kidney and Liver Yin Deficiency", "zh": "腎肝陰虛", "correct": false},
-          "C": {"en": "Liver Wind", "zh": "肝風內動", "correct": true},
-          "D": {"en": "Liver and Heart Blood Deficiency", "zh": "肝心血虛", "correct": false}
-        },
-        "exp_en": "Answer: C — Liver Wind",
-        "exp_zh": "天麻鉤藤飲（天麻+鉤藤+石決明）主治肝風內動，平肝息風潛陽，治肝陽上亢化風型眩暈頭痛。"
-      },
-      {
-        "id": 186,
+        "id": 167,
         "question_en": "Which formula best treats diarrhea caused by Damp stagnation due to Spleen Qi Deficiency?",
         "question_zh": "哪個方劑最能治療脾虛濕停所致腹瀉？",
         "answer": "B",
@@ -6643,7 +6766,7 @@ const QUIZ_DATA = {
         "exp_zh": "參苓白朮散（Shen Ling Bai Zhu San）健脾益氣化濕，專治脾虛濕停型腹瀉（食少、腹脹、大便稀溏）。"
       },
       {
-        "id": 187,
+        "id": 168,
         "question_en": "Besides clearing heat, what is another important function of Sheng Di Huang (rehmanniae radix)?",
         "question_zh": "生地黃除清熱外，另一重要功效是什麼？",
         "answer": "D",
