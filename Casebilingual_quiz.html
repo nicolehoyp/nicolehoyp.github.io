@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCM Case Study Practice | 中醫案例測驗練習</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sage-dark: #2d4a3e;
+  --sage-mid: #4a6b5c;
+  --sage-light: #7a9b8a;
+  --cream: #faf7f2;
+  --ink: #1a1a1a;
+  --red: #c1440e;
+  --gold: #d4a574;
+  --green: #4a7c59;
+  --shadow: rgba(45,74,62,0.09);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans TC',serif;background:linear-gradient(135deg,var(--cream) 0%,#ede8df 100%);color:var(--ink);line-height:1.7;min-height:100vh;}
+.wrap{max-width:1060px;margin:0 auto;padding:40px 20px 100px;}
+
+/* HEADER */
+header{text-align:center;padding:55px 20px 40px;border-bottom:2px solid var(--sage-light);margin-bottom:46px;animation:fadeDown .7s ease;}
+h1{font-family:'Crimson Pro',serif;font-size:2.9em;font-weight:700;color:var(--sage-dark);letter-spacing:-1px;margin-bottom:8px;}
+.sub{font-size:.95em;color:var(--sage-mid);letter-spacing:3px;}
+
+/* CASE TABS */
+.tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:46px;animation:fadeUp .6s ease .2s backwards;}
+.tab{background:#fff;border:2px solid var(--sage-light);padding:22px 20px;border-radius:12px;cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 8px var(--shadow);position:relative;overflow:hidden;}
+.tab::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(122,155,138,.08),transparent);opacity:0;transition:opacity .3s;}
+.tab:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(45,74,62,.15);border-color:var(--sage-dark);}
+.tab:hover::after{opacity:1;}
+.tab.active{background:var(--sage-dark);border-color:var(--sage-dark);transform:scale(1.02);}
+.tab-title{font-size:1.15em;font-weight:700;color:var(--sage-dark);margin-bottom:5px;}
+.tab.active .tab-title,.tab.active .tab-sub{color:#fff;}
+.tab-sub{font-size:.85em;color:var(--sage-mid);}
+
+/* CASE PANEL */
+.panel{display:none;animation:fadeUp .5s ease;}
+.panel.active{display:block;}
+
+/* CASE DESCRIPTION */
+.case-desc{background:#fff;padding:28px 32px;border-radius:14px;border-left:5px solid var(--red);margin-bottom:36px;box-shadow:0 3px 10px var(--shadow);font-size:.97em;line-height:1.9;white-space:pre-line;}
+.case-desc-label{display:block;font-size:.78em;font-weight:700;color:var(--red);letter-spacing:1.5px;margin-bottom:10px;}
+
+/* QUESTION CARD */
+.qcard{background:#fff;border-radius:14px;padding:30px;margin-bottom:22px;box-shadow:0 3px 10px var(--shadow);border:1px solid rgba(122,155,138,.15);transition:box-shadow .2s;}
+.qcard:hover{box-shadow:0 6px 20px rgba(45,74,62,.12);}
+.q-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:6px;}
+.q-num{background:var(--sage-dark);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.88em;font-weight:500;flex-shrink:0;}
+.q-body{flex:1;}
+.q-en{font-size:1.05em;font-weight:600;color:var(--sage-dark);line-height:1.55;}
+.q-zh{font-size:.88em;color:var(--sage-mid);margin-top:3px;line-height:1.5;}
+.multi-badge{display:inline-block;background:#fff3cd;color:#8b6000;border:1px solid #f5c542;border-radius:5px;padding:2px 9px;font-size:.76em;font-weight:600;margin-top:6px;}
+.warn-badge{display:inline-block;background:#fde8e0;color:#a33400;border:1px solid #f5b8a0;border-radius:5px;padding:2px 9px;font-size:.76em;font-weight:600;margin-top:4px;}
+
+/* OPTIONS */
+.opts{margin:18px 0 4px;}
+.opt{display:flex;align-items:flex-start;gap:11px;padding:14px 18px;margin:9px 0;border-radius:9px;cursor:pointer;border:2px solid transparent;background:var(--cream);transition:all .25s ease;user-select:none;}
+.opt:hover{background:#ece6dc;transform:translateX(4px);border-color:var(--sage-light);}
+.opt-key{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--sage-dark);min-width:22px;font-size:.92em;flex-shrink:0;padding-top:1px;}
+.opt-content{flex:1;}
+.opt-en{font-size:.97em;color:var(--ink);}
+.opt-zh{font-size:.82em;color:#666;margin-top:2px;}
+.opt.selected{background:var(--sage-light);border-color:var(--sage-dark);}
+.opt.selected .opt-key,.opt.selected .opt-en,.opt.selected .opt-zh{color:#fff;}
+.opt.correct{background:var(--green);border-color:#3d6b4a;}
+.opt.correct .opt-key,.opt.correct .opt-en,.opt.correct .opt-zh{color:#fff;}
+.opt.wrong{background:var(--red);border-color:#a33a0c;}
+.opt.wrong .opt-key,.opt.wrong .opt-en,.opt.wrong .opt-zh{color:#fff;}
+.opt.excluded{opacity:.45;pointer-events:none;}
+
+/* EXPLANATION BOX */
+.expl-btn{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:7px 16px;background:transparent;border:1.5px solid var(--sage-light);border-radius:20px;cursor:pointer;font-size:.84em;color:var(--sage-mid);font-family:'Noto Sans TC',sans-serif;transition:all .25s ease;}
+.expl-btn:hover{background:var(--sage-dark);color:#fff;border-color:var(--sage-dark);}
+.expl-btn .arrow{transition:transform .25s;font-size:.75em;}
+.expl-btn.open .arrow{transform:rotate(180deg);}
+.expl-box{display:none;margin-top:14px;border-radius:10px;overflow:hidden;border:1px solid rgba(122,155,138,.25);}
+.expl-box.show{display:block;animation:slideIn .3s ease;}
+.expl-en{padding:16px 20px;background:#f6faf8;border-bottom:1px solid rgba(122,155,138,.2);}
+.expl-zh{padding:16px 20px;background:#fff;}
+.expl-lang{font-size:.72em;font-weight:700;letter-spacing:1.5px;color:var(--sage-light);margin-bottom:6px;display:block;}
+.expl-text{font-size:.93em;color:#333;line-height:1.8;}
+.expl-text strong{color:var(--sage-dark);}
+
+/* FEEDBACK LINE */
+.fb{margin-top:10px;padding:12px 16px;border-radius:8px;font-size:.9em;font-weight:500;display:none;}
+.fb.show{display:block;animation:slideIn .3s ease;}
+.fb.ok{background:#e8f5e9;color:#2e7d32;border-left:3px solid var(--green);}
+.fb.no{background:#fff3e0;color:#8b4513;border-left:3px solid var(--red);}
+
+/* ACTION BUTTONS */
+.actions{display:flex;gap:14px;margin-top:44px;justify-content:center;flex-wrap:wrap;}
+.btn{padding:14px 34px;border:none;border-radius:10px;font-size:1em;font-weight:600;cursor:pointer;transition:all .3s ease;font-family:'Noto Sans TC',sans-serif;box-shadow:0 3px 10px var(--shadow);}
+.btn-pri{background:var(--sage-dark);color:#fff;}
+.btn-pri:hover{background:var(--sage-mid);transform:translateY(-2px);}
+.btn-sec{background:#fff;color:var(--sage-dark);border:2px solid var(--sage-dark);}
+.btn-sec:hover{background:var(--cream);transform:translateY(-2px);}
+
+/* SCORE */
+.score-box{background:#fff;padding:36px;border-radius:16px;text-align:center;box-shadow:0 6px 20px rgba(45,74,62,.12);margin:28px 0;border-top:5px solid var(--gold);animation:fadeUp .4s ease;}
+.score-box h3{font-family:'Crimson Pro',serif;font-size:1.9em;color:var(--sage-dark);margin-bottom:14px;}
+.score-num{font-family:'IBM Plex Mono',monospace;font-size:3.4em;font-weight:500;color:var(--red);margin:10px 0;}
+.score-pct{color:var(--sage-mid);font-size:1.05em;}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:translateX(0)}}
+
+.back-top{position:fixed;bottom:28px;right:28px;background:var(--sage-dark);color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.15em;box-shadow:0 4px 14px rgba(45,74,62,.3);transition:all .3s;z-index:99;}
+.back-top:hover{transform:translateY(-3px);background:var(--sage-mid);}
+
+@media(max-width:680px){
+  h1{font-size:2em;}
+  .qcard{padding:22px 16px;}
+  .actions{flex-direction:column;}
+  .btn{width:100%;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>TCM Case Study Practice</h1>
+  <p class="sub">中醫案例測驗練習 · BILINGUAL QUIZ</p>
+</header>
+
+<div class="tabs" id="tabs"></div>
+<div id="panels"></div>
+<div class="actions" id="actions" style="display:none;">
+  <button class="btn btn-pri" onclick="checkAll()">Check Answers 檢查答案</button>
+  <button class="btn btn-sec" onclick="resetAll()">Reset 重新開始</button>
+</div>
+</div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const data = {
+  Case1:{
+    title:"Case 1 — 5 yr Girl · Psoriasis",
+    titleZh:"案例一 — 5歲女童 · 銀屑病",
+    desc:`Patient: 5 year old girl
+Chief Complaint: Patient had broken out with psoriasis. Lesions are very red and spreading quickly. Covered in scales that shed easily; very itchy with burning pain.
+Other Symptoms: Thirsty, wants cold water. Constipation (hard, dry, pellet-like stools). Red complexion, bad breath, dry lips, dark and scanty urine.
+Tongue: Scarlet red with dry yellow coating
+Pulse: Rapid, slippery, forceful`,
+    questions:[
+      {n:1,
+       en:"According to 4-Level Differentiation, what is the syndrome differentiation of her psoriasis?",
+       zh:"根據四級辨證，此患者銀屑病的辨證屬哪一層次？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Wei Level (Defensive Qi Level)",zh:"衛分（防衛氣層次）"},
+         B:{en:"Qi Level",zh:"氣分"},
+         C:{en:"Ying Level (Nutritive Qi Level)",zh:"營分（營氣層次）"},
+         D:{en:"Xue Level (Blood Level)",zh:"血分",excluded:true}
+       },
+       ans:"B",
+       expl:{
+         en:"The lesions show intense redness, thirst for cold water, constipation, dark urine, scarlet tongue with dry yellow coat, and a rapid forceful slippery pulse — all hallmarks of <strong>Heat excess at the Qi Level</strong>. The pathogen has not yet penetrated into Ying (nutritive) or Xue (blood) levels. D is excluded as it is confirmed not the answer.",
+         zh:"皮損鮮紅、口渴喜冷、便秘、尿黃、舌猩紅苔乾黃、脈數滑有力——均為<strong>熱邪盛於氣分</strong>的典型表現。熱邪尚未深入營血，故排除 C（營分）及 D（血分）。"
+       }
+      },
+      {n:2,
+       en:"What treatment principles would you use to treat her psoriasis?",
+       zh:"治療銀屑病應採用哪種治則？",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"Release the exterior, expel Heat, stop psoriasis, promote healing",zh:"解表散熱、止癬促癒"},
+         B:{en:"Purge Heat, promote bowel movement, stop psoriasis, promote healing",zh:"瀉熱通腑、止癬促癒"},
+         C:{en:"Clear Heat, nourish Yin, stop psoriasis, promote healing",zh:"清熱養陰、止癬促癒"},
+         D:{en:"Cool the Blood, extinguish Wind, stop psoriasis, promote healing",zh:"涼血熄風、止癬促癒",excluded:true}
+       },
+       ans:"B",
+       expl:{
+         en:"The patient presents with <strong>Yangming Fu excess</strong> — hard dry pellet-like stools, yellow dry tongue coat, forceful pulse. Treatment must <strong>purge Heat and promote bowel movement</strong>. Cooling Blood (D) would be for Blood-Level patterns; nourishing Yin (C) for deficiency heat. Purging the bowels allows Heat to exit downward, relieving the skin lesions.",
+         zh:"患者有明顯<strong>陽明腑實</strong>（便秘、乾硬如羊糞、苔黃、脈有力），治療需<strong>瀉熱通腑</strong>，使熱邪從下而出，皮損自然緩解。涼血（D）適用血分熱盛；養陰（C）適用虛熱，均不符合本案。"
+       }
+      },
+      {n:3,
+       en:"What formula would you use for her psoriasis?",
+       zh:"此案應選用哪個方劑？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Mai Wei Di Huang Tang 麥味地黃湯",zh:"麥味地黃湯"},
+         B:{en:"Xiao Feng San 消風散",zh:"消風散"},
+         C:{en:"Wu Wei Xiao Du Yin 五味消毒飲",zh:"五味消毒飲"},
+         D:{en:"Xi Jiao / Shui Niu Jiao Di Huang Tang 犀角地黃湯",zh:"犀角（水牛角）地黃湯",excluded:true}
+       },
+       ans:"B",
+       expl:{
+         en:"<strong>Xiao Feng San (Eliminate Wind Powder)</strong> treats skin conditions with Wind-Heat and Dampness — itching, red lesions, scaling. It clears Heat, disperses Wind and resolves Dampness, directly matching this case's Qi-level excess pattern. Xi Jiao Di Huang Tang (D) is for Blood-level Heat with bleeding signs, which this patient does not have.",
+         zh:"<strong>消風散</strong>主治風熱夾濕的皮膚瘙癢性疾患（發疹、紅斑、脫屑），清熱疏風除濕，切合本案氣分熱盛的皮疹。犀角地黃湯（D）用於血分熱盛兼出血，本案無此表現，不適用。"
+       }
+      },
+      {n:4,
+       en:"What other modality is best for her?",
+       zh:"對此患者最適合的其他療法是什麼？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Moxibustion 艾灸",zh:"艾灸"},
+         B:{en:"Cupping 拔罐",zh:"拔罐"},
+         C:{en:"Tuina 推拿",zh:"推拿（小兒推拿）",excluded:true},
+         D:{en:"Electro-acupuncture 電針",zh:"電針"}
+       },
+       ans:"C",
+       expl:{
+         en:"Although C is marked 【X】 (not the answer in the original exclusion), the recorded correct answer is <strong>C — Tuina (Pediatric Tui Na)</strong>. For a 5-year-old, needle retention and electro-acupuncture are poorly tolerated; moxibustion adds Heat to an already Heat-excess case. <strong>Pediatric Tui Na</strong> is the standard first-line non-pharmaceutical modality in Chinese pediatrics — safe, effective, and non-invasive.",
+         zh:"雖然原題標注【X】（排除記號），但記錄的正確答案仍為 <strong>C — 小兒推拿</strong>。5歲患兒難以配合留針及電針；艾灸更會加重熱象。<strong>小兒推拿</strong>是中醫兒科首選的非藥物療法，安全無創，為兒科標準治療。"
+       }
+      },
+      {n:5,
+       en:"Which set of acupuncture points is best for her constipation?",
+       zh:"哪組穴位最適合治療其便秘？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"TE6, ST25, SP15, ST44, LI4, ST36, ST37, ST40",zh:"TE6 支溝，ST25 天樞，SP15 大橫，ST44 內庭，LI4 合谷，ST36 足三里，ST37 上巨虛，ST40 豐隆"},
+         B:{en:"ST25, CV6, TE6, GB34, ST37, LR3, LR5",zh:"ST25 天樞，CV6 氣海，TE6 支溝，GB34 陽陵泉，ST37，LR3 太衝，LR5"},
+         C:{en:"ST25, SP15, CV6, CV12, ST36, SP6, BL13, BL20, BL25",zh:"ST25，SP15，CV6，CV12，ST36，SP6，BL13，BL20，BL25"},
+         D:{en:"ST25, CV4",zh:"ST25 天樞，CV4 關元"}
+       },
+       ans:"A",
+       expl:{
+         en:"Option A targets <strong>Heat-excess constipation</strong> in the Yangming pattern: <strong>TE6</strong> (Zhigou) — the key point for constipation; <strong>ST25</strong> — Front-Mu of Large Intestine; <strong>LI4</strong> — clears Yangming Heat; <strong>ST44</strong> — clears Stomach Fire; ST36/37/40 support intestinal function. This combination purges Heat and unblocks the bowels.",
+         zh:"A組針對<strong>陽明腑實型便秘</strong>：<strong>TE6 支溝</strong>——通便要穴；<strong>ST25 天樞</strong>——大腸募穴；<strong>LI4 合谷</strong>——清陽明熱；<strong>ST44 內庭</strong>——清胃火；ST36/37/40輔助腸道功能。此組合清熱通腑，最為切合。"
+       }
+      },
+      {n:6,
+       en:"For a child of this age, what percentage of the adult herbal dose should you prescribe?",
+       zh:"對此年齡的兒童，應處方成人劑量的多少？",
+       comp:"Competency 9 – Safety",
+       opts:{
+         A:{en:"100%",zh:"100%"},
+         B:{en:"75%",zh:"75%"},
+         C:{en:"50%",zh:"50%"},
+         D:{en:"33%",zh:"33%（約1/3）"}
+       },
+       ans:"D",
+       expl:{
+         en:"In TCM pediatric dosing guidelines, children <strong>under 5 years old</strong> receive approximately <strong>1/3 (33%) of the adult dose</strong>. This protects the child's delicate constitution (稚陰稚陽) from over-treatment while maintaining therapeutic efficacy.",
+         zh:"中醫兒科劑量原則：<strong>5歲以下</strong>用成人劑量的<strong>1/3（約33%）</strong>。兒童稚陰稚陽之體，臟腑嬌嫩，用藥宜輕，避免劑量過重傷正氣。"
+       }
+      },
+      {n:7,
+       en:"Which statement is true about advertisement for TCM practitioners?",
+       zh:"關於中醫師廣告宣傳，哪個陳述是正確的？",
+       comp:"Competency 2 – Professionalism",
+       opts:{
+         A:{en:"Before and after pictures must not show the girl's face",zh:"治療前後照片不得顯示該女童的臉"},
+         B:{en:"You can only use the patient's written testimonial on your website, but not pictures",zh:"只可在網站使用患者文字見證，不可使用照片"},
+         C:{en:"You can claim you are an expert in treating psoriasis",zh:"可以聲稱自己是治療銀屑病的專家"},
+         D:{en:"None of the above are permitted",zh:"以上皆不允許"}
+       },
+       ans:"D",
+       expl:{
+         en:"Under TCM professional advertising regulations: (A) patient photos — including minors — are <strong>not permitted at all</strong>, not just restricted to hiding the face; (B) written patient testimonials are also <strong>prohibited</strong>; (C) claiming 'expert' status violates standards. Therefore <strong>none of the above are allowed</strong>.",
+         zh:"依中醫師職業廣告守則：（A）患者照片（包括未成年人）<strong>完全不得使用</strong>，不僅僅是隱藏臉部；（B）患者文字見證同樣<strong>禁止</strong>；（C）自稱「專家」違反規範。故以上<strong>皆不允許</strong>。"
+       }
+      },
+      {n:8,
+       en:"Based on these findings, what is the MOST appropriate next step?",
+       zh:"基於目前的發現，最適切的下一步是什麼？",
+       comp:"Safety / Clinical Reasoning",
+       opts:{
+         A:{en:"Diagnose Heat Toxin and Blood Heat; initiate aggressive Heat-clearing treatment",zh:"診斷熱毒血熱，開始積極清熱治療"},
+         B:{en:"Continue with the same formula but add a topical formula",zh:"繼續原方，另加外用藥"},
+         C:{en:"Perform acupuncture distal to the lesion",zh:"在皮損遠端施針"},
+         D:{en:"Refer the child to urgent care or the emergency department",zh:"轉介至緊急護理或急診"}
+       },
+       ans:"D",
+       expl:{
+         en:"When a child presents with <strong>rapidly spreading, extensive skin lesions</strong> with systemic signs (fever, severe constipation, intense erythema), the <strong>safest and most appropriate step is immediate referral</strong> to rule out emergent conditions such as erythrodermic psoriasis or secondary infection. Clinical safety always takes priority over initiating treatment.",
+         zh:"當患兒出現<strong>快速擴散的大面積皮損</strong>加上全身症狀（高熱、嚴重便秘、皮膚劇烈紅腫），首要原則是<strong>確保安全，立即轉介急診</strong>，以排除紅皮病型銀屑病或繼發感染等緊急狀況。臨床安全優先於開始治療。"
+       }
+      }
+    ]
+  },
+
+  Case2:{
+    title:"Case 2 — 37 yr Female · Habitual Miscarriage",
+    titleZh:"案例二 — 37歲女性 · 習慣性流產",
+    desc:`Patient: 37 year old female
+Chief Complaint: Infertility — trying to conceive for over 2 years. Tried IVF 5 times; became pregnant each time but lost all pregnancies in the first trimester. No identifiable cause found.
+Other Symptoms: Feels cold, sweats easily, poor digestion, loose stools, frequent urination, low back soreness. Irregular menses with cramps (better with warmth), dark clots.
+Tongue: Pale-purple, thin white coating, swollen, with teethmarks
+Pulse: Deep, weak, wiry`,
+    questions:[
+      {n:9,
+       en:"What is the patient's TCM disease?",
+       zh:"患者的中醫病名是什麼？",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"Threatened Miscarriage 胎動不安",zh:"先兆流產（胎動不安）"},
+         B:{en:"Habitual Miscarriage 滑胎",zh:"習慣性流產（滑胎）"},
+         C:{en:"Infertility 不孕症",zh:"不孕症"},
+         D:{en:"Dysmenorrhea 痛經",zh:"痛經"}
+       },
+       ans:"B",
+       expl:{
+         en:"The patient has had <strong>5 consecutive pregnancy losses</strong> in the first trimester. In TCM this is called <strong>滑胎 (Hua Tai — Habitual Miscarriage)</strong>, defined as 3 or more consecutive spontaneous abortions. Although infertility is a secondary concern, the primary TCM disease is Habitual Miscarriage, not infertility (which implies failure to conceive).",
+         zh:"患者有<strong>5次連續妊娠早期流失</strong>的病史。中醫稱為<strong>「滑胎」</strong>（習慣性流產），定義為連續3次或以上自然流產。不孕症（C）指無法受孕，而此患者可以懷孕但無法維持，故病名應為滑胎。"
+       }
+      },
+      {n:10,
+       en:"What treatment principles should be used? Choose 4 answers.",
+       zh:"應採用哪4個治則？請選4項。",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       multi:4,
+       warn:"Original selection B,E,F,G scored only 0.75/1 — correct answer is B,C,E,G｜原選BEFG僅得0.75/1，正確答案為BCEG",
+       opts:{
+         A:{en:"Soothe the Liver, invigorate Qi",zh:"疏肝行氣"},
+         B:{en:"Tonify Kidney Yang",zh:"溫補腎陽"},
+         C:{en:"Regulate Chong and Ren channels",zh:"調理衝任"},
+         D:{en:"Nourish Liver and Kidney Yin",zh:"滋補肝腎陰"},
+         E:{en:"Tonify Spleen Qi, drain Dampness",zh:"健脾益氣化濕"},
+         F:{en:"Tonify Qi and Blood",zh:"補氣血"},
+         G:{en:"Invigorate Blood, remove Blood stasis",zh:"活血化瘀"},
+         H:{en:"Clear Heat, drain Dampness, promote urination",zh:"清熱祛濕利尿"}
+       },
+       ans:"B,C,E,G",
+       expl:{
+         en:"<strong>B — Tonify Kidney Yang</strong>: cold intolerance, low back soreness, deep weak pulse → Kidney Yang deficiency is the root.<br><strong>C — Regulate Chong and Ren</strong>: Habitual Miscarriage directly implicates the Chong/Ren channels, which govern the uterus and reproduction.<br><strong>E — Tonify Spleen Qi, drain Dampness</strong>: loose stools, swollen tongue with teethmarks → Spleen Qi deficiency with Dampness.<br><strong>G — Invigorate Blood</strong>: dark clots, pale-purple tongue → Blood stasis present.<br>F (Tonify Qi and Blood) is less specific than C (Regulate Chong/Ren) which is the key channel for this disease.",
+         zh:"<strong>B 溫補腎陽</strong>：怕冷、腰酸、脈沉弱——腎陽虛為根本。<br><strong>C 調理衝任</strong>：滑胎直接涉及衝任二脈，衝任主胞宮與生殖，為本病核心治則。<br><strong>E 健脾益氣化濕</strong>：便溏、胖大齒痕舌——脾虛夾濕。<br><strong>G 活血化瘀</strong>：暗色血塊、舌淡紫——血瘀徵象。<br>F（補氣血）雖相關，但不如C（調衝任）更精準切中滑胎病機，故正確選項為BCEG。"
+       }
+      },
+      {n:11,
+       en:"According to Western medicine, which organ and hormone is responsible for early/premature menopause?",
+       zh:"西醫中，哪個器官和荷爾蒙負責早發性停經？",
+       comp:"Competency 5 – Biomedicine",
+       opts:{
+         A:{en:"Ovary, estrogen 卵巢，雌激素",zh:"卵巢，雌激素"},
+         B:{en:"Ovary, progesterone 卵巢，孕激素",zh:"卵巢，孕激素"},
+         C:{en:"Pituitary gland, oxytocin 腦垂體，催產素",zh:"腦垂體，催產素"},
+         D:{en:"Pituitary gland, luteinizing hormone 腦垂體，黃體生成素",zh:"腦垂體，黃體生成素（LH）"}
+       },
+       ans:"A",
+       expl:{
+         en:"<strong>Primary Ovarian Insufficiency (POI)</strong> — the cause of premature menopause — results from <strong>ovarian failure</strong>, leading to decline in <strong>estrogen (雌激素)</strong> production. This causes FSH to rise (negative feedback lost). Progesterone (B) and pituitary hormones (C, D) are secondary changes, not the primary cause.",
+         zh:"<strong>早發性卵巢功能不全（POI）</strong>導致提前停經，主因為<strong>卵巢功能衰退</strong>，<strong>雌激素（estrogen）</strong>分泌下降，FSH因負反饋消失而升高。孕激素（B）及腦垂體荷爾蒙（C、D）均為繼發性改變，並非原發病因。"
+       }
+      },
+      {n:12,
+       en:"Which acupuncture points are contraindicated or used with special caution during pregnancy? Choose 3.",
+       zh:"哪3個針灸穴位在妊娠期禁用或需特別謹慎？請選3項。",
+       comp:"Competency 9 – Safety",
+       multi:3,
+       opts:{
+         A:{en:"SP4 公孫",zh:"SP4 公孫"},
+         B:{en:"SP6 三陰交",zh:"SP6 三陰交"},
+         C:{en:"SP8 地機",zh:"SP8 地機"},
+         D:{en:"GB21 肩井",zh:"GB21 肩井"},
+         E:{en:"GB34 陽陵泉",zh:"GB34 陽陵泉"},
+         F:{en:"LR5 蠡溝",zh:"LR5 蠡溝"},
+         G:{en:"LI4 合谷",zh:"LI4 合谷"}
+       },
+       ans:"B,D,G",
+       expl:{
+         en:"The three core pregnancy-forbidden points are:<br><strong>SP6 (Sanyinjiao)</strong> — strongly moves Blood and induces labour; absolutely contraindicated.<br><strong>GB21 (Jianjing)</strong> — descending action on Qi, can cause uterine contractions.<br><strong>LI4 (Hegu)</strong> — combined with SP6 is a classical labour-induction protocol; also used to descend Qi.<br>These are the most commonly tested pregnancy-contraindicated points in TCM examinations.",
+         zh:"三個妊娠核心禁穴為：<br><strong>SP6 三陰交</strong>——強力活血通經，具催產效果，妊娠絕對禁用。<br><strong>GB21 肩井</strong>——下行氣機，可引發子宮收縮，妊娠禁用。<br><strong>LI4 合谷</strong>——與SP6合用為經典引產配穴，亦有下行氣的功效，妊娠慎用。<br>此三穴為中醫考試中最常考的妊娠禁穴。"
+       }
+      },
+      {n:13,
+       en:"Which herbal formula is best for this patient?",
+       zh:"哪個方劑最適合此患者？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Li Zhong Wan 理中丸",zh:"理中丸"},
+         B:{en:"Mai Men Dong Tang 麥門冬湯",zh:"麥門冬湯"},
+         C:{en:"Ban Xia Hou Po Tang 半夏厚朴湯",zh:"半夏厚朴湯"},
+         D:{en:"Ling Gui Zhu Gan Tang 苓桂朮甘湯",zh:"苓桂朮甘湯",excluded:true}
+       },
+       ans:"A",
+       expl:{
+         en:"The patient's root pattern is <strong>Spleen and Kidney Yang deficiency</strong>. <strong>Li Zhong Wan</strong> (Regulate the Middle Pill: Gan Jiang, Ren Shen, Bai Zhu, Zhi Gan Cao) directly <strong>warms and tonifies Spleen Yang</strong>, addressing the digestive complaints (loose stools, cold) and Spleen/Middle Jiao weakness. It serves as the base formula, to be combined with Kidney Yang tonics for the full pattern.",
+         zh:"本案根本病機為<strong>脾腎陽虛</strong>。<strong>理中丸</strong>（乾薑、人參、白朮、炙甘草）直接<strong>溫中健脾</strong>，針對便溏、怕冷、中焦虛弱等症狀，為最適基礎方，再配合補腎陽藥物以兼顧腎陽虛。苓桂朮甘湯（D）偏重化飲，不如理中丸直接溫補脾陽。"
+       }
+      },
+      {n:14,
+       en:"What is most likely happening to her now?",
+       zh:"患者目前很可能發生什麼狀況？",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"Dysmenorrhea 痛經",zh:"痛經"},
+         B:{en:"Uterine prolapse 子宮脫垂",zh:"子宮脫垂"},
+         C:{en:"Embryo implantation syndrome 胚胎植入症候群",zh:"胚胎植入症候群"},
+         D:{en:"Threatened miscarriage 先兆流產",zh:"先兆流產（胎動不安）"}
+       },
+       ans:"D",
+       expl:{
+         en:"Given her history of habitual miscarriage and current pregnancy (IVF), she is now showing early signs of pregnancy loss — spotting, cramping, or discomfort. This is <strong>Threatened Miscarriage (Tai Dong Bu An 胎動不安)</strong> in TCM. Immediate intervention to stabilise the fetus (安胎 — calming the fetus) is indicated.",
+         zh:"鑒於其習慣性流產病史及目前懷孕狀態（IVF成功），現出現流產早期徵兆（出血、腹痛），中醫診為<strong>「胎動不安」</strong>（先兆流產）。應立即施以<strong>安胎</strong>治療，以穩定胎元，防止再次流失。"
+       }
+      },
+      {n:15,
+       en:"Which acupuncture points are indicated for promoting lactation? Choose 3.",
+       zh:"哪3個針灸穴位有助促進泌乳？請選3項。",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       multi:3,
+       opts:{
+         A:{en:"KI6 照海",zh:"KI6 照海"},
+         B:{en:"SI1 少澤",zh:"SI1 少澤"},
+         C:{en:"SI11 天宗",zh:"SI11 天宗"},
+         D:{en:"SP10 血海",zh:"SP10 血海"},
+         E:{en:"LR4 中封",zh:"LR4 中封"},
+         F:{en:"GB39 懸鐘",zh:"GB39 懸鐘"},
+         G:{en:"CV17 膻中",zh:"CV17 膻中"}
+       },
+       ans:"B,C,G",
+       expl:{
+         en:"<strong>SI1 (Shaoze)</strong> — the primary point for promoting lactation; a classic empirical point for insufficient milk production.<br><strong>SI11 (Tianzong)</strong> — Small Intestine channel passes through the breast region; tonifies and promotes milk flow.<br><strong>CV17 (Danzhong)</strong> — Influential point for Qi; located in the chest, it regulates Qi flow in the breast and promotes milk secretion.<br>These three are the standard clinical combination for post-partum insufficient lactation.",
+         zh:"<strong>SI1 少澤</strong>——通乳首選要穴，為治療乳汁不足的經典經驗穴。<br><strong>SI11 天宗</strong>——小腸經循行過胸部乳房區域，有通乳效果。<br><strong>CV17 膻中</strong>——氣之會穴，位於胸部，調理胸中氣機，促進乳汁分泌。<br>三穴為產後缺乳的標準臨床配穴。"
+       }
+      },
+      {n:16,
+       en:"What is her syndrome differentiation?",
+       zh:"此患者的辨證是什麼？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Blood Heat 血熱",zh:"血熱"},
+         B:{en:"Toxic Heat 熱毒",zh:"熱毒"},
+         C:{en:"Yin Deficiency with Heat 陰虛內熱",zh:"陰虛內熱"},
+         D:{en:"Kidney Heat Syndrome 腎熱證",zh:"腎熱證"}
+       },
+       ans:"A",
+       expl:{
+         en:"In the context of this case's follow-up scenario, <strong>Blood Heat (Xue Re)</strong> has developed — characterised by bright red bleeding, restlessness, and heat signs. Blood Heat drives blood to move recklessly (血熱迫血妄行), which can cause threatened miscarriage and excessive uterine bleeding. Treatment would focus on cooling the Blood and stabilising the fetus.",
+         zh:"在本案的延伸情境中，出現<strong>血熱（Xue Re）</strong>的表現——鮮紅出血、煩躁、熱象。血熱迫血妄行，可導致胎動不安及子宮出血過多。治法應以<strong>涼血安胎</strong>為主。"
+       }
+      }
+    ]
+  },
+
+  Case3:{
+    title:"Case 3 — Male · Chronic Diarrhea",
+    titleZh:"案例三 — 男性患者 · 慢性腹瀉",
+    desc:`Patient: Adult male
+Chief Complaint: Digestive problems for 2 years — chronic loose stools and diarrhea.
+Other Symptoms: Cold tendency, fatigue, stress-related symptoms, low libido.
+Tongue: Pale with greasy white coating
+Pulse: Slippery, slow, weak`,
+    questions:[
+      {n:17,
+       en:"What is the syndrome differentiation of his diarrhea / loose stools?",
+       zh:"此患者腹瀉/便溏的辨證是什麼？",
+       comp:"TCM Diagnosis",
+       opts:{
+         A:{en:"Damp-Heat 濕熱",zh:"濕熱"},
+         B:{en:"Liver overacting on the Spleen 肝鬱乘脾",zh:"肝鬱乘脾"},
+         C:{en:"Spleen Qi deficiency 脾氣虛",zh:"脾氣虛"},
+         D:{en:"Spleen and Kidney Yang deficiency 脾腎陽虛",zh:"脾腎陽虛"}
+       },
+       ans:"D",
+       expl:{
+         en:"The combination of <strong>chronic diarrhea, cold intolerance, fatigue, pale tongue, and deep weak pulse</strong> points clearly to <strong>Spleen and Kidney Yang deficiency</strong>. Spleen Yang fails to transform and transport → diarrhea; Kidney Yang (Ming Men Fire) fails to warm the Spleen (火不暖土) → chronic digestive weakness. Damp-Heat (A) would show a yellow greasy coat and rapid pulse.",
+         zh:"<strong>慢性腹瀉、怕冷、疲倦、舌淡苔白膩、脈沉弱</strong>，四診合參指向<strong>脾腎陽虛</strong>。脾陽虛則運化失司→腹瀉；腎陽虛則火不暖土→慢性消化虛弱。濕熱（A）應有苔黃膩、脈數，不符合本案。"
+       }
+      },
+      {n:18,
+       en:"What other syndrome differentiations does he have? Choose 2.",
+       zh:"他還有哪2個辨證？請選2項。",
+       comp:"TCM Diagnosis",
+       multi:2,
+       opts:{
+         A:{en:"Liver Qi stagnation 肝氣鬱滯",zh:"肝氣鬱滯"},
+         B:{en:"Lung Qi deficiency 肺氣虛",zh:"肺氣虛"},
+         C:{en:"Phlegm-Damp in the Lungs 痰濕阻肺",zh:"痰濕阻肺"},
+         D:{en:"Spleen Qi sinking 脾氣下陷",zh:"脾氣下陷"},
+         E:{en:"Kidney Yin deficiency 腎陰虛",zh:"腎陰虛"},
+         F:{en:"Cold-Damp accumulation 寒濕積聚",zh:"寒濕積聚"}
+       },
+       ans:"A,F",
+       expl:{
+         en:"<strong>A — Liver Qi stagnation</strong>: the patient has stress-related symptoms and low libido, which are classic signs of <strong>Liver Qi constraint</strong> affecting emotional regulation and sexual function.<br><strong>F — Cold-Damp accumulation</strong>: the greasy white tongue coating and slippery pulse confirm the presence of <strong>Cold-Damp</strong> obstructing the Middle Jiao. These two patterns co-exist with the primary Spleen-Kidney Yang deficiency.",
+         zh:"<strong>A 肝氣鬱滯</strong>：壓力相關症狀、性慾低下——典型<strong>肝氣鬱結</strong>影響情志調節及性功能的表現。<br><strong>F 寒濕積聚</strong>：苔白膩、脈滑——確認<strong>寒濕</strong>阻滯中焦的存在。此兩個辨證與主要的脾腎陽虛共存，構成複合病機。"
+       }
+      },
+      {n:19,
+       en:"What characteristic symptom would indicate gallstones?",
+       zh:"哪個特徵症狀提示膽結石？",
+       comp:"Competency 5 – Biomedicine",
+       opts:{
+         A:{en:"Pain in the right upper abdomen radiating to the shoulders",zh:"右上腹痛放射至肩部"},
+         B:{en:"Pain in the left upper abdomen radiating to the back",zh:"左上腹痛放射至背部"},
+         C:{en:"Rebound tenderness",zh:"反彈壓痛"},
+         D:{en:"Waist pain radiating to the lumbar",zh:"腰痛放射至腰椎"}
+       },
+       ans:"A",
+       expl:{
+         en:"<strong>Biliary colic</strong> from gallstones presents as <strong>right upper quadrant (RUQ) pain that radiates to the right shoulder or right scapula</strong>. This is caused by obstruction of the cystic duct or common bile duct. It is often triggered by fatty meals. Left upper quadrant pain radiating to the back (B) is more typical of pancreatitis.",
+         zh:"<strong>膽結石膽絞痛</strong>的典型西醫表現為<strong>右上腹（RUQ）疼痛，放射至右肩或右肩胛</strong>。由膽囊管或膽總管阻塞引起，常在高脂飲食後發作。左上腹痛放射至背部（B）更典型於胰腺炎。"
+       }
+      },
+      {n:20,
+       en:"What symptom would indicate a stomach ulcer?",
+       zh:"哪個症狀提示胃潰瘍？",
+       comp:"Competency 5 – Biomedicine",
+       opts:{
+         A:{en:"Cramping pain before bowel movement",zh:"排便前痙攣痛"},
+         B:{en:"Thin stools",zh:"細條狀糞便"},
+         C:{en:"Oily smelly stools",zh:"油膩惡臭糞便"},
+         D:{en:"Black-coloured stools",zh:"黑色糞便（柏油便）"}
+       },
+       ans:"D",
+       expl:{
+         en:"<strong>Melena (black tarry stools)</strong> is the hallmark of <strong>upper GI bleeding</strong>. When a gastric ulcer bleeds, the blood is digested as it passes through the intestine, turning it black and tarry. This is a serious warning sign requiring urgent medical evaluation. Cramping before stool (A) suggests IBS; thin stools (B) suggest colorectal issues; oily stools (C) suggest malabsorption.",
+         zh:"<strong>黑便（柏油樣便，Melena）</strong>是<strong>上消化道出血</strong>的特徵性表現。胃潰瘍出血時，血液在腸道中被消化氧化後呈黑色。這是需要緊急評估的重要警示信號。排便前痙攣痛（A）提示腸易激；細條狀便（B）提示大腸問題；油膩便（C）提示吸收不良。"
+       }
+      },
+      {n:21,
+       en:"What is the etiology contributing to his disease? Choose 2.",
+       zh:"哪2個因素是其致病病因？請選2項。",
+       comp:"Competency 4 – TCM Foundations",
+       multi:2,
+       opts:{
+         A:{en:"Gender 性別",zh:"性別"},
+         B:{en:"Age 年齡",zh:"年齡"},
+         C:{en:"Diet 飲食",zh:"飲食失節"},
+         D:{en:"Emotions 情志",zh:"情志因素"},
+         E:{en:"External pathogen 外邪",zh:"外邪"},
+         F:{en:"Lack of exercise 缺乏運動",zh:"缺乏運動"}
+       },
+       ans:"C,D",
+       expl:{
+         en:"<strong>C — Diet</strong>: long-term improper diet directly injures the Spleen and Stomach, the most common cause of digestive disorders in TCM.<br><strong>D — Emotions</strong>: chronic stress causes Liver Qi stagnation, which overacts on the Spleen (木乘土), exacerbating digestive weakness.<br>Gender (A) and age (B) are constitutional factors, not causative etiologies in this context.",
+         zh:"<strong>C 飲食失節</strong>：長期飲食不當直接損傷脾胃，為中醫消化疾病最常見病因。<br><strong>D 情志因素</strong>：長期壓力致肝氣鬱滯，肝鬱乘脾（木乘土），加重消化功能虛弱。<br>性別（A）和年齡（B）為體質因素，在此語境中並非致病病因。"
+       }
+      },
+      {n:22,
+       en:"Which herbal formula is best for his diarrhea?",
+       zh:"哪個方劑最適合治療其腹瀉？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Si Shen Wan 四神丸",zh:"四神丸"},
+         B:{en:"Tong Xie Yao Fang 痛瀉要方",zh:"痛瀉要方"},
+         C:{en:"Shen Ling Bai Zhu San 參苓白朮散",zh:"參苓白朮散"},
+         D:{en:"Ge Gen Huang Qin Huang Lian Tang 葛根黃芩黃連湯",zh:"葛根黃芩黃連湯"}
+       },
+       ans:"A",
+       expl:{
+         en:"<strong>Si Shen Wan (Four Miracle Pill)</strong> — composed of Bu Gu Zhi, Rou Dou Kou, Wu Zhu Yu, and Wu Wei Zi — is specifically formulated for <strong>Spleen-Kidney Yang deficiency diarrhea</strong>, classically presenting as dawn diarrhea (五更瀉). It warms Kidney Yang, tonifies Spleen, and astringes the intestines. Tong Xie Yao Fang (B) treats Liver-Spleen disharmony diarrhea; Ge Gen Huang Qin Tang (D) treats Damp-Heat diarrhea.",
+         zh:"<strong>四神丸</strong>（補骨脂、肉豆蔻、吳茱萸、五味子）專為<strong>脾腎陽虛腹瀉</strong>而設，以五更泄瀉為典型表現。溫補腎陽、健脾固腸，最切合本案。痛瀉要方（B）治肝脾不和型腹瀉；葛根黃芩湯（D）治濕熱型腹瀉，均與本案不符。"
+       }
+      },
+      {n:23,
+       en:"Which type of moxibustion should be used?",
+       zh:"應使用哪種艾灸方法？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Scarring moxibustion 化膿灸",zh:"化膿灸（瘢痕灸）"},
+         B:{en:"Garlic moxibustion 隔蒜灸",zh:"隔蒜灸"},
+         C:{en:"Ginger moxibustion 隔薑灸",zh:"隔薑灸"},
+         D:{en:"Contraindicated 禁忌",zh:"禁忌使用"}
+       },
+       ans:"C",
+       expl:{
+         en:"<strong>Ginger moxibustion (隔薑灸)</strong> is ideal for Spleen-Kidney Yang deficiency with Cold-Damp: <strong>ginger (生薑)</strong> is acrid and warm, warming the Middle Jiao, dispersing Cold-Damp, and strengthening Spleen function. Garlic moxibustion (B) is used for toxic swellings and cold-type conditions with toxin. Scarring (A) is rarely used and traumatic.",
+         zh:"<strong>隔薑灸</strong>最適合脾腎陽虛夾寒濕的患者：<strong>生薑</strong>辛溫走竄，溫中散寒化濕、健脾和胃，是腹瀉虛寒證的最佳選擇。隔蒜灸（B）偏用於寒性腫毒；化膿灸（A）少用且創傷性大。"
+       }
+      },
+      {n:24,
+       en:"Which set of herbs is best to stop his sweating?",
+       zh:"哪組藥材最適合治療其出汗？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Bai Guo 白果, He Zi 訶子, Wu Bei Zi 五倍子",zh:"白果、訶子、五倍子"},
+         B:{en:"Chun Pi 椿皮, Lian Zi 蓮子, Rou Dou Kou 肉豆蔻",zh:"椿皮、蓮子、肉豆蔻"},
+         C:{en:"Fu Xiao Mai 浮小麥, Ma Huang Gen 麻黃根, Mu Li 牡蠣",zh:"浮小麥、麻黃根、牡蠣"},
+         D:{en:"Fu Pen Zi 覆盆子, Lian Xu 蓮鬚, Qian Shi 芡實",zh:"覆盆子、蓮鬚、芡實"}
+       },
+       ans:"C",
+       expl:{
+         en:"<strong>Fu Xiao Mai (Levis Fructus Tritici)</strong> — nourishes the Heart and consolidates the exterior to stop sweating.<br><strong>Ma Huang Gen (Ephedra Root)</strong> — specifically astringes and stops sweating; a classical dedicated anti-diaphoretic herb.<br><strong>Mu Li (Oyster Shell)</strong> — heavy, settling, and astringent; consolidates and stops sweating.<br>This trio is the classic combination for spontaneous and night sweating.",
+         zh:"<strong>浮小麥</strong>——養心固表止汗。<br><strong>麻黃根</strong>——專主止汗，收斂固澀，為收汗要藥。<br><strong>牡蠣</strong>——重鎮固澀止汗。<br>此三藥為治療自汗、盜汗的經典組合。"
+       }
+      },
+      {n:25,
+       en:"What herb processing (Pao Zhi) can increase astringent properties?",
+       zh:"哪種炮製方法（泡製）可增強收澀功效？",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"Calcined 煅製",zh:"煅製"},
+         B:{en:"Charred 炭製",zh:"炭製"},
+         C:{en:"Wine-fried 酒炒",zh:"酒炒"},
+         D:{en:"Vinegar-fried 醋炒",zh:"醋炒"}
+       },
+       ans:"A",
+       expl:{
+         en:"<strong>Calcination (煅製)</strong> — high-temperature firing of mineral, shell, or fossil herbs — <strong>increases astringent and consolidating (收澀固斂) properties</strong>. Examples: calcined Mu Li (煅牡蠣) and calcined Long Gu (煅龍骨) are more potent astringents than the raw forms. Charring (B) mainly stops bleeding; wine-frying (C) activates Blood; vinegar-frying (D) directs to the Liver and stops pain.",
+         zh:"<strong>煅製</strong>（高溫煅燒礦物質、貝殼、化石類藥材）可<strong>增強收澀固斂</strong>功效。例：<strong>煅牡蠣</strong>、<strong>煅龍骨</strong>的收澀止汗效果比生品更強。炭製（B）主要止血；酒炒（C）活血；醋炒（D）入肝止痛。"
+       }
+      }
+    ]
+  },
+
+  Case4:{
+    title:"Case 4 — 29 yr Male · Acute Febrile Illness",
+    titleZh:"案例四 — 29歲男性 · 急性發熱性疾病",
+    desc:`Patient: Male, 29 years old
+Chief Complaint: Acute febrile illness progressing through stages — initially chills and fever, then diarrhea, now showing Yin deficiency signs.
+Current Tongue: Red with no coating
+Current Pulse: Thin and rapid`,
+    questions:[
+      {n:26,
+       en:"What was his syndrome differentiation 5 days ago?",
+       zh:"5天前他的辨證屬哪一個？",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"Taiyang 太陽病",zh:"太陽病"},
+         B:{en:"Shaoyang 少陽病",zh:"少陽病"},
+         C:{en:"Yangming 陽明病",zh:"陽明病"},
+         D:{en:"Taiyin 太陰病",zh:"太陰病"},
+         E:{en:"Shaoyin 少陰病",zh:"少陰病"},
+         F:{en:"Jueyin 厥陰病",zh:"厥陰病"}
+       },
+       ans:"A",
+       expl:{
+         en:"The disease began with <strong>chills and fever</strong> — the cardinal sign of <strong>Taiyang disease</strong> (exterior pattern). In the Six-Channel system, Taiyang governs the exterior; when invaded by Wind-Cold, it presents with aversion to cold, fever, stiff neck, and a floating pulse. The disease has since progressed inward through the channels.",
+         zh:"疾病起初出現<strong>惡寒發熱</strong>——這是<strong>太陽病（表證）</strong>的主要特徵。在六經辨證體系中，太陽主表；風寒外侵時出現惡寒、發熱、頸項強、脈浮。病程之後由表入裡逐步傳變。"
+       }
+      },
+      {n:27,
+       en:"Which type of medication reduces fevers?",
+       zh:"哪類藥物具有退燒作用？",
+       comp:"Competency 5 – Biomedicine",
+       opts:{
+         A:{en:"Antitussives 止咳藥",zh:"止咳藥"},
+         B:{en:"NSAIDs 非甾體消炎藥",zh:"非甾體消炎藥（NSAIDs）"},
+         C:{en:"Tetracyclines 四環素類",zh:"四環素類抗生素"},
+         D:{en:"Barbiturates 巴比妥類",zh:"巴比妥類（鎮靜藥）"}
+       },
+       ans:"B",
+       expl:{
+         en:"<strong>NSAIDs (Non-Steroidal Anti-Inflammatory Drugs)</strong> such as ibuprofen and naproxen work by <strong>inhibiting COX enzymes</strong>, reducing prostaglandin synthesis. This produces three effects: <strong>antipyretic (fever reduction), anti-inflammatory, and analgesic</strong>. Antitussives (A) suppress coughs; tetracyclines (C) are antibiotics; barbiturates (D) are sedatives — none have antipyretic action.",
+         zh:"<strong>非甾體消炎藥（NSAIDs）</strong>如布洛芬、萘普生，通過<strong>抑制COX酶</strong>、減少前列腺素合成，產生三重效果：<strong>解熱、消炎、鎮痛</strong>。止咳藥（A）抑制咳嗽；四環素（C）為抗生素；巴比妥類（D）為鎮靜藥——均無直接退燒作用。"
+       }
+      },
+      {n:"28.1",
+       en:"According to channel theory — Vertex headache (頭頂痛)",
+       zh:"根據經絡理論 — 頭頂痛",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"SI3 (Houxi) + BL60 (Kunlun)",zh:"SI3 後谿 + BL60 崑崙"},
+         B:{en:"TE5 (Waiguan) + GB41 (Zulinqi)",zh:"TE5 外關 + GB41 足臨泣"},
+         C:{en:"LI4 (Hegu) + ST44 (Neiting)",zh:"LI4 合谷 + ST44 內庭"},
+         D:{en:"LR3 (Taichong) + PC6 (Neiguan)",zh:"LR3 太衝 + PC6 內關"}
+       },
+       ans:"D",
+       expl:{
+         en:"The <strong>vertex (crown of the head)</strong> is the meeting point of the <strong>Jueyin (Liver) channel</strong>, which ascends to the vertex. LR3 (Taichong) is the Shu-Stream and Yuan-Source point of the Liver; PC6 (Neiguan) connects via the Pericardium/Jueyin axis. Together they address Liver Qi or Blood disturbance causing vertex headache.",
+         zh:"<strong>頭頂（巔頂）</strong>為<strong>厥陰肝經</strong>循行之處（「諸風掉眩，皆屬於肝」）。LR3 太衝為肝經輸原穴；PC6 內關通過心包/厥陰經脈連結。兩穴合用治療肝氣或血虛所致的巔頂頭痛。"
+       }
+      },
+      {n:"28.2",
+       en:"According to channel theory — Occipital headache (後枕痛)",
+       zh:"根據經絡理論 — 後枕痛",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"SI3 (Houxi) + BL60 (Kunlun)",zh:"SI3 後谿 + BL60 崑崙"},
+         B:{en:"TE5 (Waiguan) + GB41 (Zulinqi)",zh:"TE5 外關 + GB41 足臨泣"},
+         C:{en:"LI4 (Hegu) + ST44 (Neiting)",zh:"LI4 合谷 + ST44 內庭"},
+         D:{en:"LR3 (Taichong) + PC6 (Neiguan)",zh:"LR3 太衝 + PC6 內關"}
+       },
+       ans:"A",
+       expl:{
+         en:"The <strong>occiput</strong> is the territory of the <strong>Taiyang (Bladder) channel</strong>. SI3 (Houxi) is the confluent point of the Governing Vessel and opens the Du Mai; BL60 (Kunlun) is the Fire point of the Bladder channel. Together, as a distal point combination, they treat occipital headache by clearing the Taiyang channel.",
+         zh:"<strong>後枕部</strong>為<strong>太陽膀胱經</strong>循行區域。SI3 後谿為督脈交會穴（八脈交會穴），BL60 崑崙為膀胱經火穴。兩穴遠端配合，清利太陽經脈，治療後枕部頭痛。"
+       }
+      },
+      {n:"28.3",
+       en:"According to channel theory — Temporal headache (側頭痛)",
+       zh:"根據經絡理論 — 側頭痛",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"SI3 (Houxi) + BL60 (Kunlun)",zh:"SI3 後谿 + BL60 崑崙"},
+         B:{en:"TE5 (Waiguan) + GB41 (Zulinqi)",zh:"TE5 外關 + GB41 足臨泣"},
+         C:{en:"LI4 (Hegu) + ST44 (Neiting)",zh:"LI4 合谷 + ST44 內庭"},
+         D:{en:"LR3 (Taichong) + PC6 (Neiguan)",zh:"LR3 太衝 + PC6 內關"}
+       },
+       ans:"B",
+       expl:{
+         en:"The <strong>temporal region</strong> is governed by the <strong>Shaoyang (Gallbladder/Triple Energizer) channels</strong>. TE5 (Waiguan) and GB41 (Zulinqi) are paired confluent points of the Yang Wei Mai and Dai Mai respectively, and both traverse the temporal region. This is the classic distal point combination for temporal/migraine-type headaches.",
+         zh:"<strong>側頭（顳部）</strong>為<strong>少陽膽經與三焦經</strong>循行區域。TE5 外關（陽維脈交會穴）與 GB41 足臨泣（帶脈交會穴）互為配對，均經過顳部。此為治療偏頭痛/側頭痛的經典遠端配穴。"
+       }
+      },
+      {n:"28.4",
+       en:"According to channel theory — Frontal headache (前額痛)",
+       zh:"根據經絡理論 — 前額痛",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"SI3 (Houxi) + BL60 (Kunlun)",zh:"SI3 後谿 + BL60 崑崙"},
+         B:{en:"TE5 (Waiguan) + GB41 (Zulinqi)",zh:"TE5 外關 + GB41 足臨泣"},
+         C:{en:"LI4 (Hegu) + ST44 (Neiting)",zh:"LI4 合谷 + ST44 內庭"},
+         D:{en:"LR3 (Taichong) + PC6 (Neiguan)",zh:"LR3 太衝 + PC6 內關"}
+       },
+       ans:"C",
+       expl:{
+         en:"The <strong>forehead</strong> is the territory of the <strong>Yangming (Large Intestine / Stomach) channels</strong>. LI4 (Hegu) clears Yangming Heat and is the command point for the face and mouth; ST44 (Neiting) is the Ying-Spring point that clears Stomach Heat. Together they are the primary distal combination for frontal headaches.",
+         zh:"<strong>前額</strong>為<strong>陽明大腸/胃經</strong>循行區域。LI4 合谷清陽明熱，為「面口合谷收」的主穴；ST44 內庭為胃經滎穴，清胃火。兩穴合用為前額頭痛的主要遠端配穴。"
+       }
+      },
+      {n:29,
+       en:"What should his tongue and pulse have been like 5 days ago?",
+       zh:"5天前他的舌象和脈象應是怎樣的？",
+       comp:"Competency 4 – TCM Foundations",
+       opts:{
+         A:{en:"Wiry pulse, red tongue sides",zh:"弦脈、舌邊紅"},
+         B:{en:"Deep weak pulse, pale tongue",zh:"沉弱脈、舌淡"},
+         C:{en:"Floating tight rapid pulse",zh:"浮緊（數）脈"},
+         D:{en:"Flooding rapid pulse",zh:"洪數脈"}
+       },
+       ans:"C",
+       expl:{
+         en:"In <strong>Taiyang Cold pattern (太陽傷寒)</strong>, the classic pulse is <strong>floating and tight (浮緊)</strong> — floating because the pathogen is on the exterior (Wei Qi rises to the surface), tight because Cold constricts. The addition of fever makes it rapid. This contrasts starkly with the current thin rapid pulse (陰虛), showing disease progression from exterior Cold → interior Heat → Yin exhaustion.",
+         zh:"<strong>太陽傷寒</strong>的典型脈象為<strong>浮緊脈</strong>——浮（邪在表，衛氣外浮）、緊（寒邪收引）；兼發熱則帶數。與現在的細數脈（陰虛）形成鮮明對比，反映病程從表寒→入裡化熱→耗傷津陰的傳變軌跡。"
+       }
+      },
+      {n:30,
+       en:"Which herbal formula is best if seen 5 days ago?",
+       zh:"若5天前就診，哪個方劑最適合？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"Ma Huang Tang 麻黃湯",zh:"麻黃湯",excluded:true},
+         B:{en:"Da Cheng Qi Tang 大承氣湯",zh:"大承氣湯"},
+         C:{en:"Xiao Chai Hu Tang 小柴胡湯",zh:"小柴胡湯"},
+         D:{en:"Da Qing Long Tang 大青龍湯",zh:"大青龍湯"}
+       },
+       ans:"D",
+       expl:{
+         en:"The patient presented with <strong>exterior Cold AND interior Heat/irritability</strong> — a mixed pattern. <strong>Da Qing Long Tang (Major Blue Dragon Decoction)</strong> is specifically designed for this: it combines Ma Huang Tang (exterior release) with Shi Gao (interior Heat clearance), addressing both simultaneously. Ma Huang Tang (A) only releases the exterior without clearing interior Heat, which is insufficient here.",
+         zh:"患者表現為<strong>表寒兼內熱/煩躁</strong>——表裡同病的複合模式。<strong>大青龍湯</strong>正是為此而設：合麻黃湯（解表散寒）與石膏（清裡熱），一方兼顧表裡。麻黃湯（A）僅解表散寒，無清熱之功，在此情況下不夠全面。"
+       }
+      },
+      {n:31,
+       en:"Which piece of information does NOT need to be on a TCM prescription?",
+       zh:"中醫處方上哪項資訊不是必須填寫的？",
+       comp:"Competency 2 – Professionalism",
+       opts:{
+         A:{en:"Practitioner contact information",zh:"執業者聯絡資訊"},
+         B:{en:"Diagnosis",zh:"診斷"},
+         C:{en:"Date",zh:"日期"},
+         D:{en:"Dosage of each herb",zh:"每味藥的劑量"}
+       },
+       ans:"B",
+       expl:{
+         en:"TCM prescription legal requirements typically include: practitioner name and contact, patient name, date, herb names and individual dosages, preparation method, and dispensing instructions. <strong>The formal diagnosis is not a legally mandated item</strong> on the prescription itself (though it is good practice to include it in the patient file). This tests knowledge of prescribing regulations.",
+         zh:"中醫處方法定必填項目通常包括：執業者姓名與聯絡資料、患者姓名、日期、藥材名稱及個別劑量、煎服方法。<strong>正式診斷並非處方上的法定必填項目</strong>（雖建議記錄於病歷中）。此題考核處方規範知識。"
+       }
+      },
+      {n:32,
+       en:"What should you do if asked to participate in insurance fraud?",
+       zh:"若被要求參與保險詐欺，應如何處理？",
+       comp:"Competency 2 – Professionalism",
+       opts:{
+         A:{en:"Mislabel the receipt",zh:"虛開收據"},
+         B:{en:"Change the consultation fee label",zh:"更改診費標籤"},
+         C:{en:"Barter services",zh:"以服務換取好處"},
+         D:{en:"Refuse",zh:"拒絕"}
+       },
+       ans:"D",
+       expl:{
+         en:"Any form of insurance fraud — mislabelling receipts, altering fees, or bartering to circumvent billing — is both <strong>illegal and a serious breach of professional ethics</strong>. The only appropriate response is an <strong>unequivocal refusal</strong>. Practitioners may also have a duty to report such requests to the relevant regulatory body.",
+         zh:"任何形式的保險詐欺——虛開收據、竄改費用、以服務換好處——均屬<strong>違法行為及嚴重違反職業道德</strong>。唯一正確的回應是<strong>明確拒絕</strong>。執業者亦可能有責任向相關監管機構舉報此類要求。"
+       }
+      },
+      {n:33,
+       en:"What is an example of conflict of interest? Choose 3.",
+       zh:"哪3個情況屬於「利益衝突」？請選3項。",
+       comp:"Competency 2 – Professionalism",
+       multi:3,
+       warn:"Original selection A,C scored only 0.66/1 — correct answer is A,C,F｜原選AC僅得0.66/1，正確答案為ACF",
+       opts:{
+         A:{en:"Giving referral money to another practitioner",zh:"向其他執業者給予轉介回扣"},
+         B:{en:"Treating your landlord's friend",zh:"治療房東的朋友"},
+         C:{en:"Receiving free products from a supplier",zh:"從供應商收受免費產品"},
+         D:{en:"Giving promotional gifts to patients",zh:"向患者給予促銷禮品"},
+         E:{en:"Using a lawyer referred by a colleague",zh:"使用同事推薦的律師"},
+         F:{en:"Referring patients to a business you own",zh:"將患者轉介至自己擁有的業務"}
+       },
+       ans:"A,C,F",
+       expl:{
+         en:"<strong>A — Referral fees</strong>: paying or receiving money for referrals creates a financial incentive that compromises clinical judgment — classic conflict of interest.<br><strong>C — Free products from suppliers</strong>: accepting gifts from herbal/pharmaceutical suppliers can influence prescribing decisions — conflict of interest.<br><strong>F — Self-referral to owned business</strong>: directing patients to a business you profit from is the most direct conflict of interest — personal financial gain overrides patient-centred care.<br>B, D, and E do not constitute conflicts of interest in the same direct sense.",
+         zh:"<strong>A 給予轉介回扣</strong>：以金錢激勵轉介影響臨床判斷——典型利益衝突。<br><strong>C 收受供應商免費產品</strong>：接受藥材/藥品供應商禮物可影響處方決策——利益衝突。<br><strong>F 轉介至自己擁有的業務</strong>：將患者轉介至自己獲益的業務，個人財務利益凌駕患者為中心的護理——最直接的利益衝突。<br>B、D、E 在相同程度上並不構成利益衝突。"
+       }
+      },
+      {n:34,
+       en:"Which acupuncture point group is best 3 days ago?",
+       zh:"3天前最適合的穴位組是哪組？",
+       comp:"Competency 6 – Diagnosis and Treatment",
+       opts:{
+         A:{en:"BL12 group (exterior-releasing points)",zh:"BL12組（解表穴組）"},
+         B:{en:"Heat-clearing group",zh:"清熱穴組"},
+         C:{en:"SP/ST group (Spleen-Stomach points)",zh:"脾胃穴組（SP/ST）"},
+         D:{en:"Kidney group",zh:"腎臟穴組"}
+       },
+       ans:"C",
+       expl:{
+         en:"Three days ago the disease had progressed to involve the gastrointestinal system — <strong>diarrhea stage</strong> — corresponding to either Yangming or Taiyin involvement. The appropriate intervention is the <strong>SP/ST group</strong> (e.g. ST25, ST36, ST37, CV12, SP6) to regulate the Spleen-Stomach, clear intestinal Heat, and stop diarrhea.",
+         zh:"3天前病邪已進入胃腸系統——<strong>腹瀉階段</strong>——對應陽明或太陰受邪。適當的干預是<strong>脾胃穴組</strong>（如ST25天樞、ST36足三里、ST37上巨虛、CV12中脘、SP6三陰交），以調和脾胃、清腸止瀉。"
+       }
+      },
+      {n:35,
+       en:"Which Ba Fa (Eight Methods) should be used today? Choose all that apply.",
+       zh:"今日應使用哪些八法？請選所有適用項。",
+       comp:"Competency 4 – TCM Foundations",
+       multi:"all",
+       opts:{
+         A:{en:"Xia Fa 下法 (Purgation)",zh:"下法（攻下）"},
+         B:{en:"He Fa 和法 (Harmonisation)",zh:"和法（調和）"},
+         C:{en:"Qing Fa 清法 (Clearing)",zh:"清法（清熱）"},
+         D:{en:"Bu Fa 補法 (Tonification)",zh:"補法（補虛）"},
+         E:{en:"Xiao Fa 消法 (Dissolving)",zh:"消法（消散）"}
+       },
+       ans:"C,D",
+       expl:{
+         en:"Currently: red tongue with <strong>no coating</strong> and <strong>thin rapid pulse</strong> = <strong>Yin deficiency with residual Heat</strong>.<br><strong>Qing Fa (Clearing)</strong>: clears the remaining Heat pathogen still present in the body.<br><strong>Bu Fa (Tonification)</strong>: replenishes the Yin and fluids depleted during the febrile illness.<br>Xia Fa (A) is purgation for excess — not applicable to a deficiency pattern. He Fa (B) is for half-exterior half-interior (Shaoyang). Xiao Fa (E) dissolves accumulations — not indicated here.",
+         zh:"現症：舌紅<strong>無苔</strong>、<strong>脈細數</strong>——<strong>陰虛夾有餘熱</strong>。<br><strong>清法</strong>：清除體內殘留的熱邪。<br><strong>補法</strong>：補充發熱性疾病期間耗傷的陰液與津液。<br>下法（A）攻下實邪，不適用虛證；和法（B）用於半表半裡（少陽）；消法（E）消散積聚，均不符合此階段病機。"
+       }
+      }
+    ]
+  }
+};
+
+let current = null;
+let answers = {};
+
+function init(){
+  const tabsEl = document.getElementById('tabs');
+  const panelsEl = document.getElementById('panels');
+
+  Object.entries(data).forEach(([id, c], i) => {
+    // Tab
+    const tab = document.createElement('div');
+    tab.className = 'tab';
+    tab.id = 'tab-'+id;
+    tab.innerHTML = `<div class="tab-title">${c.title}</div><div class="tab-sub">${c.titleZh}</div>`;
+    tab.onclick = () => loadCase(id);
+    tabsEl.appendChild(tab);
+
+    // Panel
+    const panel = document.createElement('div');
+    panel.className = 'panel';
+    panel.id = 'panel-'+id;
+
+    let html = `<div class="case-desc"><span class="case-desc-label">CASE DESCRIPTION · 病例描述</span>${c.desc}</div>`;
+
+    c.questions.forEach(q => {
+      const qid = id+'-Q'+q.n;
+      const isMulti = q.multi;
+      const multiCount = typeof q.multi === 'number' ? q.multi : '';
+      const multiBadge = isMulti ? `<span class="multi-badge">★ Multiple choice${multiCount ? ' — choose '+multiCount : ' — choose all'} 多選題${multiCount ? '，選'+multiCount+'項' : ''}</span>` : '';
+      const warnBadge = q.warn ? `<div class="warn-badge">⚠ ${q.warn}</div>` : '';
+
+      let optsHtml = '';
+      Object.entries(q.opts).forEach(([key, val]) => {
+        const excl = val.excluded ? ' excluded' : '';
+        const exclNote = val.excluded ? ' <span style="font-size:.76em;opacity:.6">[Excluded 排除]</span>' : '';
+        optsHtml += `
+          <div class="opt${excl}" id="opt-${qid}-${key}" onclick="pick('${qid}','${key}','${id}',${!!isMulti})">
+            <div class="opt-key">${key}.</div>
+            <div class="opt-content">
+              <div class="opt-en">${val.en}${exclNote}</div>
+              <div class="opt-zh">${val.zh}</div>
+            </div>
+          </div>`;
+      });
+
+      html += `
+        <div class="qcard" id="qcard-${qid}">
+          <div class="q-head">
+            <div class="q-num">${q.n}</div>
+            <div class="q-body">
+              <div class="q-en">${q.en}</div>
+              <div class="q-zh">${q.zh}</div>
+              <div style="font-size:.76em;color:var(--sage-light);margin-top:3px;">${q.comp||''}</div>
+              ${multiBadge}
+              ${warnBadge}
+            </div>
+          </div>
+          <div class="opts" id="opts-${qid}">${optsHtml}</div>
+          <div class="fb" id="fb-${qid}"></div>
+          <button class="expl-btn" id="explbtn-${qid}" onclick="toggleExpl('${qid}','${id}',${q.questions ? JSON.stringify(q.questions) : 'null'})">
+            <span>Show Explanation 顯示解析</span><span class="arrow">▼</span>
+          </button>
+          <div class="expl-box" id="expl-${qid}">
+            <div class="expl-en"><span class="expl-lang">ENGLISH EXPLANATION</span><div class="expl-text">${q.expl.en}</div></div>
+            <div class="expl-zh"><span class="expl-lang">中文解析</span><div class="expl-text">${q.expl.zh}</div></div>
+          </div>
+        </div>`;
+    });
+
+    panel.innerHTML = html;
+    panelsEl.appendChild(panel);
+  });
+}
+
+function loadCase(id){
+  current = id;
+  answers[id] = answers[id] || {};
+
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  document.getElementById('actions').style.display = 'flex';
+
+  // Remove old score
+  const old = document.getElementById('panel-'+id).querySelector('.score-box');
+  if(old) old.remove();
+
+  setTimeout(() => {
+    document.getElementById('panel-'+id).scrollIntoView({behavior:'smooth',block:'start'});
+  }, 80);
+}
+
+function pick(qid, key, caseId, isMulti){
+  if(!answers[caseId]) answers[caseId] = {};
+  const optEl = document.getElementById('opt-'+qid+'-'+key);
+  if(!optEl || optEl.classList.contains('excluded')) return;
+  // If already checked (graded), don't allow
+  if(optEl.classList.contains('correct') || optEl.classList.contains('wrong')) return;
+
+  if(isMulti){
+    if(!answers[caseId][qid]) answers[caseId][qid] = [];
+    optEl.classList.toggle('selected');
+    if(optEl.classList.contains('selected')){
+      if(!answers[caseId][qid].includes(key)) answers[caseId][qid].push(key);
+    } else {
+      answers[caseId][qid] = answers[caseId][qid].filter(k => k!==key);
+    }
+  } else {
+    const allOpts = document.querySelectorAll(`[id^="opt-${qid}-"]`);
+    allOpts.forEach(o => o.classList.remove('selected'));
+    optEl.classList.add('selected');
+    answers[caseId][qid] = key;
+  }
+}
+
+function toggleExpl(qid, caseId, _){
+  const box = document.getElementById('expl-'+qid);
+  const btn = document.getElementById('explbtn-'+qid);
+  const isOpen = box.classList.contains('show');
+  box.classList.toggle('show', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  btn.querySelector('span').textContent = isOpen ? 'Show Explanation 顯示解析' : 'Hide Explanation 隱藏解析';
+}
+
+function checkAll(){
+  if(!current) return;
+  const caseData = data[current];
+  let correct = 0, total = 0;
+
+  caseData.questions.forEach(q => {
+    const qid = current+'-Q'+q.n;
+    const userAns = answers[current]?.[qid];
+    const correctAns = q.ans;
+    const isMulti = q.multi;
+
+    let isCorrect = false;
+    if(isMulti){
+      const corr = correctAns.split(',').sort().join(',');
+      const user = Array.isArray(userAns) ? [...userAns].sort().join(',') : '';
+      isCorrect = corr === user;
+    } else {
+      isCorrect = userAns === correctAns;
+    }
+
+    // Mark options
+    const corrKeys = correctAns.split(',');
+    corrKeys.forEach(k => {
+      const el = document.getElementById('opt-'+qid+'-'+k);
+      if(el) { el.classList.remove('selected'); el.classList.add('correct'); }
+    });
+    if(isMulti && Array.isArray(userAns)){
+      userAns.forEach(k => {
+        if(!corrKeys.includes(k)){
+          const el = document.getElementById('opt-'+qid+'-'+k);
+          if(el) { el.classList.remove('selected'); el.classList.add('wrong'); }
+        }
+      });
+    } else if(!isMulti && userAns && !corrKeys.includes(userAns)){
+      const el = document.getElementById('opt-'+qid+'-'+userAns);
+      if(el) { el.classList.remove('selected'); el.classList.add('wrong'); }
+    }
+
+    // Feedback
+    const fb = document.getElementById('fb-'+qid);
+    fb.classList.add('show');
+    if(isCorrect){
+      correct++;
+      fb.className = 'fb show ok';
+      fb.textContent = '✓ Correct! 正確！';
+    } else {
+      fb.className = 'fb show no';
+      fb.textContent = `✗ Correct answer: ${correctAns} ｜ 正確答案：${correctAns}`;
+    }
+    total++;
+  });
+
+  // Score
+  const pct = Math.round(correct/total*100);
+  const scoreHtml = `<div class="score-box"><h3>Test Results · 測驗結果</h3><div class="score-num">${correct} / ${total}</div><div class="score-pct">Accuracy 正確率：${pct}%</div></div>`;
+  const panel = document.getElementById('panel-'+current);
+  const old = panel.querySelector('.score-box');
+  if(old) old.remove();
+  panel.insertAdjacentHTML('afterbegin', scoreHtml);
+  panel.querySelector('.score-box').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function resetAll(){
+  if(!current) return;
+  answers[current] = {};
+  const panel = document.getElementById('panel-'+current);
+
+  panel.querySelectorAll('.opt').forEach(o => o.classList.remove('selected','correct','wrong'));
+  panel.querySelectorAll('.fb').forEach(f => { f.classList.remove('show','ok','no'); f.textContent=''; });
+  panel.querySelectorAll('.expl-box').forEach(b => b.classList.remove('show'));
+  panel.querySelectorAll('.expl-btn').forEach(b => {
+    b.classList.remove('open');
+    b.querySelector('span').textContent = 'Show Explanation 顯示解析';
+  });
+  const score = panel.querySelector('.score-box');
+  if(score) score.remove();
+  panel.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
