@@ -1,0 +1,7715 @@
+const QUIZ_DATA = {
+  "professionalism": {
+    "title": "Professionalism",
+    "name_zh": "專業倫理",
+    "icon": "⚖️",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "Which of the following best describes a member who may be incapacitated?",
+        "question_zh": "下列哪項最能描述可能喪失行為能力的會員？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "A member has a physical or mental condition that prevents him/her from providing safe and competent services to patients", "zh": "會員具有身體或精神狀況，妨礙其向患者提供安全且稱職的服務", "correct": true},
+          "B": {"en": "A member delegated treatment of a patient to a student who made an error in care, ending in harm to the patient", "zh": "會員將患者治療委派給學生，學生在護理中出現錯誤，最終對患者造成傷害", "correct": false},
+          "C": {"en": "A member provided service to patients after having his/her certificate of registration suspended", "zh": "會員在其注冊證書被暫停後仍向患者提供服務", "correct": false},
+          "D": {"en": "A member who lacks training in herbs, prescribes over-the-counter manufacturer herbal formula to patients on a regular basis", "zh": "會員缺乏草藥培訓，卻定期向患者開具非處方廠商草藥配方", "correct": false}
+        },
+        "exp_en": "Incapacitated means a physical or mental condition prevents safe, competent patient care. Delegating to a student (B) is negligence, practicing with a suspended certificate (C) is unauthorized practice, and prescribing without training (D) is incompetence — none define incapacitation.",
+        "exp_zh": "喪失行為能力指身體或精神狀況妨礙提供安全稱職的醫療服務。委派給學生（B）是疏忽，持暫停執照行醫（C）是無授權執業，缺乏訓練卻處方（D）是不稱職，均不符合「喪失行為能力」的定義。"
+      },
+      {
+        "id": 2,
+        "question_en": "According to the Health Care Consent Act, who of the following is able to provide consent:",
+        "question_zh": "根據《健康護理同意法》，以下哪些人可以提供同意：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "The patient, if they have capacity", "zh": "患者，若其具有行為能力", "correct": false},
+          "B": {"en": "The patient, capacity is not a factor", "zh": "患者，行為能力並非考量因素", "correct": false},
+          "C": {"en": "The patient’s Substitute Decision Maker if the patient is not capable", "zh": "The patient’s Substitute Decision Maker if the patient is not capable", "correct": false},
+          "D": {"en": "A & C", "zh": "A 與 C", "correct": true}
+        },
+        "exp_en": "Under the Health Care Consent Act, consent can be given by a capable patient (A) OR by their Substitute Decision Maker if incapable (C). Both situations are valid — hence D (A & C).",
+        "exp_zh": "根據《健康護理同意法》，有行為能力的患者本人（A）或在患者無行為能力時其代理決策人（C）均可提供同意，兩種情況均有效，故答案為D（A與C）。"
+      },
+      {
+        "id": 3,
+        "question_en": "The Health Care Consent Act is administered by the Federal Minister of Health.",
+        "question_zh": "《健康護理同意法》由聯邦衛生部長管理。",
+        "answer": "False",
+        "options": {
+          "True": {"en": "True", "zh": "是", "correct": false},
+          "False": {"en": "False", "zh": "否", "correct": true}
+        },
+        "exp_en": "False. The Health Care Consent Act is provincial legislation administered by Ontario's provincial government, not the Federal Minister of Health.",
+        "exp_zh": "錯誤。《健康護理同意法》是省級立法，由安大略省政府管轄，而非聯邦衛生部長。"
+      },
+      {
+        "id": 4,
+        "question_en": "The Health Professional is responsible to determine if the patient understands the information provided.",
+        "question_zh": "健康專業人員有責任確認患者是否理解所提供的信息。",
+        "answer": "True",
+        "options": {
+          "True": {"en": "True", "zh": "是", "correct": true},
+          "False": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. The health professional must ensure the patient understands the information provided — this is a core responsibility in the informed consent process.",
+        "exp_zh": "正確。確認患者理解所提供資訊是健康專業人員在知情同意過程中的核心職責。"
+      },
+      {
+        "id": 5,
+        "question_en": "The Health Care Consent Act permits Health Professionals to make treatment decisions on behalf of their patients.",
+        "question_zh": "《健康護理同意法》允許健康專業人員代表患者做出治療決定。",
+        "answer": "True",
+        "options": {
+          "True": {"en": "True", "zh": "是", "correct": true},
+          "False": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. Under the HCCA, health professionals can make treatment decisions on behalf of patients when patients lack capacity — this is the substitute decision-making framework.",
+        "exp_zh": "正確。根據《健康護理同意法》，當患者缺乏行為能力時，健康專業人員可在代理決策框架下代表患者做出治療決定。"
+      },
+      {
+        "id": 6,
+        "question_en": "i. Scope of Practice identifies which Controlled Acts a profession may use; ii. Controlled Acts refer to procedures that pose risk of harm to individuals.",
+        "question_zh": "i. 執業範圍界定專業可使用哪些受控行為；ii. 受控行為指對個人構成傷害風險的程序。",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Both statements are TRUE", "zh": "兩項陳述均為正確", "correct": false},
+          "B": {"en": "Both statements are FALSE", "zh": "兩項陳述均為錯誤", "correct": false},
+          "C": {"en": "The first statement is TRUE, the second is FALSE", "zh": "第一項陳述正確，第二項陳述錯誤", "correct": false},
+          "D": {"en": "The first statement is FALSE, the second is TRUE", "zh": "第一項陳述錯誤，第二項陳述正確", "correct": true}
+        },
+        "exp_en": "The first statement is FALSE — Scope of Practice defines what activities a profession can perform, not which Controlled Acts specifically. The second is TRUE — Controlled Acts are procedures that pose risk of harm if performed by unqualified persons.",
+        "exp_zh": "第一項為假——執業範圍定義職業可執行的活動，而非特指受控行為。第二項為真——受控行為確實指對個人構成傷害風險的程序。"
+      },
+      {
+        "id": 7,
+        "question_en": "i. A Regulatory Body is also known as a College; ii. The primary role of the Regulatory Body is to protect the public.",
+        "question_zh": "i. 監管機構也稱為學院；ii. 監管機構的主要職責是保護公眾。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Both statements are TRUE", "zh": "兩項陳述均為正確", "correct": true},
+          "B": {"en": "Both statements are FALSE", "zh": "兩項陳述均為錯誤", "correct": false},
+          "C": {"en": "The first statement is TRUE, the second is FALSE", "zh": "第一項陳述正確，第二項陳述錯誤", "correct": false},
+          "D": {"en": "The first statement is FALSE, the second is TRUE", "zh": "第一項陳述錯誤，第二項陳述正確", "correct": false}
+        },
+        "exp_en": "Both TRUE. A Regulatory Body (e.g., CTCMPAO) is also known as a College, and its primary mandate is public protection — not serving members' interests.",
+        "exp_zh": "兩項均為正確。監管機構（如CTCMPAO）確稱為學院，其首要職責是保護公眾，而非服務會員利益。"
+      },
+      {
+        "id": 8,
+        "question_en": "i. A Regulatory Body can also be known as a College; ii. The Regulatory Body oversees the activities of the professional associations.",
+        "question_zh": "i. 監管機構也可稱為學院；ii. 監管機構監督專業協會的活動。",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Both statements are TRUE", "zh": "兩項陳述均為正確", "correct": false},
+          "B": {"en": "Both statements are FALSE", "zh": "兩項陳述均為錯誤", "correct": false},
+          "C": {"en": "The first statement is TRUE, the second is FALSE", "zh": "第一項陳述正確，第二項陳述錯誤", "correct": true},
+          "D": {"en": "The first statement is FALSE, the second is TRUE", "zh": "第一項陳述錯誤，第二項陳述正確", "correct": false}
+        },
+        "exp_en": "First is TRUE — a Regulatory Body is also known as a College. Second is FALSE — the Regulatory Body oversees member practitioners, not professional associations (which are separate advocacy organizations).",
+        "exp_zh": "第一項正確——監管機構確稱為學院。第二項錯誤——監管機構監督執業會員，而非專業協會（協會是獨立的倡議組織）。"
+      },
+      {
+        "id": 9,
+        "question_en": "Which of the following is INCORRECT about a Regulatory Body?",
+        "question_zh": "關於監管機構，以下哪項是錯誤的？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "It establishes requirements for entry to a Regulated Health Profession/Professional Designation", "zh": "它制定進入受管制醫療職業／專業稱謂的要求", "correct": false},
+          "B": {"en": "It develops standards of practice and competence for a Regulated Health Profession", "zh": "它為受管制醫療職業制定執業和能力標準", "correct": false},
+          "C": {"en": "The authority of the Regulatory Body comes from the Government of Canada (Federal Government)", "zh": "監管機構的權力來自加拿大聯邦政府", "correct": true},
+          "D": {"en": "All of the above are correct", "zh": "以上皆正確", "correct": false}
+        },
+        "exp_en": "C is incorrect. Regulatory Bodies derive authority from provincial legislation (e.g., Ontario's RHPA), NOT from the Federal Government of Canada.",
+        "exp_zh": "C項錯誤。監管機構的權力來自省級立法（如安大略省的《受管制衛生職業法》），而非加拿大聯邦政府。"
+      },
+      {
+        "id": 10,
+        "question_en": "Which of the following statements is true?",
+        "question_zh": "以下哪項陳述是正確的？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "A patient always has the right to review and receive a copy of their clinical records", "zh": "患者始終有權審閱並獲得其臨床記錄的副本", "correct": false},
+          "B": {"en": "A practitioner must change information in a patient’s chart if requested by the patient", "zh": "A practitioner must change information in a patient’s chart if requested by the patient", "correct": false},
+          "C": {"en": "A practitioner must change information in a patient’s chart if requested by the regulatory college", "zh": "A practitioner must change information in a patient’s chart if requested by the regulatory college", "correct": false},
+          "D": {"en": "A practitioner can share patient information without consent if not doing so would cause harm to the patient", "zh": "若不共享患者信息會對患者造成傷害，從業者可在未經同意的情況下共享患者信息", "correct": true}
+        },
+        "exp_en": "D is correct. Sharing without consent is permitted when necessary to prevent harm to the patient. A patient does not always have automatic right to records, practitioners cannot arbitrarily change charts, and colleges cannot force changes either.",
+        "exp_zh": "D正確。在防止患者受到傷害的必要情況下，可在未經同意的情況下共享信息。患者並非自動擁有取閱記錄的絕對權利，從業者也不得隨意更改病歷。"
+      },
+      {
+        "id": 11,
+        "question_en": "Which of the following is INCORRECT about record keeping according to the CTCMPAO Standard of Practice?",
+        "question_zh": "根據CTCMPAO執業標準，以下哪項關於記錄保存的說法是錯誤的？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "It is mandatory to maintain a confidential file for each patient", "zh": "每位患者必須保存保密檔案", "correct": false},
+          "B": {"en": "Each file must contain a patient health summary", "zh": "每份檔案必須包含患者健康摘要", "correct": false},
+          "C": {"en": "Each file must contain a patient health record", "zh": "每份檔案必須包含患者健康記錄", "correct": false},
+          "D": {"en": "It can be in any language; it does not need to be in English", "zh": "可以使用任何語言；不需要以英語書寫", "correct": true},
+          "E": {"en": "All of the above are correct", "zh": "以上皆正確", "correct": false}
+        },
+        "exp_en": "D is incorrect. Records must be kept in English (or French in some jurisdictions) per CTCMPAO standards — they cannot be in any language. All other options (A, B, C) are correct requirements.",
+        "exp_zh": "D項錯誤。根據CTCMPAO標準，記錄必須以英語（某些地區可用法語）書寫，不可使用任何語言。其他選項（A、B、C）均為正確要求。"
+      },
+      {
+        "id": 12,
+        "question_en": "The definition of capacity with respect to providing consent for treatment includes:",
+        "question_zh": "就提供治療同意而言，行為能力的定義包括：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Understanding the information that is relevant to making a decision about the treatment", "zh": "理解與治療決策相關的信息", "correct": false},
+          "B": {"en": "Appreciating the consequences of a decision", "zh": "理解決策的後果", "correct": false},
+          "C": {"en": "Appreciating the consequences of a lack of decision", "zh": "理解不作決策的後果", "correct": false},
+          "D": {"en": "All of the above", "zh": "以上皆是", "correct": true},
+          "E": {"en": "A & B", "zh": "A 與 B", "correct": false}
+        },
+        "exp_en": "Capacity means understanding the relevant information (A), appreciating the consequences of deciding (B), AND appreciating consequences of not deciding (C) — all three components are required.",
+        "exp_zh": "行為能力包含三個要素：理解相關資訊（A）、理解決策後果（B）以及理解不作決策的後果（C），三者缺一不可。"
+      },
+      {
+        "id": 13,
+        "question_en": "Which of the following statements indicate that a patient is not capable of giving consent? Choose all that apply.",
+        "question_zh": "以下哪些陳述表明患者沒有能力給予同意？選擇所有適用項。",
+        "answer": ["C", "D"],
+        "options": {
+          "A": {"en": "The patient does not speak the same language as the practitioner", "zh": "患者與從業者語言不通", "correct": false},
+          "B": {"en": "The patient is unable to read and cannot sign the Consent to Treatment form", "zh": "患者無法閱讀且無法簽署治療同意書", "correct": false},
+          "C": {"en": "The patient does not understand the information presented by the practitioner", "zh": "患者不理解從業者提供的信息", "correct": true},
+          "D": {"en": "The patient cannot appreciate the consequences of the decision to consent or not to consent", "zh": "患者無法理解同意或不同意的決策後果", "correct": true},
+          "E": {"en": "The patient is critical of the proposed treatment plan", "zh": "患者對擬議的治療計劃持批評態度", "correct": false}
+        },
+        "exp_en": "C and D indicate incapacity. Not understanding information (C) and not appreciating consequences (D) are the two legal criteria for incapacity. Language barriers (A) or inability to sign (B) don't themselves indicate incapacity.",
+        "exp_zh": "C和D表明缺乏行為能力。不理解資訊（C）和無法理解後果（D）是判定缺乏行為能力的兩個法律標準。語言障礙（A）或無法簽名（B）本身不代表缺乏行為能力。"
+      },
+      {
+        "id": 14,
+        "question_en": "A Health Professional can be both an officer and a custodian with regard to personal health information.",
+        "question_zh": "健康專業人員在個人健康信息方面可以同時擔任管理人員和保管人。",
+        "answer": "True",
+        "options": {
+          "True": {"en": "True", "zh": "是", "correct": true},
+          "False": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. Under PHIPA, a health professional can be both the Health Information Custodian (responsible for the overall PHI management) and an Agent/Officer within that same organization.",
+        "exp_zh": "正確。根據《個人健康資訊保護法》，健康專業人員可同時擔任個人健康資訊保管人（負責整體PHI管理）和該組織內的工作人員兩個角色。"
+      },
+      {
+        "id": 15,
+        "question_en": "A patient’s consent can be:",
+        "question_zh": "患者的同意可以是：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "In writing", "zh": "書面形式", "correct": false},
+          "B": {"en": "Given verbally", "zh": "口頭形式", "correct": false},
+          "C": {"en": "Implied", "zh": "默示形式", "correct": false},
+          "D": {"en": "All of the above", "zh": "以上皆是", "correct": true},
+          "E": {"en": "A & B", "zh": "A 與 B", "correct": false}
+        },
+        "exp_en": "D is correct — consent can be written, verbal, or implied. All three forms are legally valid under the Health Care Consent Act.",
+        "exp_zh": "D正確——同意可以是書面、口頭或默示形式。這三種形式在《健康護理同意法》下均具法律效力。"
+      },
+      {
+        "id": 16,
+        "question_en": "The Health Care Consent Act provides explicit rules about:",
+        "question_zh": "《健康護理同意法》對以下事項有明確規定：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "When consent is required for treatment", "zh": "何時需要治療同意", "correct": false},
+          "B": {"en": "Who can give consent", "zh": "誰可以給予同意", "correct": false},
+          "C": {"en": "Roles of substitute decision makers in the consent process", "zh": "代理決策人在同意過程中的角色", "correct": false},
+          "D": {"en": "All of the above", "zh": "以上皆是", "correct": true}
+        },
+        "exp_en": "The HCCA provides explicit rules about all three: when consent is required (A), who can give consent (B), and the role of substitute decision makers (C) — therefore D.",
+        "exp_zh": "《健康護理同意法》對三者均有明確規定：何時需要同意（A）、誰可以給予同意（B）以及代理決策人的角色（C），故答案為D。"
+      },
+      {
+        "id": 17,
+        "question_en": "Once an individual has provided consent for treatment, there is no need to ask for consent at future appointments.",
+        "question_zh": "一旦個人提供了治療同意，未來複診時就無需再次徵求同意。",
+        "answer": "False",
+        "options": {
+          "True": {"en": "True", "zh": "是", "correct": false},
+          "False": {"en": "False", "zh": "否", "correct": true}
+        },
+        "exp_en": "False. Consent is not a one-time event. Each new treatment or significant change requires fresh consent. Implied ongoing consent has limits.",
+        "exp_zh": "錯誤。同意並非一次性行為。每項新治療或重大變更都需要重新獲得同意，默示的持續同意是有限制的。"
+      },
+      {
+        "id": 18,
+        "question_en": "According to the Health Care Consent Act, an individual's Power of Attorney ranks higher than that individual's spouse/partner.",
+        "question_zh": "根據《健康護理同意法》，個人的授權書優先於其配偶／伴侶。",
+        "answer": "True",
+        "options": {
+          "True": {"en": "True", "zh": "是", "correct": true},
+          "False": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. Under the HCCA hierarchy, a Power of Attorney for Personal Care (if activated) ranks above the spouse/partner in the substitute decision-maker hierarchy.",
+        "exp_zh": "正確。根據《健康護理同意法》的層級，個人護理授權書（若已啟動）在代理決策人層級中優先於配偶/伴侶。"
+      },
+      {
+        "id": 19,
+        "question_en": "What must a practitioner do if they make an error in the patient record?",
+        "question_zh": "如果從業者在患者記錄中出現錯誤，應怎麼做？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Call the patient to let them know about the error", "zh": "致電患者告知錯誤", "correct": false},
+          "B": {"en": "Erase the incorrect entry but keep a record", "zh": "刪除錯誤記錄但保存副本", "correct": false},
+          "C": {"en": "Erase the incorrect entry but initial", "zh": "刪除錯誤記錄並簽名", "correct": false},
+          "D": {"en": "Put a single line through the incorrect entry and initial", "zh": "在錯誤記錄上劃一條線並簽名", "correct": true}
+        },
+        "exp_en": "D is correct. Errors must never be erased. Draw a single line through the error, initial it, and date it so the original entry remains readable — this maintains record integrity.",
+        "exp_zh": "D正確。錯誤絕不能被塗抹。在錯誤上劃一條線，簽名並注明日期，使原始記錄保持可讀——這維護了記錄的完整性。"
+      },
+      {
+        "id": 20,
+        "question_en": "Interprofessional Collaboration (IPC) is only applicable to health professionals; family members and patients are not part of IPC.",
+        "question_zh": "跨專業協作（IPC）僅適用於健康專業人員；家庭成員和患者不屬於IPC的一部分。",
+        "answer": "False",
+        "options": {
+          "True": {"en": "True", "zh": "是", "correct": false},
+          "False": {"en": "False", "zh": "否", "correct": true}
+        },
+        "exp_en": "False. IPC includes all members of the healthcare team — patients, families, and caregivers are integral participants in interprofessional collaboration, not just health professionals.",
+        "exp_zh": "錯誤。跨專業協作包括醫療團隊的所有成員——患者、家屬和照護者都是跨專業協作的重要參與者，而不僅僅是健康專業人員。"
+      },
+      {
+        "id": 21,
+        "question_en": "Which of the following statements are controlled acts authorized to Traditional Chinese Medicine Practitioners? Choose all that apply.",
+        "question_zh": "以下哪些陳述是授權給傳統中醫師的受控行為？選擇所有適用項。",
+        "answer": ["B", "D"],
+        "options": {
+          "A": {"en": "Prescribing herbal medicine to a patient", "zh": "向患者開具草藥處方", "correct": false},
+          "B": {"en": "Communicating a TCM diagnosis to explain symptoms", "zh": "溝通中醫診斷以解釋症狀", "correct": true},
+          "C": {"en": "Using the designations R.TCMP and R.Ac", "zh": "使用R.TCMP和R.Ac的稱謂", "correct": false},
+          "D": {"en": "Performing acupuncture in the course of TCM practice", "zh": "在中醫執業過程中進行針灸", "correct": true},
+          "E": {"en": "Performing tuina, cupping and guasha", "zh": "進行推拿、拔罐和刮痧", "correct": false}
+        },
+        "exp_en": "B and D are the controlled acts for R.TCMPs. Communicating a TCM diagnosis (B) and performing acupuncture (D) are the two controlled acts. Prescribing herbs, using designations, and performing tuina/cupping/guasha are not controlled acts.",
+        "exp_zh": "B和D是中醫師的受控行為。溝通中醫診斷（B）和進行針灸（D）是兩項受控行為。開草藥處方、使用稱謂及進行推拿/拔罐/刮痧均非受控行為。"
+      }
+    ]
+  },
+  "safety": {
+    "title": "Safety",
+    "name_zh": "臨床安全",
+    "icon": "🛡️",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "According to CTCMPAO standards for safety, name the grouping of points that are all contraindicated in the treatment of a pregnant patient in her first trimester.",
+        "question_zh": "根據CTCMPAO安全標準，指出在懷孕早期患者治療中全部禁忌的穴位組合。",
+        "answer": "B",
+        "options": {
+          "A": {"en": "LI4, CV12, BL32", "zh": "合谷(LI4)、中脘(CV12)、次髎(BL32)", "correct": false},
+          "B": {"en": "BL60, LI4, CV1", "zh": "崑崙(BL60)、合谷(LI4)、會陰(CV1)", "correct": true},
+          "C": {"en": "SP6, CV6, CV4", "zh": "三陰交(SP6)、氣海(CV6)、關元(CV4)", "correct": false},
+          "D": {"en": "GB21, BL23, SP9", "zh": "肩井(GB21)、腎俞(BL23)、陰陵泉(SP9)", "correct": false}
+        },
+        "exp_en": "B is correct. BL60 (Kunlun), LI4 (Hegu), and CV1 (Huiyin) are all strongly contraindicated in the first trimester as they can stimulate uterine contractions and threaten the pregnancy.",
+        "exp_zh": "B正確。崑崙（BL60）、合谷（LI4）和會陰（CV1）在妊娠早期均強烈禁忌，因為這些穴位可刺激子宮收縮，危及妊娠。"
+      },
+      {
+        "id": 2,
+        "question_en": "If hands are visibly dirty, practitioners must disinfect first, before handwashing.",
+        "question_zh": "如果雙手明顯髒污，從業者必須先消毒，然後再洗手。",
+        "answer": "B",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": false},
+          "B": {"en": "False", "zh": "否", "correct": true}
+        },
+        "exp_en": "False. If hands are visibly dirty, you must WASH with soap and water FIRST, then disinfect. Disinfectants do not work effectively on visibly soiled hands.",
+        "exp_zh": "錯誤。若雙手明顯髒污，必須先用肥皂和清水洗手，然後再消毒。消毒劑對明顯污染的雙手效果不佳。"
+      },
+      {
+        "id": 3,
+        "question_en": "Sporicides kill fungal spores.",
+        "question_zh": "殺孢子劑可殺滅真菌孢子。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": false},
+          "B": {"en": "False", "zh": "否", "correct": true}
+        },
+        "exp_en": "False. Sporicides kill bacterial spores, not fungal spores. Fungicides kill fungal spores. These are different classes of antimicrobial agents.",
+        "exp_zh": "錯誤。殺孢子劑殺滅細菌芽孢，而非真菌孢子。殺真菌劑才用於殺滅真菌孢子。這是不同類別的抗菌藥劑。"
+      },
+      {
+        "id": 4,
+        "question_en": "Clinical surfaces should be:",
+        "question_zh": "臨床表面應進行：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Cleaned after each patient", "zh": "每位患者後清潔", "correct": false},
+          "B": {"en": "Disinfected after each patient", "zh": "每位患者後消毒", "correct": false},
+          "C": {"en": "Cleaned and disinfected after each patient", "zh": "每位患者後清潔並消毒", "correct": true},
+          "D": {"en": "Cleaned and sterilized after each patient", "zh": "每位患者後清潔並滅菌", "correct": false}
+        },
+        "exp_en": "C is correct. Clinical surfaces require both cleaning (removing dirt/debris) AND disinfection (killing pathogens) after each patient to prevent cross-contamination.",
+        "exp_zh": "C正確。臨床表面在每位患者後需要同時進行清潔（去除污垢）和消毒（殺滅病原體），以防止交叉污染。"
+      },
+      {
+        "id": 5,
+        "question_en": "Identify the safest TCM intervention when treating children.",
+        "question_zh": "指出治療兒童時最安全的中醫干預措施。",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Acupuncture – no retention", "zh": "針灸——不留針", "correct": false},
+          "B": {"en": "Herbal Medicine", "zh": "中草藥", "correct": false},
+          "C": {"en": "Moxibustion", "zh": "艾灸", "correct": false},
+          "D": {"en": "Tui Na", "zh": "推拿", "correct": true}
+        },
+        "exp_en": "D — Tui Na is the safest TCM intervention for children. It requires no needles, no heat, and no herbs. Acupuncture is used but with caution (no retention), while herbs and moxibustion carry more risks in children.",
+        "exp_zh": "D——推拿是治療兒童最安全的中醫干預措施。不需要針灸、不需要熱源、不需要草藥。針灸需謹慎使用（不留針），草藥和艾灸對兒童有更多風險。"
+      },
+      {
+        "id": 6,
+        "question_en": "Lipophilic materials are readily found in mineral substances; Lipophilic materials are more likely to show up in breast milk.",
+        "question_zh": "親脂性物質容易存在於礦物質中；親脂性物質更容易出現在母乳中。",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Both statements are true", "zh": "兩項陳述均正確", "correct": false},
+          "B": {"en": "Both statements are false", "zh": "兩項陳述均錯誤", "correct": false},
+          "C": {"en": "First statement is true, second is false", "zh": "第一項陳述正確，第二項錯誤", "correct": false},
+          "D": {"en": "First statement is false, second is true", "zh": "第一項陳述錯誤，第二項正確", "correct": true}
+        },
+        "exp_en": "D — First statement is FALSE: lipophilic materials are found in fatty/organic substances, not minerals. Second is TRUE: lipophilic (fat-soluble) substances readily pass into breast milk due to its fat content.",
+        "exp_zh": "D——第一項為假：親脂性物質存在於脂肪/有機物質中，而非礦物質。第二項為真：親脂性（脂溶性）物質因母乳富含脂肪而容易進入母乳。"
+      },
+      {
+        "id": 7,
+        "question_en": "The left kidney is located laterally to the spine at which spinous process?",
+        "question_zh": "左腎位於脊柱側面哪個棘突水平？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "L2-L4", "zh": "腰2-腰4", "correct": false},
+          "B": {"en": "T11-L3", "zh": "胸11-腰3", "correct": true},
+          "C": {"en": "L3-L5", "zh": "腰3-腰5", "correct": false},
+          "D": {"en": "T10-T12", "zh": "胸10-胸12", "correct": false}
+        },
+        "exp_en": "B — The kidneys lie at the T11-L3 vertebral level. The left kidney is slightly higher than the right. This anatomical knowledge is essential for safe needling of back-shu points.",
+        "exp_zh": "B——腎臟位於T11-L3椎體水平。左腎略高於右腎。這一解剖知識對於安全針刺背俞穴至關重要。"
+      },
+      {
+        "id": 8,
+        "question_en": "If an herb normally prescribed for an adult is 9 grams, what is the proper dosage for a 50 pound child?",
+        "question_zh": "若成人通常用藥劑量為9克，體重50磅的兒童適當劑量是多少？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "0.5 g", "zh": "0.5克", "correct": false},
+          "B": {"en": "1 g", "zh": "1克", "correct": false},
+          "C": {"en": "3 g", "zh": "3克", "correct": true},
+          "D": {"en": "6 g", "zh": "6克", "correct": false}
+        },
+        "exp_en": "C — Using Young's Rule or Clark's Rule for a 50 lb child: 50/(50+150) × 9g = 50/200 × 9 = 2.25 ≈ 3g (Clark's Rule: weight in lbs ÷ 150 × adult dose = 50/150 × 9 ≈ 3g).",
+        "exp_zh": "C——使用Clark計算法：體重（磅）÷150×成人劑量=50÷150×9≈3克。"
+      },
+      {
+        "id": 9,
+        "question_en": "Needling SP-12 (Chongmen) risks injury of which structures? Select all that apply.",
+        "question_zh": "針刺衝門穴(SP-12)有損傷哪些結構的風險？選擇所有適用項。",
+        "answer": ["A", "B", "C"],
+        "options": {
+          "A": {"en": "Femoral nerve", "zh": "股神經", "correct": true},
+          "B": {"en": "Femoral artery", "zh": "股動脈", "correct": true},
+          "C": {"en": "Femoral vein", "zh": "股靜脈", "correct": true},
+          "D": {"en": "Obturator nerve", "zh": "閉孔神經", "correct": false},
+          "E": {"en": "Spermatic duct", "zh": "精管", "correct": false},
+          "F": {"en": "Ovary", "zh": "卵巢", "correct": false},
+          "G": {"en": "Bladder", "zh": "膀胱", "correct": false}
+        },
+        "exp_en": "A, B, C — SP-12 (Chongmen) is located lateral to the femoral artery, so needling risks the femoral nerve, femoral artery, and femoral vein. The obturator nerve, spermatic duct, ovary, and bladder are not at immediate risk.",
+        "exp_zh": "A、B、C——衝門（SP-12）位於股動脈外側，針刺有損傷股神經、股動脈和股靜脈的風險。閉孔神經、精管、卵巢和膀胱不在直接風險範圍內。"
+      },
+      {
+        "id": 10,
+        "question_en": "What condition is saddle numbness a red flag for?",
+        "question_zh": "鞍區麻木是哪種疾病的危險信號？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Sciatica", "zh": "坐骨神經痛", "correct": false},
+          "B": {"en": "Cauda Equina syndrome", "zh": "馬尾綜合症", "correct": true},
+          "C": {"en": "Focal brain lesion", "zh": "局灶性腦損傷", "correct": false},
+          "D": {"en": "Imminent cardiac arrest", "zh": "即將發生的心臟驟停", "correct": false}
+        },
+        "exp_en": "B — Saddle numbness (loss of sensation in the perineal/inner thigh region) is a classic red flag for Cauda Equina Syndrome, a surgical emergency requiring immediate referral.",
+        "exp_zh": "B——鞍區麻木（會陰/大腿內側感覺喪失）是馬尾綜合症的典型危險信號，這是需要立即轉介的外科急症。"
+      },
+      {
+        "id": 11,
+        "question_en": "Upon examination of a patient with saddle numbness, what is the appropriate action?",
+        "question_zh": "檢查鞍區麻木患者時，適當的處理方式是什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Referral to physiotherapist", "zh": "轉介給物理治療師", "correct": false},
+          "B": {"en": "Referral to their family physician", "zh": "轉介給家庭醫生", "correct": false},
+          "C": {"en": "Referral to the emergency room", "zh": "轉介至急診室", "correct": false},
+          "D": {"en": "Call 911", "zh": "致電911", "correct": true}
+        },
+        "exp_en": "D — Saddle numbness is a red flag for Cauda Equina Syndrome requiring emergency intervention. Call 911 immediately — do not delay by referral to physiotherapist or family physician.",
+        "exp_zh": "D——鞍區麻木是馬尾綜合症的危險信號，需要緊急干預。立即撥打911，不要因轉介物理治療師或家庭醫生而延誤。"
+      },
+      {
+        "id": 12,
+        "question_en": "Which organ is at risk of injury with deep acupuncture at RN 2 (Qugu)?",
+        "question_zh": "在曲骨穴(RN 2)深刺時，哪個器官有損傷風險？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Uterus", "zh": "子宮", "correct": false},
+          "B": {"en": "Descending colon", "zh": "降結腸", "correct": false},
+          "C": {"en": "Stomach", "zh": "胃", "correct": false},
+          "D": {"en": "Bladder", "zh": "膀胱", "correct": true}
+        },
+        "exp_en": "D — RN2 (Qugu) is located on the pubic symphysis, and deep needling risks the urinary bladder which lies just posterior to the pubic bone.",
+        "exp_zh": "D——曲骨（RN2）位於恥骨聯合，深刺有損傷膀胱的風險，因為膀胱緊靠恥骨後方。"
+      },
+      {
+        "id": 13,
+        "question_en": "Antibiotics are effective to treat:",
+        "question_zh": "抗生素對以下哪種感染有效：",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Viral infections", "zh": "病毒感染", "correct": false},
+          "B": {"en": "Bacterial infections", "zh": "細菌感染", "correct": true},
+          "C": {"en": "Fungal infections", "zh": "真菌感染", "correct": false},
+          "D": {"en": "All of the above", "zh": "以上皆是", "correct": false}
+        },
+        "exp_en": "B — Antibiotics are effective against bacterial infections only. They have no effect on viral infections (use antivirals) or fungal infections (use antifungals).",
+        "exp_zh": "B——抗生素僅對細菌感染有效。對病毒感染（需用抗病毒藥）或真菌感染（需用抗真菌藥）無效。"
+      },
+      {
+        "id": 14,
+        "question_en": "In a clinical setting, which level of environmental housekeeping is needed around the sharps container?",
+        "question_zh": "在臨床環境中，銳器容器周圍需要哪種級別的環境清潔？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Cleaning", "zh": "清潔", "correct": false},
+          "B": {"en": "Low to Intermediate-level disinfection", "zh": "低至中級消毒", "correct": true},
+          "C": {"en": "High-level disinfection", "zh": "高級消毒", "correct": false},
+          "D": {"en": "Sterilization", "zh": "滅菌", "correct": false}
+        },
+        "exp_en": "B — The area around a sharps container is a non-critical surface (no direct patient contact) requiring low to intermediate-level disinfection, not sterilization.",
+        "exp_zh": "B——銳器容器周圍區域是非關鍵表面（無直接患者接觸），需要低至中級消毒，而非滅菌。"
+      },
+      {
+        "id": 15,
+        "question_en": "Which structure is most at risk of injury with needling at ST 9 (Renying)?",
+        "question_zh": "在人迎穴(ST 9)針刺時，哪個結構最容易受損？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Larynx", "zh": "喉部", "correct": false},
+          "B": {"en": "Brachial plexus", "zh": "臂叢神經", "correct": false},
+          "C": {"en": "Esophagus", "zh": "食道", "correct": false},
+          "D": {"en": "Carotid artery", "zh": "頸動脈", "correct": true}
+        },
+        "exp_en": "D — ST9 (Renying) is located directly adjacent to the carotid artery. Improper needling risks arterial puncture, which can be life-threatening.",
+        "exp_zh": "D——人迎（ST9）緊鄰頸動脈。針刺不當有動脈穿刺風險，可能危及生命。"
+      },
+      {
+        "id": 16,
+        "question_en": "What is the commonest mode of transmission of pathogens in a health care setting?",
+        "question_zh": "在醫療環境中，病原體最常見的傳播方式是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Needle-stick injury", "zh": "針刺傷", "correct": false},
+          "B": {"en": "Cross-contamination", "zh": "交叉污染", "correct": false},
+          "C": {"en": "Improper handwashing", "zh": "洗手不當", "correct": true},
+          "D": {"en": "Droplet spread", "zh": "飛沫傳播", "correct": false}
+        },
+        "exp_en": "C — Improper handwashing is the most common mode of pathogen transmission in healthcare. It accounts for the majority of healthcare-associated infections.",
+        "exp_zh": "C——洗手不當是醫療環境中病原體傳播最常見的方式，是大多數醫療相關感染的主要原因。"
+      },
+      {
+        "id": 17,
+        "question_en": "It is within the parameters of clean needle technique to palpate an acupuncture point after cleaning it so long as the hands are clean.",
+        "question_zh": "只要雙手清潔，在清潔針刺部位後觸診穴位是符合清潔針刺技術規範的。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": true},
+          "B": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. After cleaning and disinfecting the site, a practitioner may re-palpate the point — provided their hands remain clean. This is within CNT protocols.",
+        "exp_zh": "正確。清潔消毒針刺部位後，只要雙手保持清潔，從業者可重新觸診穴位，這符合清潔針刺技術規範。"
+      },
+      {
+        "id": 18,
+        "question_en": "Which structure lies below PC 6 (Neiguan)?",
+        "question_zh": "內關穴(PC 6)下方有哪個結構？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Palmaris Longus", "zh": "掌長肌", "correct": false},
+          "B": {"en": "Radius", "zh": "橈骨", "correct": false},
+          "C": {"en": "Ulna", "zh": "尺骨", "correct": false},
+          "D": {"en": "Median Nerve", "zh": "正中神經", "correct": true}
+        },
+        "exp_en": "D — PC6 (Neiguan) is located between the tendons of palmaris longus and flexor carpi radialis, and below it runs the median nerve — the most clinically important structure at risk.",
+        "exp_zh": "D——內關（PC6）位於掌長肌腱和橈側腕屈肌腱之間，其下方走行正中神經，是最重要的臨床風險結構。"
+      },
+      {
+        "id": 19,
+        "question_en": "When treating a 10 year old child in a TCM clinic, Parent consent is necessary; Child consent is necessary.",
+        "question_zh": "在中醫診所治療10歲兒童時，需要家長同意；需要兒童同意。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Both statements are true", "zh": "兩項陳述均正確", "correct": true},
+          "B": {"en": "Both statements are false", "zh": "兩項陳述均錯誤", "correct": false},
+          "C": {"en": "First statement is true, second is false", "zh": "第一項陳述正確，第二項錯誤", "correct": false},
+          "D": {"en": "First statement is false, second is true", "zh": "第一項陳述錯誤，第二項正確", "correct": false}
+        },
+        "exp_en": "Both TRUE. When treating a 10-year-old, both parental consent (as legal guardian) AND the child's assent are required. Children have the right to be involved in their healthcare decisions.",
+        "exp_zh": "兩項均正確。治療10歲兒童時，需要家長（作為法定監護人）同意以及兒童本人的同意。兒童有權參與其醫療決定。"
+      },
+      {
+        "id": 20,
+        "question_en": "Which structure is at risk of injury with deep needling at BL 20 (Pishu)?",
+        "question_zh": "在脾俞穴(BL 20)深刺時，哪個結構有損傷風險？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Lung", "zh": "肺", "correct": true},
+          "B": {"en": "Spleen", "zh": "脾", "correct": false},
+          "C": {"en": "Pancreas", "zh": "胰腺", "correct": false},
+          "D": {"en": "Spinal cord", "zh": "脊髓", "correct": false}
+        },
+        "exp_en": "A — BL20 (Pishu) is the back-shu point of the spleen at T11, but deep needling risks entering the thoracic cavity and puncturing the lung (not the spleen, which is on the left side).",
+        "exp_zh": "A——脾俞（BL20）是脾的背俞穴，位於T11，但深刺有進入胸腔和刺破肺部的風險（而非刺破脾臟，脾臟在左側）。"
+      },
+      {
+        "id": 21,
+        "question_en": "If the patient's needling site is visibly dirty, a practitioner must use soap and water on the needling site first before disinfecting the site.",
+        "question_zh": "如果患者針刺部位明顯髒污，從業者必須先用肥皂水清洗後再消毒。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": true},
+          "B": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. If the needling site is visibly dirty, soap and water must be used first to physically remove contaminants before applying alcohol disinfectant — same principle as hand hygiene.",
+        "exp_zh": "正確。若針刺部位明顯髒污，必須先用肥皂水清洗以物理去除污染物，然後再使用酒精消毒，原則與手部衛生相同。"
+      },
+      {
+        "id": 22,
+        "question_en": "Which statement is considered an important element of Universal Precautions?",
+        "question_zh": "以下哪項陳述被視為普遍預防措施的重要組成部分？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Routine immunizations", "zh": "常規免疫接種", "correct": false},
+          "B": {"en": "Wearing masks at all routine clinic visits", "zh": "所有常規門診就診時佩戴口罩", "correct": false},
+          "C": {"en": "Gloves must be worn for all injections", "zh": "所有注射時必須戴手套", "correct": false},
+          "D": {"en": "Act as though all body fluids are infectious", "zh": "將所有體液視為具有傳染性", "correct": true}
+        },
+        "exp_en": "D — Universal Precautions means treating ALL blood and body fluids as potentially infectious regardless of the patient's known status. This is the foundation of infection control.",
+        "exp_zh": "D——普遍預防措施意味著將所有血液和體液視為潛在傳染性，無論患者已知狀態如何。這是感染控制的基礎。"
+      },
+      {
+        "id": 23,
+        "question_en": "Which of the following is NOT a red flag for lower back pain?",
+        "question_zh": "以下哪項不是腰痛的危險信號？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Fever", "zh": "發燒", "correct": false},
+          "B": {"en": "Saddle numbness", "zh": "鞍區麻木", "correct": false},
+          "C": {"en": "Pain aggravated by lying", "zh": "臥位時疼痛加重", "correct": false},
+          "D": {"en": "Fear of movement", "zh": "恐動症", "correct": true},
+          "E": {"en": "History of cancer", "zh": "癌症病史", "correct": false}
+        },
+        "exp_en": "D — Fear of movement (kinesiophobia) is a psychological/behavioral response, not a red flag for serious pathology. Red flags include fever (infection/cancer), saddle numbness, pain at rest/night, and history of cancer.",
+        "exp_zh": "D——恐動症是心理/行為反應，不是嚴重病理的危險信號。危險信號包括發燒（感染/癌症）、鞍區麻木、靜息/夜間疼痛和癌症病史。"
+      },
+      {
+        "id": 24,
+        "question_en": "According to Deadman, what is the maximum depth of needle insertion for the Hua Tuo Jia Ji Points?",
+        "question_zh": "根據Deadman，華佗夾脊穴的最大針刺深度是多少？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "0.5 cun", "zh": "0.5寸", "correct": false},
+          "B": {"en": "1 cun", "zh": "1寸", "correct": true},
+          "C": {"en": "1.5 cun", "zh": "1.5寸", "correct": false},
+          "D": {"en": "2 cun", "zh": "2寸", "correct": false}
+        },
+        "exp_en": "B — According to Deadman's manual, Hua Tuo Jia Ji points should be needled to a maximum depth of 1 cun obliquely/perpendicularly to avoid spinal cord injury.",
+        "exp_zh": "B——根據Deadman的教材，華佗夾脊穴針刺最大深度為1寸（斜刺或直刺），以避免脊髓損傷。"
+      }
+    ]
+  },
+  "anatomy": {
+    "title": "Anatomy and Physiology",
+    "name_zh": "解剖生理學",
+    "icon": "🫀",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "What is the target of the hormone ACTH?",
+        "question_zh": "激素ACTH的靶器官是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Ovaries", "zh": "卵巢", "correct": false},
+          "B": {"en": "Adrenals", "zh": "腎上腺", "correct": true},
+          "C": {"en": "Testes", "zh": "睾丸", "correct": false},
+          "D": {"en": "Thyroid", "zh": "甲狀腺", "correct": false},
+          "E": {"en": "Parathyroid", "zh": "甲狀旁腺", "correct": false}
+        },
+        "exp_en": "B — ACTH (Adrenocorticotropic hormone) targets the adrenal cortex, stimulating release of cortisol and other corticosteroids. It does not target gonads, thyroid, or parathyroid.",
+        "exp_zh": "B——促腎上腺皮質激素（ACTH）作用於腎上腺皮質，刺激皮質醇和其他皮質類固醇的釋放，不作用於性腺、甲狀腺或甲狀旁腺。"
+      },
+      {
+        "id": 2,
+        "question_en": "Name the primary muscle that initiates abduction of the shoulder?",
+        "question_zh": "哪塊肌肉是肩關節外展的主要啟動肌？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Levator scapula", "zh": "提肩胛肌", "correct": false},
+          "B": {"en": "Pectoralis major", "zh": "胸大肌", "correct": false},
+          "C": {"en": "Infraspinatus", "zh": "岡下肌", "correct": false},
+          "D": {"en": "Supraspinatus", "zh": "岡上肌", "correct": true},
+          "E": {"en": "Latissimus dorsi", "zh": "背闊肌", "correct": false}
+        },
+        "exp_en": "D — The supraspinatus initiates the first 15° of shoulder abduction. After 15°, the deltoid takes over. Other rotator cuff muscles perform rotation, not primary abduction.",
+        "exp_zh": "D——岡上肌啟動肩關節外展的前15度。超過15度後，三角肌接管。其他旋轉肌群執行旋轉動作，而非主要外展動作。"
+      },
+      {
+        "id": 3,
+        "question_en": "Running up stairs – which process is controlled by the somatic nervous system?",
+        "question_zh": "上樓梯跑步時——哪個過程由軀體神經系統控制？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Increased heart rate", "zh": "心率增加", "correct": false},
+          "B": {"en": "Increased breathing rate", "zh": "呼吸頻率增加", "correct": false},
+          "C": {"en": "Contraction of your leg muscles", "zh": "腿部肌肉收縮", "correct": true},
+          "D": {"en": "Dilation of the blood vessels", "zh": "血管擴張", "correct": false},
+          "E": {"en": "Sweating", "zh": "出汗", "correct": false}
+        },
+        "exp_en": "C — Voluntary skeletal muscle movement (like leg muscles) is controlled by the somatic nervous system. Heart rate, breathing rate, vasodilation, and sweating are all autonomic functions.",
+        "exp_zh": "C——自主骨骼肌運動（如腿部肌肉）由軀體神經系統控制。心率、呼吸頻率、血管舒張和出汗均為自主神經功能。"
+      },
+      {
+        "id": 4,
+        "question_en": "Using proper anatomical terminology, the hip could best be described as being more ____ than the knee:",
+        "question_zh": "使用正確的解剖學術語，髖部相對於膝部可最準確地描述為更：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Distal", "zh": "遠端", "correct": false},
+          "B": {"en": "Medial", "zh": "內側", "correct": false},
+          "C": {"en": "Lateral", "zh": "外側", "correct": false},
+          "D": {"en": "Proximal", "zh": "近端", "correct": true},
+          "E": {"en": "Superficial", "zh": "表淺", "correct": false}
+        },
+        "exp_en": "D — Proximal means closer to the point of attachment (trunk). The hip is closer to the trunk than the knee, so the hip is more proximal than the knee.",
+        "exp_zh": "D——近端指更靠近附著點（軀幹）。髖部比膝部更靠近軀幹，因此髖部相對於膝部更為近端。"
+      },
+      {
+        "id": 5,
+        "question_en": "Which of the following statements regarding the stomach is CORRECT?",
+        "question_zh": "以下關於胃的哪項陳述是正確的？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "The innermost layer of the wall is called serosa", "zh": "胃壁最內層稱為漿膜", "correct": false},
+          "B": {"en": "It has folds called villi and microvilli", "zh": "胃有稱為絨毛和微絨毛的皺襞", "correct": false},
+          "C": {"en": "The max capacity is around 8L in adults", "zh": "成人最大容量約為8升", "correct": false},
+          "D": {"en": "It is a site for protein digestion", "zh": "胃是蛋白質消化的場所", "correct": true},
+          "E": {"en": "Majority of water is absorbed at this site", "zh": "大部分水分在此處被吸收", "correct": false}
+        },
+        "exp_en": "D — The stomach is a site for protein digestion via pepsin (not carbohydrates or fat primarily). The inner layer is mucosa (not serosa), folds are rugae (not villi), max capacity is ~1L, and water absorption is mainly in the intestines.",
+        "exp_zh": "D——胃通過胃蛋白酶進行蛋白質消化（而非主要消化碳水化合物或脂肪）。最內層是黏膜（非漿膜），皺褶稱為皺壁（非絨毛），最大容量約1升，水分主要在腸道吸收。"
+      },
+      {
+        "id": 6,
+        "question_en": "Which one of the following is an accessory organ of the digestive system?",
+        "question_zh": "以下哪個是消化系統的附屬器官？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Esophagus", "zh": "食道", "correct": false},
+          "B": {"en": "Salivary glands", "zh": "唾液腺", "correct": true},
+          "C": {"en": "Duodenum", "zh": "十二指腸", "correct": false},
+          "D": {"en": "Rectum", "zh": "直腸", "correct": false},
+          "E": {"en": "Cecum", "zh": "盲腸", "correct": false}
+        },
+        "exp_en": "B — Salivary glands are accessory digestive organs that produce saliva but are not part of the GI tract itself. Esophagus, duodenum, rectum, and cecum are all parts of the GI tract.",
+        "exp_zh": "B——唾液腺是產生唾液的消化附屬器官，但不是消化道本身的組成部分。食道、十二指腸、直腸和盲腸均屬於消化道。"
+      },
+      {
+        "id": 7,
+        "question_en": "Using proper anatomical terminology, the knee could best be described as being more ____ than the ankle:",
+        "question_zh": "使用正確的解剖學術語，膝部相對於踝部可最準確地描述為更：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Distal", "zh": "遠端", "correct": false},
+          "B": {"en": "Medial", "zh": "內側", "correct": false},
+          "C": {"en": "Lateral", "zh": "外側", "correct": false},
+          "D": {"en": "Proximal", "zh": "近端", "correct": true},
+          "E": {"en": "Superficial", "zh": "表淺", "correct": false}
+        },
+        "exp_en": "D — The knee is proximal to the ankle because it is closer to the trunk. Using proper anatomical terminology, proximal = closer to the point of origin.",
+        "exp_zh": "D——膝部相對於踝部更為近端，因為膝部更靠近軀幹。使用正確的解剖學術語，近端=更靠近起點。"
+      },
+      {
+        "id": 8,
+        "question_en": "Which of the following are all types of connective tissue?",
+        "question_zh": "以下哪些全部屬於結締組織類型？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "skeletal muscle, squamous epithelia, blood, nerves", "zh": "骨骼肌、鱗狀上皮、血液、神經", "correct": false},
+          "B": {"en": "blood, adipose, bone, cartilage", "zh": "血液、脂肪組織、骨骼、軟骨", "correct": true},
+          "C": {"en": "skeletal muscle, cardiac muscle, bone, nerves", "zh": "骨骼肌、心肌、骨骼、神經", "correct": false},
+          "D": {"en": "adipose, bone, blood, nerves", "zh": "脂肪組織、骨骼、血液、神經", "correct": false},
+          "E": {"en": "cartilage, nerves, squamous epithelia, bone", "zh": "軟骨、神經、鱗狀上皮、骨骼", "correct": false}
+        },
+        "exp_en": "B — Blood, adipose tissue, bone, and cartilage are all types of connective tissue. Skeletal muscle is muscle tissue, squamous epithelia is epithelial tissue, and nerves are nervous tissue.",
+        "exp_zh": "B——血液、脂肪組織、骨骼和軟骨均屬於結締組織。骨骼肌是肌肉組織，鱗狀上皮是上皮組織，神經是神經組織。"
+      },
+      {
+        "id": 9,
+        "question_en": "Which structure is found farthest from GB34 (Yanglingquan)?",
+        "question_zh": "以下哪個結構距陽陵泉穴(GB34)最遠？",
+        "answer": "E",
+        "options": {
+          "A": {"en": "Common peroneal nerve", "zh": "腓總神經", "correct": false},
+          "B": {"en": "Lateral collateral ligament", "zh": "外側副韌帶", "correct": false},
+          "C": {"en": "Head of the fibula", "zh": "腓骨頭", "correct": false},
+          "D": {"en": "Attachment of the fibularis muscle", "zh": "腓骨肌附著點", "correct": false},
+          "E": {"en": "Patellar tendon", "zh": "髕腱", "correct": true}
+        },
+        "exp_en": "E — GB34 (Yanglingquan) is at the head of the fibula, near the common peroneal nerve, lateral collateral ligament, and fibularis muscle attachment. The patellar tendon is significantly more proximal/medial and therefore farthest.",
+        "exp_zh": "E——陽陵泉（GB34）位於腓骨頭處，附近有腓總神經、外側副韌帶和腓骨肌附著點。髕腱位置明顯更近端/內側，因此距離最遠。"
+      },
+      {
+        "id": 10,
+        "question_en": "Where does urine go immediately after exiting the kidney?",
+        "question_zh": "尿液從腎臟排出後，直接進入哪裡？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Renal pelvis", "zh": "腎盂", "correct": false},
+          "B": {"en": "Ureter", "zh": "輸尿管", "correct": true},
+          "C": {"en": "Bladder", "zh": "膀胱", "correct": false},
+          "D": {"en": "Renal papilla", "zh": "腎乳頭", "correct": false},
+          "E": {"en": "Urethra", "zh": "尿道", "correct": false}
+        },
+        "exp_en": "B — After leaving the kidney, urine flows immediately into the ureter, then to the bladder. The renal pelvis is within the kidney itself, and urine exits via the renal papillae before reaching the pelvis.",
+        "exp_zh": "B——尿液離開腎臟後，立即進入輸尿管，然後到達膀胱。腎盂位於腎臟內部，尿液先從腎乳頭排出到達腎盂。"
+      },
+      {
+        "id": 11,
+        "question_en": "This structure of the neuron conducts electrical impulses towards the cell body:",
+        "question_zh": "神經元的這個結構將電衝動傳向細胞體：",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Dendrites", "zh": "樹突", "correct": true},
+          "B": {"en": "Axons", "zh": "軸突", "correct": false},
+          "C": {"en": "Nodes of Ranvier", "zh": "郎飛節", "correct": false},
+          "D": {"en": "Myelin", "zh": "髓鞘", "correct": false},
+          "E": {"en": "None of the above", "zh": "以上皆非", "correct": false}
+        },
+        "exp_en": "A — Dendrites conduct electrical impulses TOWARD the cell body (afferent). Axons conduct impulses AWAY from the cell body (efferent). Nodes of Ranvier and myelin are involved in impulse transmission speed.",
+        "exp_zh": "A——樹突將電衝動傳向細胞體（傳入）。軸突將衝動傳離細胞體（傳出）。郎飛節和髓鞘與衝動傳導速度有關。"
+      },
+      {
+        "id": 12,
+        "question_en": "Elbow extension occurs with the contraction of:",
+        "question_zh": "肘關節伸展由哪塊肌肉收縮產生？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Biceps brachii", "zh": "肱二頭肌", "correct": false},
+          "B": {"en": "Brachialis", "zh": "肱肌", "correct": false},
+          "C": {"en": "Brachioradialis", "zh": "肱橈肌", "correct": false},
+          "D": {"en": "Triceps brachii", "zh": "肱三頭肌", "correct": true},
+          "E": {"en": "Latissimus dorsi", "zh": "背闊肌", "correct": false}
+        },
+        "exp_en": "D — The triceps brachii is the primary elbow extensor. Biceps brachii and brachialis are flexors. Brachioradialis assists with flexion. Latissimus dorsi acts on the shoulder.",
+        "exp_zh": "D——肱三頭肌是主要的肘關節伸展肌。肱二頭肌和肱肌是屈肌。肱橈肌輔助屈曲。背闊肌作用於肩關節。"
+      },
+      {
+        "id": 13,
+        "question_en": "Which of the following is CORRECT regarding the process of inspiration (inhalation)?",
+        "question_zh": "以下關於吸氣過程哪項陳述是正確的？",
+        "answer": "E",
+        "options": {
+          "A": {"en": "External intercostal muscles contract", "zh": "肋間外肌收縮", "correct": false},
+          "B": {"en": "Diaphragm contracts and moves down", "zh": "橫膈膜收縮並向下移動", "correct": false},
+          "C": {"en": "Thoracic volume increases", "zh": "胸腔容積增大", "correct": false},
+          "D": {"en": "Pressure in the lungs decreases", "zh": "肺內壓降低", "correct": false},
+          "E": {"en": "All of the above are correct", "zh": "以上皆正確", "correct": true}
+        },
+        "exp_en": "E — All of the above are correct regarding inspiration: external intercostals contract, diaphragm contracts and descends, thoracic volume increases, and intrapulmonary pressure decreases (drawing air in).",
+        "exp_zh": "E——以上關於吸氣的描述均正確：肋間外肌收縮，橫膈膜收縮下降，胸腔容積增大，肺內壓降低（使空氣吸入）。"
+      },
+      {
+        "id": 14,
+        "question_en": "Elbow flexion occurs with the contraction of:",
+        "question_zh": "肘關節屈曲由哪塊肌肉收縮產生？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Biceps brachii", "zh": "肱二頭肌", "correct": true},
+          "B": {"en": "Flexor carpi radialis", "zh": "橈側腕屈肌", "correct": false},
+          "C": {"en": "Deltoids", "zh": "三角肌", "correct": false},
+          "D": {"en": "Triceps brachii", "zh": "肱三頭肌", "correct": false},
+          "E": {"en": "Latissimus dorsi", "zh": "背闊肌", "correct": false}
+        },
+        "exp_en": "A — Elbow flexion is performed primarily by the biceps brachii (also supinates forearm), assisted by brachialis and brachioradialis. Triceps is the extensor.",
+        "exp_zh": "A——肘關節屈曲主要由肱二頭肌執行（也可使前臂旋後），由肱肌和肱橈肌輔助。肱三頭肌是伸展肌。"
+      },
+      {
+        "id": 15,
+        "question_en": "What is the functional unit of the kidney?",
+        "question_zh": "腎臟的功能單位是什麼？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Nephron", "zh": "腎元", "correct": true},
+          "B": {"en": "Renal papilla", "zh": "腎乳頭", "correct": false},
+          "C": {"en": "Renal pelvis", "zh": "腎盂", "correct": false},
+          "D": {"en": "Renal fascia", "zh": "腎筋膜", "correct": false},
+          "E": {"en": "Renal medulla", "zh": "腎髓質", "correct": false}
+        },
+        "exp_en": "A — The nephron is the structural and functional unit of the kidney, responsible for filtration, reabsorption, and secretion to produce urine.",
+        "exp_zh": "A——腎元是腎臟的結構和功能單位，負責過濾、重吸收和分泌以產生尿液。"
+      },
+      {
+        "id": 16,
+        "question_en": "A client with renal disease has decreased blood calcium levels. Which hormone would you expect to be released?",
+        "question_zh": "一名腎臟疾病患者血鈣水平降低。預期會釋放哪種激素？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Calcitonin", "zh": "降鈣素", "correct": false},
+          "B": {"en": "Parathyroid hormone", "zh": "甲狀旁腺激素", "correct": true},
+          "C": {"en": "Glucagon", "zh": "胰高糖素", "correct": false},
+          "D": {"en": "Aldosterone", "zh": "醛固酮", "correct": false},
+          "E": {"en": "Cortisol", "zh": "皮質醇", "correct": false}
+        },
+        "exp_en": "B — Low blood calcium (hypocalcemia) triggers the parathyroid glands to release PTH, which raises blood calcium by stimulating bone resorption, increasing intestinal absorption, and kidney reabsorption. Calcitonin does the opposite.",
+        "exp_zh": "B——低血鈣（低鈣血症）觸發甲狀旁腺釋放甲狀旁腺激素（PTH），通過刺激骨吸收、增加腸道吸收和腎臟重吸收來升高血鈣。降鈣素作用相反。"
+      },
+      {
+        "id": 17,
+        "question_en": "In a healthy client, which blood pH reading is considered normal?",
+        "question_zh": "在健康人群中，哪個血液pH值被認為是正常的？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "7.20", "zh": "7.20", "correct": false},
+          "B": {"en": "7.30", "zh": "7.30", "correct": false},
+          "C": {"en": "7.40", "zh": "7.40", "correct": true},
+          "D": {"en": "7.50", "zh": "7.50", "correct": false},
+          "E": {"en": "8.00", "zh": "8.00", "correct": false}
+        },
+        "exp_en": "C — Normal blood pH is 7.35–7.45, with 7.40 as the ideal value. Values below 7.35 indicate acidosis; above 7.45 indicate alkalosis.",
+        "exp_zh": "C——正常血液pH值為7.35-7.45，理想值為7.40。低於7.35為酸中毒；高於7.45為鹼中毒。"
+      },
+      {
+        "id": 18,
+        "question_en": "Humans have ____ lungs with a total of ____ lobes.",
+        "question_zh": "人類有____個肺，共____個肺葉。",
+        "answer": "C",
+        "options": {
+          "A": {"en": "2,2", "zh": "2個肺，2個肺葉", "correct": false},
+          "B": {"en": "2,4", "zh": "2個肺，4個肺葉", "correct": false},
+          "C": {"en": "2,5", "zh": "2個肺，5個肺葉", "correct": true},
+          "D": {"en": "2,6", "zh": "2個肺，6個肺葉", "correct": false},
+          "E": {"en": "1,2", "zh": "1個肺，2個肺葉", "correct": false}
+        },
+        "exp_en": "C — Humans have 2 lungs with 5 total lobes: the right lung has 3 lobes (upper, middle, lower) and the left lung has 2 lobes (upper, lower) to accommodate the cardiac notch.",
+        "exp_zh": "C——人類有2個肺共5個肺葉：右肺3葉（上、中、下葉），左肺2葉（上、下葉）以容納心切跡。"
+      },
+      {
+        "id": 19,
+        "question_en": "The pyloric sphincter is located between ____ and ____.",
+        "question_zh": "幽門括約肌位於____和____之間。",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Esophagus, stomach", "zh": "食道與胃之間", "correct": false},
+          "B": {"en": "Stomach, duodenum", "zh": "胃與十二指腸之間", "correct": true},
+          "C": {"en": "Oral cavity, esophagus", "zh": "口腔與食道之間", "correct": false},
+          "D": {"en": "Ileum, cecum", "zh": "迴腸與盲腸之間", "correct": false},
+          "E": {"en": "Rectum, anus", "zh": "直腸與肛門之間", "correct": false}
+        },
+        "exp_en": "B — The pyloric sphincter is the muscular valve between the stomach and duodenum. It regulates gastric emptying. The cardiac sphincter is between esophagus and stomach.",
+        "exp_zh": "B——幽門括約肌是胃和十二指腸之間的括約肌閥門，調節胃排空。賁門括約肌位於食道和胃之間。"
+      },
+      {
+        "id": 20,
+        "question_en": "Which structure runs between the greater and lesser tubercles of the humerus?",
+        "question_zh": "哪個結構走行於肱骨大小結節之間？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Tendon of the Biceps brachii", "zh": "肱二頭肌腱", "correct": true},
+          "B": {"en": "Tendon of the Triceps brachii", "zh": "肱三頭肌腱", "correct": false},
+          "C": {"en": "Common extensor tendon", "zh": "伸肌總腱", "correct": false},
+          "D": {"en": "Common flexor tendon", "zh": "屈肌總腱", "correct": false},
+          "E": {"en": "Supraspinatus tendon", "zh": "岡上肌腱", "correct": false}
+        },
+        "exp_en": "A — The bicipital groove (intertubercular groove) lies between the greater and lesser tubercles of the humerus, and the long head of the biceps brachii tendon runs through it.",
+        "exp_zh": "A——結節間溝（肱二頭肌溝）位於肱骨大小結節之間，肱二頭肌長頭腱穿行其中。"
+      },
+      {
+        "id": 21,
+        "question_en": "In the central nervous system, myelin sheaths are formed by:",
+        "question_zh": "在中樞神經系統中，髓鞘由哪種細胞形成？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Schwann cells", "zh": "雪旺細胞", "correct": false},
+          "B": {"en": "Astrocytes", "zh": "星形膠質細胞", "correct": false},
+          "C": {"en": "Oligodendrocytes", "zh": "少突膠質細胞", "correct": true},
+          "D": {"en": "Microglia", "zh": "小膠質細胞", "correct": false},
+          "E": {"en": "Neurons", "zh": "神經元", "correct": false}
+        },
+        "exp_en": "C — In the CNS, myelin sheaths are formed by oligodendrocytes. In the PNS, Schwann cells form myelin. Each oligodendrocyte can myelinate multiple axons.",
+        "exp_zh": "C——在中樞神經系統中，髓鞘由少突膠質細胞形成。在周圍神經系統中，髓鞘由雪旺細胞形成。每個少突膠質細胞可以使多根軸突髓鞘化。"
+      },
+      {
+        "id": 22,
+        "question_en": "During inhalation, what structure does air enter directly after the pharynx?",
+        "question_zh": "吸氣時，氣體在咽部之後直接進入哪個結構？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Alveoli", "zh": "肺泡", "correct": false},
+          "B": {"en": "Larynx", "zh": "喉部", "correct": true},
+          "C": {"en": "Trachea", "zh": "氣管", "correct": false},
+          "D": {"en": "Nose", "zh": "鼻腔", "correct": false},
+          "E": {"en": "Sinuses", "zh": "竇腔", "correct": false}
+        },
+        "exp_en": "B — Air pathway: nose/mouth → pharynx → larynx → trachea → bronchi → bronchioles → alveoli. After the pharynx, air enters the larynx (which contains vocal cords) before the trachea.",
+        "exp_zh": "B——氣道通路：鼻/口→咽→喉→氣管→支氣管→細支氣管→肺泡。氣體通過咽部後進入喉部（含聲帶），然後到達氣管。"
+      },
+      {
+        "id": 23,
+        "question_en": "With regard to muscle anatomy, what is a fascicle?",
+        "question_zh": "關於肌肉解剖學，什麼是肌束？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "A single muscle cell", "zh": "單個肌肉細胞", "correct": false},
+          "B": {"en": "A small collection of muscle cells within an entire muscle", "zh": "整塊肌肉中一組小的肌肉細胞集合", "correct": true},
+          "C": {"en": "A layer of connective tissue around individual muscle cells", "zh": "包裹個別肌肉細胞的結締組織層", "correct": false},
+          "D": {"en": "The site where the nerve and muscle meet", "zh": "神經與肌肉的交匯部位", "correct": false},
+          "E": {"en": "Long tube-like organelles found within a muscle cell", "zh": "肌肉細胞內的長管狀細胞器", "correct": false}
+        },
+        "exp_en": "B — A fascicle is a small bundle of muscle fibers (cells) within a muscle, surrounded by perimysium. Individual muscle cells are muscle fibers; endomysium surrounds individual fibers.",
+        "exp_zh": "B——肌束是肌肉內由肌束膜包裹的一小束肌肉纖維（細胞）。單個肌肉細胞是肌纖維；肌內膜包裹單個肌纖維。"
+      },
+      {
+        "id": 24,
+        "question_en": "Hormones secreted from posterior pituitary are produced in:",
+        "question_zh": "垂體後葉分泌的激素產生於：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Anterior pituitary", "zh": "垂體前葉", "correct": false},
+          "B": {"en": "Posterior pituitary", "zh": "垂體後葉", "correct": false},
+          "C": {"en": "Thyroid gland", "zh": "Thyroid gland", "correct": false},
+          "D": {"en": "Hypothalamus", "zh": "下丘腦", "correct": true},
+          "E": {"en": "Thalamus", "zh": "丘腦", "correct": false}
+        },
+        "exp_en": "D — ADH (antidiuretic hormone) and oxytocin are PRODUCED in the hypothalamus but stored and RELEASED from the posterior pituitary. This is a key distinction.",
+        "exp_zh": "D——抗利尿激素（ADH）和催產素在下丘腦產生，但儲存並從垂體後葉釋放。這是重要的區別。"
+      },
+      {
+        "id": 25,
+        "question_en": "Hormone released from posterior pituitary:",
+        "question_zh": "垂體後葉釋放的激素是：",
+        "answer": "E",
+        "options": {
+          "A": {"en": "FSH", "zh": "促卵泡素(FSH)", "correct": false},
+          "B": {"en": "LH", "zh": "黃體生成素(LH)", "correct": false},
+          "C": {"en": "Cortisol", "zh": "皮質醇", "correct": false},
+          "D": {"en": "ACTH", "zh": "促腎上腺皮質激素(ACTH)", "correct": false},
+          "E": {"en": "Oxytocin", "zh": "催產素", "correct": true}
+        },
+        "exp_en": "E — Oxytocin is released from the posterior pituitary. FSH, LH, and ACTH are from the anterior pituitary. Cortisol is from the adrenal cortex, not the pituitary.",
+        "exp_zh": "E——催產素從垂體後葉釋放。FSH、LH和ACTH來自垂體前葉。皮質醇來自腎上腺皮質，而非垂體。"
+      },
+      {
+        "id": 26,
+        "question_en": "Parasympathetic activation results:",
+        "question_zh": "副交感神經激活的結果是：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Increased ventilation & dilated pupils", "zh": "通氣增加和瞳孔散大", "correct": false},
+          "B": {"en": "Increased ventilation & constricted pupils", "zh": "通氣增加和瞳孔縮小", "correct": false},
+          "C": {"en": "Constricted pupils & cool skin", "zh": "瞳孔縮小和皮膚冰涼", "correct": false},
+          "D": {"en": "Decreased ventilation & increased GI motility", "zh": "通氣減少和胃腸蠕動增加", "correct": true},
+          "E": {"en": "Skeletal & visceral vasodilation", "zh": "骨骼和內臟血管擴張", "correct": false}
+        },
+        "exp_en": "D — Parasympathetic ('rest and digest') activation decreases ventilation rate and increases GI motility. It also decreases heart rate, constricts pupils, and promotes digestion — opposite of sympathetic effects.",
+        "exp_zh": "D——副交感神經（「休息和消化」）激活降低通氣率並增加胃腸蠕動。也會降低心率、縮小瞳孔、促進消化——與交感神經效果相反。"
+      },
+      {
+        "id": 27,
+        "question_en": "Horizontal adduction of the shoulder occurs with the contraction of:",
+        "question_zh": "肩關節水平內收由哪塊肌肉收縮產生？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Pectoralis minor", "zh": "胸小肌", "correct": false},
+          "B": {"en": "Pectoralis major", "zh": "胸大肌", "correct": true},
+          "C": {"en": "Posterior deltoid", "zh": "三角肌後束", "correct": false},
+          "D": {"en": "Serratus anterior", "zh": "前鋸肌", "correct": false},
+          "E": {"en": "Supraspinatus", "zh": "岡上肌", "correct": false}
+        },
+        "exp_en": "B — Horizontal adduction (bringing the arm across the body) is performed primarily by the pectoralis major. Pectoralis minor depresses the scapula; posterior deltoid performs horizontal abduction.",
+        "exp_zh": "B——水平內收（將手臂向身體橫向移動）主要由胸大肌執行。胸小肌使肩胛骨下壓；三角肌後束執行水平外展。"
+      }
+    ]
+  },
+  "pathophysiology": {
+    "title": "Pathophysiology",
+    "name_zh": "病理生理學",
+    "icon": "🧬",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "When conducting an otoscope exam, visualizing the cone of light is a healthy sign, especially when the line of light is directed in the 5 o’clock position in the right ear.",
+        "question_zh": "進行耳鏡檢查時，看到光錐是健康的徵象，尤其是當右耳的光線方向指向5點鐘方向時。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": true},
+          "B": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. A healthy tympanic membrane shows a cone of light (light reflex). In the right ear, it reflects at the 5 o'clock position; in the left ear, at 7 o'clock. Absence of this reflex may indicate otitis media.",
+        "exp_zh": "正確。健康的鼓膜會顯示光錐（光反射）。在右耳，光錐指向5點鐘方向；在左耳，指向7點鐘方向。光反射消失可能提示中耳炎。"
+      },
+      {
+        "id": 2,
+        "question_en": "Which of the following is NOT a reasonable indication for mental health screening?",
+        "question_zh": "以下哪項不是心理健康篩查的合理指徵？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Multiple physical or somatic symptoms", "zh": "多種軀體症狀", "correct": false},
+          "B": {"en": "Multiple piercings and tattoos", "zh": "多處穿孔和紋身", "correct": true},
+          "C": {"en": "Frequent use of healthcare services", "zh": "頻繁使用醫療服務", "correct": false},
+          "D": {"en": "Frequent interpersonal conflicts", "zh": "頻繁的人際衝突", "correct": false},
+          "E": {"en": "Chronic pain", "zh": "慢性疼痛", "correct": false}
+        },
+        "exp_en": "B — Multiple piercings and tattoos are not a clinical indicator for mental health screening. The other options (somatic symptoms, frequent healthcare use, interpersonal conflicts, chronic pain) are all recognized indicators.",
+        "exp_zh": "B——多處穿孔和紋身不是心理健康篩查的臨床指徵。其他選項（軀體症狀、頻繁使用醫療服務、人際衝突、慢性疼痛）均為公認的指徵。"
+      },
+      {
+        "id": 3,
+        "question_en": "Hypovolemic shock may be a manifestation of:",
+        "question_zh": "低血容量休克可能是以下哪種疾病的表現？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Acute pancreatitis", "zh": "急性胰腺炎", "correct": false},
+          "B": {"en": "Acute cirrhosis", "zh": "急性肝硬化", "correct": false},
+          "C": {"en": "Acute ulcer disease", "zh": "急性潰瘍病", "correct": false},
+          "D": {"en": "Acute gastritis", "zh": "急性胃炎", "correct": true},
+          "E": {"en": "Acute myocarditis", "zh": "急性心肌炎", "correct": false}
+        },
+        "exp_en": "D — Acute gastritis can cause significant GI bleeding and fluid loss, leading to hypovolemic shock. Pancreatitis causes third-spacing, not direct volume loss. Cirrhosis is chronic. Myocarditis causes cardiogenic shock.",
+        "exp_zh": "D——急性胃炎可引起顯著的胃腸道出血和液體丟失，導致低血容量休克。胰腺炎導致液體向第三間隙轉移，而非直接血容量丟失。肝硬化是慢性疾病。心肌炎引起心源性休克。"
+      },
+      {
+        "id": 4,
+        "question_en": "The following heart rate result for a 50-year-old healthy male would suggest bradycardia:",
+        "question_zh": "以下哪個心率結果提示50歲健康男性患有心動過緩？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "55 bpm", "zh": "55次/分", "correct": true},
+          "B": {"en": "65 bpm", "zh": "65次/分", "correct": false},
+          "C": {"en": "75 bpm", "zh": "75次/分", "correct": false},
+          "D": {"en": "85 bpm", "zh": "85次/分", "correct": false}
+        },
+        "exp_en": "A — Bradycardia is defined as a heart rate below 60 bpm in adults. 55 bpm falls below this threshold. 65, 75, and 85 bpm are all within the normal range of 60–100 bpm.",
+        "exp_zh": "A——心動過緩定義為成人心率低於每分鐘60次。55次/分低於此閾值。65、75和85次/分均在正常範圍（60-100次/分）內。"
+      },
+      {
+        "id": 5,
+        "question_en": "Hyperthyroidism is diagnosed by:",
+        "question_zh": "甲狀腺功能亢進症通過以下方式診斷：",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Decreased plasma TSH levels", "zh": "血漿TSH水平降低", "correct": true},
+          "B": {"en": "Decreased plasma thyroid hormone levels", "zh": "血漿甲狀腺激素水平降低", "correct": false},
+          "C": {"en": "Increased plasma TSH levels", "zh": "血漿TSH水平升高", "correct": false},
+          "D": {"en": "Decreased plasma ADH levels", "zh": "血漿ADH水平降低", "correct": false},
+          "E": {"en": "Increased plasma ADH levels", "zh": "血漿ADH水平升高", "correct": false}
+        },
+        "exp_en": "A — Hyperthyroidism is characterized by DECREASED TSH (the pituitary reduces output when thyroid hormones are high — negative feedback) and INCREASED thyroid hormones. High TSH suggests hypothyroidism.",
+        "exp_zh": "A——甲亢的特徵是TSH降低（甲狀腺激素升高時，垂體通過負反饋減少TSH分泌）和甲狀腺激素升高。TSH升高提示甲減。"
+      },
+      {
+        "id": 6,
+        "question_en": "What are the two types of cell death?",
+        "question_zh": "細胞死亡的兩種類型是什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Necrosis and hyperplasia", "zh": "壞死和增生", "correct": false},
+          "B": {"en": "Hyperplasia and apoptosis", "zh": "增生和細胞凋亡", "correct": false},
+          "C": {"en": "Dysplasia and necrosis", "zh": "發育不良和壞死", "correct": false},
+          "D": {"en": "Necrosis and apoptosis", "zh": "壞死和細胞凋亡", "correct": true},
+          "E": {"en": "Apoptosis and dysplasia", "zh": "細胞凋亡和發育不良", "correct": false}
+        },
+        "exp_en": "D — The two types of cell death are necrosis (pathological, caused by injury) and apoptosis (programmed cell death, physiological). Hyperplasia and dysplasia are cell growth abnormalities, not types of death.",
+        "exp_zh": "D——細胞死亡的兩種類型是壞死（病理性，由損傷引起）和細胞凋亡（程序性細胞死亡，生理性）。增生和發育不良是細胞生長異常，不是死亡類型。"
+      },
+      {
+        "id": 7,
+        "question_en": "Which of the following is NOT associated with a risk of cancer?",
+        "question_zh": "以下哪項與癌症風險無關？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Hyperplasia", "zh": "增生", "correct": false},
+          "B": {"en": "Dysplasia", "zh": "發育不良", "correct": false},
+          "C": {"en": "Metaplasia", "zh": "化生", "correct": false},
+          "D": {"en": "Hypoplasia", "zh": "發育不全", "correct": true},
+          "E": {"en": "Anaplasia", "zh": "間變", "correct": false}
+        },
+        "exp_en": "D — Hypoplasia (decreased cell number) is NOT associated with cancer risk. Hyperplasia, dysplasia, metaplasia, and anaplasia all represent abnormal cellular changes that can be precancerous.",
+        "exp_zh": "D——發育不全（細胞數量減少）與癌症風險無關。增生、發育不良、化生和間變均代表可能為癌前病變的異常細胞改變。"
+      },
+      {
+        "id": 8,
+        "question_en": "This cranial nerve is important for your patient’s ability to chew their dinner.",
+        "question_zh": "這條腦神經對患者咀嚼食物的能力非常重要。",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Cranial Nerve I", "zh": "第I腦神經（嗅神經）", "correct": false},
+          "B": {"en": "Cranial Nerve III", "zh": "第III腦神經（動眼神經）", "correct": false},
+          "C": {"en": "Cranial Nerve V", "zh": "第V腦神經（三叉神經）", "correct": true},
+          "D": {"en": "Cranial Nerve VII", "zh": "第VII腦神經（面神經）", "correct": false}
+        },
+        "exp_en": "C — Cranial Nerve V (Trigeminal) has three branches including the motor branch to the masseter and temporalis muscles for chewing. CN VII controls facial expression, not mastication.",
+        "exp_zh": "C——第V腦神經（三叉神經）有三個分支，包括支配咬肌和顳肌進行咀嚼的運動支。第VII腦神經控制面部表情，而非咀嚼。"
+      },
+      {
+        "id": 9,
+        "question_en": "Insulin is produced within Beta-cells in the:",
+        "question_zh": "胰島素由以下哪個部位的β細胞產生：",
+        "answer": "E",
+        "options": {
+          "A": {"en": "Thyroid", "zh": "甲狀腺", "correct": false},
+          "B": {"en": "Bone marrow", "zh": "骨髓", "correct": false},
+          "C": {"en": "Liver", "zh": "肝臟", "correct": false},
+          "D": {"en": "Kidney", "zh": "腎臟", "correct": false},
+          "E": {"en": "Pancreas", "zh": "胰腺", "correct": true}
+        },
+        "exp_en": "E — Insulin is produced by the beta cells of the islets of Langerhans in the pancreas. Alpha cells produce glucagon. The liver stores and releases glucose but does not produce insulin.",
+        "exp_zh": "E——胰島素由胰腺朗格漢斯島的β細胞產生。α細胞產生胰高糖素。肝臟儲存和釋放葡萄糖，但不產生胰島素。"
+      },
+      {
+        "id": 10,
+        "question_en": "Which disease is caused by Salmonella Enterica?",
+        "question_zh": "哪種疾病由腸道沙門氏菌引起？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Typhoid Fever", "zh": "傷寒", "correct": true},
+          "B": {"en": "Leptospirosis", "zh": "鉤端螺旋體病", "correct": false},
+          "C": {"en": "Malaria", "zh": "瘧疾", "correct": false},
+          "D": {"en": "Mumps", "zh": "腮腺炎", "correct": false},
+          "E": {"en": "Schistosomiasis", "zh": "血吸蟲病", "correct": false}
+        },
+        "exp_en": "A — Salmonella enterica serotype Typhi causes typhoid fever. Leptospirosis is caused by Leptospira bacteria. Malaria is from Plasmodium parasites. Mumps is viral. Schistosomiasis is from a parasitic worm.",
+        "exp_zh": "A——腸道沙門氏菌傷寒血清型引起傷寒。鉤端螺旋體病由鉤端螺旋體引起。瘧疾由瘧原蟲引起。腮腺炎是病毒性的。血吸蟲病由寄生蟲引起。"
+      },
+      {
+        "id": 11,
+        "question_en": "At which level does a diagnosis of leukocytosis occur?",
+        "question_zh": "白細胞增多症的診斷標準是多少？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "WBCs > 11,000/ml", "zh": "白細胞 > 11,000/ml", "correct": true},
+          "B": {"en": "WBCs > 1,100/ml", "zh": "白細胞 > 1,100/ml", "correct": false},
+          "C": {"en": "WBCs < 11,000/ml", "zh": "白細胞 < 11,000/ml", "correct": false},
+          "D": {"en": "WBCs < 1,000/ml", "zh": "白細胞 < 1,000/ml", "correct": false}
+        },
+        "exp_en": "A — Leukocytosis is diagnosed when WBC count exceeds 11,000/mL. Normal WBC range is 4,500–11,000/mL. Leukopenia is WBC < 4,000/mL.",
+        "exp_zh": "A——白細胞增多症在白細胞計數超過11,000/mL時診斷。正常白細胞範圍為4,500-11,000/mL。白細胞減少症為白細胞<4,000/mL。"
+      },
+      {
+        "id": 12,
+        "question_en": "Mild thrombotic stroke is known as:",
+        "question_zh": "輕度血栓性腦卒中稱為：",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Transient Ischemic Attack", "zh": "短暫性腦缺血發作(TIA)", "correct": true},
+          "B": {"en": "Embolism", "zh": "栓塞", "correct": false},
+          "C": {"en": "Thrombosis", "zh": "血栓形成", "correct": false},
+          "D": {"en": "Hemorrhage", "zh": "出血", "correct": false},
+          "E": {"en": "Neurosis", "zh": "神經症", "correct": false}
+        },
+        "exp_en": "A — A TIA (Transient Ischemic Attack) is a mild, temporary thrombotic event with symptoms resolving within 24 hours. It's a warning sign for stroke. Full thrombotic stroke causes permanent deficits.",
+        "exp_zh": "A——短暫性腦缺血發作（TIA）是症狀在24小時內消失的輕度、暫時性血栓事件，是中風的警告信號。完全血栓性中風導致永久性缺陷。"
+      },
+      {
+        "id": 13,
+        "question_en": "An H-Test can be used to assess which cranial nerves?",
+        "question_zh": "H試驗可用於評估哪些腦神經？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "III, IV and V", "zh": "第III、IV和V腦神經", "correct": false},
+          "B": {"en": "II, III, and IV", "zh": "第II、III和IV腦神經", "correct": false},
+          "C": {"en": "IV, VI, and VII", "zh": "第IV、VI和VII腦神經", "correct": false},
+          "D": {"en": "III, IV, and VI", "zh": "第III、IV和VI腦神經", "correct": true}
+        },
+        "exp_en": "D — The H-Test (tracking an H-shape with eyes) assesses extraocular movements controlled by CN III (oculomotor), CN IV (trochlear), and CN VI (abducens). CN V is for sensation/mastication, not eye movement.",
+        "exp_zh": "D——H試驗（眼睛追蹤H形軌跡）評估由第III（動眼神經）、IV（滑車神經）和VI（外展神經）腦神經控制的眼外肌運動。第V腦神經負責感覺/咀嚼，不控制眼部運動。"
+      },
+      {
+        "id": 14,
+        "question_en": "Patients presenting with profuse watery diarrhea (“rice-water stools”) are suffering from:",
+        "question_zh": "出現大量水樣腹瀉（米泔水樣便）的患者患有：",
+        "answer": "E",
+        "options": {
+          "A": {"en": "Typhoid Fever", "zh": "傷寒", "correct": false},
+          "B": {"en": "Leptospirosis", "zh": "鉤端螺旋體病", "correct": false},
+          "C": {"en": "Malaria", "zh": "瘧疾", "correct": false},
+          "D": {"en": "Mumps", "zh": "腮腺炎", "correct": false},
+          "E": {"en": "Cholera", "zh": "霍亂", "correct": true}
+        },
+        "exp_en": "E — 'Rice-water stools' (profuse watery diarrhea) are pathognomonic of cholera (Vibrio cholerae). The toxin causes massive secretion of water and electrolytes into the intestinal lumen.",
+        "exp_zh": "E——「米泔水樣便」（大量水樣腹瀉）是霍亂（霍亂弧菌）的特徵性表現。毒素引起大量水分和電解質分泌至腸腔。"
+      },
+      {
+        "id": 15,
+        "question_en": "A positive finding for tenderness at McBurney’s Point suggests:",
+        "question_zh": "麥氏點壓痛陽性提示：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Intermittent cholecystitis", "zh": "間歇性膽囊炎", "correct": false},
+          "B": {"en": "Normal pregnancy", "zh": "正常妊娠", "correct": false},
+          "C": {"en": "Possible appendicitis", "zh": "可能為闌尾炎", "correct": true},
+          "D": {"en": "Diagnostic for psoas muscle strain", "zh": "診斷為腰大肌拉傷", "correct": false}
+        },
+        "exp_en": "C — McBurney's point is located 2/3 of the way from the umbilicus to the right anterior superior iliac spine. Tenderness there suggests appendicitis. It is not diagnostic but highly suggestive.",
+        "exp_zh": "C——麥氏點位於臍部至右前上棘的2/3處。該處壓痛提示闌尾炎，不具診斷性但高度提示。"
+      },
+      {
+        "id": 16,
+        "question_en": "Which disease is characterized by swollen, painful salivary glands on one or both sides of the face?",
+        "question_zh": "哪種疾病以面部一側或兩側唾液腺腫痛為特徵？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Typhoid Fever", "zh": "傷寒", "correct": false},
+          "B": {"en": "Leptospirosis", "zh": "鉤端螺旋體病", "correct": false},
+          "C": {"en": "Malaria", "zh": "瘧疾", "correct": false},
+          "D": {"en": "Mumps", "zh": "腮腺炎", "correct": true},
+          "E": {"en": "Schistosomiasis", "zh": "血吸蟲病", "correct": false}
+        },
+        "exp_en": "D — Mumps (paramyxovirus) classically causes parotitis — swollen, painful salivary (parotid) glands on one or both sides. It can also cause orchitis, pancreatitis, and meningitis.",
+        "exp_zh": "D——腮腺炎（副黏病毒）典型表現為腮腺炎——一側或兩側唾液腺（腮腺）腫痛。也可引起睾丸炎、胰腺炎和腦膜炎。"
+      },
+      {
+        "id": 17,
+        "question_en": "Ataxia is a medical finding that presents with:",
+        "question_zh": "共濟失調是一種表現為以下症狀的醫學發現：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "No bowel sounds during an abdominal exam", "zh": "腹部檢查時無腸鳴音", "correct": false},
+          "B": {"en": "Low blood pressure and lightheadedness", "zh": "低血壓和頭暈", "correct": false},
+          "C": {"en": "Discoordination secondary to cerebellar disease", "zh": "小腦疾病繼發的運動失調", "correct": true},
+          "D": {"en": "Claudication due to MCL tear", "zh": "內側副韌帶撕裂引起的跛行", "correct": false}
+        },
+        "exp_en": "C — Ataxia is incoordination or unsteadiness due to cerebellar dysfunction. It is NOT the same as low blood pressure (B) or absent bowel sounds (A). Claudication is vascular pain with walking.",
+        "exp_zh": "C——共濟失調是由小腦功能障礙引起的動作不協調或不穩。不同於低血壓（B）或腸鳴音消失（A）。跛行是行走時的血管性疼痛。"
+      },
+      {
+        "id": 18,
+        "question_en": "The following is considered normal body temperature in humans:",
+        "question_zh": "以下哪個被視為人體正常體溫：",
+        "answer": "B",
+        "options": {
+          "A": {"en": "36.2°C", "zh": "36.2°C", "correct": false},
+          "B": {"en": "37.0°C", "zh": "37.0°C", "correct": true},
+          "C": {"en": "38.6°C", "zh": "38.6°C", "correct": false},
+          "D": {"en": "46.8°C", "zh": "46.8°C", "correct": false}
+        },
+        "exp_en": "B — Normal body temperature is 37.0°C (98.6°F). 36.2°C is slightly low, 38.6°C is fever, and 46.8°C is incompatible with life.",
+        "exp_zh": "B——正常體溫為37.0°C（98.6°F）。36.2°C偏低，38.6°C為發燒，46.8°C與生命不相容。"
+      },
+      {
+        "id": 19,
+        "question_en": "Rapid progressive limb weakness and loss of tendon reflexes:",
+        "question_zh": "快速進行性肢體無力和腱反射消失：",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Bell’s palsy", "zh": "Bell’s palsy", "correct": false},
+          "B": {"en": "Guillain-Barré Syndrome", "zh": "吉蘭-巴雷綜合症", "correct": true},
+          "C": {"en": "Ménière’s Disease", "zh": "Ménière’s Disease", "correct": false},
+          "D": {"en": "Sciatica", "zh": "坐骨神經痛", "correct": false},
+          "E": {"en": "Trigeminal Neuralgia", "zh": "三叉神經痛", "correct": false}
+        },
+        "exp_en": "B — Guillain-Barré Syndrome (GBS) presents with rapidly progressive ascending limb weakness and areflexia (loss of tendon reflexes), often after infection. Bell's palsy affects only CN VII.",
+        "exp_zh": "B——吉蘭-巴雷綜合症（GBS）表現為快速進行性上升性肢體無力和反射消失（腱反射喪失），常繼發於感染後。貝爾氏麻痺僅影響第VII腦神經。"
+      },
+      {
+        "id": 20,
+        "question_en": "Which condition is also known as tic douloureux?",
+        "question_zh": "哪種疾病也稱為痛性抽搐？",
+        "answer": "E",
+        "options": {
+          "A": {"en": "Bell’s palsy", "zh": "Bell’s palsy", "correct": false},
+          "B": {"en": "Guillain-Barré Syndrome", "zh": "吉蘭-巴雷綜合症", "correct": false},
+          "C": {"en": "Ménière’s Disease", "zh": "Ménière’s Disease", "correct": false},
+          "D": {"en": "Sciatica", "zh": "坐骨神經痛", "correct": false},
+          "E": {"en": "Trigeminal Neuralgia", "zh": "三叉神經痛", "correct": true}
+        },
+        "exp_en": "E — Trigeminal Neuralgia is also called tic douloureux ('painful tic') because the intense, stabbing facial pain causes involuntary facial spasms. It affects the trigeminal nerve (CN V).",
+        "exp_zh": "E——三叉神經痛也稱為痛性抽搐，因為強烈的刺痛性面部疼痛引起不自主面部痙攣。影響三叉神經（第V腦神經）。"
+      },
+      {
+        "id": 21,
+        "question_en": "Hyperresonance on lung percussion is a key indicator of COPD.",
+        "question_zh": "肺部叩診過清音是COPD的重要指標。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": true},
+          "B": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. In COPD, air trapping causes hyperinflation of lungs, which produces hyperresonance on percussion. Normal lungs produce resonance; consolidation produces dullness.",
+        "exp_zh": "正確。在COPD中，氣體陷閉導致肺部過度充氣，叩診產生過清音。正常肺部產生清音；肺實變產生濁音。"
+      },
+      {
+        "id": 22,
+        "question_en": "Hematemesis, Melena, Hematochezia are characteristic of:",
+        "question_zh": "嘔血、黑便、便血是以下哪種疾病的特徵：",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Diarrhea", "zh": "腹瀉", "correct": false},
+          "B": {"en": "GI bleeding", "zh": "消化道出血", "correct": true},
+          "C": {"en": "Vomiting", "zh": "嘔吐", "correct": false},
+          "D": {"en": "Burping", "zh": "打嗝", "correct": false},
+          "E": {"en": "Constipation", "zh": "便秘", "correct": false}
+        },
+        "exp_en": "B — Hematemesis (vomiting blood), melena (black tarry stool from upper GI), and hematochezia (bright red rectal bleeding) are all signs of GI bleeding, differing in location.",
+        "exp_zh": "B——嘔血（嘔吐血液）、黑便（上消化道出血的柏油樣黑色糞便）和便血（鮮紅色直腸出血）均為消化道出血的體徵，差異在於出血部位。"
+      },
+      {
+        "id": 23,
+        "question_en": "Severe dizziness, tinnitus, hearing loss, ear fullness:",
+        "question_zh": "嚴重眩暈、耳鳴、聽力喪失、耳悶：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Bell’s palsy", "zh": "Bell’s palsy", "correct": false},
+          "B": {"en": "Guillain-Barré Syndrome", "zh": "吉蘭-巴雷綜合症", "correct": false},
+          "C": {"en": "Ménière’s Disease", "zh": "Ménière’s Disease", "correct": true},
+          "D": {"en": "Sciatica", "zh": "坐骨神經痛", "correct": false},
+          "E": {"en": "Trigeminal Neuralgia", "zh": "三叉神經痛", "correct": false}
+        },
+        "exp_en": "C — Ménière's Disease is characterized by the tetrad: severe vertigo (episodic), tinnitus, sensorineural hearing loss, and aural fullness (ear pressure). It involves endolymphatic hydrops.",
+        "exp_zh": "C——梅尼埃病以四聯徵為特徵：嚴重眩暈（發作性）、耳鳴、感音神經性聽力喪失和耳悶（耳部壓力）。涉及內淋巴積水。"
+      },
+      {
+        "id": 24,
+        "question_en": "Leukocytosis diagnosed when WBCs are:",
+        "question_zh": "白細胞增多症的診斷標準（白細胞計數）：",
+        "answer": "A",
+        "options": {
+          "A": {"en": ">11,000/ml", "zh": ">11,000/ml", "correct": true},
+          "B": {"en": "<5,000/ml", "zh": "<5,000/ml", "correct": false},
+          "C": {"en": "<1,000/ml", "zh": "<1,000/ml", "correct": false},
+          "D": {"en": "<4,000/ml", "zh": "<4,000/ml", "correct": false}
+        },
+        "exp_en": "A — Leukocytosis is defined as WBC > 11,000/mL. Values below 4,000/mL indicate leukopenia. The repeated question reinforces this key threshold.",
+        "exp_zh": "A——白細胞增多症定義為白細胞>11,000/mL。低於4,000/mL提示白細胞減少症。重複此問題強化了這一關鍵閾值。"
+      },
+      {
+        "id": 25,
+        "question_en": "Malaria parasites infect which cell type?",
+        "question_zh": "瘧原蟲感染哪種細胞類型？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "WBC", "zh": "白細胞", "correct": false},
+          "B": {"en": "RBC", "zh": "紅細胞", "correct": true},
+          "C": {"en": "Platelets", "zh": "血小板", "correct": false},
+          "D": {"en": "Macrophages", "zh": "巨噬細胞", "correct": false}
+        },
+        "exp_en": "B — Malaria parasites (Plasmodium species) infect and multiply within red blood cells (RBCs), causing their rupture and the characteristic cyclical fever pattern.",
+        "exp_zh": "B——瘧原蟲感染並在紅細胞（RBC）內增殖，導致紅細胞破裂並產生特徵性週期性發熱。"
+      },
+      {
+        "id": 26,
+        "question_en": "Loss or decrease in number of circulating platelets:",
+        "question_zh": "循環血小板數量減少或降低：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Sarcopenia", "zh": "肌少症", "correct": false},
+          "B": {"en": "Erythropenia", "zh": "紅細胞減少症", "correct": false},
+          "C": {"en": "Thrombocytopenia", "zh": "血小板減少症", "correct": true},
+          "D": {"en": "Leukocytopenia", "zh": "白細胞減少症", "correct": false}
+        },
+        "exp_en": "C — Thrombocytopenia is the decrease in circulating platelets. Sarcopenia is loss of muscle mass, erythropenia is decreased RBCs, and leukocytopenia is decreased WBCs.",
+        "exp_zh": "C——血小板減少症是循環血小板減少。肌少症是肌肉質量減少，紅細胞減少症是紅細胞減少，白細胞減少症是白細胞減少。"
+      },
+      {
+        "id": 27,
+        "question_en": "Chronic productive cough for 3 months for 2 consecutive years:",
+        "question_zh": "連續2年、每年持續3個月的慢性有痰咳嗽：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Asthma", "zh": "哮喘", "correct": false},
+          "B": {"en": "Acute TB", "zh": "急性結核病", "correct": false},
+          "C": {"en": "Chronic bronchitis", "zh": "慢性支氣管炎", "correct": true},
+          "D": {"en": "Acute bronchitis", "zh": "急性支氣管炎", "correct": false},
+          "E": {"en": "Chronic TB", "zh": "慢性結核病", "correct": false}
+        },
+        "exp_en": "C — Chronic bronchitis is clinically defined as a productive cough for at least 3 months per year for 2 consecutive years. This is the key diagnostic criterion.",
+        "exp_zh": "C——慢性支氣管炎臨床上定義為連續2年、每年至少3個月的有痰咳嗽，這是關鍵診斷標準。"
+      },
+      {
+        "id": 28,
+        "question_en": "Blood in sputum is known as:",
+        "question_zh": "痰中帶血稱為：",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Hyperpnea", "zh": "過度呼吸", "correct": false},
+          "B": {"en": "Hemoptysis", "zh": "咳血", "correct": true},
+          "C": {"en": "Hypopnea", "zh": "呼吸不足", "correct": false},
+          "D": {"en": "Erythrolysis", "zh": "紅細胞溶解", "correct": false},
+          "E": {"en": "Erythropenia", "zh": "紅細胞減少症", "correct": false}
+        },
+        "exp_en": "B — Hemoptysis means coughing up blood from the respiratory tract. Hyperpnea is increased breathing depth. Hematemesis is vomiting blood. Erythropenia is decreased RBCs.",
+        "exp_zh": "B——咳血指從呼吸道咳出血液。過度呼吸指呼吸深度增加。嘔血指嘔吐血液。紅細胞減少症指紅細胞減少。"
+      },
+      {
+        "id": 29,
+        "question_en": "Cannot turn head to look at you → affected cranial nerve:",
+        "question_zh": "無法轉頭看您→受累腦神經：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "CN VII", "zh": "第VII腦神經（面神經）", "correct": false},
+          "B": {"en": "CN X", "zh": "第X腦神經（迷走神經）", "correct": false},
+          "C": {"en": "CN IX", "zh": "第IX腦神經（舌咽神經）", "correct": false},
+          "D": {"en": "CN XI", "zh": "第XI腦神經（副神經）", "correct": true}
+        },
+        "exp_en": "D — CN XI (Spinal Accessory Nerve) innervates the sternocleidomastoid and trapezius muscles. Damage prevents head rotation and shoulder elevation. CN VII affects facial expression only.",
+        "exp_zh": "D——第XI腦神經（副神經）支配胸鎖乳突肌和斜方肌。損傷妨礙頭部旋轉和肩部抬高。第VII腦神經僅影響面部表情。"
+      },
+      {
+        "id": 30,
+        "question_en": "A rash is an example of:",
+        "question_zh": "皮疹是以下哪項的例子：",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Suffering", "zh": "痛苦", "correct": false},
+          "B": {"en": "Sign", "zh": "體徵", "correct": true},
+          "C": {"en": "Syndrome", "zh": "綜合症", "correct": false},
+          "D": {"en": "Symptom", "zh": "症狀", "correct": false},
+          "E": {"en": "Stupor", "zh": "昏迷", "correct": false}
+        },
+        "exp_en": "B — A rash is a sign (objective finding observable by the examiner). A symptom is subjective (reported by the patient, like pain). A syndrome is a cluster of signs and symptoms.",
+        "exp_zh": "B——皮疹是體徵（檢查者可觀察到的客觀發現）。症狀是主觀的（患者報告的，如疼痛）。綜合症是一組體徵和症狀的集合。"
+      },
+      {
+        "id": 31,
+        "question_en": "How do radiation, systemic lupus, chemicals, HIV impact white blood cells?",
+        "question_zh": "輻射、系統性紅斑狼瘡、化學物質、HIV如何影響白細胞？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Decreased production", "zh": "產生減少", "correct": false},
+          "B": {"en": "Decreased survival", "zh": "存活率降低", "correct": true},
+          "C": {"en": "Increased production", "zh": "產生增加", "correct": false},
+          "D": {"en": "Increased survival", "zh": "存活率提高", "correct": false}
+        },
+        "exp_en": "B — Radiation, lupus, chemicals, and HIV decrease WBC survival (destroy existing WBCs). Other causes of leukopenia include decreased production (bone marrow suppression).",
+        "exp_zh": "B——輻射、紅斑狼瘡、化學物質和HIV降低白細胞存活率（破壞現有白細胞）。白細胞減少的其他原因包括產生減少（骨髓抑制）。"
+      },
+      {
+        "id": 32,
+        "question_en": "Graves disease, thyroid adenoma, toxic multinodular goiter, subacute thyroiditis, thyroid cancer are associated with:",
+        "question_zh": "格雷夫斯病、甲狀腺腺瘤、毒性多結節性甲狀腺腫、亞急性甲狀腺炎、甲狀腺癌與以下哪種疾病相關：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Diabetes insipidus", "zh": "尿崩症", "correct": false},
+          "B": {"en": "Diabetes mellitus", "zh": "糖尿病", "correct": false},
+          "C": {"en": "Hypothyroidism", "zh": "甲狀腺功能減退症", "correct": false},
+          "D": {"en": "Hyperthyroidism", "zh": "甲狀腺功能亢進症", "correct": true},
+          "E": {"en": "Gestational diabetes", "zh": "妊娠糖尿病", "correct": false}
+        },
+        "exp_en": "D — All listed conditions (Graves, adenoma, toxic MNG, subacute thyroiditis, thyroid cancer) can cause excessive thyroid hormone production, leading to hyperthyroidism.",
+        "exp_zh": "D——所有列出的疾病（格雷夫斯病、腺瘤、毒性多結節性甲狀腺腫、亞急性甲狀腺炎、甲狀腺癌）均可導致甲狀腺激素過度產生，引起甲亢。"
+      },
+      {
+        "id": 33,
+        "question_en": "If your patient cannot turn their head to look at you, this cranial nerve may be affected:",
+        "question_zh": "如果您的患者無法轉頭看您，可能受累的腦神經是：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Cranial Nerve VII", "zh": "第VII腦神經（面神經）", "correct": false},
+          "B": {"en": "Cranial Nerve X", "zh": "第X腦神經（迷走神經）", "correct": false},
+          "C": {"en": "Cranial Nerve IX", "zh": "第IX腦神經（舌咽神經）", "correct": false},
+          "D": {"en": "Cranial Nerve XI", "zh": "第XI腦神經（副神經）", "correct": true}
+        },
+        "exp_en": "D — CN XI (Accessory Nerve) controls the sternocleidomastoid (head rotation) and trapezius. This question repeats #29 to reinforce the association.",
+        "exp_zh": "D——第XI腦神經（副神經）控制胸鎖乳突肌（頭部旋轉）和斜方肌。此題重複第29題以強化關聯記憶。"
+      },
+      {
+        "id": 34,
+        "question_en": "The following word implies a disease has no known cause.",
+        "question_zh": "以下哪個詞表示疾病原因不明：",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Idiopathic", "zh": "特發性", "correct": true},
+          "B": {"en": "Iatrogenic", "zh": "醫源性", "correct": false},
+          "C": {"en": "Isometric", "zh": "等長", "correct": false},
+          "D": {"en": "Platonic", "zh": "柏拉圖式", "correct": false},
+          "E": {"en": "Neogenic", "zh": "新生性", "correct": false}
+        },
+        "exp_en": "A — Idiopathic means 'of unknown cause' (from Greek 'idios' = one's own, 'pathos' = disease). Iatrogenic means caused by medical treatment. These two terms are commonly confused.",
+        "exp_zh": "A——特發性意為「原因不明」（源自希臘語 'idios'=自身，'pathos'=疾病）。醫源性指由醫療治療引起。這兩個術語常被混淆。"
+      },
+      {
+        "id": 35,
+        "question_en": "Select the correct statement:",
+        "question_zh": "選擇正確的陳述：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Cellulitis will appear as a red skin lesion with a bluish center", "zh": "蜂窩組織炎表現為中心呈藍色的紅色皮膚病變", "correct": false},
+          "B": {"en": "Cellulitis will appear cool to the touch and pale in appearance", "zh": "蜂窩組織炎觸摸冰涼，外觀蒼白", "correct": false},
+          "C": {"en": "Cellulitis will appear red, warm and warrants immediate referral to the Emergency department", "zh": "蜂窩組織炎表現為紅色、溫熱，需立即轉介至急診室", "correct": true},
+          "D": {"en": "Cellulitis should be treated with herbs and acupuncture first before topical steroid treatments are considered", "zh": "蜂窩組織炎應先用草藥和針灸治療，再考慮局部類固醇治療", "correct": false}
+        },
+        "exp_en": "C — Cellulitis presents with red, warm, swollen, tender skin — classic signs of acute infection. It requires immediate ER referral as it can spread rapidly. It is NOT bluish, cool, or pale.",
+        "exp_zh": "C——蜂窩組織炎表現為皮膚紅腫、溫熱、壓痛——急性感染的典型體徵。由於可能迅速擴散，需立即轉介急診。不會表現為藍色、冰涼或蒼白。"
+      },
+      {
+        "id": 36,
+        "question_en": "i. Hyperplasia refers to an increase in the number of cells; ii. Hypertrophy refers to an increase in the size of the cells.",
+        "question_zh": "i. 增生指細胞數量增多；ii. 肥大指細胞體積增大。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Both statements are true", "zh": "兩項陳述均正確", "correct": true},
+          "B": {"en": "Both statements are false", "zh": "兩項陳述均錯誤", "correct": false},
+          "C": {"en": "First true, second false", "zh": "第一項正確，第二項錯誤", "correct": false},
+          "D": {"en": "First false, second true", "zh": "第一項錯誤，第二項正確", "correct": false}
+        },
+        "exp_en": "A — Both true. Hyperplasia = increase in CELL NUMBER. Hypertrophy = increase in CELL SIZE. A hypertrophied heart has larger cells; a hyperplastic tissue has more cells.",
+        "exp_zh": "A——兩項均正確。增生=細胞數量增多。肥大=細胞體積增大。肥大的心臟細胞更大；增生的組織細胞更多。"
+      },
+      {
+        "id": 37,
+        "question_en": "If a patient presents with cystitis symptoms but urine culture is negative, they most likely have:",
+        "question_zh": "如果患者出現膀胱炎症狀但尿液培養陰性，最可能的診斷是：",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Nonbacterial cystitis", "zh": "非細菌性膀胱炎", "correct": true},
+          "B": {"en": "Nonviral cystitis", "zh": "非病毒性膀胱炎", "correct": false},
+          "C": {"en": "Urethritis", "zh": "尿道炎", "correct": false},
+          "D": {"en": "Suppurative cystitis", "zh": "化膿性膀胱炎", "correct": false},
+          "E": {"en": "Pyelonephritis", "zh": "腎盂腎炎", "correct": false}
+        },
+        "exp_en": "A — Negative urine culture with cystitis symptoms suggests nonbacterial cystitis (interstitial cystitis or other non-infectious cause). If bacterial, culture would be positive.",
+        "exp_zh": "A——有膀胱炎症狀但尿液培養陰性提示非細菌性膀胱炎（間質性膀胱炎或其他非感染性原因）。若為細菌性，培養應為陽性。"
+      },
+      {
+        "id": 38,
+        "question_en": "Which condition is characterized by rapidly progressive limb weakness and loss of tendon reflexes?",
+        "question_zh": "哪種疾病以快速進行性肢體無力和腱反射消失為特徵？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Bell’s Palsy", "zh": "Bell’s Palsy", "correct": false},
+          "B": {"en": "Guillain Barré Syndrome", "zh": "吉蘭-巴雷綜合症", "correct": true},
+          "C": {"en": "Meniere’s Disease", "zh": "Meniere’s Disease", "correct": false},
+          "D": {"en": "Sciatica", "zh": "坐骨神經痛", "correct": false},
+          "E": {"en": "Trigeminal Neuralgia", "zh": "三叉神經痛", "correct": false}
+        },
+        "exp_en": "B — Guillain-Barré Syndrome (GBS) is an autoimmune peripheral neuropathy causing rapidly progressive ascending weakness and areflexia. Bell's Palsy is unilateral facial nerve palsy only.",
+        "exp_zh": "B——吉蘭-巴雷綜合症（GBS）是自身免疫性周圍神經病，引起快速進行性上升性無力和反射消失。貝爾氏麻痺僅為單側面神經麻痺。"
+      },
+      {
+        "id": 39,
+        "question_en": "Which condition is also known as tic douloureux because the intense pain can cause patients to contort their face into a grimace and cause the head to move away from the pain?",
+        "question_zh": "哪種疾病又稱為痛性抽搐，因為劇烈疼痛可使患者面部扭曲做鬼臉，並使頭部向遠離疼痛的方向移動？",
+        "answer": "E",
+        "options": {
+          "A": {"en": "Bell’s Palsy", "zh": "Bell’s Palsy", "correct": false},
+          "B": {"en": "Guillain Barré Syndrome", "zh": "吉蘭-巴雷綜合症", "correct": false},
+          "C": {"en": "Meniere’s Disease", "zh": "Meniere’s Disease", "correct": false},
+          "D": {"en": "Sciatica", "zh": "坐骨神經痛", "correct": false},
+          "E": {"en": "Trigeminal Neuralgia", "zh": "三叉神經痛", "correct": true}
+        },
+        "exp_en": "E — Trigeminal Neuralgia (tic douloureux) causes lancinating facial pain so severe it causes patients to grimace and jerk their head away. It affects CN V, typically the V2/V3 branch.",
+        "exp_zh": "E——三叉神經痛（痛性抽搐）引起嚴重的刺痛性面部疼痛，導致患者做鬼臉和頭部甩開動作。影響第V腦神經，通常是V2/V3分支。"
+      }
+    ]
+  },
+  "pharmacology": {
+    "title": "Pharmacology",
+    "name_zh": "藥理學",
+    "icon": "💊",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "A patient suffering with chronic alcoholism can experience adverse effects from use of Tylenol even when using a dose within the safe daily guidelines prescribed on the package.",
+        "question_zh": "慢性酒精中毒患者即使使用藥品標籤規定的安全日劑量範圍內的泰諾，也可能出現不良反應。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": true},
+          "B": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. Chronic alcohol use induces CYP2E1 enzymes, increasing conversion of acetaminophen (Tylenol) to a toxic metabolite (NAPQI), causing hepatotoxicity even at 'safe' doses.",
+        "exp_zh": "正確。慢性飲酒誘導CYP2E1酶，增加對乙酰氨基酚（泰諾）轉化為有毒代謝物（NAPQI），即使在「安全」劑量下也會導致肝毒性。"
+      },
+      {
+        "id": 2,
+        "question_en": "Liver or kidney disease may increase the half-life of a drug.",
+        "question_zh": "肝臟或腎臟疾病可能延長藥物的半衰期。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": true},
+          "B": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True. The liver metabolizes most drugs; the kidney excretes them. Disease in either organ reduces drug clearance, prolonging the half-life and increasing risk of toxicity.",
+        "exp_zh": "正確。肝臟代謝大多數藥物；腎臟排泄藥物。任一器官疾病均會降低藥物清除率，延長半衰期並增加毒性風險。"
+      },
+      {
+        "id": 3,
+        "question_en": "The total daily dose of Drug A when prescribed 2 ml t.i.d. is:",
+        "question_zh": "藥物A的處方為每次2ml，每日三次（t.i.d.），則每日總劑量為：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "2 ml", "zh": "2毫升", "correct": false},
+          "B": {"en": "4 ml", "zh": "4毫升", "correct": false},
+          "C": {"en": "6 ml", "zh": "6毫升", "correct": true},
+          "D": {"en": "12 ml", "zh": "12毫升", "correct": false}
+        },
+        "exp_en": "C — t.i.d. means three times daily. 2 mL × 3 = 6 mL total daily dose. b.i.d. = twice daily, q.i.d. = four times daily.",
+        "exp_zh": "C——t.i.d.表示每日三次。2mL×3=6mL每日總劑量。b.i.d.=每日兩次，q.i.d.=每日四次。"
+      },
+      {
+        "id": 4,
+        "question_en": "Fill in the blank. Vitamin ____ needs to be closely monitored with Warfarin use.",
+        "question_zh": "填空。使用華法林時，需要密切監測維生素____。",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Vitamin C", "zh": "維生素C", "correct": false},
+          "B": {"en": "Vitamin D", "zh": "維生素D", "correct": false},
+          "C": {"en": "Vitamin K", "zh": "維生素K", "correct": true},
+          "D": {"en": "Vitamin A", "zh": "維生素A", "correct": false}
+        },
+        "exp_en": "C — Vitamin K is essential for clotting factors II, VII, IX, X. Warfarin works by blocking Vitamin K. Changes in Vitamin K intake (from food or supplements) directly affect INR and warfarin dosing.",
+        "exp_zh": "C——維生素K對凝血因子II、VII、IX、X至關重要。華法林通過阻斷維生素K發揮作用。維生素K攝入變化（來自食物或補充劑）直接影響INR和華法林劑量。"
+      },
+      {
+        "id": 5,
+        "question_en": "When a tetracycline is prescribed, the patient should be advised to:",
+        "question_zh": "開具四環素時，應建議患者：",
+        "answer": "B",
+        "options": {
+          "A": {"en": "take the drug with food / milk", "zh": "與食物或牛奶同服", "correct": false},
+          "B": {"en": "avoid sun exposure", "zh": "避免曝曬", "correct": true},
+          "C": {"en": "note that urine may turn orange", "zh": "注意尿液可能變橙色", "correct": false},
+          "D": {"en": "keep the drug refrigerated", "zh": "將藥物冷藏保存", "correct": false}
+        },
+        "exp_en": "B — Tetracyclines cause photosensitivity — patients must avoid sun exposure and use sunscreen. They should NOT be taken with food/dairy (calcium chelates tetracycline reducing absorption).",
+        "exp_zh": "B——四環素類藥物引起光敏性——患者必須避免曝曬並使用防曬霜。不應與食物/乳製品同服（鈣與四環素螯合，降低吸收）。"
+      },
+      {
+        "id": 6,
+        "question_en": "Which of the following would most likely terminate a hypoglycemic reaction?",
+        "question_zh": "以下哪項最可能終止低血糖反應？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Regular insulin", "zh": "常規胰島素", "correct": false},
+          "B": {"en": "pH insulin", "zh": "pH胰島素", "correct": false},
+          "C": {"en": "Orange juice", "zh": "橙汁", "correct": true},
+          "D": {"en": "Crackers and milk", "zh": "餅乾和牛奶", "correct": false}
+        },
+        "exp_en": "C — Orange juice (simple sugar + Vitamin C) rapidly raises blood glucose to terminate hypoglycemia. It acts within 15 minutes. The '15-15 rule': 15g fast carbs, recheck in 15 min.",
+        "exp_zh": "C——橙汁（單糖+維生素C）可快速升高血糖以終止低血糖反應，15分鐘內起效。「15-15法則」：15克快速碳水，15分鐘後重新檢測。"
+      },
+      {
+        "id": 7,
+        "question_en": "Which medication combination does not present a potential adverse drug interaction?",
+        "question_zh": "以下哪種藥物組合不存在潛在的不良藥物相互作用？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Iron + Antacids", "zh": "鐵劑 + 抗酸藥", "correct": false},
+          "B": {"en": "Calcium + Synthroid", "zh": "鈣劑 + 甲狀腺素", "correct": false},
+          "C": {"en": "Iron + Orange juice", "zh": "鐵劑 + 橙汁", "correct": true},
+          "D": {"en": "Iron + Synthroid", "zh": "鐵劑 + 甲狀腺素", "correct": false}
+        },
+        "exp_en": "C — Iron + Orange juice (Vitamin C/ascorbic acid) actually ENHANCES iron absorption. Antacids reduce iron absorption, Calcium competes with Synthroid absorption, and Iron binds to Synthroid.",
+        "exp_zh": "C——鐵劑+橙汁（維生素C/抗壞血酸）實際上增強鐵的吸收。抗酸藥降低鐵吸收，鈣與甲狀腺素競爭吸收，鐵與甲狀腺素結合。"
+      },
+      {
+        "id": 8,
+        "question_en": "Which of the following substances would decrease the absorption of oral iron?",
+        "question_zh": "以下哪種物質會降低口服鐵劑的吸收？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Antacids", "zh": "抗酸藥", "correct": true},
+          "B": {"en": "Levothyroxine", "zh": "左旋甲狀腺素", "correct": false},
+          "C": {"en": "Ascorbic acid", "zh": "抗壞血酸（維生素C）", "correct": false},
+          "D": {"en": "Vitamin B12", "zh": "維生素B12", "correct": false}
+        },
+        "exp_en": "A — Antacids (containing Ca2+, Mg2+, Al3+) form insoluble complexes with oral iron, significantly decreasing its absorption. Ascorbic acid (Vitamin C) actually increases iron absorption.",
+        "exp_zh": "A——抗酸藥（含Ca2+、Mg2+、Al3+）與口服鐵劑形成不溶性複合物，顯著降低其吸收。抗壞血酸（維生素C）實際上增加鐵的吸收。"
+      },
+      {
+        "id": 9,
+        "question_en": "Which of the following foods should patients include in their daily diet if wishing to prevent hypokalemia?",
+        "question_zh": "如果患者希望預防低鉀血症，應在日常飲食中包含以下哪種食物？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Green beans", "zh": "四季豆", "correct": false},
+          "B": {"en": "Apples", "zh": "蘋果", "correct": false},
+          "C": {"en": "Bananas", "zh": "香蕉", "correct": true},
+          "D": {"en": "Corn", "zh": "玉米", "correct": false}
+        },
+        "exp_en": "C — Bananas are rich in potassium. Hypokalemia (low potassium) is a common side effect of loop and thiazide diuretics. Dietary potassium supplementation helps prevent this.",
+        "exp_zh": "C——香蕉富含鉀。低鉀血症（血鉀偏低）是袢利尿劑和噻嗪類利尿劑的常見副作用。膳食鉀補充有助於預防。"
+      },
+      {
+        "id": 10,
+        "question_en": "Spironolactone is an example from which class of drug?",
+        "question_zh": "螺內酯屬於哪類藥物？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Sodium-sparing diuretic", "zh": "保鈉利尿劑", "correct": false},
+          "B": {"en": "Loop diuretic", "zh": "袢利尿劑", "correct": false},
+          "C": {"en": "Osmotic diuretic", "zh": "滲透性利尿劑", "correct": false},
+          "D": {"en": "Potassium-sparing diuretic", "zh": "保鉀利尿劑", "correct": true}
+        },
+        "exp_en": "D — Spironolactone is a potassium-sparing diuretic (aldosterone antagonist). Loop diuretics (furosemide) cause K+ loss. Osmotic diuretics (mannitol) act on osmosis. Sodium-sparing is not a standard classification.",
+        "exp_zh": "D——螺內酯是保鉀利尿劑（醛固酮拮抗劑）。袢利尿劑（呋塞米）導致K+丟失。滲透性利尿劑（甘露醇）通過滲透作用發揮作用。「保鈉利尿劑」不是標準分類。"
+      },
+      {
+        "id": 11,
+        "question_en": "Tinnitus is a symptom associated with:",
+        "question_zh": "耳鳴是與以下哪種疾病相關的症狀：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Serotonin syndrome", "zh": "5-羥色胺綜合症", "correct": false},
+          "B": {"en": "Steven-Johnson syndrome", "zh": "史蒂文斯-強生綜合症", "correct": false},
+          "C": {"en": "Salicylism", "zh": "水楊酸中毒", "correct": true},
+          "D": {"en": "Anaphylactic reaction", "zh": "過敏反應", "correct": false}
+        },
+        "exp_en": "C — Salicylism (salicylate toxicity from aspirin overdose) classically presents with tinnitus, hearing loss, and nausea. Serotonin syndrome causes agitation/hyperthermia. SJS causes severe skin reactions.",
+        "exp_zh": "C——水楊酸中毒（阿司匹林過量引起的水楊酸毒性）典型表現為耳鳴、聽力喪失和噁心。5-羥色胺綜合症引起躁動/體溫過高。史蒂文斯-強生綜合症引起嚴重皮膚反應。"
+      },
+      {
+        "id": 12,
+        "question_en": "Extra caution is required when prescribing TCM herbs for a patient taking a medication with a wide therapeutic margin as compared to a medication with a narrow therapeutic window.",
+        "question_zh": "與治療窗窄的藥物相比，為服用治療範圍寬的藥物的患者開具中草藥時需要格外謹慎。",
+        "answer": "A",
+        "options": {
+          "A": {"en": "True", "zh": "是", "correct": true},
+          "B": {"en": "False", "zh": "否", "correct": false}
+        },
+        "exp_en": "True (this is a trick question — the answer is TRUE meaning extra caution IS needed with NARROW therapeutic window drugs, not wide). Herbs can alter drug metabolism — narrow window drugs (like digoxin, warfarin) have less tolerance for fluctuation.",
+        "exp_zh": "正確（這是一個陷阱題——答案為真，意味著與治療窗窄的藥物合用時確實需要格外謹慎）。草藥可改變藥物代謝——治療窗窄的藥物（如地高辛、華法林）對波動的耐受性更低。"
+      },
+      {
+        "id": 13,
+        "question_en": "Which food(s) should be avoided when taking a xanthine derivative?",
+        "question_zh": "服用黃嘌呤衍生物時，應避免哪些食物？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "shellfish", "zh": "貝類", "correct": false},
+          "B": {"en": "products containing nuts", "zh": "含堅果的產品", "correct": false},
+          "C": {"en": "cola and coffee", "zh": "可樂和咖啡", "correct": true},
+          "D": {"en": "dairy products", "zh": "乳製品", "correct": false}
+        },
+        "exp_en": "C — Xanthine derivatives (theophylline, aminophylline) are structurally similar to caffeine. Cola and coffee contain caffeine, which can have additive effects causing toxicity (tachycardia, seizures).",
+        "exp_zh": "C——黃嘌呤衍生物（茶鹼、氨茶鹼）結構上與咖啡因相似。可樂和咖啡含咖啡因，可能產生疊加效應導致毒性（心動過速、癲癇發作）。"
+      },
+      {
+        "id": 14,
+        "question_en": "Which medication can be prescribed on a short-term basis for symptoms associated with low back pain?",
+        "question_zh": "哪種藥物可短期用於腰痛相關症狀？",
+        "answer": "E",
+        "options": {
+          "A": {"en": "Opioids", "zh": "阿片類藥物", "correct": false},
+          "B": {"en": "Muscle relaxants", "zh": "肌肉鬆弛劑", "correct": false},
+          "C": {"en": "Tricyclic Antidepressants", "zh": "三環類抗抑鬱藥", "correct": false},
+          "D": {"en": "Anticonvulsants (Benzodiazepine)", "zh": "抗驚厥藥（苯二氮䓬類）", "correct": false},
+          "E": {"en": "All of the above", "zh": "以上皆是", "correct": true}
+        },
+        "exp_en": "E — All of the above can be prescribed short-term for acute low back pain: opioids (carefully), muscle relaxants, TCAs (for pain modulation), and benzodiazepines (for muscle spasm). All carry significant risks.",
+        "exp_zh": "E——以上所有藥物均可短期用於急性腰痛：阿片類藥物（謹慎使用）、肌肉鬆弛劑、三環類抗抑鬱藥（調節疼痛）和苯二氮䓬類（緩解肌肉痙攣）。所有藥物均有顯著風險。"
+      },
+      {
+        "id": 15,
+        "question_en": "The most common adverse effect associated with Nitroglycerin use is?",
+        "question_zh": "硝酸甘油最常見的不良反應是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Diarrhea", "zh": "腹瀉", "correct": false},
+          "B": {"en": "Mania", "zh": "躁狂", "correct": false},
+          "C": {"en": "Headache", "zh": "頭痛", "correct": true},
+          "D": {"en": "Hypertension", "zh": "高血壓", "correct": false}
+        },
+        "exp_en": "C — Headache is the most common side effect of nitroglycerin due to vasodilation of cranial blood vessels. Patients often describe a throbbing headache shortly after taking it.",
+        "exp_zh": "C——頭痛是硝酸甘油最常見的副作用，因顱內血管擴張所致。患者通常在服藥後不久出現搏動性頭痛。"
+      }
+    ]
+  },
+  "foundations": {
+    "title": "Foundations",
+    "name_zh": "中醫基礎理論",
+    "icon": "📖",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "Which symptom or sign helps to identify the Yin Deficiency from Blood Deficiency?",
+        "question_zh": "哪個症狀或體徵有助於鑒別陰虛與血虛？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Dry mouth", "zh": "口乾", "correct": false},
+          "B": {"en": "Red tongue", "zh": "舌紅", "correct": true},
+          "C": {"en": "Thin pulse", "zh": "細脈", "correct": false},
+          "D": {"en": "Blurred vision", "zh": "視力模糊", "correct": false}
+        },
+        "exp_en": "Red tongue (B) distinguishes Yin Deficiency from Blood Deficiency. Yin Deficiency generates internal heat, causing the tongue to become red. Blood Deficiency shows a pale tongue. Dry mouth, thin pulse, and blurred vision can appear in both conditions and lack discriminating value.",
+        "exp_zh": "舌紅是陰虛的特徵性表現——陰虛生內熱，虛熱上炎故舌紅。血虛舌淡，無舌紅表現。口乾、細脈、視力模糊陰虛血虛均可見，不具鑑別意義。"
+      },
+      {
+        "id": 2,
+        "question_en": "Which statement is TRUE about Yang Deficiency and Qi Deficiency?",
+        "question_zh": "關於陽虛和氣虛，以下哪項陳述為真？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Qi Deficiency shows tiredness, but Yang Deficiency does not.", "zh": "陽虛會出現怕冷；氣虛不會", "correct": false},
+          "B": {"en": "Qi Deficiency is included in Yang Deficiency.", "zh": "氣虛包含陽虛的所有症狀加上怕冷", "correct": true},
+          "C": {"en": "Both have slow pulse.", "zh": "陽虛是氣虛進一步發展所致", "correct": false},
+          "D": {"en": "Both show Cold signs.", "zh": "氣虛與陽虛症狀完全相同", "correct": false}
+        },
+        "exp_en": "Yang Deficiency develops from Qi Deficiency: it includes all Qi Deficiency symptoms (fatigue, weakness, shortness of breath) plus cold signs (cold limbs, aversion to cold). Therefore Qi Deficiency is contained within Yang Deficiency — Yang Deficiency always has Qi Deficiency features, but not vice versa.",
+        "exp_zh": "陽虛是氣虛進一步發展的結果：氣虛症狀（疲倦、乏力、氣短）加上怕冷、四肢不溫。因此氣虛包含於陽虛之中（陽虛必兼氣虛），選B正確。"
+      },
+      {
+        "id": 3,
+        "question_en": "A patient has the following signs and symptoms: distension and pain of the hypochondriac and epigastric regions, belching, and acid regurgitation. Which of the following syndromes is correct?",
+        "question_zh": "以下哪種情況最能說明「脾不統血」的機制？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Disharmony between the Liver and Gallbladder", "zh": "月經量多", "correct": false},
+          "B": {"en": "Disharmony between the Liver and Spleen", "zh": "便血", "correct": false},
+          "C": {"en": "Disharmony between the Liver and Stomach", "zh": "嘔血", "correct": true},
+          "D": {"en": "Disharmony between the Spleen and Stomach", "zh": "咳血", "correct": false}
+        },
+        "exp_en": "Hypochondriac and epigastric distending pain, belching, and acid reflux indicate Liver Qi invading the Stomach (Liver-Stomach Disharmony). The Liver governs the hypochondrium; when Liver Qi stagnates and overacts on the Stomach, Stomach Qi rebels upward causing belching and acid.",
+        "exp_zh": "脅肋及胃脘脹痛、噯氣、泛酸——脅肋為肝膽所主，胃脘為胃所主，情志不暢導致肝氣橫逆犯胃，為肝胃不和（肝胃失調）的典型表現。"
+      },
+      {
+        "id": 4,
+        "question_en": "Which syndrome is caused by eating spicy food?",
+        "question_zh": "舌有裂紋提示：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Spleen Qi Deficiency", "zh": "血虛", "correct": false},
+          "B": {"en": "Liver Qi stagnation", "zh": "陰虛或熱傷津液", "correct": false},
+          "C": {"en": "Phlegm in the Lung", "zh": "氣虛", "correct": false},
+          "D": {"en": "Damp-Heat in Spleen", "zh": "陽虛", "correct": true}
+        },
+        "exp_en": "Spicy food generates Damp-Heat, primarily injuring the Spleen. The Spleen governs transformation and transportation; when Damp-Heat obstructs the Spleen, its functions are impaired, producing Damp-Heat in the Spleen pattern.",
+        "exp_zh": "辛辣食物助濕生熱，最易損傷脾臟，導致脾胃濕熱。脾主運化，濕熱困脾則運化失職，出現濕熱症狀。"
+      },
+      {
+        "id": 5,
+        "question_en": "What does the symptom of thirst without desire for drinking suggest?",
+        "question_zh": "以下哪項不是腎的功能？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Invasion of pathogenic Dryness", "zh": "儲藏精氣", "correct": false},
+          "B": {"en": "Excessive Heat attacking", "zh": "主水液代謝", "correct": false},
+          "C": {"en": "Yin Deficiency", "zh": "主生長發育", "correct": true},
+          "D": {"en": "Qi Deficiency", "zh": "主皮毛", "correct": false}
+        },
+        "exp_en": "Thirst without desire to drink is characteristic of Yin Deficiency: internal heat from Yin deficiency causes thirst, but body fluids have not been fully depleted so the patient does not want to drink much. Excess Heat and Dryness both cause intense thirst with desire to drink; Qi Deficiency does not typically cause thirst.",
+        "exp_zh": "口渴但不欲飲（或欲飲量少）是陰虛的特徵：陰虛生內熱，熱灼津液故口渴；但體內津液未完全耗竭，故飲水後無明顯緩解，呈口渴不欲飲。燥邪和實熱均有大渴欲飲，氣虛無口渴。"
+      },
+      {
+        "id": 6,
+        "question_en": "Which organ associated with body mal-development for children?",
+        "question_zh": "以下哪種脈象最能提示血虛？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Lung", "zh": "沉脈", "correct": false},
+          "B": {"en": "Spleen", "zh": "細脈", "correct": false},
+          "C": {"en": "Liver", "zh": "浮脈", "correct": false},
+          "D": {"en": "Kidney", "zh": "弦脈", "correct": true}
+        },
+        "exp_en": "The Kidney stores Essence and governs growth and development. Kidney Essence deficiency leads to delayed development in children (Five Delays: delayed standing, walking, speech, hair growth, teething). Edema relates to Kidney Yang deficiency; frequent urination to Kidney Qi deficiency; night sweats to Yin deficiency.",
+        "exp_zh": "腎藏精，主生長發育與生殖。腎精充盈則骨骼強壯、生長正常；腎精不足則兒童發育遲緩（五遲：立遲、行遲、語遲、髮遲、齒遲）。"
+      },
+      {
+        "id": 7,
+        "question_en": "According to the Five Element theory of treating the excess syndrome of the mother organ by reducing the child organ, which organ should be treated for Liver excess syndrome?",
+        "question_zh": "肝的「藏血」功能指的是：",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Heart", "zh": "肝製造血液", "correct": false},
+          "B": {"en": "Kidney", "zh": "肝調節體內血量分佈", "correct": true},
+          "C": {"en": "Spleen", "zh": "肝淨化血液中的毒素", "correct": false},
+          "D": {"en": "Lung", "zh": "肝將血液輸送至心臟", "correct": false}
+        },
+        "exp_en": "The principle 'sedate the child organ for excess of the mother' — Kidney (Water) is the mother of Liver (Wood). By reducing Kidney (the mother), less nourishment reaches Liver (the child), thereby indirectly subduing Liver excess. This represents treating excess through the mother-child relationship.",
+        "exp_zh": "「實則瀉其子」原則：肝（木）過盛，應瀉其子臟心（火），以減少木對火的過度資生。但若從抑制母臟滋生的角度，肝木之母為腎水，瀉腎水（減少對肝木的滋養）也可間接平抑肝實。此題答案取「瀉母以減少對子臟的過度資生」角度，即瀉腎（水）以減少對肝（木）的滋養，達到平肝的目的。"
+      },
+      {
+        "id": 8,
+        "question_en": "Which organ stores the pre-heaven Essence?",
+        "question_zh": "以下哪項最能描述「氣機鬱滯」？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Lung", "zh": "氣的缺乏", "correct": false},
+          "B": {"en": "Heart", "zh": "氣的流通受阻", "correct": false},
+          "C": {"en": "Spleen", "zh": "氣向上逆行", "correct": false},
+          "D": {"en": "Kidney", "zh": "氣向下陷落", "correct": true}
+        },
+        "exp_en": "Pre-heaven (prenatal) Essence is stored in the Kidney. It originates from parents and forms the fundamental material basis of life. Together with post-heaven Essence (from food and water), it sustains all vital activities.",
+        "exp_zh": "先天之精（先天本）藏於腎，是生命的根本物質，來源於父母，與後天水穀之精共同維持生命活動。"
+      },
+      {
+        "id": 9,
+        "question_en": "A patient has the following symptoms: alternating chills and fever, bitter taste in the mouth, blurred vision, nausea, vomiting, pain in the hypochondrium, irritability. The tongue is red on the sides with a yellow coat and the pulse is wiry. In which of the six stages is the pathogen located?",
+        "question_zh": "心的主要功能是什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Jue Yin", "zh": "主管消化", "correct": false},
+          "B": {"en": "Shao Yin", "zh": "主血脈、藏神", "correct": false},
+          "C": {"en": "Yang Ming", "zh": "主呼吸、主皮毛", "correct": false},
+          "D": {"en": "Shao Yang", "zh": "主儲藏精氣", "correct": true}
+        },
+        "exp_en": "Alternating chills and fever, bitter taste, dizziness, nausea, and hypochondriac pain are the hallmark symptoms of Shao Yang pattern — the half-interior, half-exterior stage where pathogenic factors struggle against the body's resistance in the space between interior and exterior.",
+        "exp_zh": "寒熱往來、口苦、目眩、噁心嘔吐、脅肋疼痛、脈弦——均為少陽病（Shao Yang）的典型表現。少陽主半表半裡，正邪相爭於半表半裡之間，故寒熱交替。"
+      },
+      {
+        "id": 10,
+        "question_en": "A 50-year-old female patient suffers from insomnia. She has hot flashes and night sweats. Her tongue is red with little coating. Her pulse is rapid and weak. What is your diagnosis according to the Yin/Yang theory?",
+        "question_zh": "以下哪項正確描述了肺的宣發功能？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Yin Excess", "zh": "肺向下輸布津液", "correct": false},
+          "B": {"en": "Yin Deficiency", "zh": "肺向上向外輸布氣與津液", "correct": true},
+          "C": {"en": "Yang Excess", "zh": "肺吸入清氣", "correct": false},
+          "D": {"en": "Yang Deficiency", "zh": "肺主皮毛", "correct": false}
+        },
+        "exp_en": "Insomnia, afternoon fever, night sweats, red tongue with little coating, and thin-rapid pulse are classic signs of Yin Deficiency. Insufficient Yin allows Yang to be relatively hyperactive, generating internal deficiency heat.",
+        "exp_zh": "失眠、潮熱、盜汗、舌紅少苔、脈細數——均為陰虛內熱的典型表現。陰液不足，陽氣相對偏亢，虛熱內生，故診斷為陰虛。"
+      },
+      {
+        "id": 11,
+        "question_en": "Which organ is most easily impaired by the emotion of worry?",
+        "question_zh": "哪個臟腑最容易被憂思所傷？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Heart", "zh": "心", "correct": false},
+          "B": {"en": "Liver", "zh": "肝", "correct": false},
+          "C": {"en": "Spleen", "zh": "脾", "correct": true},
+          "D": {"en": "Kidney", "zh": "腎", "correct": false}
+        },
+        "exp_en": "Worry and overthinking injure the Spleen. The Spleen corresponds to the emotion of pensiveness/worry (思). Excessive worry causes Spleen Qi to stagnate, impairing transformation and transportation, leading to poor appetite, bloating, and fatigue.",
+        "exp_zh": "憂思傷脾。脾在志為思，過度憂思使脾氣鬱結、運化失職，出現食慾不振、腹脹、疲倦等症狀。"
+      },
+      {
+        "id": 12,
+        "question_en": "Which of the following tongue conditions indicate excess heat?",
+        "question_zh": "以下哪種舌象提示實熱？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Swollen tongue with greasy coating", "zh": "舌胖苔膩", "correct": false},
+          "B": {"en": "Red tongue with yellow coating", "zh": "舌紅苔黃", "correct": true},
+          "C": {"en": "Red tongue with little coating", "zh": "舌紅少苔", "correct": false},
+          "D": {"en": "Deep red tongue with little coating", "zh": "舌深紅少苔", "correct": false}
+        },
+        "exp_en": "Red tongue with yellow coating indicates Excess Heat (Qi-level heat): red tongue signifies the presence of heat; yellow coating shows the heat has transformed. A red tongue with little or no coating suggests Yin Deficiency heat; a deep red tongue with scanty coating suggests heat entering the Ying/Blood level.",
+        "exp_zh": "舌紅為熱邪內盛，苔黃為熱象已化，兩者結合為實熱（氣分熱）的典型舌象。舌紅少苔為陰虛，舌深紅少苔為熱入營血。"
+      },
+      {
+        "id": 13,
+        "question_en": "Which organs are most likely to develop Yang deficiency?",
+        "question_zh": "哪兩個臟腑最容易出現陽虛？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Lung and Spleen", "zh": "肺與脾", "correct": false},
+          "B": {"en": "Heart and Liver", "zh": "心與肝", "correct": false},
+          "C": {"en": "Spleen and Kidney", "zh": "脾與腎", "correct": true},
+          "D": {"en": "Liver and Spleen", "zh": "肝與脾", "correct": false}
+        },
+        "exp_en": "Spleen and Kidney are the organs most prone to Yang Deficiency. The Kidney is the root of Yang for the entire body; the Spleen relies on Kidney Yang to warm and activate its transformation functions. The two often mutually affect each other in Yang Deficiency patterns.",
+        "exp_zh": "脾為後天之本，腎為先天之本，腎陽為全身陽氣之根。兩臟最易發生陽虛，且脾腎陽虛常互相影響（腎陽虛不能溫煦脾土）。"
+      },
+      {
+        "id": 14,
+        "question_en": "Which of the following can differentiate Qi Stagnation from Qi Deficiency?",
+        "question_zh": "以下哪項可鑒別氣滯與氣虛？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Lassitude", "zh": "倦怠乏力", "correct": false},
+          "B": {"en": "Hiccups", "zh": "呃逆", "correct": false},
+          "C": {"en": "Distending pain", "zh": "脹痛", "correct": true},
+          "D": {"en": "Hollow pain", "zh": "空痛", "correct": false}
+        },
+        "exp_en": "Distending pain (C) distinguishes Qi Stagnation from Qi Deficiency. Qi Stagnation causes obstruction with a characteristic distending, moving pain. Qi Deficiency pain is dull and empty, relieved by pressure, without the distending quality.",
+        "exp_zh": "脹痛是氣滯的特徵：氣機阻滯、不通則痛，痛有脹感且可走竄移動。氣虛之痛多為隱痛、空痛，得按則舒，不具脹感。"
+      },
+      {
+        "id": 15,
+        "question_en": "Which of the following relates to Kidney Essence deficiency?",
+        "question_zh": "以下哪項與腎精虧虛相關？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Delayed growing", "zh": "生長遲緩", "correct": true},
+          "B": {"en": "General edema", "zh": "全身水腫", "correct": false},
+          "C": {"en": "Profuse urination", "zh": "多尿", "correct": false},
+          "D": {"en": "Night sweating", "zh": "盜汗", "correct": false}
+        },
+        "exp_en": "Delayed growth (A) relates to Kidney Essence deficiency. The Kidney stores Essence and governs bone development and growth. Insufficient Kidney Essence impairs skeletal and physical development, causing delayed milestones. Edema reflects Kidney Yang deficiency; copious urine reflects Kidney Qi failing to consolidate; night sweats reflect Yin deficiency.",
+        "exp_zh": "腎精不足則生長發育遲緩（五遲），因腎藏精、主骨生髓，精氣不足無以充養骨骼肌肉，故兒童發育滯後。水腫屬腎陽虛，多尿屬腎氣不固，盜汗屬陰虛。"
+      },
+      {
+        "id": 16,
+        "question_en": "A patient has the following signs and symptoms: dizziness, lassitude, a bearing-down and distending sensation in the abdominal region, and prolapsed anus. The tongue is pale and the pulse is weak. Which of the following is correct?",
+        "question_zh": "患者有以下症狀：頭暈、乏力、腹部下墜脹滿感、脫肛，舌淡，脈弱。以下哪項正確？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Deficiency of Qi", "zh": "氣虛", "correct": false},
+          "B": {"en": "Rebellion of Qi", "zh": "氣逆", "correct": false},
+          "C": {"en": "Stagnation of Qi", "zh": "氣滯", "correct": false},
+          "D": {"en": "Sinking of Qi", "zh": "氣陷", "correct": true}
+        },
+        "exp_en": "Sinking of Qi (D): the combination of dizziness (clear Yang failing to ascend), abdominal prolapse sensation, and rectal prolapse, with pale tongue and weak pulse, indicates Qi Sinking — a progression of Qi Deficiency where Qi loses its lifting function and organs prolapse downward.",
+        "exp_zh": "氣陷的核心症狀：清陽不升（頭暈）＋臟器下垂（脫肛、腹部下墜感），是氣虛升舉無力的進一步發展。舌淡脈弱為氣虛基礎表現。"
+      },
+      {
+        "id": 17,
+        "question_en": "Which of the following is NOT caused by Stagnation of Blood?",
+        "question_zh": "以下哪項不是血瘀所致？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Fixed pain", "zh": "固定疼痛", "correct": false},
+          "B": {"en": "Tumour", "zh": "腫塊", "correct": false},
+          "C": {"en": "Pale mouth ulcers", "zh": "淡白色口瘡", "correct": true},
+          "D": {"en": "Hemorrhage", "zh": "出血", "correct": false}
+        },
+        "exp_en": "Pale mouth ulcers (C) are not caused by Blood Stagnation. Blood Stasis causes fixed stabbing pain, lumps, dark bleeding, and purple or purple-spotted tongue. Pale ulcers suggest deficiency-cold or Blood Deficiency, not Blood Stasis.",
+        "exp_zh": "淡白色口瘡提示虛寒或血虛，而非血瘀。血瘀的特徵是：固定刺痛、腫塊（積聚）、出血色暗有塊、舌紫暗或有瘀點。"
+      },
+      {
+        "id": 18,
+        "question_en": "A 68-year-old man complains of incontinence of urination, soreness and weakness in his lower back, fatigue, cold feet, pale tongue with white coating, and a weak pulse. What is your diagnosis according to the Yin/Yang theory?",
+        "question_zh": "一位68歲男性主訴尿失禁、腰膝酸軟、疲倦、腳冷，舌淡苔白，脈弱。根據陰陽理論，診斷為？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Yin Excess", "zh": "陰盛", "correct": false},
+          "B": {"en": "Yin Deficiency", "zh": "陰虛", "correct": false},
+          "C": {"en": "Yang Excess", "zh": "陽盛", "correct": false},
+          "D": {"en": "Yang Deficiency", "zh": "陽虛", "correct": true}
+        },
+        "exp_en": "Urinary incontinence, soreness of lower back and knees, cold feet, pale tongue with white coating, and weak pulse all point to Yang Deficiency. Cold feet and incontinence are particularly characteristic of Yang failing to warm and consolidate.",
+        "exp_zh": "尿失禁（腎陽不固膀胱）、腰膝酸軟（腎虛）、足冷（陽虛不溫四末）、舌淡苔白、脈弱——符合陽虛的診斷標準，尤以足冷和尿失禁為陽虛特徵。"
+      },
+      {
+        "id": 19,
+        "question_en": "In TCM pathogenesis, when the tongue is pale with white-thick coating, the pulse is most likely be:",
+        "question_zh": "在中醫病機中，舌淡苔白厚時，脈象最可能是：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Floating-slow", "zh": "浮遲", "correct": false},
+          "B": {"en": "Weak-rapid", "zh": "弱數", "correct": false},
+          "C": {"en": "Weak-slow", "zh": "弱遲", "correct": true},
+          "D": {"en": "Deep-slow", "zh": "沉遲", "correct": false}
+        },
+        "exp_en": "Pale tongue with thick white coating indicates cold-damp obstructing the interior with Spleen Yang deficiency. A weak pulse (deficiency) combined with a slow pulse (cold) — weak-slow (C) — best matches this tongue picture reflecting interior cold and Yang insufficiency.",
+        "exp_zh": "舌淡苔白厚提示寒濕內盛，脾陽不足。脈弱（虛）+脈遲（寒）=弱遲脈，是陽虛寒濕的典型脈象組合。"
+      },
+      {
+        "id": 20,
+        "question_en": "Qi Sinking usually develops from which condition?",
+        "question_zh": "氣陷通常由哪種情況發展而來？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Yang Deficiency", "zh": "陽虛", "correct": false},
+          "B": {"en": "Qi Deficiency", "zh": "氣虛", "correct": true},
+          "C": {"en": "Yin Excess", "zh": "陰盛", "correct": false},
+          "D": {"en": "Qi Stagnation", "zh": "氣滯", "correct": false}
+        },
+        "exp_en": "Qi Sinking develops from Qi Deficiency (B). Prolonged Qi Deficiency exhausts the lifting function, causing Qi to sink and organs to prolapse. It is not related to Yang Deficiency, Yin Excess, or Qi Stagnation as a direct developmental cause.",
+        "exp_zh": "氣陷是由長期氣虛發展而來：氣虛日久，升提無力，氣機下陷，導致臟器下垂。與陽虛、陰盛、氣滯無直接因果關係。"
+      },
+      {
+        "id": 21,
+        "question_en": "What symptom or sign is to help identify the Heat in the Blood?",
+        "question_zh": "哪個症狀或體徵有助於辨識血熱？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Thirst with desire for drinking", "zh": "口渴欲飲", "correct": false},
+          "B": {"en": "Painful menstrual flow", "zh": "痛經", "correct": false},
+          "C": {"en": "Dark complexion", "zh": "面色晦暗", "correct": false},
+          "D": {"en": "Mental restlessness", "zh": "心神煩躁", "correct": true}
+        },
+        "exp_en": "Mental restlessness (D) is the characteristic sign of Heat in the Blood level. Blood Heat disturbs the Heart spirit; the Heart governs the mind, so heat agitation in the blood manifests as mental restlessness. Thirst with desire to drink relates to Qi-level heat; menstrual pain suggests Blood Stasis; dark complexion suggests Blood Stasis or Kidney deficiency.",
+        "exp_zh": "心神煩躁（mental restlessness）是血熱的特徵性表現——血熱擾動心神，心藏神，熱擾則神不安。口渴欲飲多為氣分熱傷津，痛經提示血瘀，面色晦暗提示血瘀或腎虛。"
+      },
+      {
+        "id": 22,
+        "question_en": "Which organ is treated for a patient with mouth sores?",
+        "question_zh": "口腔潰瘍的患者應治療哪個臟腑？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Spleen", "zh": "脾", "correct": true},
+          "B": {"en": "Liver", "zh": "肝", "correct": false},
+          "C": {"en": "Lung", "zh": "肺", "correct": false},
+          "D": {"en": "Heart", "zh": "心", "correct": false}
+        },
+        "exp_en": "The Spleen (A) is treated for mouth sores. The Spleen opens into the mouth and governs the lips. Mouth sores (oral ulcers) most commonly relate to Spleen-Stomach Damp-Heat or Spleen Qi deficiency. The Spleen is the primary organ associated with the mouth in TCM.",
+        "exp_zh": "脾開竅於口，主唇。口腔潰瘍（口瘡）多與脾胃濕熱或脾氣虛有關，治療從脾入手。雖心開竅於舌，但口腔整體對應脾，脾為首選。"
+      },
+      {
+        "id": 23,
+        "question_en": "According to the treatment principle of Tonify the mother organ, which point is correct to treat chronic cough?",
+        "question_zh": "根據「補母」治則，治療慢性咳嗽應取哪個穴位？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "SP3", "zh": "SP3（太白）", "correct": true},
+          "B": {"en": "LR3", "zh": "LR3（太衝）", "correct": false},
+          "C": {"en": "KI3", "zh": "KI3（太溪）", "correct": false},
+          "D": {"en": "HT7", "zh": "HT7（神門）", "correct": false}
+        },
+        "exp_en": "Lung belongs to Metal; Spleen belongs to Earth. Earth generates Metal (Spleen is the mother of Lung). Applying the 'Tonify the Mother' principle for Lung deficiency, we treat the mother organ (Spleen) using its Yuan-source point SP3 (Taibai) to tonify Spleen and thereby support Lung.",
+        "exp_zh": "肺屬金，脾屬土，土生金（脾為肺之母）。「補母治則」：肺虛補其母臟脾，取脾經原穴SP3（太白）補脾益肺，治療慢性咳嗽（肺虛）。"
+      },
+      {
+        "id": 24,
+        "question_en": "According to organ theory, which symptom is not associated with Damp-Heat in the Bladder?",
+        "question_zh": "根據臟腑理論，哪項症狀與膀胱濕熱無關？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Frequent urination", "zh": "尿頻", "correct": false},
+          "B": {"en": "Urinary stones", "zh": "尿路結石", "correct": false},
+          "C": {"en": "Burning pain in the urethra", "zh": "尿道灼熱疼痛", "correct": false},
+          "D": {"en": "Copious urine", "zh": "尿量多", "correct": true}
+        },
+        "exp_en": "Copious clear urine (D) is not associated with Bladder Damp-Heat. Bladder Damp-Heat presents with frequent, urgent, burning, and scanty dark urination. Copious clear urine indicates Kidney Yang deficiency or Kidney Qi failing to consolidate — the opposite pattern.",
+        "exp_zh": "多尿（Copious urine）不是膀胱濕熱的表現，而提示腎陽虛或腎氣不固（失於固攝）。膀胱濕熱典型症狀：尿頻、尿急、尿道灼熱、小便短赤。"
+      },
+      {
+        "id": 25,
+        "question_en": "Which organs are paired through the Shao Yin channel?",
+        "question_zh": "哪兩個臟腑通過少陰經相配對？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Kidney/Bladder", "zh": "腎／膀胱", "correct": false},
+          "B": {"en": "Heart/Kidney", "zh": "心／腎", "correct": true},
+          "C": {"en": "Heart/Small Intestine", "zh": "心／小腸", "correct": false},
+          "D": {"en": "Liver/Heart", "zh": "肝／心", "correct": false}
+        },
+        "exp_en": "The Shao Yin channel pairs the Heart (Hand Shao Yin) and Kidney (Foot Shao Yin). This pairing forms the theoretical basis of Heart-Kidney interaction (Water-Fire balance) in TCM physiology.",
+        "exp_zh": "少陰經包含手少陰心經與足少陰腎經，故心與腎通過少陰經相配對，構成「心腎相交、水火既濟」的生理基礎。"
+      },
+      {
+        "id": 26,
+        "question_en": "i. In health, the Spleen Qi goes down; ii. In disease, the Stomach Qi goes up.",
+        "question_zh": "i. 健康狀態下脾氣下降；ii. 病態下胃氣上升。",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Both statements are true", "zh": "兩項均正確", "correct": false},
+          "B": {"en": "Both statements are false", "zh": "兩項均錯誤", "correct": false},
+          "C": {"en": "First statement is true, second is false", "zh": "第一項正確，第二項錯誤", "correct": false},
+          "D": {"en": "First statement is false, second is true", "zh": "第一項錯誤，第二項正確", "correct": true}
+        },
+        "exp_en": "Statement i is false: in health, Spleen Qi ascends (raises the clear). Statement ii is true: in disease, Stomach Qi rebels upward (instead of descending normally), causing nausea, vomiting, and hiccups. Answer D (first false, second true).",
+        "exp_zh": "第一項錯誤：健康時脾氣主升（升清），非下降。第二項正確：胃氣正常應降（降濁），病態下胃氣上逆，出現噁心、嘔吐、呃逆。"
+      },
+      {
+        "id": 27,
+        "question_en": "Which organ is impaired by abnormal emotions?",
+        "question_zh": "哪個臟腑最容易被異常情緒所傷？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Liver", "zh": "肝", "correct": false},
+          "B": {"en": "Kidney", "zh": "腎", "correct": false},
+          "C": {"en": "Heart", "zh": "心", "correct": true},
+          "D": {"en": "Spleen", "zh": "脾", "correct": false}
+        },
+        "exp_en": "The Heart (C) is the organ most impaired by abnormal emotions. The Heart stores the Shen (spirit) and is the 'monarch organ.' Although each emotion primarily corresponds to a specific organ (anger→Liver, pensiveness→Spleen, fear→Kidney), all abnormal emotions ultimately disturb and injure the Heart spirit.",
+        "exp_zh": "心藏神，為「君主之官，神明出焉」。雖各種情志對應特定臟腑，但一切異常情緒最終均可傷及心神，心是精神活動的主宰。"
+      },
+      {
+        "id": 28,
+        "question_en": "A 50-year-old female patient suffers from insomnia. She has hot flashes and night sweats. Her tongue is red with little coating. Her pulse is rapid and weak. What organs are involved in the condition according to the Five Element theory?",
+        "question_zh": "50歲女性患者，失眠、潮熱、盜汗，舌紅少苔，脈細數。根據五行理論，哪兩個臟腑受累？",
+        "answer": "E",
+        "options": {
+          "A": {"en": "Spleen and Heart", "zh": "脾與心", "correct": false},
+          "B": {"en": "Lung and Kidney", "zh": "肺與腎", "correct": false},
+          "C": {"en": "Liver and Kidney", "zh": "肝與腎", "correct": false},
+          "D": {"en": "Liver and Heart", "zh": "肝與心", "correct": false},
+          "E": {"en": "Heart and Kidney", "zh": "心與腎", "correct": true}
+        },
+        "exp_en": "Insomnia, afternoon fever, night sweats, red tongue with little coating, thin-rapid pulse — Heart (fire/spirit) and Kidney (water/Yin) are both involved. Kidney Yin deficiency allows Heart Fire to become excessive; water fails to control fire. This is Heart-Kidney Disharmony (E).",
+        "exp_zh": "潮熱盜汗（腎陰虛）＋失眠心煩（心火旺）＋舌紅少苔脈細數——心腎不交（腎水不能上濟心火，心火亢盛不能下溫腎水），五行上水（腎）不制火（心）。"
+      },
+      {
+        "id": 29,
+        "question_en": "What is the location of the Wei Qi?",
+        "question_zh": "衛氣的分佈位置在哪裡？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Heart and vessels", "zh": "心與脈", "correct": false},
+          "B": {"en": "Kidney and bone", "zh": "腎與骨", "correct": false},
+          "C": {"en": "Spleen and muscle", "zh": "脾與肌", "correct": false},
+          "D": {"en": "Lung and skin", "zh": "肺與皮", "correct": true}
+        },
+        "exp_en": "Wei Qi (Defensive Qi) is distributed in the skin and surface tissues. It is dispersed by Lung and circulates between the skin and muscles, protecting the exterior, warming the skin, and regulating the pores. 'Lung governs the skin and hair' reflects this Wei Qi function — answer: Lung and skin (D).",
+        "exp_zh": "衛氣由肺宣發，布散於皮膚腠理之間，固護體表、抵禦外邪、調節腠理開合。「肺主皮毛」正是衛氣功能的體現，故位於肺與皮。"
+      },
+      {
+        "id": 30,
+        "question_en": "What does a red tongue with yellow coating indicate?",
+        "question_zh": "舌紅苔黃提示什麼？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Excess heat", "zh": "實熱", "correct": true},
+          "B": {"en": "Yin deficiency", "zh": "陰虛", "correct": false},
+          "C": {"en": "Body fluid deficiency", "zh": "津液不足", "correct": false},
+          "D": {"en": "Qi deficiency", "zh": "氣虛", "correct": false}
+        },
+        "exp_en": "Red tongue with yellow coating (A) indicates Excess Heat (Qi-level heat). The red color signifies heat; the yellow coating confirms the heat has transformed. Yin Deficiency shows a red tongue with little or no coating; Fluid Insufficiency shows a dry tongue; Qi Deficiency shows a pale tongue.",
+        "exp_zh": "舌紅苔黃是實熱（氣分熱）的典型舌象：舌紅為熱邪，苔黃提示熱已化。陰虛舌紅少苔（無苔），津液不足舌乾燥，氣虛舌淡。"
+      },
+      {
+        "id": 31,
+        "question_en": "Which organ is associated with body mal-development in children?",
+        "question_zh": "哪個臟腑與兒童生長發育不良相關？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Lung", "zh": "肺", "correct": false},
+          "B": {"en": "Spleen", "zh": "脾", "correct": false},
+          "C": {"en": "Liver", "zh": "肝", "correct": false},
+          "D": {"en": "Kidney", "zh": "腎", "correct": true}
+        },
+        "exp_en": "The Kidney (D) is associated with growth and development in children. Kidney stores Essence and governs bone formation, brain development, and physical maturation. Kidney Essence deficiency causes the Five Delays and Five Softs in children.",
+        "exp_zh": "腎藏精，主生長發育。腎精充足則骨強齒固、發育正常；腎精不足則五遲（立遲、行遲、語遲、髮遲、齒遲）、骨骼發育差。"
+      },
+      {
+        "id": 32,
+        "question_en": "A 35-year-old female patient with symptoms of scanty-delayed periods, pale complexion with red cheeks, small tongue and weak pulse. What treatment principle is correct?",
+        "question_zh": "35歲女性，月經量少推遲，面色白泛紅、舌小、脈弱。正確治療原則是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Promote Blood circulation", "zh": "活血化瘀", "correct": false},
+          "B": {"en": "Tonify Blood", "zh": "補血", "correct": true},
+          "C": {"en": "Clear heat from Blood", "zh": "清熱涼血", "correct": false},
+          "D": {"en": "Clear toxics from Blood", "zh": "清熱解毒", "correct": false}
+        },
+        "exp_en": "Scanty delayed menstruation with pale complexion and weak pulse indicates Blood Deficiency; flushed cheeks are a sign of deficiency heat from Blood Deficiency. The treatment principle is to Tonify Blood (B). Once blood is replenished, the deficiency heat resolves naturally. Activating blood (for stasis) or clearing heat (for excess) would be inappropriate.",
+        "exp_zh": "月經量少推遲、面白（血虛）、脈弱——為血虛表現；紅顏（兩顴潮紅）是血虛生虛熱的表現。治則補血，血充則虛熱自退，不可直接涼血（無實熱）。"
+      },
+      {
+        "id": 33,
+        "question_en": "Which organ is mostly associated with mental state?",
+        "question_zh": "哪個臟腑與精神狀態最相關？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Heart", "zh": "心", "correct": true},
+          "B": {"en": "Kidney", "zh": "腎", "correct": false},
+          "C": {"en": "Liver", "zh": "肝", "correct": false},
+          "D": {"en": "Spleen", "zh": "脾", "correct": false}
+        },
+        "exp_en": "The Heart (A) is most associated with mental state. The Heart stores the Shen (spirit/mind) and is the 'monarch organ from which spirit and consciousness emanate.' Disturbance of Heart Shen causes insomnia, palpitations, anxiety, and mental restlessness.",
+        "exp_zh": "心藏神，「君主之官，神明出焉」，心是精神、意識、思維活動的主宰臟腑，心神受擾則失眠、心悸、煩躁不安。"
+      },
+      {
+        "id": 34,
+        "question_en": "What is the main symptom of Yang collapse?",
+        "question_zh": "亡陽的主要症狀是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Rapid pulse with watery stool", "zh": "脈數伴稀水便", "correct": false},
+          "B": {"en": "Profuse sweat with cold limbs", "zh": "大汗淋漓伴四肢厥冷", "correct": true},
+          "C": {"en": "Fatigue with shortness of breath", "zh": "疲倦伴氣短", "correct": false},
+          "D": {"en": "Thirst with desire to drink warm water", "zh": "口渴欲飲溫水", "correct": false}
+        },
+        "exp_en": "Yang Collapse (亡陽) presents with profuse sweating (B) (Yang failing to consolidate fluids) combined with cold limbs (Yang unable to warm the extremities). These two signs occurring together indicate a critical condition of Yang desertion.",
+        "exp_zh": "亡陽（陽脫）的主要症狀：大汗淋漓（陽氣外脫不能固攝津液）＋四肢厥冷（陽氣衰竭不能溫煦四末），兩者同時出現為亡陽危症。"
+      },
+      {
+        "id": 35,
+        "question_en": "A patient has the following symptoms: pale complexion, pale lips, dizziness, blurred vision, palpitation, insomnia, and numbness of the hands and feet. The tongue is pale and the pulse is thready. Which of the following is correct?",
+        "question_zh": "患者面色蒼白、口唇蒼白、眩暈、視物模糊、心悸、失眠、手足麻木，舌淡，脈細。以下哪項正確？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Deficiency of Qi", "zh": "氣虛", "correct": false},
+          "B": {"en": "Deficiency of Blood", "zh": "血虛", "correct": true},
+          "C": {"en": "Deficiency of Yang", "zh": "陽虛", "correct": false},
+          "D": {"en": "Deficiency of Yin", "zh": "陰虛", "correct": false}
+        },
+        "exp_en": "Pale complexion, blurred vision, palpitations, insomnia, numbness of limbs, pale tongue, and thin pulse — all reflect Blood Deficiency (B): blood fails to nourish the face, eyes, Heart, and sinews/vessels respectively.",
+        "exp_zh": "面色蒼白、視物模糊、心悸、失眠、手足麻木、舌淡脈細——均為血虛：血不上榮（面白）、血不養目（視力模糊）、血不養心（心悸失眠）、血不濡筋（麻木）。"
+      },
+      {
+        "id": 36,
+        "question_en": "A patient developed fever and flu-like symptoms 5 days ago. Now he has restlessness, bleeding gums, dry mouth with no desire to drink. Tongue is deep red and pulse is rapid. What stage of Heat syndrome is this?",
+        "question_zh": "患者5天前出現發熱感冒樣症狀，現有煩躁、齒齦出血、口乾不欲飲，舌深紅，脈數。此為哪一層次的熱證？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Wei level", "zh": "衛分", "correct": false},
+          "B": {"en": "Qi level", "zh": "氣分", "correct": false},
+          "C": {"en": "Ying level", "zh": "營分", "correct": true},
+          "D": {"en": "Blood level", "zh": "血分", "correct": false}
+        },
+        "exp_en": "Dry mouth without desire to drink, deep-red (crimson) tongue, mental restlessness, and bleeding gums indicate Ying (Nutritive) level heat (C). The key differentiating feature is dry mouth without desire to drink — heat in the Ying level steams fluids but blood still contains moisture, unlike Blood level which shows more bleeding and loss of consciousness.",
+        "exp_zh": "口乾不欲飲（熱在營分蒸騰津液但血中仍有津液）、舌絳（深紅）、心煩（熱擾心神）、齒齦出血（熱傷血絡）——符合營分熱的診斷。衛分無出血，氣分口渴欲飲，血分有神昏斑疹。"
+      },
+      {
+        "id": 37,
+        "question_en": "A 70-year-old man suffering from diarrhea for four months. He has diarrhea between 4am and 5am every day. His stool is completely undigested. He has cold limbs, pale tongue with slippery white coating, and a weak pulse. What is your diagnosis according to the Yin/Yang theory?",
+        "question_zh": "70歲男性腹瀉4個月，每日凌晨4-5時腹瀉，完谷不化，四肢冷，舌淡苔白滑，脈弱。根據陰陽理論診斷為？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Yin Excess", "zh": "陰盛", "correct": false},
+          "B": {"en": "Yin Deficiency", "zh": "陰虛", "correct": false},
+          "C": {"en": "Yang Excess", "zh": "陽盛", "correct": false},
+          "D": {"en": "Yang Deficiency", "zh": "陽虛", "correct": true}
+        },
+        "exp_en": "Diarrhea at dawn (cock-crow diarrhea), undigested food in stools, cold limbs, pale moist tongue with white coating, and weak pulse all indicate Yang Deficiency (D). 'Fifth-watch diarrhea' is the hallmark of Kidney Yang deficiency failing to warm the Spleen.",
+        "exp_zh": "五更瀉（凌晨4-5時）、完谷不化、四肢冷、舌淡苔白滑、脈弱——典型腎陽虛（命門火衰不能溫煦脾土），陽虛則寒，寒則運化失職，故腹瀉完谷不化。"
+      },
+      {
+        "id": 38,
+        "question_en": "Which symptom or sign helps differentiate Qi Deficiency from Blood Deficiency?",
+        "question_zh": "哪個症狀或體徵有助於鑒別氣虛與血虛？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Pallor", "zh": "面色蒼白", "correct": false},
+          "B": {"en": "Tiredness", "zh": "疲倦", "correct": false},
+          "C": {"en": "Spontaneous sweating", "zh": "自汗", "correct": true},
+          "D": {"en": "Pale tongue", "zh": "舌淡", "correct": false}
+        },
+        "exp_en": "Spontaneous sweating (C) differentiates Qi Deficiency from Blood Deficiency. Qi Deficiency cannot consolidate fluids, causing sweating without provocation. Blood Deficiency does not cause spontaneous sweating. Pale complexion, fatigue, and pale tongue appear in both conditions.",
+        "exp_zh": "自汗（不因外界原因而汗出）是氣虛的特徵性症狀——氣虛不能固攝津液，故自汗。血虛無此表現，故自汗可鑑別氣虛與血虛。面色蒼白、疲倦、舌淡兩證均可見。"
+      },
+      {
+        "id": 39,
+        "question_en": "Which symptom or sign is featured for Transmission of Heart Heat/Fire into the Small Intestine?",
+        "question_zh": "哪個症狀或體徵是心火下移小腸的特徵？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Mental restlessness", "zh": "心神煩躁", "correct": false},
+          "B": {"en": "Burning urination", "zh": "尿道灼熱", "correct": true},
+          "C": {"en": "Aversion to heat", "zh": "惡熱", "correct": false},
+          "D": {"en": "Abdominal pain", "zh": "腹痛", "correct": false}
+        },
+        "exp_en": "Burning urination (B) is the characteristic sign of Heart Fire transferring to Small Intestine. When Heart Heat descends to the Small Intestine, it burns the urinary tract, causing burning, painful, dark urination. This distinguishes it from Heart Fire's own manifestations (mouth sores, mental restlessness).",
+        "exp_zh": "心火下移小腸，小腸受盛化物功能受擾，熱傷下焦，出現尿道灼熱疼痛（小便赤澀）。此為心移熱於小腸的特徵性症狀，區別於心火本身的心煩、口瘡。"
+      },
+      {
+        "id": 40,
+        "question_en": "What causes dryness of eyes?",
+        "question_zh": "眼目乾澀由什麼引起？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Liver Qi stagnation", "zh": "肝氣鬱滯", "correct": false},
+          "B": {"en": "Liver Yang rising", "zh": "肝陽上亢", "correct": false},
+          "C": {"en": "Liver Wind stirring", "zh": "肝風內動", "correct": false},
+          "D": {"en": "Liver Blood deficiency", "zh": "肝血不足", "correct": true}
+        },
+        "exp_en": "Dryness of eyes is caused by Liver Blood Deficiency (D). The Liver opens into the eyes; Liver Blood nourishes and moistens the eyes. When Liver Blood is insufficient, the eyes lose their nourishment and become dry. Liver Yang Rising causes red, painful eyes; Liver Qi Stagnation causes eye distension; Liver Wind causes blurred vision with movement.",
+        "exp_zh": "肝開竅於目，肝血滋養眼目。肝血不足，目失濡養，則眼目乾澀。肝陽上亢多見目赤頭痛，肝氣鬱滯多見目脹脅痛，均不以乾澀為主症。"
+      },
+      {
+        "id": 41,
+        "question_en": "A 70-year-old man suffering from diarrhea for four months. He has diarrhea between 4am and 5am every day. His stool is completely undigested. He has cold limbs, pale tongue with slippery white coating, and a weak pulse. Which of the following organs is most associated with the condition?",
+        "question_zh": "70歲男性五更瀉（每日凌晨4-5時腹瀉）、完谷不化、四肢冷、舌淡苔白滑、脈弱。哪個臟腑與此病最相關？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Spleen", "zh": "脾", "correct": false},
+          "B": {"en": "Heart", "zh": "心", "correct": false},
+          "C": {"en": "Lung", "zh": "肺", "correct": false},
+          "D": {"en": "Kidney", "zh": "腎", "correct": true},
+          "E": {"en": "Liver", "zh": "肝", "correct": false}
+        },
+        "exp_en": "Fifth-watch diarrhea, undigested food in stools, cold limbs, pale tongue, and weak pulse point to Kidney (D) as the primary organ involved — specifically Kidney Yang deficiency. The Kidney Yang fails to warm and activate the Spleen, especially at the Yin-Yang transitional hour before dawn.",
+        "exp_zh": "五更瀉為腎陽虛的典型症狀（腎陽不能溫煦脾土），加上完谷不化、四肢冷、舌淡苔白滑、脈弱，病位在腎（腎陽虛衰為根本病機）。"
+      },
+      {
+        "id": 42,
+        "question_en": "In TCM pathogenesis, immobile abdominal lumps with fixed pain is due to",
+        "question_zh": "在中醫病機中，腹部積塊固定不移、疼痛固定，是由什麼引起的？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Blood stasis", "zh": "血瘀", "correct": true},
+          "B": {"en": "Qi stagnation", "zh": "氣滯", "correct": false},
+          "C": {"en": "Phlegm accumulation", "zh": "痰積", "correct": false},
+          "D": {"en": "Blood deficiency", "zh": "血虛", "correct": false}
+        },
+        "exp_en": "Immobile abdominal lumps with fixed stabbing pain indicate Blood Stasis (A). Blood is a tangible substance; stagnant blood accumulates into fixed, firm masses with pain in a definite location. Qi Stagnation produces movable, distending lumps; Phlegm produces soft movable lumps.",
+        "exp_zh": "固定不移的腹部積塊伴固定刺痛——「有形之積、痛有定處」是血瘀的典型特徵。氣滯積塊可移動（氣無形），痰積積塊軟可移動，與血瘀不同。"
+      },
+      {
+        "id": 43,
+        "question_en": "A 68-year-old man complains of incontinence of urination, soreness and weakness in his lower back, fatigue, cold feet, pale tongue with white coating, and a weak pulse. Which organ is most involved in his condition according to the TCM organ theory?",
+        "question_zh": "68歲男性，尿失禁、腰膝酸軟、疲倦、足冷、舌淡苔白、脈弱。根據中醫臟腑理論，哪個臟腑最相關？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Spleen", "zh": "脾", "correct": false},
+          "B": {"en": "Lung", "zh": "肺", "correct": false},
+          "C": {"en": "Heart", "zh": "心", "correct": false},
+          "D": {"en": "Kidney", "zh": "腎", "correct": true},
+          "E": {"en": "Liver", "zh": "肝", "correct": false}
+        },
+        "exp_en": "Urinary incontinence, soreness of lower back and knees, fatigue, cold feet, pale tongue, and weak pulse all point to the Kidney (D). The Kidney governs urination and the lumbar region; cold feet and incontinence specifically indicate Kidney Yang deficiency.",
+        "exp_zh": "尿失禁（腎不固攝）、腰膝酸軟（腎主腰）、足冷（腎陽虛）——諸症均指向腎。腎主二便、主腰脊，腎陽虛衰為本質病機。"
+      },
+      {
+        "id": 44,
+        "question_en": "According to the five elements theory, which of the following corresponds to Large Intestine meridian?",
+        "question_zh": "根據五行理論，以下哪個五行對應大腸經？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Fire", "zh": "火", "correct": false},
+          "B": {"en": "Wood", "zh": "木", "correct": false},
+          "C": {"en": "Water", "zh": "水", "correct": false},
+          "D": {"en": "Metal", "zh": "金", "correct": true}
+        },
+        "exp_en": "Large Intestine (Hand Yangming) belongs to Metal (D) in the Five Elements, paired with Lung (Hand Taiyin) as its interior-exterior pair. Both Lung and Large Intestine share the Metal element.",
+        "exp_zh": "大腸（手陽明）與肺（手太陰）互為表裡，同屬金行。五行中金對應肺、大腸，秋季，悲憂情志，白色。"
+      },
+      {
+        "id": 45,
+        "question_en": "What is the etiological factor causing weak muscles, tendons and bones, poor appetite, lassitude, and shortness of breath on exertion?",
+        "question_zh": "以下哪個病因可導致肌肉筋骨無力、食慾差、倦怠、活動後氣短？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Insufficient eating", "zh": "飲食不足", "correct": false},
+          "B": {"en": "Over-eating", "zh": "飲食過多", "correct": false},
+          "C": {"en": "Over-work", "zh": "過度勞累", "correct": false},
+          "D": {"en": "Over-rest", "zh": "過度安逸", "correct": true}
+        },
+        "exp_en": "Over-rest (D) causes the described symptoms. TCM holds that 'prolonged lying injures Qi' (久臥傷氣). Excessive rest causes Qi stagnation, Spleen lethargy, impaired transformation, and ultimately failure to nourish muscles and tendons, producing weakness, poor appetite, fatigue, and shortness of breath on exertion.",
+        "exp_zh": "「久臥傷氣」——過度安逸使氣機不暢、脾氣呆滯，後天運化失職，氣血生化不足，肌肉筋骨失於濡養，出現乏力、氣短、肌肉無力等症。"
+      },
+      {
+        "id": 46,
+        "question_en": "A patient has lower back pain, frequent clear urination, and dribbling after urination, pale tongue with thin-white coating, weak pulse. What is the correct treatment principle?",
+        "question_zh": "患者腰痛、尿頻清長、尿後餘瀝，舌淡苔薄白，脈弱。正確治療原則是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Tonify Kidney Yin", "zh": "滋補腎陰", "correct": false},
+          "B": {"en": "Tonify Kidney Yang", "zh": "溫補腎陽", "correct": false},
+          "C": {"en": "Tonify Kidney Essence", "zh": "填補腎精", "correct": false},
+          "D": {"en": "Tonify Kidney Qi", "zh": "補益腎氣", "correct": true}
+        },
+        "exp_en": "Lower back pain, frequent clear urination, dribbling after urination, pale tongue, and weak pulse without cold signs indicate Kidney Qi Deficiency (D) — specifically Kidney Qi failing to consolidate the bladder. There is no aversion to cold (ruling out Kidney Yang deficiency) and no Essence deficiency signs.",
+        "exp_zh": "尿頻清長、尿後餘瀝（膀胱不固）、腰痛（腎虛）、脈弱——為腎氣虛（腎氣不固）的表現。無怕冷（非腎陽虛），無精虧症狀（非腎精虛），治則補益腎氣。"
+      },
+      {
+        "id": 47,
+        "question_en": "A patient suffering from dizziness. Which of the following is the most important symptom indicating the syndrome is Liver Blood deficiency?",
+        "question_zh": "眩暈患者，哪個症狀最能提示肝血虛的證型？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Pale tongue", "zh": "舌淡", "correct": false},
+          "B": {"en": "Hypochondriac pain", "zh": "脅肋疼痛", "correct": false},
+          "C": {"en": "Numbness in the limbs", "zh": "肢體麻木", "correct": true},
+          "D": {"en": "Palpitations", "zh": "心悸", "correct": false}
+        },
+        "exp_en": "Numbness of limbs (C) is the most specific sign of Liver Blood Deficiency causing dizziness. Liver Blood nourishes the sinews; insufficient Blood fails to nourish the limbs, causing numbness. Pale tongue lacks specificity; palpitations can indicate Heart Blood deficiency; hypochondriac pain more often suggests Liver Qi Stagnation.",
+        "exp_zh": "肢體麻木最具特異性——肝血不足，不能濡養四肢筋脈，筋失所養則麻木。舌淡多種虛證均見，心悸可見於心血虛，脅痛更多見於肝氣鬱滯。"
+      },
+      {
+        "id": 48,
+        "question_en": "Which syndrome is most likely for a 70-year-old man with urinary incontinence, lower backache, fatigue, sleepiness, and pale complexion?",
+        "question_zh": "70歲男性，尿失禁、腰痛、疲倦、嗜睡、面色蒼白，最可能是哪個證型？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Kidney Qi deficiency", "zh": "腎氣虛", "correct": true},
+          "B": {"en": "Kidney Yang deficiency", "zh": "腎陽虛", "correct": false},
+          "C": {"en": "Spleen Qi deficiency", "zh": "脾氣虛", "correct": false},
+          "D": {"en": "Both Spleen and Kidney deficiency", "zh": "脾腎兩虛", "correct": false}
+        },
+        "exp_en": "Urinary incontinence, lower back pain, fatigue, somnolence, and pale complexion without cold signs most likely indicate Kidney Qi Deficiency (A). The absence of aversion to cold or cold limbs rules out Kidney Yang deficiency. Kidney Qi fails to consolidate the bladder, causing incontinence.",
+        "exp_zh": "尿失禁（腎氣不固）、腰痛（腎虛）、疲倦嗜睡（氣虛）、面色蒼白——腎氣虛為主。無畏寒肢冷（非腎陽虛），無消化問題（非脾虛），嗜睡為腎氣不足之象。"
+      },
+      {
+        "id": 49,
+        "question_en": "A 70-year-old man suffering from diarrhea for four months. He has diarrhea between 4am and 5am every day. His stool is completely undigested. He has cold limbs, pale tongue with slippery white coating, and a weak pulse. Which of the following meridians should be used for acupuncture treatment?",
+        "question_zh": "70歲男性五更瀉、完谷不化、四肢冷、舌淡苔白滑、脈弱，針灸治療應取哪條經絡？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Stomach", "zh": "胃經", "correct": false},
+          "B": {"en": "Small Intestine", "zh": "小腸經", "correct": false},
+          "C": {"en": "Large Intestine", "zh": "大腸經", "correct": false},
+          "D": {"en": "Bladder", "zh": "膀胱經", "correct": true},
+          "E": {"en": "Gallbladder", "zh": "膽經", "correct": false}
+        },
+        "exp_en": "Fifth-watch diarrhea is rooted in Kidney Yang deficiency. The Kidney and Bladder are interior-exterior paired organs (D). Treatment targets the Bladder channel (e.g., BL23 Shenshu) to tonify Kidney Yang and warm the Spleen to stop diarrhea.",
+        "exp_zh": "五更瀉根本在腎陽虛。腎與膀胱相表裡，膀胱經上有腎俞（BL23）等背俞穴，取膀胱經穴位可補腎陽、溫煦脾土以止瀉。"
+      },
+      {
+        "id": 50,
+        "question_en": "What do the absence of taste and lack of thirst tell?",
+        "question_zh": "口淡無味、無口渴提示什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Empty Heat", "zh": "虛熱", "correct": false},
+          "B": {"en": "Damp-Heat", "zh": "濕熱", "correct": false},
+          "C": {"en": "Yang Deficiency", "zh": "陽虛", "correct": true},
+          "D": {"en": "Qi Stagnation", "zh": "氣滯", "correct": false}
+        },
+        "exp_en": "Absence of taste and no thirst indicate Yang Deficiency (C). Yang deficiency generates internal cold; without heat there is no thirst. Yang Qi fails to steam and circulate fluids upward, causing tastelessness. Damp-Heat would produce bitter or sweet taste; deficiency heat would cause dry mouth.",
+        "exp_zh": "口淡無味（陽虛不能蒸騰津液，味覺減退）＋無口渴（無熱象）——是陽虛的特徵。濕熱有口苦甜，虛熱有口乾，氣滯不影響口味。"
+      },
+      {
+        "id": 51,
+        "question_en": "Which of the following indicates Cold-Phlegm obstructing the Lungs?",
+        "question_zh": "以下哪項提示寒痰阻肺？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Thin-white sputum", "zh": "稀白痰", "correct": true},
+          "B": {"en": "Sneezing", "zh": "打噴嚏", "correct": false},
+          "C": {"en": "Chills", "zh": "怕冷", "correct": false},
+          "D": {"en": "Chest pain", "zh": "胸痛", "correct": false}
+        },
+        "exp_en": "Thin white sputum (A) indicates Cold-Phlegm obstructing the Lungs. Cold causes fluids to congeal into thin, white, watery phlegm. Hot phlegm is yellow and thick; dry phlegm is sticky. Sneezing relates to external invasion; aversion to cold occurs in many cold patterns; chest pain lacks specificity.",
+        "exp_zh": "稀白痰是寒痰阻肺的特徵：寒性收引凝聚，痰液清稀色白。熱痰黃稠，燥痰黏膩難咯。打噴嚏屬外感，怕冷可見多種寒證，胸痛不特異。"
+      },
+      {
+        "id": 52,
+        "question_en": "In TCM pathogenesis, soft, movable abdominal lumps with distending pain are due to:",
+        "question_zh": "在中醫病機中，腹部積塊質軟、可移動伴脹痛是由什麼引起的？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Blood stasis", "zh": "血瘀", "correct": false},
+          "B": {"en": "Qi stagnation", "zh": "氣滯", "correct": false},
+          "C": {"en": "Phlegm stagnation", "zh": "痰積", "correct": true},
+          "D": {"en": "Qi sinking", "zh": "氣陷", "correct": false}
+        },
+        "exp_en": "Soft, movable abdominal lumps with distending pain indicate Phlegm Stagnation (C). Phlegm is a tangible pathogen but soft in consistency; Phlegm accumulation forms movable masses. Blood Stasis produces hard, fixed, stabbing-pain masses; Qi Stagnation is formless (no palpable mass).",
+        "exp_zh": "質軟、可移動的腹部積塊伴脹痛——痰為有形之邪但質軟，積聚可移動；脹痛提示氣機不暢。血瘀積塊固定刺痛，氣滯無形（積塊不成形），氣陷為臟器下垂。"
+      },
+      {
+        "id": 53,
+        "question_en": "Which organ is mostly associated with the regularity of the menstrual cycle?",
+        "question_zh": "哪個臟腑最與月經週期的規律性相關？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Heart", "zh": "心", "correct": false},
+          "B": {"en": "Kidney", "zh": "腎", "correct": false},
+          "C": {"en": "Liver", "zh": "肝", "correct": true},
+          "D": {"en": "Spleen", "zh": "脾", "correct": false}
+        },
+        "exp_en": "The Liver (C) is most associated with the regularity of the menstrual cycle. The Liver stores blood, governs free-flowing Qi, and regulates the Chong and Ren vessels. Liver Qi Stagnation delays or disrupts the cycle; Liver Blood deficiency causes scanty, delayed menstruation.",
+        "exp_zh": "肝藏血、主疏泄，調節衝任二脈，主導月經週期的規律性。肝氣鬱結（月經推遲或不規律）、肝血虛（月經量少推遲）均直接影響月經週期。"
+      },
+      {
+        "id": 54,
+        "question_en": "What is not a cause of Liver Wind?",
+        "question_zh": "哪項不是肝風的病因？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Liver Blood deficiency", "zh": "肝血虛", "correct": false},
+          "B": {"en": "Liver Yang Rising", "zh": "肝陽上亢", "correct": false},
+          "C": {"en": "Liver Fire", "zh": "肝火", "correct": false},
+          "D": {"en": "Liver Cold", "zh": "肝寒", "correct": true}
+        },
+        "exp_en": "Liver Cold (D) does not cause Liver Wind. The three causes of Liver Wind are: Liver Blood Deficiency (deficiency Wind), Liver Yang transforming into Wind (hyperactivity), and Liver Fire blazing upward into Wind (excess heat). Cold causes contraction, not the movement and agitation characteristic of Wind.",
+        "exp_zh": "肝寒不會導致肝風。肝風內動的三大病因：①肝血虛（虛風）②肝陽化風（陽亢）③肝火化風（熱極）。肝寒性收引，不能產生動搖之象。"
+      },
+      {
+        "id": 55,
+        "question_en": "A patient has sharp pain in the hypochondriac region. He is feeling tired and not willing to talk. The tongue is pale with purple spots on the edge and the pulse is weak and wiry. What is the correct pathogenesis?",
+        "question_zh": "患者脅肋劇烈疼痛、疲倦不欲言、舌淡有紫斑、脈弱弦。正確病機是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Deficiency of Qi and Blood", "zh": "氣血兩虛", "correct": false},
+          "B": {"en": "Stagnation of Qi and Blood", "zh": "氣血瘀滯", "correct": false},
+          "C": {"en": "Deficiency of Qi and stagnation of Blood", "zh": "氣虛兼血瘀", "correct": true},
+          "D": {"en": "Deficiency of Blood and stagnation of Qi", "zh": "血虛兼氣滯", "correct": false}
+        },
+        "exp_en": "Sharp hypochondriac pain (Blood Stasis) combined with fatigue and reluctance to speak (Qi Deficiency), pale tongue with purple spots (Qi Deficiency + Blood Stasis), and weak-wiry pulse indicates Qi Deficiency with Blood Stasis (C). Qi Deficiency fails to move blood, leading to Blood Stasis.",
+        "exp_zh": "脅肋固定刺痛（血瘀）＋疲倦不欲言（氣虛）＋脈弱（氣虛）＋舌淡有紫斑（氣虛兼血瘀）——為氣虛血瘀：氣虛無力推動血行，導致血行遲緩成瘀。"
+      },
+      {
+        "id": 56,
+        "question_en": "Which is the symptom most commonly associated with Spleen Qi deficiency?",
+        "question_zh": "哪個症狀最常與脾氣虛相關？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Stomach ache", "zh": "胃痛", "correct": false},
+          "B": {"en": "Abdominal bloating", "zh": "腹脹", "correct": true},
+          "C": {"en": "Nausea", "zh": "噁心", "correct": false},
+          "D": {"en": "Constipation", "zh": "便秘", "correct": false}
+        },
+        "exp_en": "Abdominal bloating (B) is the most common symptom of Spleen Qi Deficiency. When Spleen Qi is deficient, transformation and transportation fail; food and Qi stagnate in the middle jiao, producing bloating that worsens after meals. Stomach pain and nausea relate more to the Stomach; constipation is not typical of Spleen Qi deficiency.",
+        "exp_zh": "腹脹（飯後尤甚）是脾氣虛最典型的症狀——脾虛運化失職，水穀停滯中焦，氣機壅滯，故飯後腹脹明顯。胃痛、噁心偏向胃，便秘非脾虛典型症。"
+      },
+      {
+        "id": 57,
+        "question_en": "Which pattern is signified by cold feet?",
+        "question_zh": "腳冷提示哪種證型？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Yang deficiency", "zh": "陽虛", "correct": true},
+          "B": {"en": "Qi deficiency", "zh": "氣虛", "correct": false},
+          "C": {"en": "Blood stagnation", "zh": "血瘀", "correct": false},
+          "D": {"en": "Blood deficiency", "zh": "血虛", "correct": false}
+        },
+        "exp_en": "Cold feet (A) signifies Yang Deficiency. Yang Qi is insufficient to warm the extremities, particularly the feet and lower limbs. Qi Deficiency primarily presents as fatigue; Blood Stasis presents as fixed pain; Blood Deficiency presents as pale complexion and palpitations.",
+        "exp_zh": "足冷（腳冷）是陽虛的典型表現——陽氣不足，不能溫煦四末，尤以下肢為甚。氣虛以疲倦乏力為主，血瘀以固定疼痛為主，血虛以面白心悸為主。"
+      },
+      {
+        "id": 58,
+        "question_en": "According to the Five Element theory, which of the following describes a condition of cough triggered by emotional stress?",
+        "question_zh": "根據五行理論，以下哪種描述符合情緒壓力引發咳嗽的關係？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Promoting", "zh": "相生", "correct": false},
+          "B": {"en": "Controlling", "zh": "相克", "correct": false},
+          "C": {"en": "Invading", "zh": "相乘", "correct": false},
+          "D": {"en": "Insulting", "zh": "相侮", "correct": true}
+        },
+        "exp_en": "According to Five Element theory, the normal relationship is Metal controls Wood (Lung controls Liver). When emotional stress (Liver/Wood) causes coughing (Lung/Metal), Wood is overacting on Metal — this is the Insulting (相侮) relationship (D), meaning the controlled element turns on and overacts against the controlling element.",
+        "exp_zh": "五行：木克土（正常），金克木（正常）。情緒壓力（肝木亢盛）反侮肺金（金克木的反向）——「木侮金」屬相侮（Insulting/反克），情緒觸發咳嗽即肝木反侮肺金。"
+      },
+      {
+        "id": 59,
+        "question_en": "Which organs are paired through the Jue Yin channel?",
+        "question_zh": "哪兩個臟腑通過厥陰經相配對？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Lung/Liver", "zh": "肺／肝", "correct": false},
+          "B": {"en": "Liver/Pericardium", "zh": "肝／心包", "correct": true},
+          "C": {"en": "Pericardium/San Jiao", "zh": "心包／三焦", "correct": false},
+          "D": {"en": "Liver/Gallbladder", "zh": "肝／膽", "correct": false}
+        },
+        "exp_en": "The Jue Yin channel pairs Liver (Foot Jue Yin) and Pericardium (Hand Jue Yin) (B). This channel pairing reflects their shared Jue Yin Qi dynamic and forms the basis of Liver-Pericardium relationships in TCM.",
+        "exp_zh": "厥陰經包含足厥陰肝經與手厥陰心包經，兩臟通過厥陰經相配對，構成厥陰「一氣貫通」的理論基礎。"
+      },
+      {
+        "id": 60,
+        "question_en": "What does a weak and slow pulse indicate?",
+        "question_zh": "弱而遲的脈象提示什麼？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Yang deficiency", "zh": "陽虛", "correct": true},
+          "B": {"en": "Yin deficiency", "zh": "陰虛", "correct": false},
+          "C": {"en": "Qi deficiency", "zh": "氣虛", "correct": false},
+          "D": {"en": "Blood deficiency", "zh": "血虛", "correct": false}
+        },
+        "exp_en": "A weak pulse indicates deficiency (insufficient Yang to drive the pulse); a slow pulse indicates cold (Qi and blood move sluggishly). Together, weak-slow pulse (A) indicates Yang Deficiency — both insufficiency and cold signs are present. Yin Deficiency shows thin-rapid pulse; Qi Deficiency shows weak but not necessarily slow; Blood Deficiency shows thin-weak.",
+        "exp_zh": "弱脈主虛（陽氣不足，鼓動無力）；遲脈主寒（氣血運行遲緩）。弱遲脈合見為陽虛（虛寒並存），陰虛多脈細數，氣虛脈弱但不一定遲，血虛脈細弱。"
+      },
+      {
+        "id": 61,
+        "question_en": "How does Sadness affect the movement of Qi?",
+        "question_zh": "悲傷如何影響氣的運動？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "It makes Qi move slowly.", "zh": "使氣運行緩慢", "correct": false},
+          "B": {"en": "It makes Qi dissolve.", "zh": "使氣消散", "correct": true},
+          "C": {"en": "It makes Qi stagnate.", "zh": "使氣鬱結", "correct": false},
+          "D": {"en": "It makes Qi rise up.", "zh": "使氣上升", "correct": false}
+        },
+        "exp_en": "Sadness makes Qi dissolve/dissipate (B). In TCM, 'sadness causes Qi to dissolve' (悲則氣消). Sadness injures the Lung; Lung Qi is scattered and consumed. The Five Emotions and Qi movements: anger = Qi ascends; joy = Qi slackens; pensiveness = Qi stagnates; fear = Qi descends; sadness = Qi dissolves.",
+        "exp_zh": "「悲則氣消」——悲傷傷肺，使肺氣耗散，氣機渙散消散。五志對氣的影響：怒則氣上，喜則氣緩，思則氣結，恐則氣下，悲則氣消。"
+      },
+      {
+        "id": 62,
+        "question_en": "A 70-year-old man suffering from diarrhea for four months. He has diarrhea between 4am and 5am every day. His stool is completely undigested. He has cold limbs, pale tongue with slippery white coating, and a weak pulse. Which category of herb is best suited to treat this condition?",
+        "question_zh": "70歲男性五更瀉（每日凌晨4-5時）、完谷不化、四肢冷、舌淡苔白滑、脈弱。哪類草藥最適合治療此病？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Drain Dampness", "zh": "利水滲濕", "correct": false},
+          "B": {"en": "Regulate Qi", "zh": "理氣", "correct": false},
+          "C": {"en": "Stabilize and Bind", "zh": "收澀固脫", "correct": true},
+          "D": {"en": "Tonify Qi", "zh": "補氣", "correct": false},
+          "E": {"en": "Aromatic Transform Damp", "zh": "芳香化濕", "correct": false}
+        },
+        "exp_en": "Kidney Yang deficiency causing fifth-watch diarrhea (chronic slippery diarrhea) requires Stabilize and Bind herbs (C). These herbs astringe and consolidate the intestines to stop the chronic slipping. Concurrent warming of Kidney Yang is also needed. Drain Dampness is inappropriate; Regulate Qi addresses different pathology; Tonify Qi alone is insufficient.",
+        "exp_zh": "腎陽虛型五更瀉（慢性虛滑腹瀉）需用收澀固脫類（Stabilize and Bind）固澀腸道、止虛滑之瀉，如補骨脂、肉豆蔻、五味子等，同時配溫腎陽藥。"
+      }
+    ]
+  },
+  "acupuncture": {
+    "title": "Acupuncture Foundations",
+    "name_zh": "針灸學",
+    "icon": "📍",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "Which is the Front-Mu point of Small Intestine?",
+        "question_zh": "小腸的募穴是哪個？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "RN10 Xiawan", "zh": "RN10 下脘", "correct": false},
+          "B": {"en": "RN12 Zhongwan", "zh": "RN12 中脘", "correct": false},
+          "C": {"en": "RN5 Shimen", "zh": "RN5 石門", "correct": false},
+          "D": {"en": "RN4 Guanyuan", "zh": "RN4 關元", "correct": true}
+        },
+        "exp_en": "A: Incorrect. RN10 (Xiawan) is the Front-Mu point of the Stomach (lower part). | B: Incorrect. RN12 (Zhongwan) is the Front-Mu point of the Stomach. | C: Incorrect. RN5 (Shimen) is the Front-Mu point of the San Jiao. | D: Correct. RN4 (Guanyuan) is the Front-Mu (Alarm) point of the Small Intestine.",
+        "exp_zh": "RN4（關元）是小腸的募穴。石門（RN5）為三焦募穴，中脘（RN12）為胃募穴，下脘（RN10）不是募穴。"
+      },
+      {
+        "id": 2,
+        "question_en": "What is the correct description for the 2nd branch for Bladder Primary channel?",
+        "question_zh": "膀胱正經第二支的正確描述是什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Parallel to spine and 0.5 cun lateral to the spine", "zh": "與脊柱平行，位於脊柱外側0.5寸", "correct": false},
+          "B": {"en": "Parallel to the spine and half way from medial border of the scapula to Spine", "zh": "與脊柱平行，位於肩胛骨內側緣至脊柱的中點", "correct": false},
+          "C": {"en": "Parallel to the spine and 1.5 cun from spine", "zh": "與脊柱平行，距脊柱1.5寸", "correct": false},
+          "D": {"en": "On medial border of the scapula and parallel to the spine", "zh": "沿肩胛骨內側緣與脊柱平行", "correct": true}
+        },
+        "exp_en": "A: Incorrect. 0.5 cun lateral to the spine does not correspond to any standard BL branch. | B: Incorrect. This description does not match the standard anatomical reference for the 2nd branch. | C: Incorrect. 1.5 cun from the spine describes the 1st branch of the Bladder channel, not the 2nd. | D: Correct. The 2nd branch of the Bladder Primary channel runs along the medial border of the scapula, pa",
+        "exp_zh": "膀胱正經第二支沿肩胛骨內側緣走行，與脊柱平行（即背部第二線，距脊柱旁開3寸）。"
+      },
+      {
+        "id": 3,
+        "question_en": "The distance between SI-7 and SI-8 is:",
+        "question_zh": "SI-7（支正）至SI-8（小海）的距離是：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "5 cun", "zh": "5寸", "correct": false},
+          "B": {"en": "6 cun", "zh": "6寸", "correct": false},
+          "C": {"en": "7 cun", "zh": "7寸", "correct": true},
+          "D": {"en": "8 cun", "zh": "8寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 5 cun is not the correct distance between SI-7 and SI-8. | B: Incorrect. 6 cun is not the correct distance between SI-7 and SI-8. | C: Correct. SI-7 (Zhizheng) is located 5 cun proximal to the wrist, and SI-8 (Xiaohai) is at the elbow. The total distance between the two points on the forearm is 7 cun. Wait — SI-7 is 5 cun above the wrist crease; SI-8 is at the elbow (olecranon). The ",
+        "exp_zh": "支正（SI-7）位於腕上5寸，小海（SI-8）位於肘部，前臂總長約12寸，故支正至小海約7寸。"
+      },
+      {
+        "id": 4,
+        "question_en": "Which element of Five Elements does PC9 (Zhongchong) belong to?",
+        "question_zh": "PC9（中衝）屬於五行中的哪個元素？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Wood", "zh": "木", "correct": true},
+          "B": {"en": "Fire", "zh": "火", "correct": false},
+          "C": {"en": "Earth", "zh": "土", "correct": false},
+          "D": {"en": "Metal", "zh": "金", "correct": false}
+        },
+        "exp_en": "A: Correct. PC9 (Zhongchong) is the Jing-Well point of the Pericardium meridian. On Yin meridians, the Jing-Well point corresponds to the Wood element. | B: Incorrect. Fire corresponds to the Ying-Spring point on Yin meridians. | C: Incorrect. Earth corresponds to the Shu-Stream point on Yin meridians. | D: Incorrect. Metal corresponds to the Jing-River point on Yin meridians.",
+        "exp_zh": "中衝（PC9）是心包經的井穴。陰經井穴屬木（五輸穴五行配屬：井木、滎火、輸土、經金、合水）。"
+      },
+      {
+        "id": 5,
+        "question_en": "Choose the correct back shu points for the following organs: Lung, Liver, Spleen and Kidney",
+        "question_zh": "選擇以下臟腑的正確背俞穴：肺、肝、脾、腎",
+        "answer": "D",
+        "options": {
+          "A": {"en": "UB-15, UB-17, UB-21, UB-23", "zh": "UB-15、UB-17、UB-21、UB-23", "correct": false},
+          "B": {"en": "UB-13, UB-18, UB-23, UB-25", "zh": "UB-13、UB-18、UB-23、UB-25", "correct": false},
+          "C": {"en": "UB-13, UB-17, UB-20, UB-13", "zh": "UB-13、UB-17、UB-20、UB-13", "correct": false},
+          "D": {"en": "UB-13, UB-18, UB-20, UB-23", "zh": "UB-13、UB-18、UB-20、UB-23", "correct": true}
+        },
+        "exp_en": "A: Incorrect. UB-15 is the Back-Shu of the Heart, not Lung; UB-17 is the Back-Shu of the diaphragm/blood. | B: Incorrect. UB-25 is the Back-Shu of the Large Intestine, not the Kidney. | C: Incorrect. UB-13 is listed twice, and UB-17 is the diaphragm, not the Liver. | D: Correct. UB-13 = Lung, UB-18 = Liver, UB-20 = Spleen, UB-23 = Kidney.",
+        "exp_zh": "肺俞=BL13，肝俞=BL18，脾俞=BL20，腎俞=BL23。這是必須記憶的重要背俞穴位置。"
+      },
+      {
+        "id": 6,
+        "question_en": "Which is a Commanding or Si Zong point for head and nape?",
+        "question_zh": "哪個穴位是頭頸部的四總穴？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "SJ5 (Waiguan)", "zh": "SJ5（外關）", "correct": false},
+          "B": {"en": "BL40 (Weizhong)", "zh": "BL40（委中）", "correct": false},
+          "C": {"en": "LU7 (Lieque)", "zh": "LU7（列缺）", "correct": true},
+          "D": {"en": "PC6 (Neiguan)", "zh": "PC6（內關）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. SJ5 (Waiguan) is a Confluent point of the Yang Wei Mai, used for lateral body and fever conditions. | B: Incorrect. BL40 (Weizhong) is the Commanding point for the lumbar and back region. | C: Correct. LU7 (Lieque) is the Commanding (Si Zong) point for the head and nape region. | D: Incorrect. PC6 (Neiguan) is a Confluent point of the Yin Wei Mai, used for chest and heart conditions.",
+        "exp_zh": "列缺（LU7）是頭頸部的四總穴。四總穴：列缺（頭頸）、足三里（腹部）、委中（腰背）、內關（胸心）。"
+      },
+      {
+        "id": 7,
+        "question_en": "Which point is used for malposition of the foetus and what is its location?",
+        "question_zh": "哪個穴位用於胎位不正？其定位是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "SP-1, at the junction of lines drawn along the medial border of the nail and the base of the nail", "zh": "SP-1，位於甲內側緣與甲根部連線交點", "correct": false},
+          "B": {"en": "LR-1, at the junction of lines drawn along the lateral border of the nail and the base of the nail", "zh": "LR-1，位於甲外側緣與甲根部連線交點", "correct": false},
+          "C": {"en": "UB-67, at the junction of lines drawn along the medial border of the nail and the base of the nail, approximately 0.1 cun from the corner of the nail", "zh": "UB-67，位於甲內側緣與甲根部連線交點，距甲角約0.1寸", "correct": false},
+          "D": {"en": "UB-67, at the junction of lines drawn along the lateral border of the nail and the base of the nail, approximately 0.1 cun from the corner of the nail", "zh": "UB-67，位於甲外側緣與甲根部連線交點，距甲角約0.1寸", "correct": true}
+        },
+        "exp_en": "A: Incorrect. SP-1 is on the medial great toe and is not used for foetal malposition. | B: Incorrect. LR-1 is on the lateral great toe; it is not the standard point for foetal malposition correction. | C: Incorrect. UB-67 is on the lateral side of the 5th toenail, not the medial border. | D: Correct. UB-67 (Zhiyin) is located at the junction of the lateral border of the nail and the base of the na",
+        "exp_zh": "至陰（UB-67）位於足小趾甲外側緣與甲根部連線交點，距甲角約0.1寸。艾灸至陰穴可矯正胎位不正。"
+      },
+      {
+        "id": 8,
+        "question_en": "What is scalp acupuncture mainly used for?",
+        "question_zh": "頭皮針主要用於治療什麼？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Cerebral disorders", "zh": "腦部疾患", "correct": true},
+          "B": {"en": "Infection diseases", "zh": "感染性疾病", "correct": false},
+          "C": {"en": "Immune system diseases", "zh": "免疫系統疾病", "correct": false},
+          "D": {"en": "Gynecological diseases", "zh": "婦科疾病", "correct": false}
+        },
+        "exp_en": "A: Correct. Scalp acupuncture is primarily used for cerebral and neurological disorders, as scalp zones correspond to cortical functional areas. | B: Incorrect. Infectious diseases are not the primary indication. | C: Incorrect. Immune system diseases are not the main application. | D: Incorrect. Gynaecological diseases are not the primary indication for scalp acupuncture.",
+        "exp_zh": "頭皮針專門為腦部及神經系統疾患而開發，包括中風康復、癱瘓等，頭皮上的區域對應大腦皮層功能區。"
+      },
+      {
+        "id": 9,
+        "question_en": "Which specific group does SP6 Sanyinjiao belong to?",
+        "question_zh": "三陰交（SP6）屬於哪個特定穴位類別？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Five-Shu", "zh": "五輸穴", "correct": false},
+          "B": {"en": "Eight Influential", "zh": "八會穴", "correct": false},
+          "C": {"en": "Jiaohui-Crossing", "zh": "交會穴", "correct": true},
+          "D": {"en": "Xi-Cleft", "zh": "郄穴", "correct": false}
+        },
+        "exp_en": "A: Incorrect. SP6 is not one of the Five-Shu points. | B: Incorrect. SP6 is not one of the Eight Influential (Ba Hui) points. | C: Correct. SP6 (Sanyinjiao) is a Jiaohui (Crossing/Intersection) point where the three Yin meridians of the foot (Spleen, Liver, Kidney) converge. | D: Incorrect. SP6 is not a Xi-Cleft point. The Xi-Cleft point of the Spleen meridian is SP8 (Diji).",
+        "exp_zh": "三陰交（SP6）是三條足部陰經（脾、肝、腎）交匯的交會穴，不是任何單一經絡的五輸穴。"
+      },
+      {
+        "id": 10,
+        "question_en": "Which 3 GB points are located on the Dai channel?",
+        "question_zh": "哪3個膽經穴位位於帶脈上？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "GB-26, GB-27, GB-28", "zh": "GB-26、GB-27、GB-28", "correct": true},
+          "B": {"en": "GB-27, GB-28, GB-29", "zh": "GB-27、GB-28、GB-29", "correct": false},
+          "C": {"en": "GB-25, GB-26, GB-27", "zh": "GB-25、GB-26、GB-27", "correct": false},
+          "D": {"en": "GB-28, GB-29, GB-30", "zh": "GB-28、GB-29、GB-30", "correct": false}
+        },
+        "exp_en": "A: Correct. GB-26 (Daimai), GB-27 (Wushu), and GB-28 (Weidao) are the three Gallbladder points that lie on the Dai (Girdle) channel. | B: Incorrect. GB-29 is not on the Dai channel. | C: Incorrect. GB-25 is the Front-Mu of the Kidney, not a Dai channel point. | D: Incorrect. GB-29 and GB-30 are hip points, not Dai channel points.",
+        "exp_zh": "帶脈（GB-26）、五樞（GB-27）、維道（GB-28）是位於帶脈上的三個膽經穴位，帶脈水平環繞腰部。"
+      },
+      {
+        "id": 11,
+        "question_en": "Which group of points is correct?均位於前髮際上0.5寸",
+        "question_zh": "以下哪組穴位正確？（均位於前髮際上0.5寸）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "ST-8, UB-4, UB-5, GB-14", "zh": "ST-8、UB-4、UB-5、GB-14", "correct": false},
+          "B": {"en": "ST-8, UB-3, UB-4, GB-13, GB-15", "zh": "ST-8、UB-3、UB-4、GB-13、GB-15", "correct": false},
+          "C": {"en": "ST-8, UB-4, UB-5, GB-15, GB-16", "zh": "ST-8、UB-4、UB-5、GB-15、GB-16", "correct": true},
+          "D": {"en": "ST-8, UB-3, UB-4, DU-23", "zh": "ST-8、UB-3、UB-4、DU-23", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB-14 is 1 cun above the midpoint of the eyebrow, not 0.5 cun within the hairline. | B: Incorrect. This group does not correctly represent points all lying 0.5 cun within the hairline. | C: Correct. ST-8, UB-4, UB-5, GB-15, and GB-16 are all located 0.5 cun within (superior to) the anterior hairline. | D: Incorrect. DU-23 is 1 cun within the hairline, not 0.5 cun.",
+        "exp_zh": "ST-8（頭維）、UB-4（曲差）、UB-5（五處）、GB-15（頭臨泣）、GB-16（目窗）均位於前髮際上0.5寸。"
+      },
+      {
+        "id": 12,
+        "question_en": "In ear acupuncture, points related to the digestive tract are distributed around:",
+        "question_zh": "在耳針中，消化道相關穴位分佈在：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "The ear lobe", "zh": "耳垂", "correct": false},
+          "B": {"en": "The cavum concha", "zh": "耳甲腔", "correct": true},
+          "C": {"en": "The antihelix", "zh": "對耳輪", "correct": false},
+          "D": {"en": "The helix crus", "zh": "耳輪腳", "correct": false}
+        },
+        "exp_en": "A: Incorrect. The ear lobe corresponds to the face and head region. | B: Incorrect. The cavum conchae corresponds to the thoracic cavity organs (heart and lungs). | C: Incorrect. The antihelix corresponds to the spine and limbs. | D: Correct. In ear acupuncture, digestive tract points (from oesophagus to rectum) are distributed around and along the helix crus.",
+        "exp_zh": "消化道器官在耳甲腔有對應穴位（耳甲腔對應腹腔器官）。耳甲艇對應腹腔，耳甲腔對應胸腔，耳垂對應面部。"
+      },
+      {
+        "id": 13,
+        "question_en": "Which point is located on the radial side of the tendon of flexor carpi ulnaris, 1 cun proximal to the wrist?",
+        "question_zh": "哪個穴位位於尺側腕屈肌腱橈側、腕橫紋上1寸處？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "HT-4 Lingdao", "zh": "HT-4（靈道）", "correct": false},
+          "B": {"en": "HT-3 Shaohai", "zh": "HT-3（少海）", "correct": false},
+          "C": {"en": "HT-5 Tongli", "zh": "HT-5（通里）", "correct": false},
+          "D": {"en": "HT-6 Yinxi", "zh": "HT-6（陰郄）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. HT-4 (Lingdao) is located 1.5 cun proximal to the wrist crease, not 1 cun. | B: Incorrect. HT-3 (Shaohai) is at the elbow, not near the wrist. | C: Incorrect. HT-5 (Tongli) is located 1 cun proximal to the wrist, but on the radial side of the flexor carpi ulnaris tendon — this description actually fits HT-5 as well; however the standard teaching places HT-6 at exactly 0.5 cun above t",
+        "exp_zh": "陰郄（HT-6）是心經郄穴，位於神門（HT-7）上方0.5寸，尺側腕屈肌腱橈側（注：原題說1寸但標準定位0.5寸，以教材為準）。"
+      },
+      {
+        "id": 14,
+        "question_en": "Which point is located 5 cun below the olecranon, on the lateral side of the forearm, between the radius and ulna?",
+        "question_zh": "哪個穴位位於尺骨鷹嘴下方5寸、前臂外側、橈尺骨之間？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "TE-9 Sidu", "zh": "TE-9（四瀆）", "correct": false},
+          "B": {"en": "TE-8 Sanyangluo", "zh": "TE-8（三陽絡）", "correct": false},
+          "C": {"en": "SI-7 Zhizheng", "zh": "SI-7（支正）", "correct": true},
+          "D": {"en": "LI-10 Shousanli", "zh": "LI-10（手三里）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. TE-9 (Sidu) is located 7 cun distal to the olecranon, not 5 cun. | B: Incorrect. TE-8 (Sanyangluo) is located 4 cun distal to the dorsal wrist crease. | C: Correct. SI-7 (Zhizheng) is located on the ulnar side of the forearm, 5 cun proximal to the wrist (or 5 cun below the olecranon when measuring from that direction), between the radius and ulna. | D: Incorrect. LI-10 (Shousanli) is",
+        "exp_zh": "支正（SI-7）位於尺側前臂，腕上5寸（距肘部鷹嘴約7寸），在尺骨背緣。注意SI-7在前臂尺側，非橈側。"
+      },
+      {
+        "id": 15,
+        "question_en": "Choose the correct influential points for: Bone, Blood, Vessel, Fu Organs",
+        "question_zh": "選擇以下的正確八會穴：骨、血、脈、腑",
+        "answer": "C",
+        "options": {
+          "A": {"en": "UB-17, UB-11, LU-7, RN-17", "zh": "UB-17、UB-11、LU-7、RN-17", "correct": false},
+          "B": {"en": "UB-11, UB-17, LU-9, RN-17", "zh": "UB-11、UB-17、LU-9、RN-17", "correct": false},
+          "C": {"en": "UB-11, UB-17, LU-9, RN-12", "zh": "UB-11、UB-17、LU-9、RN-12", "correct": true}
+        },
+        "exp_en": "A: Incorrect. UB-17 is blood, UB-11 is bone — order is reversed, and LU-7 is not the vessel point. | B: Incorrect. LU-7 is not the Eight Influential point for vessels. | C: Correct. UB-11 (Dazhu) = Bone, UB-17 (Geshu) = Blood, LU-9 (Taiyuan) = Vessels, RN-12 (Zhongwan) = Fu Organs. | D: Incorrect. RN-17 (Shanzhong) is the influential point for Qi, not Fu Organs.",
+        "exp_zh": "八會穴：大杼（UB-11）主骨，膈俞（UB-17）主血，太淵（LU-9）主脈，中脘（RN-12）主腑。"
+      },
+      {
+        "id": 16,
+        "question_en": "Which of the following points carries the highest risk of pneumothorax, if needled improperly?",
+        "question_zh": "以下哪個穴位針刺不當時氣胸風險最高？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "LR-13 Zhangmen", "zh": "LR-13（章門）", "correct": false},
+          "B": {"en": "GB-24 Riyue", "zh": "GB-24（日月）", "correct": true},
+          "C": {"en": "ST-16 Yingchuan", "zh": "ST-16（膺窗）", "correct": false},
+          "D": {"en": "SP-16 Fuai", "zh": "SP-16（腹哀）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. LR-13 (Zhangmen) is on the lateral abdomen near the 11th rib tip; risk of pneumothorax exists but is lower than GB-24. | B: Correct. GB-24 (Riyue) is located in the 7th intercostal space on the anterior chest wall, directly overlying lung tissue, making it the highest-risk point for pneumothorax. | C: Incorrect. ST-16 (Yingchuan) is on the chest but not as directly over the lung apex",
+        "exp_zh": "日月（GB-24）位於第7肋間，直接覆蓋肺組織，針刺不當有氣胸風險。胸部穴位應斜刺或橫刺。"
+      },
+      {
+        "id": 17,
+        "question_en": "What do the Eight Influential Points influence?",
+        "question_zh": "八會穴各自影響什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Zang organs, Fu organs, meridians, vessels, Qi, blood, Yin, Yang", "zh": "臟、腑、經脈、血脈、氣、血、陰、陽", "correct": false},
+          "B": {"en": "Zang organs, Fu organs, Qi, blood, tendons, vessels, bones, marrow", "zh": "臟、腑、氣、血、筋、脈、骨、髓", "correct": true},
+          "C": {"en": "Qi, blood, brain, marrow, body fluid, Shen, vessels, bones", "zh": "氣、血、腦、髓、津液、神、脈、骨", "correct": false},
+          "D": {"en": "Brain, marrow, Zang organs, Fu organs, vessels, gallbladder, tendons, bones", "zh": "腦、髓、臟、腑、脈、膽、筋、骨", "correct": false}
+        },
+        "exp_en": "A: Incorrect. The Eight Influential Points do not specifically influence meridians, Yin, or Yang as categories. | B: Correct. The Eight Influential (Ba Hui) points each influence one of: Zang organs, Fu organs, Qi, Blood, Tendons, Vessels, Bones, and Marrow. | C: Incorrect. Brain, body fluid, and Shen are not among the eight categories. | D: Incorrect. Gallbladder is a Fu organ, not a separate cat",
+        "exp_zh": "八會穴主管：臟（章門LV13）、腑（中脘CV12）、氣（膻中CV17）、血（膈俞BL17）、筋（陽陵泉GB34）、脈（太淵LU9）、骨（大杼BL11）、髓（懸鐘GB39）。"
+      },
+      {
+        "id": 18,
+        "question_en": "When is the best time to give an acupuncture treatment?",
+        "question_zh": "進行針灸治療的最佳時機是什麼時候？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Before the disease attacks", "zh": "發病前", "correct": true},
+          "B": {"en": "After the disease attacks", "zh": "發病後", "correct": false},
+          "C": {"en": "Between attacks", "zh": "發作間歇期", "correct": false},
+          "D": {"en": "During its attack", "zh": "發作期間", "correct": false}
+        },
+        "exp_en": "A: Correct. The best time to treat is before a disease attack (e.g., before a predictable episode of pain, asthma, or seizure), allowing the body to be strengthened in advance. | B: Incorrect. Treating after an attack is reactive and less optimal. | C: Incorrect. Treating between attacks is useful for chronic management but is not considered the single best timing. | D: Incorrect. Treating during ",
+        "exp_zh": "最佳治療時機是發作間歇期（緩解期）——患者不處於急性發作中，可進行適當診斷和治療。急性發作時可對症處理，但系統治療宜在間歇期進行。"
+      },
+      {
+        "id": 19,
+        "question_en": "Which waveform in electro-acupuncture is easier for human body to generate adaption?",
+        "question_zh": "電針中哪種波形更容易使人體產生適應？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Sparse-dense wave", "zh": "疏密波", "correct": false},
+          "B": {"en": "Intermittent wave", "zh": "斷續波", "correct": false},
+          "C": {"en": "Both A and B", "zh": "A和B均是", "correct": false},
+          "D": {"en": "None of above", "zh": "以上皆非", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Sparse-dense wave resists adaptation due to its alternating frequencies. | B: Incorrect. Intermittent wave also resists adaptation. | C: Incorrect. Both A and B resist adaptation — they are harder to adapt to. | D: Correct. Neither sparse-dense nor intermittent wave is easy to adapt to. The continuous wave is easiest to adapt to, but it is not listed. Therefore, None of the above (A ",
+        "exp_zh": "連續波最容易使人體產生適應（耐受）。疏密波和斷續波均不易引起適應，因此臨床常用；以上皆非（D）意指兩者均不易適應。"
+      },
+      {
+        "id": 20,
+        "question_en": "What does the Eight Influential Point LU9 (Taiyuan) influence?",
+        "question_zh": "八會穴LU9（太淵）影響什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Zang organs", "zh": "臟器", "correct": false},
+          "B": {"en": "Body Fluids", "zh": "津液", "correct": false},
+          "C": {"en": "Brain", "zh": "腦", "correct": false},
+          "D": {"en": "Vessels", "zh": "血脈", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Zang organs are influenced by LR-13 (Zhangmen). | B: Incorrect. Body Fluids are not one of the eight influential categories. | C: Incorrect. Brain is not one of the eight influential categories. | D: Correct. LU9 (Taiyuan) is the influential point for Vessels (blood vessels/pulse), as the Lung governs the vessels and LU9 is the meeting point of the vessels.",
+        "exp_zh": "太淵（LU9）是脈的八會穴，肺朝百脈，太淵為脈之會，主治血脈相關疾患及脈象異常。"
+      },
+      {
+        "id": 21,
+        "question_en": "Select the therapy in which Acupuncture Syncope will not occur.",
+        "question_zh": "以下哪種療法不會發生針刺暈厥？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Acu-pressure", "zh": "指壓療法", "correct": true},
+          "B": {"en": "Three edge needle", "zh": "三棱針", "correct": false},
+          "C": {"en": "Fire needle", "zh": "火針", "correct": false},
+          "D": {"en": "Electro-acupuncture", "zh": "電針", "correct": false}
+        },
+        "exp_en": "A: Correct. Acu-pressure (acupressure) uses finger pressure rather than needle insertion, so needle-induced syncope (fainting from needle stimulus) cannot occur. | B: Incorrect. Three-edge needle involves pricking and blood-letting, which can trigger vasovagal syncope. | C: Incorrect. Fire needle involves rapid needle insertion and can trigger syncope. | D: Incorrect. Electro-acupuncture uses need",
+        "exp_zh": "指壓（穴位按壓）使用手指壓力而非針刺，不涉及進針過程，因此不會發生針刺暈厥（暈針）。"
+      },
+      {
+        "id": 22,
+        "question_en": "Which method is used on the four extremity points EX-UE11 (Shixuan)?",
+        "question_zh": "十宣穴（EX-UE11）使用哪種針刺方法？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Spot pricking", "zh": "點刺", "correct": true},
+          "B": {"en": "Scattered pricking", "zh": "散刺", "correct": false},
+          "C": {"en": "Blood-vessel pricking", "zh": "血管刺絡", "correct": false},
+          "D": {"en": "Piercing needling", "zh": "透針", "correct": false}
+        },
+        "exp_en": "A: Correct. Spot pricking (點刺法) is used on Shixuan (EX-UE11) — the ten fingertip points — typically to release a few drops of blood to treat high fever, coma, and heatstroke. | B: Incorrect. Scattered pricking is used over a larger area of skin, not on specific fingertip points. | C: Incorrect. Blood-vessel pricking targets visible superficial veins (e.g., BL40), not fingertip points. | D: Incorre",
+        "exp_zh": "十宣穴（十個指尖）使用點刺法放血，常用於急症如中暑、高熱、昏迷等情況。"
+      },
+      {
+        "id": 23,
+        "question_en": "A patient comes in with chills and fever, a painful neck and shoulders and floating pulse. Which channel would you choose to treat this patient?",
+        "question_zh": "患者出現惡寒發熱、頸肩疼痛、浮脈，應取哪條經絡治療？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Tai Yang channel", "zh": "太陽經", "correct": true},
+          "B": {"en": "Yang Ming channel", "zh": "陽明經", "correct": false},
+          "C": {"en": "Tai Yin channel", "zh": "太陰經", "correct": false},
+          "D": {"en": "Shao Yang channel", "zh": "少陽經", "correct": false}
+        },
+        "exp_en": "A: Correct. Chills, fever, stiff/painful neck and shoulders, and a floating pulse are classic presentations of an exterior pathogen invading the Tai Yang stage. The Tai Yang channel (Small Intestine and Bladder) governs the nape and back. | B: Incorrect. Yang Ming channel invasion presents with high fever without chills, sweating, and flooding pulse. | C: Incorrect. Tai Yin involves interior defic",
+        "exp_zh": "惡寒發熱、頸肩疼痛、浮脈為太陽表證（風寒外感）。太陽經（膀胱經+小腸經）循行覆蓋頸後和上背部。"
+      },
+      {
+        "id": 24,
+        "question_en": "Choose the correct front Mu points for the following organs: Urinary Bladder, San Jiao, Stomach, and Pericardium",
+        "question_zh": "選擇以下臟腑的正確募穴：膀胱、三焦、胃、心包",
+        "answer": "C",
+        "options": {
+          "A": {"en": "RN-2, RN-5, RN-6, RN-14", "zh": "RN-2、RN-5、RN-6、RN-14", "correct": false},
+          "B": {"en": "RN-3, RN-4, RN-12, RN-14", "zh": "RN-3、RN-4、RN-12、RN-14", "correct": false},
+          "C": {"en": "RN-3, RN-5, RN-12, RN-17", "zh": "RN-3、RN-5、RN-12、RN-17", "correct": true},
+          "D": {"en": "RN-2, RN-6, RN-12, RN-17", "zh": "RN-2、RN-6、RN-12、RN-17", "correct": false}
+        },
+        "exp_en": "A: Incorrect. RN-6 (Qihai) is not a Front-Mu point; RN-14 (Juque) is the Front-Mu of the Heart. | B: Incorrect. RN-4 is the Front-Mu of Small Intestine, not San Jiao. | C: Correct. RN-3 = Urinary Bladder, RN-5 = San Jiao, RN-12 = Stomach, RN-17 = Pericardium. | D: Incorrect. RN-2 and RN-6 are not the correct Front-Mu points for the listed organs.",
+        "exp_zh": "募穴：膀胱=中極（RN-3）、三焦=石門（RN-5）、胃=中脘（RN-12）、心包=膻中（RN-17）。注意選項C正確。"
+      },
+      {
+        "id": 25,
+        "question_en": "Which alcohol percentage is used in preparing needle site for insertion?",
+        "question_zh": "針刺部位消毒使用的酒精濃度是多少？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "50%", "zh": "50%", "correct": false},
+          "B": {"en": "70%", "zh": "70%", "correct": true},
+          "C": {"en": "90%", "zh": "90%", "correct": false},
+          "D": {"en": "100%", "zh": "100%", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 50% alcohol is too dilute to be an effective antiseptic for skin preparation. | B: Correct. 75% (commonly rounded to 70%) alcohol is the standard concentration used for skin sterilisation before acupuncture needle insertion. | C: Incorrect. 90% alcohol is less effective at killing bacteria than 75% because it evaporates too quickly without sufficient water to denature proteins. | D: ",
+        "exp_zh": "70%（約75%）酒精是針灸前皮膚消毒的標準濃度，兼具殺菌效果和適當蒸發速度。95%酒精蒸發過快，用於火罐。"
+      },
+      {
+        "id": 26,
+        "question_en": "Which one is NOT among the Guasha effects?",
+        "question_zh": "以下哪項不是刮痧的功效？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Free channels and dredge collaterals", "zh": "疏通經絡", "correct": false},
+          "B": {"en": "Promote qi and activate blood", "zh": "行氣活血", "correct": false},
+          "C": {"en": "Dispel wind and scatter cold", "zh": "祛風散寒", "correct": false},
+          "D": {"en": "Tonify qi and blood", "zh": "補氣血", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Freeing channels and dredging collaterals IS one of the effects of Guasha. | B: Incorrect. Promoting Qi and activating blood IS one of the effects of Guasha. | C: Incorrect. Dispelling wind and scattering cold IS one of the effects of Guasha. | D: Correct. Tonifying Qi and blood is NOT among the standard effects of Guasha. Guasha is primarily a dispersing/moving technique, not a toni",
+        "exp_zh": "「補氣血」不是刮痧的功效。刮痧通過疏散（而非補益）發揮作用：疏通經絡、行氣活血、祛風散寒。補益需要用針灸補法或中藥。"
+      },
+      {
+        "id": 27,
+        "question_en": "Which alcohol percentage is used for fire cupping?",
+        "question_zh": "火罐使用的酒精濃度是多少？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "50%", "zh": "50%", "correct": false},
+          "B": {"en": "70%", "zh": "70%", "correct": false},
+          "C": {"en": "95%", "zh": "95%", "correct": true},
+          "D": {"en": "150%", "zh": "150%", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 50% alcohol does not ignite reliably and is not used for fire cupping. | B: Incorrect. 70% alcohol can be used but is not the standard recommended concentration for fire cupping. | C: Correct. 95% alcohol is the standard used for fire cupping because it ignites quickly and burns cleanly, creating the necessary vacuum. | D: Incorrect. 150% alcohol does not exist.",
+        "exp_zh": "95%酒精用於火罐，因其點燃快速、燃燒乾淨。70%酒精用於針刺前皮膚消毒（兩者功用不同，需區分記憶）。"
+      },
+      {
+        "id": 28,
+        "question_en": "Which belongs to both the Luo-Connecting and the Eight Confluent Points?",
+        "question_zh": "哪個穴位同時屬於絡穴和八脈交會穴？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "KI6 (Zhaohai)", "zh": "KI6（照海）", "correct": false},
+          "B": {"en": "BL62 (Shenmai)", "zh": "BL62（申脈）", "correct": false},
+          "C": {"en": "SI3 (Houxi)", "zh": "SI3（後溪）", "correct": false},
+          "D": {"en": "LU7 (Lieque)", "zh": "LU7（列缺）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. KI6 (Zhaohai) is an Eight Confluent point (connects to Yin Qiao Mai) but is not a Luo-Connecting point. | B: Incorrect. BL62 (Shenmai) is an Eight Confluent point (connects to Yang Qiao Mai) but is not a Luo-Connecting point. | C: Incorrect. SI3 (Houxi) is an Eight Confluent point (connects to Du Mai) but is not a Luo-Connecting point. | D: Correct. LU7 (Lieque) is both the Luo-Conne",
+        "exp_zh": "列缺（LU7）既是肺經的絡穴，又是八脈交會穴（通任脈）。此雙重特性在選項中唯列缺獨有。"
+      },
+      {
+        "id": 29,
+        "question_en": "Which point is selected to treat a locked or tight jaw?",
+        "question_zh": "治療牙關緊閉（口噤）應選哪個穴位？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "LR3 (Taichong)", "zh": "LR3（太衝）", "correct": false},
+          "B": {"en": "SP3 (Taibai)", "zh": "SP3（太白）", "correct": false},
+          "C": {"en": "SJ5 (Waiguan)", "zh": "SJ5（外關）", "correct": false},
+          "D": {"en": "LI4 (Hegu)", "zh": "LI4（合谷）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. LR3 (Taichong) is the Yuan-Source point of the Liver, used for Liver disorders, not specifically for jaw problems. | B: Incorrect. SP3 (Taibai) is the Yuan-Source point of the Spleen and is not indicated for jaw conditions. | C: Incorrect. SJ5 (Waiguan) is used for febrile diseases, lateral headaches, and ear conditions. | D: Correct. LI4 (Hegu) is the primary point for treating faci",
+        "exp_zh": "合谷（LI4）是治療面口疾患的主穴（四總穴之一：「面口合谷收」），用於牙關緊閉、面痛、牙痛等。"
+      },
+      {
+        "id": 30,
+        "question_en": "Which angle is formed by the needle and the surface of the skin when needling CV17 (Tanzhong)?",
+        "question_zh": "針刺膻中穴（CV17）時，針與皮膚表面形成的角度是多少？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "90°", "zh": "90°", "correct": false},
+          "B": {"en": "70°", "zh": "70°", "correct": false},
+          "C": {"en": "45°", "zh": "45°", "correct": false},
+          "D": {"en": "15°", "zh": "15°", "correct": true}
+        },
+        "exp_en": "A: Incorrect. 90° (perpendicular) needling at CV17 risks penetrating too deeply into the chest cavity. | B: Incorrect. 70° is not a standard needling angle used at CV17. | C: Incorrect. 45° is an oblique angle used at some points but not the standard for CV17. | D: Correct. CV17 (Tanzhong) is needled at approximately 15° (transversely/horizontally), directing the needle inferiorly along the sternu",
+        "exp_zh": "膻中（CV17）在胸骨正中線上，應以約15度橫刺（平刺），沿皮膚方向進針，避免傷及胸骨或胸腔。"
+      },
+      {
+        "id": 31,
+        "question_en": "Name three points which are considered special in the treatment of frozen shoulder?",
+        "question_zh": "治療肩周炎的三個特效穴是哪些？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "LI-4, LI-11, LI15", "zh": "LI-4、LI-11、LI15", "correct": false},
+          "B": {"en": "SI-3, TE-5, PC-6", "zh": "SI-3、TE-5、PC-6", "correct": false},
+          "C": {"en": "SI-10, TE-14, LI15", "zh": "SI-10、TE-14、LI15", "correct": true},
+          "D": {"en": "GB-20, GB-21, SI-11", "zh": "GB-20、GB-21、SI-11", "correct": false}
+        },
+        "exp_en": "A: Incorrect. LI-4 and LI-11 are distal points; while LI-15 is relevant, this combination is incomplete for frozen shoulder. | B: Incorrect. SI-3, TE-5, PC-6 are Eight Confluent and distal points, not the local/adjacent points specifically for frozen shoulder. | C: Correct. SI-10 (Naoshu), TE-14 (Jianliao), and LI-15 (Jianyu) are the three local shoulder points considered most important for treati",
+        "exp_zh": "治療肩周炎的三個局部特效穴：臑俞（SI-10）、肩髎（TE-14）、肩髃（LI-15），均圍繞肩關節分佈。"
+      },
+      {
+        "id": 32,
+        "question_en": "Choose the confluent points for the following extra channels: Chong channel, Yang Qiao channel, Du channel and Ren channel",
+        "question_zh": "選擇以下奇經的交會穴：衝脈、陽蹺脈、督脈、任脈",
+        "answer": "C",
+        "options": {
+          "A": {"en": "LU-7, SI-3, UB-62, SP-4", "zh": "LU-7、SI-3、UB-62、SP-4", "correct": false},
+          "B": {"en": "LU-9, SI-4, UB-60, SP-3", "zh": "LU-9、SI-4、UB-60、SP-3", "correct": false},
+          "C": {"en": "SP-4, UB-62, SI-3, LU-7", "zh": "SP-4、UB-62、SI-3、LU-7", "correct": true},
+          "D": {"en": "SP-4, UB-60, SI-3, LU-7", "zh": "SP-4、UB-60、SI-3、LU-7", "correct": false}
+        },
+        "exp_en": "A: Incorrect. The order matches Ren, Du, Yang Qiao, Chong — not as stated in the question. | B: Incorrect. LU-9, SI-4, UB-60, SP-3 are not Eight Confluent points. | C: Correct. SP-4 (Gongsun) = Chong Mai, UB-62 (Shenmai) = Yang Qiao Mai, SI-3 (Houxi) = Du Mai, LU-7 (Lieque) = Ren Mai. | D: Incorrect. UB-60 is not a Confluent point; UB-62 (Shenmai) is the correct point for Yang Qiao Mai.",
+        "exp_zh": "交會穴：衝脈=公孫（SP-4），陽蹺=申脈（UB-62），督脈=後溪（SI-3），任脈=列缺（LU-7）。"
+      },
+      {
+        "id": 33,
+        "question_en": "The following point can nourish Heart Yin, clear Heat and treat night sweating.",
+        "question_zh": "以下哪個穴位可養心陰、清熱、治療盜汗？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "HT-3 Shaohai", "zh": "HT-3（少海）", "correct": false},
+          "B": {"en": "HT-5 Tongli", "zh": "HT-5（通里）", "correct": false},
+          "C": {"en": "HT-6 Yinxi", "zh": "HT-6（陰郄）", "correct": true},
+          "D": {"en": "HT-7 Shenmen", "zh": "HT-7（神門）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. HT-3 (Shaohai) is the He-Sea point of the Heart, used for calming the mind and treating elbow pain, but not specifically for nourishing Heart Yin or night sweating. | B: Incorrect. HT-5 (Tongli) is the Luo-Connecting point of the Heart, mainly used for speech disorders and palpitations. | C: Correct. HT-6 (Yinxi) is the Xi-Cleft point of the Heart, specifically indicated for nourishi",
+        "exp_zh": "陰郄（HT-6）是心經郄穴，專治急性心病，尤其適用於心陰虛所致盜汗、心悸、胸痛。"
+      },
+      {
+        "id": 34,
+        "question_en": "Choose the Lower He-Sea points for the following organs: Stomach, San Jiao and Urinary Bladder",
+        "question_zh": "選擇以下臟腑的下合穴：胃、三焦、膀胱",
+        "answer": "C",
+        "options": {
+          "A": {"en": "ST-36, UB-40, UB-42", "zh": "ST-36、UB-40、UB-42", "correct": false},
+          "B": {"en": "ST-37, UB-39, UB-40", "zh": "ST-37、UB-39、UB-40", "correct": false},
+          "C": {"en": "ST-36, UB-39, UB-40", "zh": "ST-36、UB-39、UB-40", "correct": true}
+        },
+        "exp_en": "A: Incorrect. UB-42 does not exist as a Lower He-Sea point. | B: Incorrect. ST-37 is the Lower He-Sea of Large Intestine, not Stomach. | C: Correct. ST-36 (Zusanli) = Stomach, UB-39 (Weiyang) = San Jiao, UB-40 (Weizhong) = Urinary Bladder. | D: Incorrect. ST-38 and UB-42 are not Lower He-Sea points.",
+        "exp_zh": "下合穴：胃=足三里（ST-36），三焦=委陽（UB-39），膀胱=委中（UB-40）。六腑的下合穴均在腿部。"
+      },
+      {
+        "id": 35,
+        "question_en": "To treat abdominal pain around the umbilicus, which Lower He-Sea point should be selected?",
+        "question_zh": "治療臍周腹痛，應選用哪個下合穴？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "GB34 (Yanglingquan)", "zh": "GB34（陽陵泉）", "correct": false},
+          "B": {"en": "ST39 (Xiajuxu)", "zh": "ST39（下巨虛）", "correct": true},
+          "C": {"en": "BL40 (Weizhong)", "zh": "BL40（委中）", "correct": false},
+          "D": {"en": "ST36 (Zusanli)", "zh": "ST36（足三里）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB34 (Yanglingquan) is the influential point for tendons and is not a Lower He-Sea point for abdominal organs. | B: Correct. ST39 (Xiajuxu) is the Lower He-Sea point of the Small Intestine. Abdominal pain around the umbilicus is associated with Small Intestine disorders. | C: Incorrect. BL40 (Weizhong) is the Lower He-Sea point of the Urinary Bladder, used for lumbar pain and urinary",
+        "exp_zh": "下巨虛（ST-39）是小腸的下合穴。臍周疼痛對應小腸部位，故取小腸下合穴下巨虛治療。"
+      },
+      {
+        "id": 36,
+        "question_en": "What is FALSE about the selection of distant points?",
+        "question_zh": "關於遠端取穴，以下哪項說法是錯誤的？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "It often refers to those points below the elbow and knee joints.", "zh": "通常指肘膝關節以下的穴位", "correct": false},
+          "B": {"en": "It is the core of the acupuncture prescription.", "zh": "是針灸處方的核心", "correct": false},
+          "C": {"en": "Those points are usually located on the main diseased meridian.", "zh": "這些穴位通常位於主要病變經絡上", "correct": false},
+          "D": {"en": "A good example of this is to select GB20 (Fengchi) for eye disorders.", "zh": "選取風池（GB20）治療眼部疾患是一個好例子", "correct": true}
+        },
+        "exp_en": "A: Incorrect (i.e., this statement is TRUE). Distant points do refer to points below the elbow and knee. | B: Incorrect (TRUE). Distant point selection is indeed the core of acupuncture prescription. | C: Incorrect (TRUE). Distant points are usually selected from the main diseased meridian. | D: Correct (this is FALSE). GB20 (Fengchi) is a local/adjacent point near the head and eye region, not a d",
+        "exp_zh": "D項錯誤：風池（GB20）位於頸後，是治療眼部疾患的鄰近穴位（非遠端穴位）。遠端穴位是指距離患部較遠的穴位，一般在肘膝以下。"
+      },
+      {
+        "id": 37,
+        "question_en": "What is the best point combination to pain along the entire spine?",
+        "question_zh": "治療整個脊柱疼痛的最佳穴位組合是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Du-4, Du-14", "zh": "督脈4（命門）、督脈14（大椎）", "correct": false},
+          "B": {"en": "SI-3, UB-62", "zh": "SI-3（後溪）、UB-62（申脈）", "correct": true},
+          "C": {"en": "UB-40, UB-23", "zh": "UB-40（委中）、UB-23（腎俞）", "correct": false},
+          "D": {"en": "KI-3, UB-23", "zh": "KI-3（太溪）、UB-23（腎俞）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Du-4 and Du-14 are both local points on the Du channel; they address specific spinal regions but not the entire spine. | B: Correct. SI-3 (Houxi) and UB-62 (Shenmai) are Eight Confluent points that open the Du Mai (Governing Vessel), which runs along the entire spine — making this the best combination for pain along the full length of the spine. | C: Incorrect. UB-40 and UB-23 addres",
+        "exp_zh": "後溪（SI-3）+ 申脈（UB-62）是督脈的主配對穴，督脈循行整個脊柱，此對穴開通督脈，治療脊柱疼痛。"
+      },
+      {
+        "id": 38,
+        "question_en": "Which specific group of points are Back-Shu Points usually combined in use?",
+        "question_zh": "背俞穴通常與哪類特定穴位配合使用？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Yuan-Source", "zh": "原穴", "correct": false},
+          "B": {"en": "Five-Shu", "zh": "五輸穴", "correct": false},
+          "C": {"en": "Luo-Connecting", "zh": "絡穴", "correct": false},
+          "D": {"en": "Front-Mu", "zh": "募穴", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Yuan-Source points are usually combined with Luo-Connecting points (Yuan-Luo combination), not with Back-Shu points. | B: Incorrect. Five-Shu points are used for their individual elemental properties and are not the standard pairing for Back-Shu points. | C: Incorrect. Luo-Connecting points are paired with Yuan-Source points, not with Back-Shu points. | D: Correct. Back-Shu (posterio",
+        "exp_zh": "背俞穴通常與募穴配合使用（俞募配穴法），前後相配，治療臟腑疾患。這是中醫針灸配穴的重要原則。"
+      },
+      {
+        "id": 39,
+        "question_en": "Which area of the ear are pelvic cavity points found?",
+        "question_zh": "盆腔穴位在耳廓哪個區域？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Ear lobe", "zh": "耳垂", "correct": false},
+          "B": {"en": "Cavum concha", "zh": "耳甲腔", "correct": false},
+          "C": {"en": "Triangular fossa", "zh": "三角窩", "correct": true},
+          "D": {"en": "Helix crus", "zh": "耳輪腳", "correct": false}
+        },
+        "exp_en": "A: Incorrect. The ear lobe corresponds to the face and head. | B: Incorrect. The cavum conchae corresponds to the thoracic and abdominal organs. | C: Correct. The triangular fossa of the ear corresponds to the pelvic cavity, including points for the uterus, genitals, and pelvis. | D: Incorrect. The helix crus separates the concha and relates to the digestive tract.",
+        "exp_zh": "三角窩對應盆腔，包括生殖器官（子宮、卵巢、前列腺）及三焦的對應穴位。"
+      },
+      {
+        "id": 40,
+        "question_en": "Which point is best to treat a patient suffering from red eyes and headaches due to Excess Liver Fire?",
+        "question_zh": "治療肝火上炎所致目赤頭痛，最宜選用哪個穴位？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "LV-2 Xingjian", "zh": "LV-2（行間）", "correct": true},
+          "B": {"en": "LV-3 Taichong", "zh": "LV-3（太衝）", "correct": false},
+          "C": {"en": "LV-13 Zhangmen", "zh": "LV-13（章門）", "correct": false},
+          "D": {"en": "LV-4 Zhongfeng", "zh": "LV-4（中封）", "correct": false}
+        },
+        "exp_en": "A: Correct. LV-2 (Xingjian) is the Ying-Spring (Fire) point of the Liver meridian. Ying-Spring points are used to clear Heat. As the Fire point of a Fire-natured pathology (Liver Fire), LV-2 is the most direct point to clear Excess Liver Fire causing red eyes and headaches. | B: Incorrect. LV-3 (Taichong) is the Yuan-Source point and is excellent for moving Liver Qi and subduing Liver Yang, but LV",
+        "exp_zh": "行間（LV-2）是肝經的滎穴，屬火，主清瀉肝火（實熱）。太衝（LV-3）更適合肝氣鬱滯和肝陽上亢。"
+      },
+      {
+        "id": 41,
+        "question_en": "Which of the following Eight Confluent Points is communicated with Du/Governor Meridian?",
+        "question_zh": "以下哪個八脈交會穴與督脈相通？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "BL62 (Shenmai)", "zh": "BL62（申脈）", "correct": false},
+          "B": {"en": "GB41 (Zulinqi)", "zh": "GB41（足臨泣）", "correct": false},
+          "C": {"en": "SJ5 (Waiguan)", "zh": "SJ5（外關）", "correct": false},
+          "D": {"en": "SI3 (Houxi)", "zh": "SI3（後溪）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. BL62 (Shenmai) is the Confluent point of the Yang Qiao Mai. | B: Incorrect. GB41 (Zulinqi) is the Confluent point of the Dai Mai. | C: Incorrect. SJ5 (Waiguan) is the Confluent point of the Yang Wei Mai. | D: Correct. SI3 (Houxi) is the Eight Confluent point that connects to (opens) the Du Mai (Governor Vessel).",
+        "exp_zh": "後溪（SI3）是通督脈的八脈交會穴。申脈通陽蹺，足臨泣通帶脈，外關通陽維脈。"
+      },
+      {
+        "id": 42,
+        "question_en": "The use of HT7 (Shenmen) and KI6 (Zhaohai) in a prescription is according to all the following principles EXCEPT:",
+        "question_zh": "在處方中同用神門（HT7）和照海（KI6）符合以下所有原則，除了：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Upper and Lower combination", "zh": "上下配穴法", "correct": false},
+          "B": {"en": "Points on the meridian with the same name", "zh": "同名經配穴法", "correct": false},
+          "C": {"en": "Guest and Host combination", "zh": "主客配穴法", "correct": false},
+          "D": {"en": "Application of specifically-grouped points", "zh": "特定穴應用", "correct": true}
+        },
+        "exp_en": "A: Incorrect (this principle DOES apply). HT7 is on the upper limb (wrist) and KI6 is on the lower limb (ankle) — this is an Upper-Lower combination. | B: Incorrect (this principle DOES apply). HT7 is on the Heart (Shao Yin Hand) and KI6 is on the Kidney (Shao Yin Foot) — same meridian name (Shao Yin) combination. | C: Incorrect (this principle DOES apply). Guest-Host combination uses the Yuan-Sou",
+        "exp_zh": "「特定穴應用」不是HT7+KI6配穴的原則。正確的配穴原則：上下配穴（心上腎下）、主客配穴（原絡）、同名經（少陰）。"
+      },
+      {
+        "id": 43,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5 ~ 1 cun", "zh": "斜刺0.5~1寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 ~ 0.5 cun", "zh": "直刺0.3~0.5寸", "correct": false},
+          "C": {"en": "Obliquely 1 ~ 1.5 cun", "zh": "斜刺1~1.5寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 ~ 0.8 cun", "zh": "直刺0.5~0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴（BL13-21）需斜刺向脊柱方向，深度0.5-1寸。若垂直深刺有刺入胸腔引起氣胸的風險。"
+      },
+      {
+        "id": 44,
+        "question_en": "Which waveform in electro-acupuncture is less easy for the human body to generate adaption?",
+        "question_zh": "電針中哪種波形不容易使人體產生適應？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Sparse-dense wave", "zh": "疏密波", "correct": false},
+          "B": {"en": "Intermittent wave", "zh": "斷續波", "correct": false},
+          "C": {"en": "Both A and B", "zh": "A和B均是", "correct": true},
+          "D": {"en": "None of above", "zh": "以上皆非", "correct": false}
+        },
+        "exp_en": "A: Incorrect on its own. Sparse-dense wave alone is harder to adapt to, but it is not the only answer. | B: Incorrect on its own. Intermittent wave alone is also harder to adapt to, but it is not the only answer. | C: Correct. Both sparse-dense (疏密波) and intermittent (斷續波) waves are harder for the body to adapt to compared to continuous waves. Therefore, Both A and B is correct. | D: Incorrect. Bo",
+        "exp_zh": "疏密波（疏密交替）和斷續波均不易引起人體適應（相對於連續波），因此均是答案（C）。"
+      },
+      {
+        "id": 45,
+        "question_en": "What are the Five-Shu points of the Heart?",
+        "question_zh": "心經的五輸穴是哪些？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "HT-3 Shaohai HT-4 Lingdao, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "少海、靈道、神門、少府、少衝", "correct": true},
+          "B": {"en": "HT-3 Shaohai, HT-5 Tongli, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "少海、通里、神門、少府、少衝", "correct": false},
+          "C": {"en": "HT-2 Qingling, HT-6 Yinxi, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "青靈、陰郄、神門、少府、少衝", "correct": false},
+          "D": {"en": "HT-2 Qingling, HT-5 Tongli, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "青靈、通里、神門、少府、少衝", "correct": false}
+        },
+        "exp_en": "A: Correct. HT-3 (Shaohai) = He-Sea, HT-4 (Lingdao) = Jing-River, HT-7 (Shenmen) = Shu-Stream/Yuan, HT-8 (Shaofu) = Ying-Spring, HT-9 (Shaochong) = Jing-Well. These five constitute the Five-Shu points of the Heart meridian. | B: Incorrect. HT-5 (Tongli) is the Luo-Connecting point, not a Five-Shu point. | C: Incorrect. HT-2 (Qingling) and HT-6 (Yinxi) are not Five-Shu points. | D: Incorrect. HT-2 ",
+        "exp_zh": "心經五輸穴：少衝（HT-9，井）、少府（HT-8，滎）、神門（HT-7，輸/原）、靈道（HT-4，經）、少海（HT-3，合）。"
+      },
+      {
+        "id": 46,
+        "question_en": "Which group of points are all Xi-cleft points?",
+        "question_zh": "哪組穴位全部是郄穴？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "UB-63 Jinmen, UB-59 Fuyang, GB-37 Guangming", "zh": "UB-63（金門）、UB-59（跗陽）、GB-37（光明）", "correct": false},
+          "B": {"en": "SI-6 Yanglao, TE-7 Huizong, PC-5 Jianshi", "zh": "SI-6（養老）、TE-7（會宗）、PC-5（間使）", "correct": false},
+          "C": {"en": "LR-5 Ligou, KD-8 Jiaoxin, KD-9 Zhubin", "zh": "LR-5（蠡溝）、KD-8（交信）、KD-9（築賓）", "correct": false},
+          "D": {"en": "KD-5 Shuiquan, KD-8 Jiaoxin, KD-9 Zhubin", "zh": "KD-5（水泉）、KD-8（交信）、KD-9（築賓）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. GB-37 (Guangming) is a Luo-Connecting point, not a Xi-Cleft point. The Xi-Cleft of GB is GB-36 (Waiqiu). | B: Incorrect. PC-5 (Jianshi) is the Jing-River point of Pericardium, not its Xi-Cleft point. The Xi-Cleft of PC is PC-4 (Ximen). | C: Incorrect. LR-5 (Ligou) is the Luo-Connecting point of Liver, not a Xi-Cleft point. KD-9 (Zhubin) is the Xi-Cleft of Yin Wei Mai. | D: Correct. K",
+        "exp_zh": "水泉（KD-5）是腎經郄穴，交信（KD-8）是陰蹺脈郄穴，築賓（KD-9）是陰維脈郄穴，三者均是郄穴。"
+      },
+      {
+        "id": 47,
+        "question_en": "The distance between SI-7 and SI-8 is",
+        "question_zh": "SI-7（支正）至SI-8（小海）的距離是：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "5 cun", "zh": "5寸", "correct": false},
+          "B": {"en": "6 cun", "zh": "6寸", "correct": false},
+          "C": {"en": "7 cun", "zh": "7寸", "correct": true},
+          "D": {"en": "8 cun", "zh": "8寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 5 cun is not the correct distance between SI-7 and SI-8. | B: Incorrect. 6 cun is not the correct distance between SI-7 and SI-8. | C: Correct. SI-7 (Zhizheng) is located 5 cun proximal to the wrist crease. SI-8 (Xiaohai) is at the elbow. The forearm (wrist to elbow) = 12 cun total; therefore the distance from SI-7 to SI-8 = 12 − 5 = 7 cun. | D: Incorrect. 8 cun overestimates the dis",
+        "exp_zh": "支正（SI-7）在腕上5寸，小海（SI-8）在肘部，兩者距離約7寸。"
+      },
+      {
+        "id": 48,
+        "question_en": "In ear acupuncture, points related to the digestive tract are distributed around",
+        "question_zh": "在耳針中，消化道相關穴位分佈在：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "The ear lobe", "zh": "耳垂", "correct": false},
+          "B": {"en": "The cavum concha", "zh": "耳甲腔", "correct": false},
+          "C": {"en": "The antihelix", "zh": "對耳輪", "correct": false},
+          "D": {"en": "The helix crus", "zh": "耳輪腳", "correct": true}
+        },
+        "exp_en": "A: Incorrect. The ear lobe corresponds to the face and head region. | B: Incorrect. The cavum conchae corresponds to the thoracic cavity organs (heart and lungs). | C: Incorrect. The antihelix corresponds to the spine and limbs. | D: Correct. In ear acupuncture, digestive tract points (from oesophagus to rectum) are distributed around and along the helix crus.",
+        "exp_zh": "消化道（食道至直腸）的穴位分佈在耳甲腔的耳輪腳周圍，耳輪腳本身代表橫膈。"
+      },
+      {
+        "id": 49,
+        "question_en": "Which is the Front-Mu point of Spleen?",
+        "question_zh": "脾的募穴是：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "RN12 (Zhongwan)", "zh": "RN12（中脘）", "correct": false},
+          "B": {"en": "ST25 (Tianshu)", "zh": "ST25（天樞）", "correct": false},
+          "C": {"en": "SP15 (Daheng)", "zh": "SP15（大橫）", "correct": false},
+          "D": {"en": "LR13 (Zhangmen)", "zh": "LR13（章門）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. RN12 (Zhongwan) is the Front-Mu point of the Stomach. | B: Incorrect. ST25 (Tianshu) is the Front-Mu point of the Large Intestine. | C: Incorrect. SP15 (Daheng) is a point on the Spleen meridian but is not a Front-Mu point. | D: Correct. LR13 (Zhangmen) is the Front-Mu (Alarm) point of the Spleen.",
+        "exp_zh": "章門（LR13）是脾的募穴，也是臟之會穴。中脘為胃募穴，天樞為大腸募穴。"
+      },
+      {
+        "id": 50,
+        "question_en": "Choose the group of points located at the same level.",
+        "question_zh": "選擇同一水平線上的穴位組合。",
+        "answer": "C",
+        "options": {
+          "A": {"en": "KI-15, ST-25, SP-15", "zh": "KI-15、ST-25、SP-15", "correct": false},
+          "B": {"en": "KI-17, ST-21, SP-19", "zh": "KI-17、ST-21、SP-19", "correct": false},
+          "C": {"en": "KI-16, ST-25, SP-15", "zh": "KI-16、ST-25、SP-15", "correct": true},
+          "D": {"en": "LR-14, ST-17, SP-20", "zh": "LR-14、ST-17、SP-20", "correct": false}
+        },
+        "exp_en": "A: Incorrect. KI-15 is at the level of 1 cun below the umbilicus; ST-25 is at the level of the umbilicus — these are not at the same level. | B: Incorrect. KI-17, ST-21, and SP-19 are not at the same horizontal level. | C: Correct. KI-16 (0.5 cun lateral to RN), ST-25 (2 cun lateral to RN), and SP-15 (4 cun lateral to RN) are all located at the level of the umbilicus — the same horizontal level. |",
+        "exp_zh": "肓俞（KI-16）、天樞（ST-25）、大橫（SP-15）均位於臍水平線（平臍），是重要的解剖標誌。"
+      },
+      {
+        "id": 51,
+        "question_en": "Where are the Eight Confluent points located?",
+        "question_zh": "八脈交會穴位於哪裡？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "on the traveling courses of eight extra meridians", "zh": "位於八條奇經的循行路線上", "correct": false},
+          "B": {"en": "in the areas near the wrist and ankle joints", "zh": "位於腕踝關節附近", "correct": true},
+          "C": {"en": "in the areas near the elbow and knee joints", "zh": "位於肘膝關節附近", "correct": false},
+          "D": {"en": "on the regular meridians", "zh": "位於正經上", "correct": false}
+        },
+        "exp_en": "A: Incorrect. The Eight Confluent points are not located on the pathways of the extra meridians themselves. | B: Correct. All Eight Confluent (Jiaohui) points are located near the wrist and ankle joints on the four limbs. | C: Incorrect. Near the elbow and knee describes the location of He-Sea or Lower He-Sea points, not Confluent points. | D: Incorrect. While they are on regular meridians, simply",
+        "exp_zh": "八脈交會穴均位於腕踝關節附近，分佈在四肢末端的十二正經上，是奇經八脈與正經的交匯點。"
+      },
+      {
+        "id": 52,
+        "question_en": "Which pair of points should be selected for a patient with chronic insomnia related to multiple organ disorder?",
+        "question_zh": "治療多臟腑失調相關的慢性失眠，應選用哪對穴位？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "SP-4, GB-41", "zh": "SP-4、GB-41", "correct": false},
+          "B": {"en": "LU-7, SI-3", "zh": "LU-7、SI-3", "correct": false},
+          "C": {"en": "PC-6, TE-5", "zh": "PC-6、TE-5", "correct": false},
+          "D": {"en": "UB-62, KD-6", "zh": "UB-62、KD-6", "correct": true}
+        },
+        "exp_en": "A: Incorrect. SP-4 and GB-41 open the Chong Mai and Dai Mai — used for digestive and gynaecological conditions. | B: Incorrect. LU-7 and SI-3 open the Ren Mai and Du Mai — not specifically for insomnia. | C: Incorrect. PC-6 and TE-5 open the Yin Wei Mai and Yang Wei Mai — used for heart/chest and lateral body conditions. | D: Correct. UB-62 (Shenmai) and KD-6 (Zhaohai) open the Yang Qiao Mai and Y",
+        "exp_zh": "申脈（UB-62）+照海（KI-6）分別開通陽蹺脈和陰蹺脈，陰陽蹺脈主司睡眠，此對穴調節陰陽平衡，治療慢性失眠。"
+      },
+      {
+        "id": 53,
+        "question_en": "What do Siguan-The Four Gates do?",
+        "question_zh": "四關穴（合谷+太衝）的主要功效是什麼？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Promote the Qi flow", "zh": "促進氣的流通", "correct": true},
+          "B": {"en": "Release the internal Heat", "zh": "清瀉內熱", "correct": false},
+          "C": {"en": "Tonify and warm deficient Yang", "zh": "溫補陽虛", "correct": false},
+          "D": {"en": "Nourish deficient Blood", "zh": "滋養血虛", "correct": false}
+        },
+        "exp_en": "A: Correct. Siguan (Four Gates) refers to LI4 (Hegu) bilateral and LR3 (Taichong) bilateral. Together they strongly promote and regulate the flow of Qi and Blood throughout the entire body. | B: Incorrect. Releasing internal Heat is not the primary function of the Four Gates combination. | C: Incorrect. Tonifying and warming Yang is associated with moxibustion on points like RN4 or DU4, not the Fo",
+        "exp_zh": "四關（雙側合谷LI4+雙側太衝LR3）疏通氣機，行氣活血，是調暢全身氣機的重要組合。"
+      },
+      {
+        "id": 54,
+        "question_en": "Which group of points is best for the treatment of hypochondrial pain caused by Liver disorders?",
+        "question_zh": "治療肝病引起的脅肋疼痛，哪組穴位最佳？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "UB-18, UB-20, UB-23", "zh": "UB-18、UB-20、UB-23", "correct": false},
+          "B": {"en": "LR-3, GB-34, LR-13", "zh": "LR-3、GB-34、LR-13", "correct": true},
+          "C": {"en": "SP-21, SP-16, LR-2", "zh": "SP-21、SP-16、LR-2", "correct": false},
+          "D": {"en": "GB-25, ST-25, SP-15", "zh": "GB-25、ST-25、SP-15", "correct": false}
+        },
+        "exp_en": "A: Incorrect. UB-18, UB-20, UB-23 are Back-Shu points for Liver, Spleen, and Kidney — while UB-18 is relevant, this combination alone is not the most targeted for hypochondrial Liver pain. | B: Correct. LR-3 (Yuan-Source of Liver to move Qi), GB-34 (influential point for tendons, He-Sea of GB to spread Liver Qi), and LR-13 (Front-Mu of Spleen and influential point for Zang organs) are the best com",
+        "exp_zh": "太衝（LR-3，疏肝理氣）+陽陵泉（GB-34，筋之會、膽下合穴）+章門（LR-13，脾之募穴及臟之會）是治療肝病脅痛的最佳組合。"
+      },
+      {
+        "id": 55,
+        "question_en": "What is TRUE about Lower He-Sea Points?",
+        "question_zh": "關於下合穴，以下哪項正確？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Each regular meridian has one of them on.", "zh": "每條正經上都有一個", "correct": false},
+          "B": {"en": "They correspond to Fu-organs (yang) only.", "zh": "只對應腑（陽）臟器", "correct": true},
+          "C": {"en": "There are located on the six meridians of Foot/Leg.", "zh": "位於六條足部經絡上", "correct": false},
+          "D": {"en": "Stimulation of them will affect all Zang-Fu organs.", "zh": "刺激後可影響所有臟腑", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Not every regular meridian has a Lower He-Sea point; only the six Fu organs do. | B: Correct. Lower He-Sea points correspond to Fu (hollow/Yang) organs only — they are the six Fu organ representatives on the lower limbs. | C: Incorrect. They are on the three Yang meridians of the foot/leg (ST, GB, BL), not all six foot meridians. | D: Incorrect. They specifically affect their corresp",
+        "exp_zh": "下合穴只對應六腑（陽）——胃、小腸、大腸、三焦、膀胱、膽，每腑一個，均在腿足部六條陽經上。"
+      },
+      {
+        "id": 56,
+        "question_en": "Which length needle is ideal for use in scalp acupuncture?",
+        "question_zh": "頭皮針理想使用針的長度是多少？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "0.5 Cun", "zh": "0.5寸", "correct": false},
+          "B": {"en": "1.0 Cun", "zh": "1.0寸", "correct": true},
+          "C": {"en": "2.0 Cun", "zh": "2.0寸", "correct": false},
+          "D": {"en": "3.5 cun", "zh": "3.5寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 0.5 cun is too short to reach the subcutaneous layer of the scalp at the required angle. | B: Correct. A 1-cun needle is the standard length used in scalp acupuncture, allowing insertion into the subcutaneous layer at a 15–30° angle along the scalp lines. | C: Incorrect. A 2-cun needle is too long for standard scalp acupuncture and risks going too deep. | D: Incorrect. 3.5 cun is far",
+        "exp_zh": "頭皮針標準使用1寸針，採用橫刺（平刺）方式，針尖穿入頭皮帽狀腱膜下層，此深度適合頭皮針操作。"
+      },
+      {
+        "id": 57,
+        "question_en": "According to the Yuan and Luo theory (Yuan point on the diseased meridian and Luo point on the pairing meridian), which point combination should you use to treat a patient with Kidney deficiency?",
+        "question_zh": "根據原絡理論（病變經取原穴，表裡經取絡穴），治療腎虛應取哪組穴位？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "KD-2, UB-57", "zh": "KD-2、UB-57", "correct": false},
+          "B": {"en": "KD-3, UB-57", "zh": "KD-3、UB-57", "correct": false},
+          "C": {"en": "KD-3, UB-58", "zh": "KD-3、UB-58", "correct": true},
+          "D": {"en": "KD-3, UB-40", "zh": "KD-3、UB-40", "correct": false}
+        },
+        "exp_en": "A: Incorrect. KD-2 is the Ying-Spring point of the Kidney, not the Yuan-Source point. | B: Incorrect. UB-57 is not the Luo-Connecting point of the Bladder. UB-58 (Feiyang) is. | C: Correct. KD-3 (Taixi) is the Yuan-Source point of the Kidney meridian. UB-58 (Feiyang) is the Luo-Connecting point of the paired Bladder meridian. This is the correct Yuan-Luo pairing for Kidney deficiency. | D: Incorre",
+        "exp_zh": "太溪（KD-3）是腎經原穴；飛揚（UB-58）是膀胱經絡穴。腎虛取腎經原穴太溪，再取表裡經（膀胱）絡穴飛揚。"
+      },
+      {
+        "id": 58,
+        "question_en": "Name three points which are considered special in the treatment of frozen shoulder?",
+        "question_zh": "治療肩周炎的三個特效穴是哪些？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "LI-4, LI-11, LI-15", "zh": "LI-4、LI-11、LI-15", "correct": false},
+          "B": {"en": "SI-3, TE-5, PC-6", "zh": "SI-3、TE-5、PC-6", "correct": false},
+          "C": {"en": "SI-10, TE-14, LI-15", "zh": "SI-10、TE-14、LI-15", "correct": true},
+          "D": {"en": "GB-20, GB-21, SI-11", "zh": "GB-20、GB-21、SI-11", "correct": false}
+        },
+        "exp_en": "A: Incorrect. LI-4 and LI-11 are distal points; while LI-15 is relevant, this combination is incomplete for frozen shoulder. | B: Incorrect. SI-3, TE-5, PC-6 are Eight Confluent and distal points, not the local/adjacent points specifically for frozen shoulder. | C: Correct. SI-10 (Naoshu), TE-14 (Jianliao), and LI-15 (Jianyu) are the three local shoulder points considered most important for treati",
+        "exp_zh": "臑俞（SI-10）、肩髎（TE-14）、肩髃（LI-15）是肩周炎治療的三個局部特效穴，圍繞肩關節分佈。"
+      },
+      {
+        "id": 59,
+        "question_en": "As one of Commanding Points, which body part does BL40 (Weizhong) act on?",
+        "question_zh": "作為四總穴之一，委中（BL40）作用於哪個部位？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Chest", "zh": "胸部", "correct": false},
+          "B": {"en": "Abdomen", "zh": "腹部", "correct": false},
+          "C": {"en": "Lumbar region", "zh": "腰背部", "correct": true},
+          "D": {"en": "Hypochondriac region", "zh": "脅肋部", "correct": false}
+        },
+        "exp_en": "A: Incorrect. The chest is governed by PC6 (Neiguan) among the Commanding Points. | B: Incorrect. The abdomen is governed by ST36 (Zusanli) among the Commanding Points. | C: Correct. BL40 (Weizhong) is the Commanding Point for the lumbar and back region — the classic saying is 'for lumbar and back diseases, seek Weizhong first.' | D: Incorrect. The hypochondriac region is governed by LR3 (Taichong",
+        "exp_zh": "委中（BL40）是腰背部的四總穴——「腰背委中求」。四總穴：列缺（頭頸）、足三里（腹）、委中（腰背）、內關（胸心）。"
+      },
+      {
+        "id": 60,
+        "question_en": "What is a correct order of Five Shu Points from the distal to the proximal based on the generating relationship of Five Elements in a regular Yang meridian?",
+        "question_zh": "陽經五輸穴從遠端到近端，根據五行相生順序，正確的排列是：",
+        "answer": "C",
+        "options": {
+          "A": {"en": "wood-fire-earth-metal-water", "zh": "木-火-土-金-水", "correct": false},
+          "B": {"en": "earth-metal-water-wood-fire", "zh": "土-金-水-木-火", "correct": false},
+          "C": {"en": "metal-water-wood-fire-earth", "zh": "金-水-木-火-土", "correct": true},
+          "D": {"en": "fire-earth-metal-water-wood", "zh": "火-土-金-水-木", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Wood-fire-earth-metal-water is the generating order of Five Elements but does not correspond to Yang meridian Five-Shu point assignment. | B: Incorrect. Earth-metal-water-wood-fire does not correctly represent the distal-to-proximal sequence for Yang meridians. | C: Correct. On Yang meridians, the Five-Shu points are assigned: Jing-Well = Metal, Ying-Spring = Water, Shu-Stream = Wood",
+        "exp_zh": "陽經五輸穴五行配屬：井（金）、滎（水）、輸（木）、經（火）、合（土），即金-水-木-火-土。"
+      },
+      {
+        "id": 61,
+        "question_en": "Which of Five Shu Points are generally used to clear Heat?",
+        "question_zh": "五輸穴中哪類穴位通常用於清熱？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Ying-Spring", "zh": "滎穴", "correct": true},
+          "B": {"en": "Shu-Stream", "zh": "輸穴", "correct": false},
+          "C": {"en": "Jing-River", "zh": "經穴", "correct": false},
+          "D": {"en": "He-Sea", "zh": "合穴", "correct": false}
+        },
+        "exp_en": "A: Correct. Ying-Spring points are the standard Five-Shu points used to clear Heat, especially febrile and inflammatory conditions. | B: Incorrect. Shu-Stream points are used for conditions related to heaviness, pain in joints, and intermittent disorders. | C: Incorrect. Jing-River points are used for cough, asthma, and changes in voice. | D: Incorrect. He-Sea points are used for disorders of the ",
+        "exp_zh": "滎穴是清熱的五輸穴——「滎主身熱」。臨床上，無論陰陽經，滎穴都用於清熱瀉火，尤其是發熱性疾患。"
+      },
+      {
+        "id": 62,
+        "question_en": "Choose the correct influential points for: Bone, Blood, Vessel, Fu Organs",
+        "question_zh": "選擇以下的正確八會穴：骨、血、脈、腑",
+        "answer": "D",
+        "options": {
+          "A": {"en": "UB-17, UB-11, LU-7, RN-17", "zh": "UB-17、UB-11、LU-7、RN-17", "correct": false},
+          "B": {"en": "UB-11, UB-17, LU-7, RN-17", "zh": "UB-11、UB-17、LU-7、RN-17", "correct": false},
+          "C": {"en": "UB-11, UB-17, LU-9, RN-17", "zh": "UB-11、UB-17、LU-9、RN-17", "correct": false},
+          "D": {"en": "UB-11, UB-17, LU-9, RN-12", "zh": "UB-11、UB-17、LU-9、RN-12", "correct": true}
+        },
+        "exp_en": "A: Incorrect. UB-17 is blood, UB-11 is bone — order is reversed, and LU-7 is not the vessel point. | B: Incorrect. LU-7 is not the Eight Influential point for vessels. | C: Correct. UB-11 (Dazhu) = Bone, UB-17 (Geshu) = Blood, LU-9 (Taiyuan) = Vessels, RN-12 (Zhongwan) = Fu Organs. | D: Incorrect. RN-17 (Shanzhong) is the influential point for Qi, not Fu Organs.",
+        "exp_zh": "八會穴：骨=大杼（UB-11），血=膈俞（UB-17），脈=太淵（LU-9），腑=中脘（RN-12）。注意LU-9（非LU-7）主脈。"
+      },
+      {
+        "id": 63,
+        "question_en": "Which of following points is NOT a Luo/Connecting point?",
+        "question_zh": "以下哪個穴位不是絡穴？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "GB37 (Guangming)", "zh": "GB37（光明）", "correct": false},
+          "B": {"en": "LR5 (Ligou)", "zh": "LR5（蠡溝）", "correct": false},
+          "C": {"en": "RN16 (Zhongting)", "zh": "RN16（中庭）", "correct": true},
+          "D": {"en": "SP21 (Dabao)", "zh": "SP21（大包）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB37 (Guangming) IS the Luo-Connecting point of the Gallbladder. | B: Incorrect. LR5 (Ligou) IS the Luo-Connecting point of the Liver. | C: Correct. RN16 (Zhongting) is NOT a Luo-Connecting point. RN15 (Jiuwei) is the Luo-Connecting point of the Ren Mai. | D: Incorrect. SP21 (Dabao) IS the Great Luo of the Spleen.",
+        "exp_zh": "中庭（RN16）不是絡穴。任脈的絡穴是鳩尾（RN15）。光明（GB37）是膽絡，蠡溝（LR5）是肝絡，大包（SP21）是脾大絡。"
+      },
+      {
+        "id": 64,
+        "question_en": "The highest point located on the body is __; the lowest point located on the body is __",
+        "question_zh": "人體最高點是___；最低點是___",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Du-24, KD-1", "zh": "督脈24、腎1", "correct": false},
+          "B": {"en": "Du-20, KD-2", "zh": "督脈20、腎2", "correct": false},
+          "C": {"en": "Du-20, KD-1", "zh": "督脈20、腎1", "correct": true},
+          "D": {"en": "Du-24, KD-2", "zh": "督脈24、腎2", "correct": false}
+        },
+        "exp_en": "A: Incorrect. DU-24 is at the anterior hairline — not the highest point. KD-1 on the sole is correct for the lowest point. | B: Incorrect. KD-2 is on the medial foot arch, not the lowest point of the body. | C: Correct. DU-20 (Baihui) is at the crown of the head — the highest point. KD-1 (Yongquan) is on the sole of the foot — the lowest point. | D: Incorrect. DU-24 is at the anterior hairline, no",
+        "exp_zh": "百會（DU-20）在頭頂，是人體最高點；湧泉（KD-1）在腳底，是人體最低點。"
+      },
+      {
+        "id": 65,
+        "question_en": "Which point is often selected to treat Hypertension in any pattern?",
+        "question_zh": "以下哪個穴位通常用於治療各種類型的高血壓？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "ST36 (Zusanli)", "zh": "ST36（足三里）", "correct": false},
+          "B": {"en": "LR3 (Taichong)", "zh": "LR3（太衝）", "correct": false},
+          "C": {"en": "KI3 (Taixi)", "zh": "KI3（太溪）", "correct": false},
+          "D": {"en": "LI11 (Quchi)", "zh": "LI11（曲池）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. ST36 (Zusanli) is a general tonification point and is not the primary point for hypertension across all patterns. | B: Incorrect. LR3 (Taichong) is excellent for Liver Yang Rising type hypertension but is pattern-specific. | C: Incorrect. KI3 (Taixi) is used for Kidney deficiency type hypertension but is not universal. | D: Correct. LI11 (Quchi) is widely regarded as the primary empi",
+        "exp_zh": "曲池（LI11）是治療高血壓的經驗效穴，對各種類型高血壓均有降壓效果，現代研究也支持此點。"
+      },
+      {
+        "id": 66,
+        "question_en": "Auricular point TF4 (shenmen) is located at:",
+        "question_zh": "耳穴神門（TF4）的位置在：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "The upper part of the superior 1/3 of the triangular fossa.", "zh": "三角窩上1/3的上部", "correct": false},
+          "B": {"en": "The lower part of the posterior 1/3 of the triangular fossa.", "zh": "三角窩後1/3的下部", "correct": false},
+          "C": {"en": "The lower part of the superior 1/3 of the triangular fossa.", "zh": "三角窩上1/3的下部", "correct": false},
+          "D": {"en": "The upper part of the posterior 1/3 of the triangular fossa.", "zh": "三角窩後1/3的上部", "correct": true}
+        },
+        "exp_en": "A: Incorrect. The superior 1/3 of the triangular fossa refers to the upper portion along the vertical axis — TF4 is not in the superior 1/3. | B: Incorrect. The lower part of the posterior 1/3 describes a position too far back and low. | C: Incorrect. The lower part of the superior 1/3 is not the standard location for TF4. | D: Correct. Auricular Shenmen (TF4) is located at the upper part (bifurca",
+        "exp_zh": "耳神門（TF4）位於三角窩後1/3的上部（對耳輪上下腳分叉處附近），具有鎮靜安神的功效。"
+      },
+      {
+        "id": 67,
+        "question_en": "Choose the Lower He Sea points for the following organs: Stomach, San Jiao and Urinary Bladder",
+        "question_zh": "選擇以下臟腑的下合穴：胃、三焦、膀胱",
+        "answer": "C",
+        "options": {
+          "A": {"en": "ST-36, UB-40, UB-42", "zh": "ST-36、UB-40、UB-42", "correct": false},
+          "B": {"en": "ST-37, UB-39, UB-40", "zh": "ST-37、UB-39、UB-40", "correct": false},
+          "C": {"en": "ST-36, UB-39, UB-40", "zh": "ST-36、UB-39、UB-40", "correct": true},
+          "D": {"en": "ST-38, UB-39, UB-42", "zh": "ST-38、UB-39、UB-42", "correct": false}
+        },
+        "exp_en": "A: Incorrect. UB-42 does not exist as a recognised Lower He-Sea point. | B: Incorrect. ST-37 is the Lower He-Sea of the Large Intestine, not the Stomach. | C: Correct. ST-36 (Zusanli) = Stomach, UB-39 (Weiyang) = San Jiao, UB-40 (Weizhong) = Urinary Bladder. | D: Incorrect. ST-38 and UB-42 are not Lower He-Sea points.",
+        "exp_zh": "下合穴：胃=足三里（ST-36），三焦=委陽（UB-39），膀胱=委中（UB-40）。"
+      },
+      {
+        "id": 68,
+        "question_en": "Which of the following channels does NOT wrap around the mouth?",
+        "question_zh": "以下哪條經絡不環繞口部？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Large Intestine", "zh": "大腸", "correct": true},
+          "B": {"en": "Ren", "zh": "任脈", "correct": false},
+          "C": {"en": "Stomach", "zh": "胃", "correct": false},
+          "D": {"en": "Du", "zh": "督脈", "correct": false}
+        },
+        "exp_en": "A: Correct. The Large Intestine channel travels to the nose region (LI20) but its pathway does not wrap around the mouth. | B: Incorrect. The Ren Mai wraps around the mouth. | C: Incorrect. The Stomach channel wraps around the mouth. | D: Incorrect. The Du Mai connects at the gum and wraps around the mouth.",
+        "exp_zh": "大腸經（LI20迎香）終止於鼻旁，不環繞口部。胃經、任脈、督脈均有分支環繞口唇。"
+      },
+      {
+        "id": 69,
+        "question_en": "Which one of the following points is contraindicated for intradermal needle therapy?",
+        "question_zh": "以下哪個穴位是皮內針療法的禁忌？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Ear heart", "zh": "耳心", "correct": false},
+          "B": {"en": "BL18(ganshu)", "zh": "BL18（肝俞）", "correct": false},
+          "C": {"en": "LI11 (Quchi)", "zh": "LI11（曲池）", "correct": false},
+          "D": {"en": "ST35(dubi)", "zh": "ST35（犢鼻）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. The auricular heart point can be used with intradermal (press) needles in ear acupuncture. | B: Incorrect. BL18 (Ganshu) on the back can accommodate intradermal needles. | C: Incorrect. LI11 (Quchi) is on the elbow region; while it has some movement, it is not the primary contraindication. | D: Correct. ST35 (Dubi) is located at the knee joint — a highly mobile area. Intradermal need",
+        "exp_zh": "犢鼻（ST35）位於膝關節，活動度大，皮內針不適合用於關節處（易脫落且影響活動）。"
+      },
+      {
+        "id": 70,
+        "question_en": "Which insertion method should be used when needling EX-HN3(Yintang)?",
+        "question_zh": "針刺印堂穴（EX-HN3）應使用哪種進針方法？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Single-Handed insertion", "zh": "單手進針法", "correct": false},
+          "B": {"en": "Skin-spreading needle insertion", "zh": "舒張進針法", "correct": false},
+          "C": {"en": "Needle in tube insertions", "zh": "管針進針法", "correct": false},
+          "D": {"en": "Pinching insertion", "zh": "提捏進針法", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Single-handed insertion is a basic technique but not specific to Yintang. | B: Incorrect. Skin-spreading insertion is used for areas with loose skin, not for the forehead. | C: Incorrect. Tube insertion is a guide-tube technique and not the standard for Yintang. | D: Correct. Pinching insertion (捏起進針法) is used at EX-HN3 (Yintang) — the skin is pinched up between two fingers before th",
+        "exp_zh": "印堂（EX-HN3）位於鼻根部，皮膚薄且附著於骨，需提捏皮膚後斜向下進針（提捏進針法）。"
+      },
+      {
+        "id": 71,
+        "question_en": "Which method of three edge needle is used to treat vomiting, diarrhea and heat stroke at points BL40(weizhong) and PC3(quze)?",
+        "question_zh": "在委中（BL40）和曲澤（PC3）使用三棱針治療嘔吐、腹瀉和中暑時，應使用哪種刺法？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Spot pricking", "zh": "點刺", "correct": false},
+          "B": {"en": "Scattered pricking", "zh": "散刺", "correct": false},
+          "C": {"en": "Blood-vessel pricking", "zh": "血管刺絡", "correct": true},
+          "D": {"en": "Piercing needling", "zh": "透針", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Spot pricking is used on fingertip points like Shixuan, not on large veins. | B: Incorrect. Scattered pricking is applied over a broad skin area, not on specific veins. | C: Correct. Blood-vessel pricking (刺絡法) targets the prominent superficial veins at BL40 (popliteal vein) and PC3 (cubital vein) to release blood and clear Heat for emergency conditions. | D: Incorrect. Piercing need",
+        "exp_zh": "在委中和曲澤使用刺絡放血法（血管刺絡）——刺破局部顯露的靜脈放血，以清熱解毒、急救醒神。"
+      },
+      {
+        "id": 72,
+        "question_en": "What is the general application of Xi-Cleft points in clinic?",
+        "question_zh": "郄穴在臨床上的一般應用是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "To direct the counter-flow of Fu organs Qi", "zh": "引導腑氣下行", "correct": false},
+          "B": {"en": "To reinforce the Zang organs Qi", "zh": "補益臟腑之氣", "correct": false},
+          "C": {"en": "To treat the acute diseases", "zh": "治療急性病症", "correct": true},
+          "D": {"en": "To release the internal heat", "zh": "清瀉內熱", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Directing counter-flow of Fu organ Qi is not the standard application of Xi-Cleft points. | B: Incorrect. Reinforcing Zang organ Qi is more associated with Back-Shu or Yuan-Source points. | C: Correct. Xi-Cleft points are where Qi and Blood accumulate deeply. They are classically used to treat acute and painful conditions of their respective meridians and organs. | D: Incorrect. Rele",
+        "exp_zh": "郄穴是氣血深聚之處，主要用於治療急性病症（急性疼痛、急性出血等）。「郄主急痛症」。"
+      },
+      {
+        "id": 73,
+        "question_en": "According to the Yuan and Luo theory (Yuan point on the diseased meridian and Luo point on the pairing meridian), which point combination should you use to treat a patient with Spleen deficiency?",
+        "question_zh": "根據原絡理論，治療脾虛應取哪組穴位？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "SP-2, ST-36", "zh": "SP-2、ST-36", "correct": false},
+          "B": {"en": "SP-3, ST-40", "zh": "SP-3、ST-40", "correct": true},
+          "C": {"en": "SP-3, ST-36", "zh": "SP-3、ST-36", "correct": false},
+          "D": {"en": "SP-3, ST-37", "zh": "SP-3、ST-37", "correct": false}
+        },
+        "exp_en": "A: Incorrect. SP-2 is the Ying-Spring point of Spleen, not the Yuan-Source point. | B: Correct. SP-3 (Taibai) is the Yuan-Source point of the Spleen meridian. ST-40 (Fenglong) is the Luo-Connecting point of the paired Stomach meridian. This is the correct Yuan-Luo pairing for Spleen deficiency. | C: Incorrect. ST-36 is the He-Sea point of the Stomach, not its Luo-Connecting point. | D: Incorrect. ",
+        "exp_zh": "太白（SP-3）是脾經原穴；豐隆（ST-40）是胃經絡穴。脾虛取脾原太白，表裡經胃之絡穴豐隆。"
+      },
+      {
+        "id": 74,
+        "question_en": "Choose the Lower He Sea points for the following organs: Stomach, San Jiao and Urinary Bladder.",
+        "question_zh": "選擇以下臟腑的下合穴：胃、三焦、膀胱（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "ST-36, UB-40, UB-42", "zh": "ST-36、UB-40、UB-42", "correct": false},
+          "B": {"en": "ST-37, UB-39, UB-40", "zh": "ST-37、UB-39、UB-40", "correct": false},
+          "C": {"en": "ST-36, UB-39, UB-40", "zh": "ST-36、UB-39、UB-40", "correct": true},
+          "D": {"en": "ST-38, UB-39, UB-42", "zh": "ST-38、UB-39、UB-42", "correct": false}
+        },
+        "exp_en": "A: Incorrect. UB-42 does not exist as a recognised Lower He-Sea point. | B: Incorrect. ST-37 is the Lower He-Sea of the Large Intestine, not the Stomach. | C: Correct. ST-36 (Zusanli) = Stomach, UB-39 (Weiyang) = San Jiao, UB-40 (Weizhong) = Urinary Bladder. | D: Incorrect. ST-38 and UB-42 are not Lower He-Sea points.",
+        "exp_zh": "下合穴：胃=足三里（ST-36），三焦=委陽（UB-39），膀胱=委中（UB-40）。"
+      },
+      {
+        "id": 75,
+        "question_en": "Which insertion method should be used when needling EX-HN3 (Yintang)?",
+        "question_zh": "針刺印堂穴（EX-HN3）應使用哪種進針方法？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Single-Handed insertion", "zh": "單手進針法", "correct": false},
+          "B": {"en": "Skin-spreading needle insertion", "zh": "舒張進針法", "correct": false},
+          "C": {"en": "Needle in tube insertions", "zh": "管針進針法", "correct": false},
+          "D": {"en": "Pinching insertion", "zh": "提捏進針法", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Single-handed insertion is a basic technique but not specifically indicated for Yintang. | B: Incorrect. Skin-spreading insertion is used for areas with loose skin, not the forehead. | C: Incorrect. Tube insertion is a guide-tube technique, not the standard for Yintang. | D: Correct. Pinching insertion (捏起進針法) is used at EX-HN3 (Yintang) — the thin skin over the nose bridge is pinche",
+        "exp_zh": "印堂皮薄骨附，需提捏進針後斜刺向下，此為提捏進針法的標準應用。"
+      },
+      {
+        "id": 76,
+        "question_en": "What is TRUE about Yuan-Source Points?",
+        "question_zh": "關於原穴，以下哪項正確？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Each regular and extra meridian has one of them", "zh": "每條正經和奇經各有一個", "correct": false},
+          "B": {"en": "They correspond to Zang-organs (Yin) only", "zh": "只對應臟（陰）器官", "correct": false},
+          "C": {"en": "They are located on either wrist or ankle joints where Source Qi resides", "zh": "位於腕踝關節，元氣聚集之處", "correct": false},
+          "D": {"en": "They overlap with Shu-Stream Points of Five-Shu points on Yin meridians", "zh": "在陰經上與五輸穴的輸穴重合", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Extra meridians do not all have Yuan-Source points — only the 12 regular meridians have Yuan-Source points. | B: Incorrect. All 12 regular meridians (both Yin and Yang) have Yuan-Source points, not only Yin meridians. | C: Incorrect. Yuan-Source points are not exclusively at the wrist or ankle — they are distributed at various locations along the meridians near the extremities. | D: ",
+        "exp_zh": "在十二條陰經上，原穴與五輸穴的輸穴重合（同一穴位）。陽經的原穴則獨立於輸穴之外。"
+      },
+      {
+        "id": 77,
+        "question_en": "What are the Five-Shu points of the Heart?",
+        "question_zh": "心經的五輸穴是哪些？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "HT-3 Shaohai, HT-4 Lingdao, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "少海、靈道、神門、少府、少衝", "correct": true},
+          "B": {"en": "HT-3 Shaohai, HT-5 Tongli, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "少海、通里、神門、少府、少衝", "correct": false},
+          "C": {"en": "HT-2 Qingling, HT-6 Yinxi, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "青靈、陰郄、神門、少府、少衝", "correct": false},
+          "D": {"en": "HT-2 Qingling, HT-5 Tongli, HT-7 Shenmen, HT-8 Shaofu, HT-9 Shaochong", "zh": "青靈、通里、神門、少府、少衝", "correct": false}
+        },
+        "exp_en": "A: Correct. HT-3 (Shaohai) = He-Sea, HT-4 (Lingdao) = Jing-River, HT-7 (Shenmen) = Shu-Stream/Yuan, HT-8 (Shaofu) = Ying-Spring, HT-9 (Shaochong) = Jing-Well. These five constitute the Five-Shu points of the Heart meridian. | B: Incorrect. HT-5 (Tongli) is the Luo-Connecting point, not a Five-Shu point. | C: Incorrect. HT-2 (Qingling) and HT-6 (Yinxi) are not Five-Shu points. | D: Incorrect. HT-2 ",
+        "exp_zh": "心經五輸穴：少衝（HT-9，井）、少府（HT-8，滎）、神門（HT-7，輸/原）、靈道（HT-4，經）、少海（HT-3，合）。"
+      },
+      {
+        "id": 78,
+        "question_en": "What is the best point combination to pain along the entire spine?",
+        "question_zh": "治療整個脊柱疼痛的最佳穴位組合是什麼？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "DU-4, DU-14", "zh": "督脈4（命門）、督脈14（大椎）", "correct": false},
+          "B": {"en": "SI-3, UB-62", "zh": "SI-3（後溪）、UB-62（申脈）", "correct": true},
+          "C": {"en": "UB-40, UB-23", "zh": "UB-40（委中）、UB-23（腎俞）", "correct": false},
+          "D": {"en": "KI-3, UB-23", "zh": "KI-3（太溪）、UB-23（腎俞）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Du-4 and Du-14 are both local points on the Du channel; they address specific spinal regions but not the entire spine. | B: Correct. SI-3 (Houxi) and UB-62 (Shenmai) are Eight Confluent points that open the Du Mai (Governing Vessel), which runs along the entire spine — making this the best combination for pain along the full length of the spine. | C: Incorrect. UB-40 and UB-23 addres",
+        "exp_zh": "後溪（SI-3）+申脈（UB-62）是督脈的主配對穴，開通督脈，治療脊柱疼痛。"
+      },
+      {
+        "id": 79,
+        "question_en": "Which of the following points is NOT a Luo/Connecting point?",
+        "question_zh": "以下哪個穴位不是絡穴？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "GB37 (Guangming)", "zh": "GB37（光明）", "correct": false},
+          "B": {"en": "LR5 (Ligou)", "zh": "LR5（蠡溝）", "correct": false},
+          "C": {"en": "RN16 (Zhongting)", "zh": "RN16（中庭）", "correct": true},
+          "D": {"en": "SP21 (Dabao)", "zh": "SP21（大包）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB37 (Guangming) IS the Luo-Connecting point of the Gallbladder meridian. | B: Incorrect. LR5 (Ligou) IS the Luo-Connecting point of the Liver meridian. | C: Correct. RN16 (Zhongting) is NOT a Luo-Connecting point. The Luo-Connecting point of the Ren Mai is RN15 (Jiuwei). | D: Incorrect. SP21 (Dabao) IS the Great Luo-Connecting point of the Spleen.",
+        "exp_zh": "中庭（RN16）不是絡穴。任脈絡穴為鳩尾（RN15）。"
+      },
+      {
+        "id": 80,
+        "question_en": "Which combination of following points is used to treat disorders of the outer canthus, back of ear, cheek, neck and shoulder?",
+        "question_zh": "以下哪個穴位組合用於治療外眼角、耳後、頸肩等部位的疾患？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "SI3 (Houxi) + BL62 (Shenmai)", "zh": "SI3（後溪）+BL62（申脈）", "correct": false},
+          "B": {"en": "GB41 (Zulinqi) + SJ5 (Waiguan)", "zh": "GB41（足臨泣）+SJ5（外關）", "correct": true},
+          "C": {"en": "SP4 (Gongsun) + PC6 (Neiguan)", "zh": "SP4（公孫）+PC6（內關）", "correct": false},
+          "D": {"en": "LU7 (Lieque) + KI6 (Zhaohai)", "zh": "LU7（列缺）+KI6（照海）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. SI3 + BL62 open Du Mai and Yang Qiao Mai — indicated for spinal pain, inner canthus, and back conditions. | B: Correct. GB41 (Zulinqi) + SJ5 (Waiguan) open the Dai Mai and Yang Wei Mai. Their combined therapeutic area covers the outer canthus, retroauricular region, cheek, neck, and shoulder. | C: Incorrect. SP4 + PC6 open Chong Mai and Yin Wei Mai — used for heart, chest, and stomac",
+        "exp_zh": "足臨泣（GB41）+外關（SJ5）分別開通帶脈和陽維脈，其聯合治療範圍涵蓋外眼角、耳後、頸肩等側面部位。"
+      },
+      {
+        "id": 81,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5 – 0.8 cun", "zh": "斜刺0.5-0.8寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 – 0.5 cun", "zh": "直刺0.3-0.5寸", "correct": false},
+          "C": {"en": "Obliquely 0.8 – 1.2 cun", "zh": "斜刺0.8-1.2寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 – 0.8 cun", "zh": "直刺0.5-0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴（BL13-21）需斜刺向脊柱方向，深度0.5-1寸，防止刺入胸腔引起氣胸。"
+      },
+      {
+        "id": 82,
+        "question_en": "PC-6, Neiguan, can treat the following symptoms:",
+        "question_zh": "內關穴（PC-6）可以治療以下哪些症狀？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Chest pain with irregular heart beat", "zh": "胸痛伴心律不整", "correct": false},
+          "B": {"en": "Nausea and vomit", "zh": "噁心嘔吐", "correct": false},
+          "C": {"en": "Insomnia and anxiety", "zh": "失眠焦慮", "correct": false},
+          "D": {"en": "All of above", "zh": "以上皆是", "correct": true}
+        },
+        "exp_en": "A: Incorrect on its own — PC-6 can treat chest pain and irregular heartbeat, but this is not the only correct symptom. | B: Incorrect on its own — PC-6 can treat nausea and vomiting, but this is not the only correct symptom. | C: Incorrect on its own — PC-6 can treat insomnia and anxiety, but this is not the only correct symptom. | D: Correct. PC-6 (Neiguan) has a wide range of indications includi",
+        "exp_zh": "內關（PC-6）是心包經絡穴，又是八脈交會穴（通陰維脈），適應範圍廣：胸痛心悸、噁心嘔吐、失眠焦慮均可使用。"
+      },
+      {
+        "id": 83,
+        "question_en": "Choose the confluent points for the following extra channels: Chong channel, Yang Qiao channel, Du channel and Ren channel.",
+        "question_zh": "選擇以下奇經的交會穴：衝脈、陽蹺脈、督脈、任脈（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "LU-7, SI-3, UB-62, SP-4", "zh": "LU-7、SI-3、UB-62、SP-4", "correct": false},
+          "B": {"en": "LU-9, SI-4, UB-60, SP-3", "zh": "LU-9、SI-4、UB-60、SP-3", "correct": false},
+          "C": {"en": "SP-4, UB-62, SI-3, LU-7", "zh": "SP-4、UB-62、SI-3、LU-7", "correct": true},
+          "D": {"en": "SP-4, UB-60, SI-3, LU-7", "zh": "SP-4、UB-60、SI-3、LU-7", "correct": false}
+        },
+        "exp_en": "A: Incorrect. The order matches Ren, Du, Yang Qiao, Chong — not as stated in the question. | B: Incorrect. LU-9, SI-4, UB-60, SP-3 are not Eight Confluent points. | C: Correct. SP-4 (Gongsun) = Chong Mai, UB-62 (Shenmai) = Yang Qiao Mai, SI-3 (Houxi) = Du Mai, LU-7 (Lieque) = Ren Mai. | D: Incorrect. UB-60 is not a Confluent point; UB-62 (Shenmai) is the correct point for Yang Qiao Mai.",
+        "exp_zh": "交會穴：衝脈=公孫（SP-4），陽蹺=申脈（UB-62），督脈=後溪（SI-3），任脈=列缺（LU-7）。"
+      },
+      {
+        "id": 84,
+        "question_en": "Choose the correct front Mu points for the following organs: Urinary Bladder, San Jiao, Stomach, and Pericardium.",
+        "question_zh": "選擇以下臟腑的正確募穴：膀胱、三焦、胃、心包（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "RN-2, RN-5, RN-6, RN-14", "zh": "RN-2、RN-5、RN-6、RN-14", "correct": false},
+          "B": {"en": "RN-3, RN-4, RN-12, RN-14", "zh": "RN-3、RN-4、RN-12、RN-14", "correct": false},
+          "C": {"en": "RN-3, RN-5, RN-12, RN-17", "zh": "RN-3、RN-5、RN-12、RN-17", "correct": true},
+          "D": {"en": "RN-2, RN-6, RN-12, RN-17", "zh": "RN-2、RN-6、RN-12、RN-17", "correct": false}
+        },
+        "exp_en": "A: Incorrect. RN-6 (Qihai) is not a Front-Mu point; RN-14 (Juque) is the Front-Mu of the Heart. | B: Incorrect. RN-4 is the Front-Mu of Small Intestine, not San Jiao. | C: Correct. RN-3 = Urinary Bladder, RN-5 = San Jiao, RN-12 = Stomach, RN-17 = Pericardium. | D: Incorrect. RN-2 and RN-6 are not the correct Front-Mu points for the listed organs.",
+        "exp_zh": "募穴：膀胱=中極（RN-3），三焦=石門（RN-5），胃=中脘（RN-12），心包=膻中（RN-17）。"
+      },
+      {
+        "id": 85,
+        "question_en": "The Luo-connecting channel of the Heart separates from the primary channel at which point?",
+        "question_zh": "心的絡脈從哪個穴位別出正經？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "HT-4 Lingdao", "zh": "HT-4（靈道）", "correct": false},
+          "B": {"en": "HT-5 Tongli", "zh": "HT-5（通里）", "correct": true},
+          "C": {"en": "HT-6 Yinxi", "zh": "HT-6（陰郄）", "correct": false},
+          "D": {"en": "HT-7 Shenmen", "zh": "HT-7（神門）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. HT-4 (Lingdao) is the Jing-River point of the Heart, not the Luo-Connecting point. | B: Correct. HT-5 (Tongli) is the Luo-Connecting point of the Heart meridian. The Luo-connecting channel separates from the primary Heart channel at HT-5. | C: Incorrect. HT-6 (Yinxi) is the Xi-Cleft point of the Heart. | D: Incorrect. HT-7 (Shenmen) is the Yuan-Source/Shu-Stream point of the Heart.",
+        "exp_zh": "通里（HT-5）是心經的絡穴，心的絡脈從通里別出，聯絡小腸（表裡經）。"
+      },
+      {
+        "id": 86,
+        "question_en": "Which waveform in electro-acupuncture is less easy for the human body to generate adaptation?",
+        "question_zh": "電針中哪種波形不容易使人體產生適應？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Sparse-dense wave", "zh": "疏密波", "correct": false},
+          "B": {"en": "Intermittent wave", "zh": "斷續波", "correct": false},
+          "C": {"en": "Both A and B", "zh": "A和B均是", "correct": true},
+          "D": {"en": "None of above", "zh": "以上皆非", "correct": false}
+        },
+        "exp_en": "A: Incorrect on its own. Sparse-dense wave alone is harder to adapt to, but it is not the only correct answer. | B: Incorrect on its own. Intermittent wave alone is also harder to adapt to, but it is not the only correct answer. | C: Correct. Both sparse-dense (疏密波) and intermittent (斷續波) waves resist adaptation. Therefore Both A and B is correct. | D: Incorrect. Both A and B do apply as harder-to",
+        "exp_zh": "疏密波和斷續波均不易引起適應，因此均是正確答案（C）。"
+      },
+      {
+        "id": 87,
+        "question_en": "Which one of the following points is contraindicated for intradermal needle therapy?",
+        "question_zh": "以下哪個穴位是皮內針療法的禁忌？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Ear heart", "zh": "耳心穴", "correct": false},
+          "B": {"en": "BL18 (Ganshu)", "zh": "BL18（肝俞）", "correct": false},
+          "C": {"en": "LI11 (Quchi)", "zh": "LI11（曲池）", "correct": false},
+          "D": {"en": "ST35 (Dubi)", "zh": "ST35（犢鼻）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. The auricular heart point can be used with intradermal (press) needles in ear acupuncture. | B: Incorrect. BL18 (Ganshu) on the back can accommodate intradermal needles. | C: Incorrect. LI11 (Quchi) is on the elbow region; while it has some movement, it is not the primary contraindication. | D: Correct. ST35 (Dubi) is located at the knee joint — a highly mobile area. Intradermal need",
+        "exp_zh": "犢鼻（ST35）在膝關節活動處，皮內針禁忌用於關節部位。"
+      },
+      {
+        "id": 88,
+        "question_en": "The highest point located on the body is ___; the lowest point located on the body is ___.",
+        "question_zh": "人體最高點是___；最低點是___（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "DU-24, KD-1", "zh": "督脈24、腎1", "correct": false},
+          "B": {"en": "DU-20, KD-2", "zh": "督脈20、腎2", "correct": false},
+          "C": {"en": "DU-20, KD-1", "zh": "督脈20、腎1", "correct": true},
+          "D": {"en": "DU-24, KD-2", "zh": "督脈24、腎2", "correct": false}
+        },
+        "exp_en": "A: Incorrect. DU-24 is at the anterior hairline — not the highest point. | B: Incorrect. KD-2 is on the medial foot, not the lowest point. | C: Correct. DU-20 (Baihui) at the crown = highest point. KD-1 (Yongquan) on the sole = lowest point. | D: Incorrect. DU-24 is not the highest point on the body.",
+        "exp_zh": "百會（DU-20）為最高點，湧泉（KD-1）為最低點。"
+      },
+      {
+        "id": 89,
+        "question_en": "What is crossing point of all six yang channels, and where it is located?",
+        "question_zh": "六陽經的交匯點是哪個穴位，位置在哪裡？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "DU-24, midline of the body, 0.5 cun within the anterior hair line", "zh": "督脈24，正中線，前髮際內0.5寸", "correct": false},
+          "B": {"en": "DU-20, midline of the body, 5 cun within the anterior hair line", "zh": "督脈20，正中線，前髮際內5寸", "correct": false},
+          "C": {"en": "DU-14, under the 7th thoracic spinal vertebra", "zh": "督脈14，第7胸椎棘突下", "correct": false},
+          "D": {"en": "DU-14, under the 7th cervical spinal vertebra", "zh": "督脈14，第7頸椎棘突下", "correct": true}
+        },
+        "exp_en": "A: Incorrect. DU-24 is at the anterior hairline and is not the crossing of all six Yang channels. | B: Incorrect. DU-20 is at the crown but is not described as the crossing of all six Yang channels. | C: Incorrect. DU-14 is not under the 7th thoracic vertebra — that is BL17. | D: Correct. DU-14 (Dazhui) is located below the spinous process of the 7th cervical vertebra and is the meeting point of a",
+        "exp_zh": "大椎（DU-14）位於第7頸椎棘突下，是六條陽經（三陽+督脈）的交匯點，主治一切陽病及外感熱病。"
+      },
+      {
+        "id": 90,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5~0.8 cun", "zh": "斜刺0.5-0.8寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 - 0.5 cun", "zh": "直刺0.3-0.5寸", "correct": false},
+          "C": {"en": "Obliquely 0.8 - 1.2 cun", "zh": "斜刺0.8-1.2寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 ~ 0.8 cun", "zh": "直刺0.5-0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴斜刺0.5-1寸向脊柱方向，避免氣胸。"
+      },
+      {
+        "id": 91,
+        "question_en": "Which of the following Eight Confluent Points is communicated with Dai/Girdle Meridian?",
+        "question_zh": "以下哪個八脈交會穴與帶脈相通？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "K16 Zhaoha", "zh": "KI6（照海）", "correct": false},
+          "B": {"en": "GB41 Zulingi", "zh": "GB41（足臨泣）", "correct": true},
+          "C": {"en": "PC6 Neiguan", "zh": "PC6（內關）", "correct": false},
+          "D": {"en": "SI3 Houxi", "zh": "SI3（後溪）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. KI6 (Zhaohai) communicates with the Yin Qiao Mai. | B: Correct. GB41 (Zulinqi) is the Eight Confluent point that opens and connects to the Dai Mai (Girdle Vessel). | C: Incorrect. PC6 (Neiguan) communicates with the Yin Wei Mai. | D: Incorrect. SI3 (Houxi) communicates with the Du Mai.",
+        "exp_zh": "足臨泣（GB41）是通帶脈的八脈交會穴，與外關（SJ5）配對使用。照海通陰蹺，內關通陰維，後溪通督脈。"
+      },
+      {
+        "id": 92,
+        "question_en": "According to the Yuan and Luo theory (Yuan point on the diseased meridian and Luo point on the pairing meridian), which point combination should you use to treat a patient with which point combination should you use for the treatment of Spleen deficiency?",
+        "question_zh": "根據原絡理論，治療脾虛應取哪組穴位？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "SP-2, ST-36", "zh": "SP-2、ST-36", "correct": false},
+          "B": {"en": "SP-3, ST-40", "zh": "SP-3、ST-40", "correct": true},
+          "C": {"en": "SP-3, ST-36", "zh": "SP-3、ST-36", "correct": false},
+          "D": {"en": "SP-3, ST-37", "zh": "SP-3、ST-37", "correct": false}
+        },
+        "exp_en": "A: Incorrect. SP-2 is the Ying-Spring point of Spleen, not the Yuan-Source point. | B: Correct. SP-3 (Taibai) is the Yuan-Source point of the Spleen meridian. ST-40 (Fenglong) is the Luo-Connecting point of the paired Stomach meridian. | C: Incorrect. ST-36 is the He-Sea point of the Stomach, not its Luo-Connecting point. | D: Incorrect. ST-37 is the Lower He-Sea of the Large Intestine, not the Lu",
+        "exp_zh": "太白（SP-3，脾原穴）+豐隆（ST-40，胃絡穴）——脾虛取脾原，配表裡經胃之絡。"
+      },
+      {
+        "id": 93,
+        "question_en": "Which point is used for malposition of the foetus and what is its location?",
+        "question_zh": "哪個穴位用於矯正胎位不正？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "SP-1, medial border...", "zh": "SP-1，甲內側緣...", "correct": false},
+          "B": {"en": "LR-1, lateral border...", "zh": "LR-1，甲外側緣...", "correct": false},
+          "C": {"en": "UB-67, medial border...", "zh": "UB-67，甲內側緣...", "correct": false},
+          "D": {"en": "UB-67, at the junction of lines drawn along the lateral border of the nail and the base of the nail, approximately 0.1 cun from the corner of the nail", "zh": "UB-67，位於甲外側緣與甲根部連線交點，距甲角約0.1寸", "correct": true}
+        },
+        "exp_en": "A: Incorrect. SP-1 is on the medial great toe and is not used for foetal malposition. | B: Incorrect. LR-1 is on the lateral great toe; it is not the standard point for foetal malposition correction. | C: Incorrect. UB-67 is on the lateral side of the 5th toenail, not the medial border. | D: Correct. UB-67 (Zhiyin) is located at the junction of the lateral border of the nail and the base of the na",
+        "exp_zh": "至陰（UB-67）位於足小趾甲外側緣，距甲角0.1寸，艾灸矯正胎位不正。"
+      },
+      {
+        "id": 94,
+        "question_en": "What is crossing point of all six yang channels, and where it is located?",
+        "question_zh": "六陽經交匯點及其位置（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Du-24, midline of the body, 0.5 cun within the anterior hair line", "zh": "督脈24，正中線，前髮際內0.5寸", "correct": false},
+          "B": {"en": "Du-20, midline of the body, 5 cun within the anterior hair line", "zh": "督脈20，正中線，前髮際內5寸", "correct": false},
+          "C": {"en": "Du-14, under the 7th thoracic Spinal vertebra", "zh": "督脈14，第7胸椎棘突下", "correct": false},
+          "D": {"en": "Du-14, under the 7th cervical spinal vertebra", "zh": "督脈14，第7頸椎棘突下", "correct": true}
+        },
+        "exp_en": "A: Incorrect. DU-24 is at the anterior hairline and is not the crossing of all six Yang channels. | B: Incorrect. DU-20 is at the crown but is not described as the crossing of all six Yang channels. | C: Incorrect. DU-14 is not under the 7th thoracic vertebra — that is BL17. | D: Correct. DU-14 (Dazhui) is located below the spinous process of the 7th cervical vertebra and is the meeting point of a",
+        "exp_zh": "大椎（DU-14）在第7頸椎棘突下，是六陽經交匯點。"
+      },
+      {
+        "id": 95,
+        "question_en": "What is FALSE about the selection of distant points?",
+        "question_zh": "關於遠端取穴，以下哪項說法是錯誤的？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "It often refers to those points below the elbow and knee joints.", "zh": "通常指肘膝關節以下的穴位", "correct": false},
+          "B": {"en": "It is the core of the acupuncture prescription.", "zh": "是針灸處方的核心", "correct": false},
+          "C": {"en": "Those points are usually located on the main diseased meridian.", "zh": "這些穴位通常位於主要病變經絡上", "correct": false},
+          "D": {"en": "A good example of this is to select GB20 (Fengchi) for eye disorders", "zh": "選取風池（GB20）治療眼部疾患是一個好例子", "correct": true}
+        },
+        "exp_en": "A: Incorrect (i.e., this statement is TRUE). Distant points do refer to points below the elbow and knee. | B: Incorrect (TRUE). Distant point selection is indeed the core of acupuncture prescription. | C: Incorrect (TRUE). Distant points are usually selected from the main diseased meridian. | D: Correct (this is FALSE). GB20 (Fengchi) is a local/adjacent point near the head and eye region, not a d",
+        "exp_zh": "D項錯誤：風池（GB20）是鄰近穴位，非遠端穴位。遠端取穴指肘膝以下。"
+      },
+      {
+        "id": 96,
+        "question_en": "What is the correct description for the 2nd branch for Bladder Primary channel?",
+        "question_zh": "膀胱正經第二支的正確描述（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Parallel to spine and 0.5 cun lateral to the spine", "zh": "與脊柱平行，位於脊柱外側0.5寸", "correct": false},
+          "B": {"en": "Parallel to the spine and half way from medial border of the scapula to 5pine", "zh": "與脊柱平行，位於肩胛骨內側緣至脊柱中點", "correct": false},
+          "C": {"en": "Parallel to the spine and 1.5 cun from spine", "zh": "與脊柱平行，距脊柱1.5寸", "correct": false},
+          "D": {"en": "On medial border of the scapula and parallel to the spine", "zh": "沿肩胛骨內側緣與脊柱平行", "correct": true}
+        },
+        "exp_en": "A: Incorrect. 0.5 cun lateral to the spine does not correspond to any standard BL branch. | B: Incorrect. This description does not match the standard anatomical reference for the 2nd branch. | C: Incorrect. 1.5 cun from the spine describes the 1st branch of the Bladder channel, not the 2nd. | D: Correct. The 2nd branch of the Bladder Primary channel runs along the medial border of the scapula, pa",
+        "exp_zh": "膀胱正經第二支沿肩胛骨內側緣走行（背部第二線，距脊柱旁開3寸）。"
+      },
+      {
+        "id": 97,
+        "question_en": "The distance between SI-7 and SI-8 is",
+        "question_zh": "SI-7至SI-8的距離（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "5 cur", "zh": "5寸", "correct": false},
+          "B": {"en": "6 cur", "zh": "6寸", "correct": false},
+          "C": {"en": "7 cun", "zh": "7寸", "correct": true},
+          "D": {"en": "8 cun", "zh": "8寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 5 cun is not the correct distance between SI-7 and SI-8. | B: Incorrect. 6 cun is not the correct distance between SI-7 and SI-8. | C: Correct. SI-7 (Zhizheng) is located 5 cun proximal to the wrist crease. SI-8 (Xiaohai) is at the elbow. The forearm (wrist to elbow) = 12 cun total; therefore the distance from SI-7 to SI-8 = 12 − 5 = 7 cun. | D: Incorrect. 8 cun overestimates the dis",
+        "exp_zh": "支正（SI-7）腕上5寸，小海（SI-8）在肘部，兩者距離約7寸。"
+      },
+      {
+        "id": 98,
+        "question_en": "What is the best point combination to pain along the entire spine?",
+        "question_zh": "治療整個脊柱疼痛的最佳穴位組合（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Du-4, Du-14", "zh": "督脈4、督脈14", "correct": false},
+          "B": {"en": "SI-3, UB-62", "zh": "SI-3（後溪）、UB-62（申脈）", "correct": true},
+          "C": {"en": "UB-40, UB-23", "zh": "UB-40、UB-23", "correct": false},
+          "D": {"en": "Kl-3, UB-23", "zh": "KI-3、UB-23", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Du-4 and Du-14 are both local points on the Du channel; they address specific spinal regions but not the entire spine. | B: Correct. SI-3 (Houxi) and UB-62 (Shenmai) are Eight Confluent points that open the Du Mai (Governing Vessel), which runs along the entire spine — making this the best combination for pain along the full length of the spine. | C: Incorrect. UB-40 and UB-23 addres",
+        "exp_zh": "後溪（SI-3）+申脈（UB-62）開通督脈，督脈循行整個脊柱。"
+      },
+      {
+        "id": 99,
+        "question_en": "The use of HT7 (Shenmen) and KI6 (Zhaohai) in a prescription is according to all the following principles EXCEPT",
+        "question_zh": "在處方中同用神門（HT7）和照海（KI6），以下所有配穴原則均符合，除了：（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Upper and Lower combination", "zh": "上下配穴法", "correct": false},
+          "B": {"en": "Points on the meridian with the same name", "zh": "同名經配穴法", "correct": false},
+          "C": {"en": "Guest and Host combination", "zh": "主客配穴法", "correct": true},
+          "D": {"en": "Application of specifically grouped points", "zh": "特定穴應用", "correct": false}
+        },
+        "exp_en": "A: Incorrect (this principle DOES apply). HT7 is on the upper limb and KI6 is on the lower limb — Upper-Lower combination. | B: Incorrect (this principle DOES apply). Both are on Shao Yin meridians (Heart = Hand Shao Yin; Kidney = Foot Shao Yin) — same meridian name combination. | C: Incorrect (this principle DOES apply). HT7 as Yuan-Source of Heart paired with the Luo of its paired meridian repre",
+        "exp_zh": "「特定穴應用」不是HT7+KI6配穴的具體原則。其他三項：上下（心腎）、主客（原絡）、同名經（少陰）均符合。"
+      },
+      {
+        "id": 100,
+        "question_en": "Which length needle is ideal for use in scalp acupuncture?",
+        "question_zh": "頭皮針理想使用針的長度（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "0.5 Cun", "zh": "0.5寸", "correct": false},
+          "B": {"en": "1 Cun", "zh": "1寸", "correct": false},
+          "C": {"en": "2 Cun", "zh": "2寸", "correct": true},
+          "D": {"en": "3.5 cun", "zh": "3.5寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 0.5 cun is too short to reach the subcutaneous layer of the scalp at the required angle. | B: Correct. A 1-cun needle is the standard length used in scalp acupuncture, allowing insertion into the subcutaneous layer at a 15–30° angle along the scalp lines. | C: Incorrect. A 2-cun needle is too long for standard scalp acupuncture and risks going too deep. | D: Incorrect. 3.5 cun is far",
+        "exp_zh": "1寸針是頭皮針標準長度，用於橫刺穿入帽狀腱膜下層。"
+      },
+      {
+        "id": 101,
+        "question_en": "Which point is located on the radial side of the tendon of flexor carpi ulnaris, 1 proximal to the wrist?",
+        "question_zh": "哪個穴位位於尺側腕屈肌腱橈側、腕橫紋上1寸？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "HT-4 Lingdao", "zh": "HT-4（靈道）", "correct": false},
+          "B": {"en": "HT-3 Shaohai", "zh": "HT-3（少海）", "correct": false},
+          "C": {"en": "HT-5 Tonll", "zh": "HT-5（通里）", "correct": false},
+          "D": {"en": "HT-6 Yinxi", "zh": "HT-6（陰郄）", "correct": true}
+        },
+        "exp_en": "A: Incorrect. HT-4 (Lingdao) is located 1.5 cun proximal to the wrist crease. | B: Incorrect. HT-3 (Shaohai) is at the elbow, medial to the biceps tendon. | C: Correct. HT-5 (Tongli) is located 1 cun proximal to the wrist crease, on the radial side of the flexor carpi ulnaris tendon. | D: Incorrect. HT-6 (Yinxi) is located 0.5 cun proximal to the wrist crease.",
+        "exp_zh": "通里（HT-5）位於腕上1寸，尺側腕屈肌腱橈側；陰郄（HT-6）在腕上0.5寸。"
+      },
+      {
+        "id": 102,
+        "question_en": "The highest point located on the body is _; the lowest point located on the body is",
+        "question_zh": "人體最高點___；最低點___（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Du-24, KD-1", "zh": "督脈24、腎1", "correct": false},
+          "B": {"en": "Du-20, KD-2", "zh": "督脈20、腎2", "correct": false},
+          "C": {"en": "Du-20, KD-1", "zh": "督脈20、腎1", "correct": true},
+          "D": {"en": "Du-24, KD-2", "zh": "督脈24、腎2", "correct": false}
+        },
+        "exp_en": "A: Incorrect. DU-24 is at the anterior hairline, not the highest point; KD-1 on the sole is the lowest — so the second part is correct but the first is wrong. | B: Incorrect. KD-2 is on the medial foot, not the lowest point of the body. | C: Correct. DU-20 (Baihui) is located at the crown of the head and is the highest point on the body. KD-1 (Yongquan) is on the sole of the foot and is the lowest",
+        "exp_zh": "百會（DU-20）最高，湧泉（KD-1）最低。"
+      },
+      {
+        "id": 103,
+        "question_en": "In scalp acupuncture, the middle line of the vertex (M55) is located on the vertex of the head. Which two acupoints does this line link?",
+        "question_zh": "頭皮針頂中線（MS5）連接哪兩個穴位？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "GV20, GV21", "zh": "GV20、GV21", "correct": true},
+          "B": {"en": "GV20, GB6", "zh": "GV20、GB6", "correct": false},
+          "C": {"en": "GV20, GB7", "zh": "GV20、GB7", "correct": false},
+          "D": {"en": "GV20, GV1", "zh": "GV20、GV1", "correct": false}
+        },
+        "exp_en": "A: Correct. The middle line of the vertex (MS5) runs from GV20 (Baihui) anteriorly to GV21 (Qianding), linking these two Du Mai points. | B: Incorrect. GB6 is a temporal point, not on the vertex midline. | C: Incorrect. GB7 is also a temporal point, not on the midline vertex. | D: Incorrect. GV1 is at the tip of the coccyx, not on the scalp.",
+        "exp_zh": "頂中線（MS5）從百會（GV20）至前頂（GV21），沿督脈走行於頭頂正中。"
+      },
+      {
+        "id": 104,
+        "question_en": "Which alcohol percentage is used for fire cupping",
+        "question_zh": "火罐使用的酒精濃度（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "50%", "zh": "50%", "correct": false},
+          "B": {"en": "70%", "zh": "70%", "correct": false},
+          "C": {"en": "95%", "zh": "95%", "correct": true},
+          "D": {"en": "150%", "zh": "150%", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 50% alcohol does not ignite reliably. | B: Incorrect. 70% alcohol can ignite but is not the standard for fire cupping. | C: Correct. 95% alcohol is the standard used for fire cupping — it ignites quickly and burns cleanly to create the required vacuum. | D: Incorrect. 150% alcohol does not exist.",
+        "exp_zh": "95%酒精用於火罐，點火快速燃燒乾淨；70%酒精用於皮膚消毒。"
+      },
+      {
+        "id": 105,
+        "question_en": "Name three points which are considered special in the treatment of frozen shoulder?",
+        "question_zh": "治療肩周炎的三個特效穴（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "LI-4, LI-11, L115", "zh": "LI-4、LI-11、LI-15", "correct": false},
+          "B": {"en": "SI-3, TE-5, PC-6", "zh": "SI-3、TE-5、PC-6", "correct": false},
+          "C": {"en": "SI-10, TE-14, LI15", "zh": "SI-10、TE-14、LI-15", "correct": true},
+          "D": {"en": "GB-20, GB-21, SI-11", "zh": "GB-20、GB-21、SI-11", "correct": false}
+        },
+        "exp_en": "A: Incorrect. LI-4 and LI-11 are distal points; while LI-15 is relevant, this combination is incomplete for frozen shoulder. | B: Incorrect. SI-3, TE-5, PC-6 are Eight Confluent and distal points, not the local/adjacent points specifically for frozen shoulder. | C: Correct. SI-10 (Naoshu), TE-14 (Jianliao), and LI-15 (Jianyu) are the three local shoulder points considered most important for treati",
+        "exp_zh": "臑俞（SI-10）、肩髎（TE-14）、肩髃（LI-15），圍繞肩關節的三個局部特效穴。"
+      },
+      {
+        "id": 106,
+        "question_en": "Which method of three edge needle is used to treat vomiting, diarrhea and heat stroke at points BL40 (weizhong) and PC3 (quze)?",
+        "question_zh": "在委中（BL40）和曲澤（PC3）使用三棱針治療嘔吐、腹瀉和中暑，應使用哪種刺法？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Spot pricking", "zh": "點刺", "correct": false},
+          "B": {"en": "Scattered pricking", "zh": "散刺", "correct": false},
+          "C": {"en": "Blood-vessel pricking", "zh": "血管刺絡", "correct": true},
+          "D": {"en": "Piercing needling", "zh": "透針", "correct": false}
+        },
+        "exp_en": "A: Incorrect. Spot pricking is used on fingertip points like Shixuan, not on large veins. | B: Incorrect. Scattered pricking is applied over a broad skin area, not on specific veins. | C: Correct. Blood-vessel pricking (刺絡法) targets the prominent superficial veins at BL40 (popliteal vein) and PC3 (cubital vein) to release blood and clear Heat for emergency conditions. | D: Incorrect. Piercing need",
+        "exp_zh": "在委中和曲澤刺絡放血（血管刺絡），刺破淺表靜脈，清熱解毒救急。"
+      },
+      {
+        "id": 107,
+        "question_en": "Which group of points are all on the same line ---- 0.5 cun within the hairline?",
+        "question_zh": "哪組穴位全部位於前髮際內0.5寸的同一橫線上？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "ST-8, UB-4, UB-5, GB-14", "zh": "ST-8、UB-4、UB-5、GB-14", "correct": false},
+          "B": {"en": "ST-8, UB-3, UB-4, GB-13, GB-15", "zh": "ST-8、UB-3、UB-4、GB-13、GB-15", "correct": true},
+          "C": {"en": "ST-8, UB-4, UB-5, GB-15, GB-16", "zh": "ST-8、UB-4、UB-5、GB-15、GB-16", "correct": false},
+          "D": {"en": "ST-8, UB-3, UB-4, DU-23", "zh": "ST-8、UB-3、UB-4、督脈23", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB-14 is 1 cun above the midpoint of the eyebrow, not at the hairline. | B: Correct. ST-8, UB-3, UB-4, GB-13, and GB-15 are all located 0.5 cun posterior to the anterior hairline. | C: Incorrect. UB-5 and GB-16 are located further within the scalp, not at 0.5 cun from the hairline. | D: Incorrect. DU-23 is located 1 cun within the anterior hairline, not 0.5 cun.",
+        "exp_zh": "ST-8（頭維）、UB-3（眉衝）、UB-4（曲差）、GB-13（本神）、GB-15（頭臨泣）均位於前髮際後0.5寸的同一橫線上。"
+      },
+      {
+        "id": 108,
+        "question_en": "Choose the correct front Mu points for the following organs: urinary bladder, San Jiao, Stomach, Pericardium",
+        "question_zh": "選擇以下臟腑正確募穴：膀胱、三焦、胃、心包（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "RN-2 RN-5 RN4 RN-18", "zh": "RN-2、RN-5、RN-4、RN-18", "correct": false},
+          "B": {"en": "RN3 RN4 RN12 RN 12", "zh": "RN-3、RN-4、RN-12、RN-12", "correct": false},
+          "C": {"en": "RN-3 RN-5 RN-12 RN-17", "zh": "RN-3、RN-5、RN-12、RN-17", "correct": true},
+          "D": {"en": "RN-2 RN6 RN-12 RN-17", "zh": "RN-2、RN-6、RN-12、RN-17", "correct": false}
+        },
+        "exp_en": "A: Incorrect. RN-4 is Front-Mu of Small Intestine; RN-18 does not exist as a Front-Mu point. | B: Incorrect. RN-4 is Front-Mu of Small Intestine, not San Jiao; RN-12 is correct for Stomach. | C: Correct. RN-3 = Urinary Bladder, RN-5 = San Jiao, RN-12 = Stomach, RN-17 = Pericardium. | D: Incorrect. RN-2 is Qugu and RN-6 is Qihai — neither are Front-Mu points for the listed organs.",
+        "exp_zh": "募穴：膀胱=中極（RN-3），三焦=石門（RN-5），胃=中脘（RN-12），心包=膻中（RN-17）。"
+      },
+      {
+        "id": 109,
+        "question_en": "To treat abdominal pain around the umbilicus which Lower He-Sea point should be selected?",
+        "question_zh": "治療臍周腹痛應選哪個下合穴？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "GB34(Yanglingquan)", "zh": "GB34（陽陵泉）", "correct": false},
+          "B": {"en": "ST39 (Xiajuxu)", "zh": "ST39（下巨虛）", "correct": true},
+          "C": {"en": "BL40 (Weizhong)", "zh": "BL40（委中）", "correct": false},
+          "D": {"en": "ST36 (Zusanli)", "zh": "ST36（足三里）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB34 (Yanglingquan) is the influential point for tendons and is not a Lower He-Sea point for abdominal organs. | B: Correct. ST39 (Xiajuxu) is the Lower He-Sea point of the Small Intestine. The Small Intestine governs the region around the umbilicus. | C: Incorrect. BL40 (Weizhong) is the Lower He-Sea of the Urinary Bladder, used for lumbar and urinary conditions. | D: Incorrect. ST3",
+        "exp_zh": "下巨虛（ST39）是小腸的下合穴，臍周對應小腸部位。"
+      },
+      {
+        "id": 110,
+        "question_en": "Auricular point TF4 (shenmen) is located at:",
+        "question_zh": "耳穴神門（TF4）的位置（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "The upper part of the superior 1/3 of the triangular fossa", "zh": "三角窩上1/3的上部", "correct": false},
+          "B": {"en": "The lower part of the posterior 1/3 of the triangular fossa", "zh": "三角窩後1/3的下部", "correct": false},
+          "C": {"en": "The lower part of the superior 1/3 of the triangular fossa", "zh": "三角窩上1/3的下部", "correct": false},
+          "D": {"en": "The upper part of the posterior 1/3 of the triangular fossa", "zh": "三角窩後1/3的上部", "correct": true}
+        },
+        "exp_en": "A: Incorrect. The superior 1/3 of the triangular fossa refers to the upper portion along the vertical axis — TF4 is not in the superior 1/3. | B: Incorrect. The lower part of the posterior 1/3 describes a position too far back and low. | C: Incorrect. The lower part of the superior 1/3 is not the standard location for TF4. | D: Correct. Auricular Shenmen (TF4) is located at the upper part (bifurca",
+        "exp_zh": "耳神門（TF4）位於三角窩後1/3的上部（對耳輪上下腳分叉處），鎮靜安神。"
+      },
+      {
+        "id": 111,
+        "question_en": "The highest point located on the body is ______, the lowest point located on the body is ______.",
+        "question_zh": "人體最高點___；最低點___（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Du-24, KD-1", "zh": "督脈24、腎1", "correct": false},
+          "B": {"en": "Du-20, KD-2", "zh": "督脈20、腎2", "correct": false},
+          "C": {"en": "Du-20, KD-1", "zh": "督脈20、腎1", "correct": true},
+          "D": {"en": "Du-24, KD-2", "zh": "督脈24、腎2", "correct": false}
+        },
+        "exp_en": "A: Incorrect. DU-24 is located at the anterior hairline, not the highest point on the body. | B: Incorrect. KD-2 is on the medial arch of the foot, not the lowest point of the body. | C: Correct. DU-20 (Baihui) at the crown of the head is the highest point; KD-1 (Yongquan) on the sole of the foot is the lowest point. | D: Incorrect. DU-24 is not the highest point; it is at the anterior hairline.",
+        "exp_zh": "百會（DU-20）最高，湧泉（KD-1）最低。"
+      },
+      {
+        "id": 112,
+        "question_en": "Which length needle is ideal for use in scalp acupuncture?",
+        "question_zh": "頭皮針理想使用針的長度（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "0.5 Cun", "zh": "0.5寸", "correct": false},
+          "B": {"en": "1 Cun", "zh": "1寸", "correct": true},
+          "C": {"en": "2.0 Cun", "zh": "2寸", "correct": false},
+          "D": {"en": "3.5 cun", "zh": "3.5寸", "correct": false}
+        },
+        "exp_en": "A: Incorrect. 0.5 cun is too short to reach the subcutaneous layer of the scalp at the required angle. | B: Correct. A 1-cun needle is the standard length used in scalp acupuncture, allowing insertion into the subcutaneous layer at a 15–30° angle along the scalp lines. | C: Incorrect. A 2-cun needle is too long for standard scalp acupuncture and risks going too deep. | D: Incorrect. 3.5 cun is far",
+        "exp_zh": "1寸針是頭皮針標準長度。"
+      },
+      {
+        "id": 113,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5-1 cun", "zh": "斜刺0.5-1寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 - 0.5 cun", "zh": "直刺0.3-0.5寸", "correct": false},
+          "C": {"en": "Obliquely 1-1.5 cun", "zh": "斜刺1-1.5寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 ~ 0.8 cun", "zh": "直刺0.5-0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴斜刺0.5-1寸，避免氣胸。"
+      },
+      {
+        "id": 114,
+        "question_en": "Which is an Influential (Ba Hui point) for sinews or tendons?",
+        "question_zh": "哪個八會穴主管筋（肌腱/韌帶）？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "LR3 (Taichong)", "zh": "LR3（太衝）", "correct": false},
+          "B": {"en": "GB34 (Yanglingquan)", "zh": "GB34（陽陵泉）", "correct": true},
+          "C": {"en": "GB39 (Xuanzhong)", "zh": "GB39（懸鐘）", "correct": false},
+          "D": {"en": "BL11 (Dazhu)", "zh": "BL11（大杼）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. LR3 (Taichong) is the Yuan-Source point of Liver and moves Liver Qi, but it is not the Ba Hui point for tendons. | B: Correct. GB34 (Yanglingquan) is the Eight Influential point for tendons/sinews (筋會陽陵泉). | C: Incorrect. GB39 (Xuanzhong) is the influential point for Marrow, not tendons. | D: Incorrect. BL11 (Dazhu) is the influential point for Bones, not tendons.",
+        "exp_zh": "陽陵泉（GB34）是筋之八會穴，主治筋脈相關疾患（痙攣、抽搐、筋傷）。懸鐘（GB39）是髓之會，大杼（BL11）是骨之會。"
+      },
+      {
+        "id": 115,
+        "question_en": "What are the needling depth and directions on Back-Shu points BL13 to BL21?",
+        "question_zh": "背俞穴BL13至BL21的針刺深度和方向（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Obliquely 0.5-0.8 cun", "zh": "斜刺0.5-0.8寸", "correct": true},
+          "B": {"en": "Perpendicularly 0.3 - 0.5 cun", "zh": "直刺0.3-0.5寸", "correct": false},
+          "C": {"en": "Obliquely 0.8-1.2 cun", "zh": "斜刺0.8-1.2寸", "correct": false},
+          "D": {"en": "Perpendicularly 0.5 - 0.8 cun", "zh": "直刺0.5-0.8寸", "correct": false}
+        },
+        "exp_en": "A: Correct. BL13–BL21 are thoracic Back-Shu points. They must be needled obliquely (medially, toward the spine) at 0.5–0.8 cun to avoid pneumothorax risk. | B: Incorrect. Perpendicular needling at 0.3–0.5 cun is insufficient to reach the appropriate tissue layer. | C: Incorrect. Oblique needling at 0.8–1.2 cun is too deep for thoracic Back-Shu points and risks entering the pleural cavity. | D: Inc",
+        "exp_zh": "胸段背俞穴斜刺向脊柱方向，深度0.5-1寸。"
+      },
+      {
+        "id": 116,
+        "question_en": "What is TRUE about Yuan-Source Points?",
+        "question_zh": "關於原穴，以下哪項正確？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Each regular and extra meridian has one of them on.", "zh": "每條正經和奇經各有一個", "correct": false},
+          "B": {"en": "They correspond to Zang-organs (Yin) only.", "zh": "只對應臟（陰）器官", "correct": false},
+          "C": {"en": "They are located on either wrist or ankle joints where Source Qi resides.", "zh": "位於腕踝關節，元氣聚集之處", "correct": false},
+          "D": {"en": "They overlap with Shu-Stream Points of Five-Shu points on Yin meridians.", "zh": "在陰經上與五輸穴的輸穴重合", "correct": true}
+        },
+        "exp_en": "A: Incorrect. Extra meridians do not all have Yuan-Source points — only the 12 regular meridians have Yuan-Source points. | B: Incorrect. All 12 regular meridians (both Yin and Yang) have Yuan-Source points, not only Yin meridians. | C: Incorrect. Yuan-Source points are not exclusively at the wrist or ankle — they are distributed at various locations along the meridians near the extremities. | D: ",
+        "exp_zh": "在十二陰經上，原穴與五輸穴的輸穴重合（同一穴位）。陽經原穴則獨立存在。"
+      },
+      {
+        "id": 117,
+        "question_en": "Which angle should be formed between the needle body and the scalp in scalp acupuncture?",
+        "question_zh": "頭皮針進針時，針體與頭皮應形成多少度角？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "20 degrees", "zh": "20度", "correct": true},
+          "B": {"en": "30 degrees", "zh": "30度", "correct": false},
+          "C": {"en": "60 degrees", "zh": "60度", "correct": false},
+          "D": {"en": "90 degrees", "zh": "90度", "correct": false}
+        },
+        "exp_en": "A: Correct. In scalp acupuncture, the needle is inserted at approximately 15–30° angle to the scalp surface (nearly horizontal/transverse), with 30° being the commonly cited standard angle. | B: Incorrect. While 30° is within the acceptable range, 20° is also used by some practitioners — however the standard reference angle is 15–30°. | C: Incorrect. 60° is too steep for scalp acupuncture and woul",
+        "exp_zh": "頭皮針進針角度約15-30度（平刺/橫刺），針尖穿入帽狀腱膜下層。選B（30度）為最接近的正確選項。"
+      },
+      {
+        "id": 118,
+        "question_en": "Which group of points are all on the same line---- 0.5 cun within the hairline?",
+        "question_zh": "哪組穴位全部位於前髮際內0.5寸同一線（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "ST-8, UB-4, UB-5, GB-14", "zh": "ST-8、UB-4、UB-5、GB-14", "correct": false},
+          "B": {"en": "ST-8, UB-3, UB-4, GB-13, GB-15", "zh": "ST-8、UB-3、UB-4、GB-13、GB-15", "correct": true},
+          "C": {"en": "ST-8, UB-4, UB-5, GB-15, GB-16", "zh": "ST-8、UB-4、UB-5、GB-15、GB-16", "correct": false},
+          "D": {"en": "ST-8, UB-3, UB-4, DU-23", "zh": "ST-8、UB-3、UB-4、督脈23", "correct": false}
+        },
+        "exp_en": "A: Incorrect. GB-14 is 1 cun above the midpoint of the eyebrow — not on the hairline. | B: Correct. ST-8, UB-3, UB-4, GB-13, and GB-15 are all located 0.5 cun posterior to the anterior hairline. | C: Incorrect. UB-5 and GB-16 are located further within the scalp, not at 0.5 cun from the hairline. | D: Incorrect. DU-23 is 1 cun within the anterior hairline, not 0.5 cun.",
+        "exp_zh": "ST-8、UB-3、UB-4、GB-13、GB-15均位於前髮際後0.5寸的橫線上。"
+      },
+      {
+        "id": 119,
+        "question_en": "Which point is locate on the radial side of the tendon of flexor carpi ulnaris, 1 proximal to the wrist?",
+        "question_zh": "哪個穴位位於尺側腕屈肌腱橈側、腕橫紋上1寸？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "HT-4 Lingdao", "zh": "HT-4（靈道）", "correct": false},
+          "B": {"en": "HT-3 Shaohai", "zh": "HT-3（少海）", "correct": false},
+          "C": {"en": "HT-5 Tongli", "zh": "HT-5（通里）", "correct": true},
+          "D": {"en": "HT-6 Yinxi", "zh": "HT-6（陰郄）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. HT-4 (Lingdao) is 1.5 cun proximal to the wrist crease. | B: Incorrect. HT-3 (Shaohai) is at the elbow, not near the wrist. | C: Correct. HT-5 (Tongli) is located 1 cun proximal to the wrist crease, on the radial side of the flexor carpi ulnaris tendon. | D: Incorrect. HT-6 (Yinxi) is located 0.5 cun proximal to the wrist crease.",
+        "exp_zh": "通里（HT-5）位於腕上1寸，此為標準定位；陰郄（HT-6）在腕上0.5寸。"
+      },
+      {
+        "id": 120,
+        "question_en": "In scalp acupuncture, the middle line of the vertex (MS5) is located on the vertex of the head. Which two acupoints does this line link?",
+        "question_zh": "頭皮針頂中線（MS5）連接哪兩個穴位？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "GV20, GV21", "zh": "GV20、GV21", "correct": true},
+          "B": {"en": "GV20, GB6", "zh": "GV20、GB6", "correct": false},
+          "C": {"en": "GV20, GB7", "zh": "GV20、GB7", "correct": false},
+          "D": {"en": "GV20, GV1", "zh": "GV20、GV1", "correct": false}
+        },
+        "exp_en": "A: Correct. The MS5 line runs from GV20 (Baihui) to GV21 (Qianding). | B: Incorrect. GB6 is a temporal point, not on the vertex midline. | C: Incorrect. GB7 is also temporal. | D: Incorrect. GV1 is at the coccyx, not the scalp.",
+        "exp_zh": "頂中線（MS5）從百會（GV20）至前頂（GV21）。"
+      },
+      {
+        "id": 121,
+        "question_en": "Which of the following of the Eight Confluent Points is communicated with Dai/Girdle Meridian?",
+        "question_zh": "以下哪個八脈交會穴與帶脈相通？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "KI6 Zhaohai", "zh": "KI6（照海）", "correct": false},
+          "B": {"en": "GB41 Zulinqi", "zh": "GB41（足臨泣）", "correct": true},
+          "C": {"en": "PC6 Neiguan", "zh": "PC6（內關）", "correct": false},
+          "D": {"en": "SI3 Houxi", "zh": "SI3（後溪）", "correct": false}
+        },
+        "exp_en": "A: Incorrect. KI6 (Zhaohai) communicates with the Yin Qiao Mai. | B: Correct. GB41 (Zulinqi) is the Eight Confluent point that opens and connects to the Dai Mai (Girdle Vessel). | C: Incorrect. PC6 (Neiguan) communicates with the Yin Wei Mai. | D: Incorrect. SI3 (Houxi) communicates with the Du Mai.",
+        "exp_zh": "足臨泣（GB41）通帶脈，與外關（SJ5）配對，治療側頭、耳、肩頸等部位疾患。"
+      },
+      {
+        "id": 122,
+        "question_en": "Based on the Mother-Child relationship, to reduce the Child for excess and reinforce the Mother for deficiency, what point should you select to nourish the Liver Yin?",
+        "question_zh": "根據母子關係，滋養肝陰應取哪個穴位？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "KI10 (Yingu)", "zh": "KI10（陰谷）", "correct": true},
+          "B": {"en": "BL40 (Weizhong)", "zh": "BL40（委中）", "correct": false},
+          "C": {"en": "HT3 (Shaohai)", "zh": "HT3（少海）", "correct": false},
+          "D": {"en": "GB34 (Yanglingquan)", "zh": "GB34（陽陵泉）", "correct": false}
+        },
+        "exp_en": "A: Correct. Liver belongs to Wood in Five Elements. The Mother of Wood is Water (Kidney). To nourish (reinforce the Mother for deficiency), we select the Water point on the Kidney meridian. KI10 (Yingu) is the He-Sea (Water) point of the Kidney meridian — thus reinforcing the Water element to nourish Liver Wood. | B: Incorrect. BL40 (Weizhong) is the He-Sea point of Bladder, not the appropriate Mo",
+        "exp_zh": "肝屬木，木之母為水（腎）。滋養肝陰（虛則補其母），取腎經合穴陰谷（KI10，水）以補水涵木，滋養肝陰。"
+      }
+    ]
+  },
+  "herbology": {
+    "title": "Herbal Foundations",
+    "name_zh": "中藥學",
+    "icon": "🌿",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "What is the primary TCM pattern addressed by the following combination? Tian Ma (Rhizoma Gastrodiae) + Gou Teng (Ramulus Uncariae cum Uncis) + Shi Jue Ming (Concha Haliotidis) + Ye Jiao Teng (Caulis Polygoni Multiflori) + Sang Ji Sheng (Ramulus Taxilli)",
+        "question_zh": "以下草藥組合主要針對哪種中醫證型？（天麻、鉤藤、石決明、夜交藤、桑寄生）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Heart and Kidney not communicating", "zh": "心腎不交", "correct": false},
+          "B": {"en": "Kidney and Liver Yin Deficiency", "zh": "腎肝陰虛", "correct": false},
+          "C": {"en": "Liver Wind", "zh": "肝風內動", "correct": true},
+          "D": {"en": "Liver and Heart Blood Deficiency", "zh": "肝心血虛", "correct": false}
+        },
+        "exp_en": "Answer: C — Liver Wind",
+        "exp_zh": "天麻鉤藤飲（天麻、鉤藤、石決明、夜交藤、桑寄生）主治肝風內動（肝陽上亢化風），其中天麻和鉤藤平肝息風，石決明潛陽，夜交藤養心安神，桑寄生補肝腎。"
+      },
+      {
+        "id": 2,
+        "question_en": "Which two herbs can be used together to treat eyes problems due to Liver heat and Liver yang rising?",
+        "question_zh": "哪兩味草藥可配合使用治療肝血虛所致眼部問題？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Shi Gao and Zhi Mu", "zh": "石膏與知母", "correct": false},
+          "B": {"en": "Dan Zhu Ye and Lian Zi Xin", "zh": "淡竹葉與蓮子心", "correct": false},
+          "C": {"en": "Xia Ku Cao and Jue Ming Zi", "zh": "夏枯草與決明子", "correct": true},
+          "D": {"en": "Lu Gen and Tian Hua Fen", "zh": "蘆根與天花粉", "correct": false}
+        },
+        "exp_en": "Answer: C — Xia Ku Cao and Jue Ming Zi",
+        "exp_zh": "夏枯草清肝散結、明目；決明子清肝明目、潤腸。二者均入肝經，清肝熱而明目，適合肝血虛或肝熱所致眼部疾患。"
+      },
+      {
+        "id": 3,
+        "question_en": "Which herb has the following functions: clears Lung and Stomach heat, generates body fluids and alleviates thirst, and promotes urination to treat Lin syndrome?",
+        "question_zh": "以下哪味草藥具有清肺胃熱、生津止渴的功效？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Tian Hua Fen (tricosanthis fructus)", "zh": "天花粉（栝樓根）", "correct": false},
+          "B": {"en": "Xia Ku Cao (prunellae spica)", "zh": "夏枯草（夏枯草穗）", "correct": false},
+          "C": {"en": "Lu Gen (phragmitis rhizoma)", "zh": "蘆根", "correct": true},
+          "D": {"en": "Dan Zhu Ye (lophatheri herba)", "zh": "淡竹葉", "correct": false}
+        },
+        "exp_en": "Answer: C — Lu Gen (phragmitis rhizoma)",
+        "exp_zh": "蘆根（phragmitis rhizoma）功效：清肺胃熱、生津止渴、止嘔。既清實熱（肺炎發熱），又生津除煩渴，並止嘔逆。"
+      },
+      {
+        "id": 4,
+        "question_en": "What is the most likely tongue and pulse presentation for a person needing Ping Wei San (Calm the Stomach Powder)?",
+        "question_zh": "需要平胃散治療的患者最可能的舌脈表現是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "A swollen tongue with greasy, thick white coating and a moderate or slippery pulse", "zh": "舌胖大、苔白厚膩", "correct": true},
+          "B": {"en": "A swollen tongue with a greasy, thick yellow coating and a rapid, slippery pulse", "zh": "舌胖大、苔黃厚膩", "correct": false},
+          "C": {"en": "A pale tongue with a thin white coating and weak thing pulse", "zh": "舌淡、苔薄白、脈弱", "correct": false},
+          "D": {"en": "A pale purple tongue with a greasy, thick white coating and a slippery, wiry pulse.", "zh": "舌淡紫、苔白厚膩", "correct": false}
+        },
+        "exp_en": "Answer: A — A swollen tongue with greasy, thick white coating and a moderate or slippery pulse",
+        "exp_zh": "平胃散主治濕阻中焦，舌象為舌胖大苔白厚膩（寒濕/痰濕）、脈濡（濕邪）。苔黃提示濕熱，不屬平胃散適應症。"
+      },
+      {
+        "id": 5,
+        "question_en": "Fred, aged 5, was diagnosed with mumps. His face is still swollen beneath the ears, with local heat and tenderness. His temperature is 38 degrees Celsius. He complains of slight thirst and a sore throat. His tongue is red with yellow coating, his pulse is rapid and floating. What is the correct treatment principle for Fred?",
+        "question_zh": "5歲的Fred被診斷為腮腺炎，腮部仍有腫痛，發熱38°C，無汗，咽痛。正確治療原則是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "release external Wind-Heat, circulate Lung Qi to stop cough", "zh": "疏散風熱、宣肺止咳", "correct": false},
+          "B": {"en": "disperse Wind-Heat, clear Heat and detoxify", "zh": "疏散風熱、清熱解毒", "correct": true},
+          "C": {"en": "Release external Cold and stop wheezing", "zh": "解表散寒、止咳平喘", "correct": false},
+          "D": {"en": "clear internal Heat and detoxify", "zh": "清裏熱、解毒", "correct": false}
+        },
+        "exp_en": "A: ❌ \"Release external Wind-Heat, circulate Lung Qi to stop cough\" — No cough is mentioned; this principle targets respiratory conditions, not mumps with heat toxicity. | B: ✅ \"Disperse Wind-Heat, clear Heat and detoxify\" — Mumps (swollen parotid, local heat, red tongue, yellow coat, floating rapid pulse) = Wind-Heat toxin attacking the Shaoyang channel. This principle addresses both the external ",
+        "exp_zh": "腮腺炎（風熱毒邪）治療原則：疏散風熱、清熱解毒（消腫散結）。銀翹散疏散風熱，清熱解毒，為最佳選擇。"
+      },
+      {
+        "id": 6,
+        "question_en": "A 40 year old female patient presents at clinic with history of the abdominal pain and constipation with cold limbs. She presents with a white greasy tongue coating and wiry tight pulse. Which formula treats the pattern seen in the patient mentioned above?",
+        "question_zh": "40歲女性患者，症狀如上，慢性便秘病史，舌紅苔黃，脈洪有力。最合適的方劑是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Da Cheng Qi Tang (Major Order the Qi Decoction)", "zh": "大承氣湯", "correct": false},
+          "B": {"en": "Xiao Cheng Qi Tang (Minor Order the Qi Decoction)", "zh": "小承氣湯", "correct": false},
+          "C": {"en": "Wen Pi Tang (Warm the Spleen Decoction)", "zh": "溫脾湯", "correct": false},
+          "D": {"en": "Da Huang Fu Zi Tang (Rhubarb and Prepared Aconite Decoction)", "zh": "大黃附子湯", "correct": true}
+        },
+        "exp_en": "Answer: D — Da Huang Fu Zi Tang (Rhubarb and Prepared Aconite Decoction)",
+        "exp_zh": "慢性便秘（陽明腑實），舌紅苔黃、脈洪有力（實熱積滯），但寒象（怕冷、肢涼）說明有陽虛，大黃附子湯溫陽散寒通便最合適。"
+      },
+      {
+        "id": 7,
+        "question_en": "In tonifying Spleen qi, what is Bai Bian Dous (lablab semen albas) specialty?",
+        "question_zh": "白扁豆（lablab semen album）在健脾益氣方面的特殊功效是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Raises Spleen yang to counter prolapse", "zh": "升脾陽以對抗脫垂", "correct": false},
+          "B": {"en": "Transforms dampness to stop diarrhea", "zh": "化濕止瀉", "correct": true},
+          "C": {"en": "Treats abdominal pain due to deficiency", "zh": "治療虛寒腹痛", "correct": false},
+          "D": {"en": "Regenerates flesh to heal longstanding sores and wounds", "zh": "生肌斂瘡", "correct": false}
+        },
+        "exp_en": "Answer: B — Transforms dampness to stop diarrhea",
+        "exp_zh": "白扁豆在健脾基礎上的特殊功效：化濕止瀉。扁豆色白入脾，能健脾化濕，治療脾虛濕重所致腹瀉。"
+      },
+      {
+        "id": 8,
+        "question_en": "What is the taste and temperature of Dang Gui (angelicae sinensis radix)?",
+        "question_zh": "當歸（angelicae sinensis radix）的味性是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "slightly warm, bitter, sweet, astringent", "zh": "微溫、苦、甘、澀", "correct": false},
+          "B": {"en": "warm, sweet, acrid", "zh": "溫、甘、辛", "correct": true},
+          "C": {"en": "cold, sweet", "zh": "寒、甘", "correct": false},
+          "D": {"en": "cool, sour, bitter", "zh": "涼、酸、苦", "correct": false}
+        },
+        "exp_en": "Answer: B — warm, sweet, acrid",
+        "exp_zh": "當歸（angelicae sinensis radix）：溫、甘、辛。溫性補血活血，甘潤養血，辛行血氣，三者結合為補血活血要藥。"
+      },
+      {
+        "id": 9,
+        "question_en": "What are the entering channels of Zhi Fu Zi (aconiti radix lateralis preparata)?",
+        "question_zh": "制附子（aconiti radix lateralis praeparata）歸哪些經？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "SP, ST, LV", "zh": "脾、胃、肝", "correct": false},
+          "B": {"en": "HT, KI, SP", "zh": "心、腎、脾", "correct": true},
+          "C": {"en": "KI, UB", "zh": "腎、膀胱", "correct": false},
+          "D": {"en": "HT, LU, SP", "zh": "心、肺、脾", "correct": false}
+        },
+        "exp_en": "Answer: B — HT, KI, SP",
+        "exp_zh": "制附子入心、腎、脾三經。心（溫心陽治心衰）、腎（補腎陽治命門火衰）、脾（溫脾陽治脾腎陽虛）。"
+      },
+      {
+        "id": 10,
+        "question_en": "Which of the following herbs clears blazing Stomach fire; for headache, toothache, and painful, swollen gums?",
+        "question_zh": "以下哪味草藥可清胃火，治療頭痛、牙痛、大量出汗？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Jue Ming Zi (cassiae semen)", "zh": "決明子（cassiae semen）", "correct": false},
+          "B": {"en": "Shi Gao (gypsum fibrosum)", "zh": "石膏（gypsum fibrosum）", "correct": true},
+          "C": {"en": "Xi Gua (citrulli fructus)", "zh": "西瓜（citrulli fructus）", "correct": false},
+          "D": {"en": "Xia Ku Cao (prunellae spica)", "zh": "夏枯草（prunellae spica）", "correct": false}
+        },
+        "exp_en": "Answer: B — Shi Gao (gypsum fibrosum)",
+        "exp_zh": "石膏（gypsum fibrosum）清胃火：大清氣分熱，清胃火止牙痛頭痛，清熱生津止大渴，退熱止大汗，為白虎湯君藥。"
+      },
+      {
+        "id": 11,
+        "question_en": "What are the entering channels of Gan Jiang (zingiberis rhizoma)?",
+        "question_zh": "乾薑（zingiberis rhizoma）歸哪些經？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "SP, ST, LV", "zh": "脾、胃、肝", "correct": false},
+          "B": {"en": "KI, UB", "zh": "腎、膀胱", "correct": false},
+          "C": {"en": "HT, LU, SP, ST", "zh": "心、肺、脾、胃", "correct": true},
+          "D": {"en": "HT, KI, SP", "zh": "心、腎、脾", "correct": false}
+        },
+        "exp_en": "A: ❌ SP, ST, LV — This is not a standard channel entry for Gan Jiang. | B: ❌ KI, UB — These channels are not primary targets of Gan Jiang. | C: ✅ HT, LU, SP, ST — Gan Jiang (dry ginger) is hot and acrid, entering the Heart, Lung, Spleen, and Stomach. It warms the middle jiao (SP/ST), rescues devastated yang (HT), and warms the Lung to transform phlegm-fluids (LU). | D: ❌ HT, KI, SP — Missing LU; G",
+        "exp_zh": "乾薑入心、肺、脾、胃四經：溫中散寒（脾胃）、回陽通脈（心）、溫肺化飲（肺）、溫脾燥濕（胃）。"
+      },
+      {
+        "id": 12,
+        "question_en": "Which herb has the following functions: clears Liver heat and brightens the eyes, moistens the Large Intestine to relieve constipation, lowers high blood pressure and cholesterol?",
+        "question_zh": "以下哪味草藥可清肝熱、明目，並潤腸通便？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Jue Ming Zi (cassiae semen)", "zh": "決明子（cassiae semen）", "correct": true},
+          "B": {"en": "Shi Gao (gypsum fibrosum)", "zh": "石膏（gypsum fibrosum）", "correct": false},
+          "C": {"en": "Dan Zhu Ye (lophatheri herba)", "zh": "淡竹葉（lophatheri herba）", "correct": false},
+          "D": {"en": "Xia Ku Cao (prunellae spica)", "zh": "夏枯草（prunellae spica）", "correct": false}
+        },
+        "exp_en": "Answer: A — Jue Ming Zi (cassiae semen)",
+        "exp_zh": "決明子（cassiae semen）清肝熱、明目（治目赤腫痛）、潤腸通便。甘寒質潤，入肝、大腸，一藥兩用。"
+      },
+      {
+        "id": 13,
+        "question_en": "Which of the following herbs tonifies Lung yin and treats dry cough?",
+        "question_zh": "以下哪味草藥可補肺陰、治療乾咳？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Huang Qi (astragli radix)", "zh": "黃芪（astragli radix）", "correct": false},
+          "B": {"en": "Huang Jing (polygonati rhizoma)", "zh": "黃精（polygonati rhizoma）", "correct": true},
+          "C": {"en": "Bai Zhu (atractylodis macrocephalae rhizoma)", "zh": "白朮（atractylodis macrocephalae rhizoma）", "correct": false},
+          "D": {"en": "Bai Bian Dou (lablab semen album)", "zh": "白扁豆（lablab semen album）", "correct": false}
+        },
+        "exp_en": "Answer: B — Huang Jing (polygonati rhizoma)",
+        "exp_zh": "黃精（polygonati rhizoma）補肺陰、滋腎陰、健脾氣，尤其善補肺陰治乾咳，兼補腎精，為平補之品。"
+      },
+      {
+        "id": 14,
+        "question_en": "Which of the following herbs can be used to treat summerheat and summerheat-dampness?",
+        "question_zh": "以下哪味草藥可治療暑熱及暑濕？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Shan Yao (dioscorae rhizoma)", "zh": "山藥（dioscorae rhizoma）", "correct": false},
+          "B": {"en": "Huang Jing (polygonati rhizoma)", "zh": "黃精（polygonati rhizoma）", "correct": false},
+          "C": {"en": "Yi Tang (maltosum)", "zh": "飴糖（maltosum）", "correct": false},
+          "D": {"en": "Bai Bian Dou (lablab semen album)", "zh": "白扁豆（lablab semen album）", "correct": true}
+        },
+        "exp_en": "Answer: D — Bai Bian Dou (lablab semen album)",
+        "exp_zh": "白扁豆能解暑化濕，治療夏季暑濕（暑熱夾濕），同時健脾化濕止瀉，為治暑濕的常用藥。"
+      },
+      {
+        "id": 15,
+        "question_en": "A 48 years old female patient has been suffering from constipation. She presents in the clinic with feeling of fullness in the lower abdominal area, frequent flatulence and lower abdominal area pain that feels worse when pressed. Her pulse is deep and strong and her tongue is red with a yellow coating. Which of the six stages is involved in this pattern?",
+        "question_zh": "48歲女性便秘患者，腹部硬塊，舌紅苔黃，脈沉有力。屬於六經辨證哪個階段？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Tai Yang", "zh": "太陽", "correct": false},
+          "B": {"en": "Yang Ming", "zh": "陽明", "correct": true},
+          "C": {"en": "Shao Yang", "zh": "少陽", "correct": false},
+          "D": {"en": "Tai Yin", "zh": "太陰", "correct": false},
+          "E": {"en": "Shao Yin", "zh": "少陰", "correct": false},
+          "F": {"en": "Jue Yin", "zh": "厥陰", "correct": false}
+        },
+        "exp_en": "Answer: B — Yang Ming",
+        "exp_zh": "腹部硬塊、便秘、舌紅苔黃、脈沉有力=陽明腑實證（熱結胃腸）。六經辨證屬陽明病。"
+      },
+      {
+        "id": 16,
+        "question_en": "What is the taste and temperature of Sang Ji Sheng (taxilli herba)?",
+        "question_zh": "桑寄生（taxilli herba）的味性是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Warm, acrid, salty", "zh": "溫、辛、鹹", "correct": false},
+          "B": {"en": "Warm, acrid, bitter", "zh": "溫、辛、苦", "correct": false},
+          "C": {"en": "Neutral, sweet, bitter", "zh": "平、甘、苦", "correct": true},
+          "D": {"en": "Cool, sour", "zh": "涼、酸", "correct": false}
+        },
+        "exp_en": "A: ❌ Warm, acrid, salty — Sang Ji Sheng is not acrid or salty in taste. | B: ❌ Warm, acrid, bitter — Acrid is incorrect; Sang Ji Sheng does not have a dispersing acrid quality. | C: ✅ Neutral, sweet, bitter — Sang Ji Sheng (Taxillus/Mistletoe) is neutral in temperature with sweet and bitter tastes. It tonifies Liver and Kidney, strengthens tendons and bones, and nourishes blood to calm the fetus. ",
+        "exp_zh": "桑寄生（taxilli herba）：平、甘、苦。性平無偏寒偏熱，甘苦補益，補肝腎、強筋骨、祛風濕、安胎。"
+      },
+      {
+        "id": 17,
+        "question_en": "What organs/channels does the following formula act on? Tian Ma (Rhizoma Gastrodiae) + Gou Teng (Ramulus Uncariae cum Uncis) + Shi Jue Ming (Concha Haliotidis) + Ye Jiao Teng (Caulis Polygoni Multiflori) + Sang Ji Sheng (Ramulus Taxilli)",
+        "question_zh": "以下方劑作用於哪些臟腑/經絡？（天麻、鉤藤、石決明、夜交藤、桑寄生等）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "HT/LR", "zh": "心/肝", "correct": false},
+          "B": {"en": "LV/GB", "zh": "肝/膽", "correct": false},
+          "C": {"en": "KI/LR", "zh": "腎/肝", "correct": true},
+          "D": {"en": "KI/HT", "zh": "腎/心", "correct": false}
+        },
+        "exp_en": "A: ❌ HT/LR — While Ye Jiao Teng enters the Heart, the dominant action of this combination (anchoring Liver yang, extinguishing Liver wind) targets Liver and Kidney. | B: ❌ LV/GB — Gallbladder is not the primary target; Kidney yin deficiency is the root condition being addressed. | C: ✅ KI/LR — Tian Ma and Gou Teng calm Liver wind; Shi Jue Ming anchors Liver yang; Sang Ji Sheng tonifies Liver and K",
+        "exp_zh": "天麻鉤藤飲作用臟腑：主要入腎（腎陰不足）和肝（肝陽上亢/肝風），KI/LR（腎/肝）。"
+      },
+      {
+        "id": 18,
+        "question_en": "Overdosing on Long Dan Xie Gan Tang (Gentiana Drain the Liver decoction) often causes the following symptom.",
+        "question_zh": "龍膽瀉肝湯（Gentiana Drain the Liver decoction）過量服用可能導致：",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Bleeding", "zh": "出血", "correct": false},
+          "B": {"en": "Dizziness", "zh": "頭暈", "correct": false},
+          "C": {"en": "Headache", "zh": "頭痛", "correct": false},
+          "D": {"en": "Diarrhea", "zh": "腹瀉", "correct": true}
+        },
+        "exp_en": "A: ❌ Bleeding — Long Dan Xie Gan Tang clears heat and does not cause bleeding; it contains hemostatic-neutral herbs. | B: ❌ Dizziness — While theoretically possible with overconsumption, dizziness is not the characteristic overdose symptom. | C: ❌ Headache — Not a typical adverse effect of overdosing this formula. | D: ✅ Diarrhea — Long Dan Xie Gan Tang is intensely bitter and cold. Overdosing inj",
+        "exp_zh": "龍膽瀉肝湯大苦大寒，過量傷脾胃，脾胃虛弱者服後出現腹瀉（苦寒敗胃）。"
+      },
+      {
+        "id": 19,
+        "question_en": "Which herb has the following functions: clears heat and cools the blood, nourishes yin, and softens hardness and dissipates nodules?",
+        "question_zh": "以下哪味草藥具有清熱涼血、滋陰的功效？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Sheng Di Huang (rehmanniae radix)", "zh": "生地黃（rehmanniae radix）", "correct": false},
+          "B": {"en": "Xuan Shen (scrophulariae radix)", "zh": "玄參（scrophulariae radix）", "correct": true},
+          "C": {"en": "Mu Dan Pi (moutan cortex)", "zh": "牡丹皮（moutan cortex）", "correct": false},
+          "D": {"en": "Zi Cao (lithospermi radix)", "zh": "紫草（lithospermi radix）", "correct": false}
+        },
+        "exp_en": "Answer: B — Xuan Shen (scrophulariae radix)",
+        "exp_zh": "玄參（scrophulariae radix）：清熱涼血、滋陰解毒，善清血分熱毒，治咽喉腫痛、發斑，兼滋陰降火。"
+      },
+      {
+        "id": 20,
+        "question_en": "Besides tonifying Spleen qi, what is another important function of Da Zao (jujube fructus)?",
+        "question_zh": "大棗（jujubae fructus）除健脾益氣外，另一重要功效是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Calms restless fetus", "zh": "安胎", "correct": false},
+          "B": {"en": "Clears heat toxicity", "zh": "清熱解毒", "correct": false},
+          "C": {"en": "Tonifies Heart blood to calm shen", "zh": "補心血安神", "correct": true},
+          "D": {"en": "Stops sweating", "zh": "止汗", "correct": false}
+        },
+        "exp_en": "Answer: C — Tonifies Heart blood to calm shen",
+        "exp_zh": "大棗（jujubae fructus）除健脾益氣外，另一重要功效：補心血安神，治心悸失眠（歸脾湯中大棗補心脾）。"
+      },
+      {
+        "id": 21,
+        "question_en": "Which of the following signs calls for Ren Shen Bai Du San (Ginseng Expel Toxin Powder)?",
+        "question_zh": "以下哪種舌脈表現提示需要人參敗毒散治療？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "A yellow tongue coating, a floating pulse", "zh": "苔黃、脈浮", "correct": false},
+          "B": {"en": "A yellow greasy tongue coating, a soft pulse", "zh": "苔黃膩、脈軟", "correct": false},
+          "C": {"en": "A greasy white tongue coating a floating and tight pulse", "zh": "苔白膩、脈浮緊", "correct": false},
+          "D": {"en": "A greasy white tongue coating, a floating and weak pulse", "zh": "苔白膩、脈浮弱", "correct": true}
+        },
+        "exp_en": "Answer: D — A greasy white tongue coating, a floating and weak pulse",
+        "exp_zh": "人參敗毒散適應症：正氣不足（氣虛）兼外感風寒濕。苔白膩（濕邪）、脈浮弱（氣虛兼表證）是其特徵。"
+      },
+      {
+        "id": 22,
+        "question_en": "Which of the following herbs clears heat due to Kidney yin deficiency, for night sweats, steaming bones, tidal fever, or spermatorrhea?",
+        "question_zh": "以下哪味草藥可清腎陰虛之熱，治療盜汗、骨蒸、潮熱？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩（scutellariae radix）", "correct": false},
+          "B": {"en": "Huang Bai (phellodendri cortex)", "zh": "黃柏（phellodendri cortex）", "correct": true},
+          "C": {"en": "Qin Pi (fraxini cortex)", "zh": "秦皮（fraxini cortex）", "correct": false},
+          "D": {"en": "Huang Lian (coptidis rhizoma)", "zh": "黃連（coptidis rhizoma）", "correct": false}
+        },
+        "exp_en": "A: ❌ Huang Qin (scutellariae radix) — Clears heat from the upper jiao (Lung); does not specifically address Kidney yin deficiency fire. | B: ✅ Huang Bai (phellodendri cortex) — The classic herb for clearing deficiency heat from Kidney yin deficiency: night sweats, steaming bone syndrome, tidal fever, spermatorrhea. Enters KI, UB, LI channels. | C: ❌ Qin Pi (fraxini cortex) — Clears heat and dries ",
+        "exp_zh": "黃柏（phellodendri cortex）清腎陰虛之熱（虛熱）：入腎、膀胱，清下焦濕熱，瀉相火，治骨蒸盜汗潮熱。"
+      },
+      {
+        "id": 23,
+        "question_en": "What special instruction should be followed when preparing Yi Tang (maltosum) in decoction?",
+        "question_zh": "配製飴糖（maltosum）時應遵循什麼特殊說明？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Stir in at the end; do not cook", "zh": "最後加入，不需煎煮", "correct": true},
+          "B": {"en": "Place in teabag or wrap in cheese cloth", "zh": "裝入茶包或用紗布包裹", "correct": false},
+          "C": {"en": "Add during the last five minutes of cooking", "zh": "煎煮最後5分鐘加入", "correct": false},
+          "D": {"en": "Boil 30-60 minutes longer than the rest of the herbs", "zh": "先比其他草藥多煮30-60分鐘", "correct": false}
+        },
+        "exp_en": "A: ✅ Stir in at the end; do not cook — Yi Tang (malt sugar/maltose) is a thick, sticky substance. It should be dissolved into the strained decoction at the end, off the heat. Cooking it would cause burning, excessive sweetness, and loss of efficacy. | B: ❌ Place in teabag or wrap in cheesecloth — This method is used for powdery or fluffy substances (e.g., Pu Huang, Che Qian Zi), not for a liquid/s",
+        "exp_zh": "飴糖（maltosum）質地黏稠，不耐高溫熬煮，需最後加入攪勻溶化，不可同煎（會焦化失效）。"
+      },
+      {
+        "id": 24,
+        "question_en": "i. Gui Pi Tang (Spleen Restoring Decoction) is commonly used to treat Qi and Blood Deficiency of Spleen and Liver, ii. Gui Pi Tang is commonly used to treat chronic bleeding due to Spleen Deficiency.",
+        "question_zh": "i. 歸脾湯常用於治療心脾兩虛；ii. 其中含有黨參和黃芪",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Both statements are true", "zh": "兩項均正確", "correct": true},
+          "B": {"en": "Both statements are false", "zh": "兩項均錯誤", "correct": false},
+          "C": {"en": "The first statement is true, the second is false", "zh": "第一項正確，第二項錯誤", "correct": false},
+          "D": {"en": "The first statements is false, the second is true", "zh": "第一項錯誤，第二項正確", "correct": false}
+        },
+        "exp_en": "A: ✅ Both statements are true — (i) Gui Pi Tang tonifies Heart and Spleen Qi and Blood, commonly used for Heart-Spleen deficiency (the question says \"Qi and Blood Deficiency of Spleen and Liver\" but the clinical application aligns with both statements being accepted as correct in this exam context). (ii) Gui Pi Tang strengthens Spleen's ability to govern blood, treating chronic bleeding from Splee",
+        "exp_zh": "歸脾湯：①常用於心脾兩虛（心血虛+脾氣虛）✓；②含黨參（非人參）和黃芪✓。兩項均正確。"
+      },
+      {
+        "id": 25,
+        "question_en": "A patient taking Long Dan Xie Gan Tang (Gentiana Decoction to Drain the Liver) for hypertension develops redness and itching around his genitalia. What is the best modification for the formula?",
+        "question_zh": "服用龍膽瀉肝湯的患者出現陰部瘙癢，應如何加減？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Remove Mu Tong (Caulis Akebiae) and add Mu Dan Pi (Cx Moutan Radicis) and Zhi Zi (Fr Gardenia)", "zh": "去木通，加牡丹皮和澤瀉", "correct": false},
+          "B": {"en": "Add Mu Xiang (Rx Aucklandiae) and remove Gui Zhi (Rm Cinnamomi)", "zh": "加木香，去桂枝", "correct": false},
+          "C": {"en": "Remove Chai Hu (Rx Bupleuri) add Lian Qiao (Fr Forsythiae), Huang Lian (Rh Coptidis) and Da Huang (Rx et Rh Rhei)", "zh": "去柴胡，加連翹、黃連、大黃", "correct": true},
+          "D": {"en": "Add Cang Er Zi (Fr Xanthii) and Xin Yi (Fl Magnoliae)", "zh": "加蒼耳子和辛夷", "correct": false}
+        },
+        "exp_en": "A: ❌ Remove Mu Tong and add Mu Dan Pi and Zhi Zi — While reducing channel-draining herbs seems logical, this doesn't adequately address the worsened damp-heat genital inflammation. | B: ❌ Add Mu Xiang and remove Gui Zhi — Gui Zhi is not in Long Dan Xie Gan Tang; this modification makes no sense. | C: ✅ Remove Chai Hu, add Lian Qiao, Huang Lian, and Da Huang — Genital redness and itching represents",
+        "exp_zh": "龍膽瀉肝湯加減治陰部瘙癢：去柴胡（升散）+ 加連翹（清熱解毒）+ 黃連（清熱燥濕）+ 大黃（通便瀉熱）。"
+      },
+      {
+        "id": 26,
+        "question_en": "Sang Ji Sheng (taxilli herba) treats bi syndrome through which method?",
+        "question_zh": "桑寄生（taxilli herba）通過哪種機制治療痹症？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Expels wind-cold-dampness", "zh": "祛風寒濕", "correct": false},
+          "B": {"en": "Invigorates blood", "zh": "活血化瘀", "correct": false},
+          "C": {"en": "Tonifies Liver and Kidney yin to strengthen tendon and bone", "zh": "補肝腎陰以強筋骨", "correct": true},
+          "D": {"en": "Relaxes the sinews and unblocks the channels", "zh": "舒筋通絡", "correct": false}
+        },
+        "exp_en": "Answer: C — Tonifies Liver and Kidney yin to strengthen tendon and bone",
+        "exp_zh": "桑寄生治痹症機制：補肝腎陰以強筋骨。桑寄生性平補益，入肝腎，強壯筋骨，適合肝腎虧虛型痹症。"
+      },
+      {
+        "id": 27,
+        "question_en": "When should one ingest tonic formulas?",
+        "question_zh": "服用補益類方劑的最佳時機是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "After meals", "zh": "飯後", "correct": false},
+          "B": {"en": "With meals", "zh": "隨餐服用", "correct": false},
+          "C": {"en": "Before meals", "zh": "飯前", "correct": true},
+          "D": {"en": "Anytime", "zh": "任何時間", "correct": false}
+        },
+        "exp_en": "Answer: C — Before meals",
+        "exp_zh": "補益類方劑應飯前服用（空腹），有利於吸收和補益效果的發揮，避免食物稀釋影響藥效。"
+      },
+      {
+        "id": 28,
+        "question_en": "What is the taste and temperature of Du Huo (angelicae pubescentis radix)?",
+        "question_zh": "獨活（angelicae pubescentis radix）的味性是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Warm, acrid, sweet", "zh": "溫、辛、甘", "correct": false},
+          "B": {"en": "Warm, acrid, bitter", "zh": "溫、辛、苦", "correct": true},
+          "C": {"en": "Warm, sour", "zh": "溫、酸", "correct": false},
+          "D": {"en": "Neutral, sweet, bitter", "zh": "平、甘、苦", "correct": false}
+        },
+        "exp_en": "Answer: B — Warm, acrid, bitter",
+        "exp_zh": "獨活（angelicae pubescentis radix）：溫、辛、苦。溫散寒濕，辛行氣血，苦燥濕邪，擅長祛下肢風寒濕痹。"
+      },
+      {
+        "id": 29,
+        "question_en": "What is the thermal nature of Zhi Gan Cao (Radix Glycyrrhizae)?",
+        "question_zh": "炙甘草（Radix Glycyrrhizae）的性質是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Cool", "zh": "涼", "correct": false},
+          "B": {"en": "Neutral", "zh": "平", "correct": false},
+          "C": {"en": "Warm", "zh": "溫", "correct": true},
+          "D": {"en": "Hot", "zh": "熱", "correct": false}
+        },
+        "exp_en": "Answer: C — Warm",
+        "exp_zh": "炙甘草（蜜炙甘草）：性溫，蜜炙後增強補中益氣功效。生甘草性平，炙甘草性溫，兩者需區分。"
+      },
+      {
+        "id": 30,
+        "question_en": "A 25 year old female patient presents at clinic with a history of whooping cough for 6 weeks. She exhibits dry cough and breathlessness with a feeling of heat of the skin. Her tongue body is red with thin yellow coating and her pulse is thin and rapid. Which formula treats the pattern seen in the patient mentioned above?",
+        "question_zh": "25歲女性患者，百日咳病史，咳嗽帶熱象，舌紅苔黃，脈數。最合適的方劑是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Yin Qiao San (Honeysuckle and Forsythia Powder)", "zh": "銀翹散", "correct": false},
+          "B": {"en": "Xie Bai San (Drain the White Powder)", "zh": "瀉白散", "correct": true},
+          "C": {"en": "Ma Huang Tang (Ephedra Decoction)", "zh": "麻黃湯", "correct": false},
+          "D": {"en": "Gui Zhi Tang (Cinnamon Twig Decoction)", "zh": "桂枝湯", "correct": false}
+        },
+        "exp_en": "Answer: B — Xie Bai San (Drain the White Powder)",
+        "exp_zh": "25歲女性百日咳（Lung Heat/陰傷），乾咳、氣促、舌紅苔黃、脈數，瀉白散清肺熱、瀉肺氣、止咳最合適。"
+      },
+      {
+        "id": 31,
+        "question_en": "For treating chest bi or palpitation, which of the following herbs is your best choice?",
+        "question_zh": "治療胸痹或心悸，以下哪味草藥最合適？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Rou Gui (cinnamomi cortex)", "zh": "肉桂（cinnamomi cortex）", "correct": true},
+          "B": {"en": "Hu Jiao (piperis fructus)", "zh": "胡椒（piperis fructus）", "correct": false},
+          "C": {"en": "Ding Xiang (caryophylli flos)", "zh": "丁香（caryophylli flos）", "correct": false},
+          "D": {"en": "Wu Zhu Yu (evodiae fructus)", "zh": "吳茱萸（evodiae fructus）", "correct": false}
+        },
+        "exp_en": "A: ✅ Rou Gui (cinnamomi cortex) — Warms and unblocks the Heart yang, invigorates blood circulation in the chest. Specifically indicated for chest bi (胸痹) and palpitations due to Heart yang deficiency with cold congealing blood. | B: ❌ Hu Jiao (piperis fructus) — Warms the middle jiao and disperses cold; primarily used for cold stomach pain and vomiting. Not indicated for chest bi or cardiac palpit",
+        "exp_zh": "肉桂（cinnamomi cortex）溫通心脈，治胸痹（胸陽不振、寒凝心脈），為溫心陽散寒通脈的要藥。"
+      },
+      {
+        "id": 32,
+        "question_en": "What is the taste and temperature of Sheng Di Huang (rehmanniae radix)?",
+        "question_zh": "生地黃（rehmanniae radix）的味性是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Cold, acrid", "zh": "寒、辛", "correct": false},
+          "B": {"en": "Cool, bitter, salty", "zh": "涼、苦、鹹", "correct": false},
+          "C": {"en": "Cold, bitter, sweet", "zh": "寒、苦、甘", "correct": true},
+          "D": {"en": "Warm, acrid, sweet", "zh": "溫、辛、甘", "correct": false}
+        },
+        "exp_en": "A: ❌ Cold, acrid — Sheng Di Huang has no acrid quality; it is cooling and moistening, not dispersing. | B: ❌ Cool, bitter, salty — The temperature is Cold, not just Cool; and salty is not a recognized taste of Sheng Di Huang. | C: ✅ Cold, bitter, sweet — Sheng Di Huang is Cold in temperature with bitter and sweet tastes. The cold-bitter clears heat and cools blood; the sweet nourishes yin and gene",
+        "exp_zh": "生地黃（rehmanniae radix）：寒、苦、甘。寒清熱，甘潤滋陰，苦涼血，為清熱涼血、養陰生津的要藥。"
+      },
+      {
+        "id": 33,
+        "question_en": "What special instruction should be followed when preparing Zhi Fu Zi (aconiti radix lateralis preparata) in decoction?",
+        "question_zh": "配製制附子（aconiti radix lateralis preparata）應遵循什麼特殊說明？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Crush before decocting", "zh": "研碎後再煎", "correct": false},
+          "B": {"en": "Use only as food therapy", "zh": "只作食療使用", "correct": false},
+          "C": {"en": "Add during the last five minutes of cooking", "zh": "煎煮最後5分鐘加入", "correct": false},
+          "D": {"en": "Boil 30-60 before adding the rest of the herbs", "zh": "先比其他草藥多煮30-60分鐘（先煎）", "correct": true}
+        },
+        "exp_en": "Answer: D — Boil 30-60 before adding the rest of the herbs",
+        "exp_zh": "制附子（有毒）需先煎30-60分鐘以解毒，然後再加入其他藥材同煎，這是安全使用附子的重要原則。"
+      },
+      {
+        "id": 34,
+        "question_en": "Veronica complains of difficult urination since giving birth to her son 2 months ago. The urine is yellow, with occasional blood. She feels warm in the afternoon, with thirst, restlessness, insomnia and low energy. Her tongue is red with a peeled coating, pulse is thin and rapid. Which of the following formulas is the best choice for her?",
+        "question_zh": "Veronica產後出現排尿困難，尿道灼熱，小便黃赤，腰痛，舌紅苔黃膩，脈弦數。最合適的方劑是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Ba Zheng San (Eight Corrections Powder)", "zh": "八正散", "correct": false},
+          "B": {"en": "Dao Chi San (Guide out the Red Powder)", "zh": "導赤散", "correct": false},
+          "C": {"en": "Zhu Ling Tang (Polyporis Decoction)", "zh": "豬苓湯", "correct": true},
+          "D": {"en": "Long Dan Xie Gan Tang (Gentiana Drain the Liver Decoction)", "zh": "龍膽瀉肝湯", "correct": false}
+        },
+        "exp_en": "A: ❌ Ba Zheng San — This formula strongly clears damp-heat and promotes urination but is very draining. The patient has yin deficiency (peeled tongue, thin rapid pulse) and would be further damaged by this harsh formula. | B: ❌ Dao Chi San — Clears Heart fire and guides heat down through urine; appropriate for Heart fire transferring to Small Intestine. Does not address yin deficiency or postpartu",
+        "exp_zh": "Veronica產後（氣血虛弱）出現膀胱濕熱（排尿困難、灼熱、尿黃），豬苓湯（清熱利濕、滋陰）最合適，較導赤散更兼顧正虛。"
+      },
+      {
+        "id": 35,
+        "question_en": "Which of the following herbs are incompatible with Zhi Wu Tou (aconiti radix preparata)?",
+        "question_zh": "以下哪些草藥與制烏頭（aconiti radix）不相容（十八反）？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Bei Mu, Gua Lou, Zhi Ban Xia, Bai Lian, Bai Ji", "zh": "貝母、栝樓、制半夏、白蘞、白及", "correct": true},
+          "B": {"en": "Gan Cao, Li Lu", "zh": "甘草、藜蘆", "correct": false},
+          "C": {"en": "Gan Sui, Da Ji, Yuan Hua, Hai Zao", "zh": "甘遂、大戟、芫花、海藻", "correct": false},
+          "D": {"en": "Ren Shen, Sha Shen, Dan Shen, Ku Shen, Xi Xin, Bai Shao", "zh": "人參、沙參、丹參、苦參、細辛、白芍", "correct": false}
+        },
+        "exp_en": "A: ✅ Bei Mu, Gua Lou, Zhi Ban Xia, Bai Lian, Bai Ji — These are the \"18 Incompatibilities\" (十八反): Wu Tou (including Zhi Wu Tou) is incompatible with Bei Mu, Gua Lou, Ban Xia, Bai Lian, and Bai Ji. | B: ❌ Gan Cao, Li Lu — Li Lu is incompatible with Ren Shen, Sha Shen, Dan Shen, etc. (different incompatibility group). Gan Cao is incompatible with Gan Sui, Da Ji, Yuan Hua, Hai Zao. | C: ❌ Gan Sui, Da",
+        "exp_zh": "十八反：烏頭（附子、烏頭）反貝母（川貝、浙貝）、栝樓（全瓜蔞、瓜蔞仁）、半夏、白蘞、白及，絕對配伍禁忌。"
+      },
+      {
+        "id": 36,
+        "question_en": "What are the entering channels of Long Yan Rou (longan arillus)?",
+        "question_zh": "龍眼肉（longan arillus）歸哪些經？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "LV, SP", "zh": "肝、脾", "correct": false},
+          "B": {"en": "KI, LV, LU", "zh": "腎、肝、肺", "correct": false},
+          "C": {"en": "LU, SP, KI", "zh": "肺、脾、腎", "correct": false},
+          "D": {"en": "HT, SP", "zh": "心、脾", "correct": true}
+        },
+        "exp_en": "Answer: D — HT, SP",
+        "exp_zh": "龍眼肉（longan arillus）入心、脾兩經：補心脾之血，養心安神，健脾益氣，為歸脾湯的重要組成。"
+      },
+      {
+        "id": 37,
+        "question_en": "How is Zhi Fu Zi (aconiti radix lateralis preparata) commonly prepared in order to reduce its toxicity?",
+        "question_zh": "制附子（aconiti radix lateralis preparata）通常如何炮製？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Stir-fried with ginger juice", "zh": "薑汁炒", "correct": true},
+          "B": {"en": "Toast until charred", "zh": "炒焦炭化", "correct": false},
+          "C": {"en": "Stir-fried with honey", "zh": "蜜炙", "correct": false},
+          "D": {"en": "Soaked in alcohol", "zh": "酒泡", "correct": false}
+        },
+        "exp_en": "Answer: A — Stir-fried with ginger juice",
+        "exp_zh": "制附子的炮製方法：薑汁炒（或鹽水浸泡後炒），以緩和毒性並增強溫中散寒功效。"
+      },
+      {
+        "id": 38,
+        "question_en": "A 38 year old male patient presents with a history of chronic diarrhea. He reports daily diarrhea, continuous abdominal pain at 3/10, poor appetite and cold extremities. His tongue body is pale with white coating and his pulse is thin and deep. Which formula best treat this patient?",
+        "question_zh": "38歲男性，慢性腹瀉病史，進食後腹痛、腹瀉，肝鬱脾虛，舌淡苔白，脈弦弱。最合適的方劑是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Shen Ling Bai Zhu San (Ginseng, Poria, and Atractylodis Formula)", "zh": "參苓白朮散", "correct": false},
+          "B": {"en": "Tong Xie Yao Fang (Important formula for Painful Diarrhea)", "zh": "痛瀉要方", "correct": false},
+          "C": {"en": "Ge Gen Huang Lian Tang (Kudzu, Scutellaria and Coptis Decoction)", "zh": "葛根黃連湯", "correct": false},
+          "D": {"en": "Li Zhong Wan (Warm the Middle Pill)", "zh": "理中丸", "correct": true}
+        },
+        "exp_en": "Answer: D — Li Zhong Wan (Warm the Middle Pill)",
+        "exp_zh": "38歲男性，腹痛腹瀉（飯後）、肝鬱脾虛，理中丸溫中健脾，適合脾胃虛寒型慢性腹瀉。痛瀉要方適合肝鬱脾虛。"
+      },
+      {
+        "id": 39,
+        "question_en": "In tonifying Spleen qi, what is Yi Tangs (maltosums) specialty?",
+        "question_zh": "飴糖（maltosum）在健脾益氣方面的特殊功效是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Stops bleeding due to qi deficiency", "zh": "補氣止血", "correct": false},
+          "B": {"en": "Strengthens the exterior to stop sweating", "zh": "固表止汗", "correct": false},
+          "C": {"en": "Treats abdominal pain due to cold from deficiency", "zh": "治療虛寒腹痛", "correct": true},
+          "D": {"en": "Transforms dampness to stop diarrhea", "zh": "化濕止瀉", "correct": false}
+        },
+        "exp_en": "Answer: C — Treats abdominal pain due to cold from deficiency",
+        "exp_zh": "飴糖（maltosum）在健脾方面特殊功效：緩急止痛，治療虛寒腹痛（小建中湯中飴糖甘溫緩急止痛）。"
+      },
+      {
+        "id": 40,
+        "question_en": "Overdosing of Yin tonics may cause the following symptom.",
+        "question_zh": "過量服用滋陰藥可能導致以下哪種症狀？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Constipation", "zh": "便秘", "correct": false},
+          "B": {"en": "Indigestion", "zh": "消化不良", "correct": true},
+          "C": {"en": "Dizziness", "zh": "頭暈", "correct": false},
+          "D": {"en": "Headaches", "zh": "頭痛", "correct": false}
+        },
+        "exp_en": "Answer: B — Indigestion",
+        "exp_zh": "滋陰藥（熟地、麥冬等）性質黏膩，過量使用礙胃，導致消化不良（脾胃運化受阻）。"
+      },
+      {
+        "id": 41,
+        "question_en": "Which of the following herbs calms restless fetus; for excessive kicking due to heat?",
+        "question_zh": "以下哪味草藥可安胎，治療胎動不安（胎兒踢動過多）？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Long Dan Cao (gentianae radix)", "zh": "龍膽草（gentianae radix）", "correct": false},
+          "B": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩（scutellariae radix）", "correct": true},
+          "C": {"en": "Huang Lian (coptidis rhizoma)", "zh": "黃連（coptidis rhizoma）", "correct": false},
+          "D": {"en": "Qin Pi (fraxini cortex)", "zh": "秦皮（fraxini cortex）", "correct": false}
+        },
+        "exp_en": "Answer: B — Huang Qin (scutellariae radix)",
+        "exp_zh": "黃芩（scutellariae radix）安胎：清熱安胎，用於熱證胎動不安（胎兒過度活動）。胎熱所致的胎動以黃芩為首選。"
+      },
+      {
+        "id": 42,
+        "question_en": "Which of the following herbs is neutral in temperature and is especially useful for warm type bi syndrome in the upper extremities?",
+        "question_zh": "以下哪味草藥性質中性，特別適合治療上肢痹症？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Du Huo (angelicae pubescentis radix)", "zh": "獨活（angelicae pubescentis radix）", "correct": false},
+          "B": {"en": "Can Sha (bombycis faeces)", "zh": "蠶沙（bombycis faeces）", "correct": false},
+          "C": {"en": "Sang Zhi (mori ramulus)", "zh": "桑枝（mori ramulus）", "correct": true},
+          "D": {"en": "Mu Gua (chaenomelis fructus)", "zh": "木瓜（chaenomelis fructus）", "correct": false}
+        },
+        "exp_en": "Answer: C — Sang Zhi (mori ramulus)",
+        "exp_zh": "桑枝（mori ramulus）性平，尤其善治上肢痹症，橫行四肢，通達關節，祛風除濕，不偏寒熱，溫熱型痹症可用。"
+      },
+      {
+        "id": 43,
+        "question_en": "Which type of patient should be cautious when using formulas that Invigorate the Blood?",
+        "question_zh": "使用活血化瘀方劑時，哪類患者應謹慎？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "A woman during menstruation", "zh": "月經期女性", "correct": false},
+          "B": {"en": "A woman during pregnancy", "zh": "孕婦", "correct": false},
+          "C": {"en": "A man with a bleeding tendency", "zh": "有出血傾向的男性", "correct": false},
+          "D": {"en": "All of the above", "zh": "以上皆是", "correct": true}
+        },
+        "exp_en": "Answer: D — All of the above",
+        "exp_zh": "活血化瘀藥（如桃仁、紅花）禁忌：月經期（防出血過多）、孕婦（防流產）、有出血傾向者。以上皆是。"
+      },
+      {
+        "id": 44,
+        "question_en": "What is the taste and temperature of Dan Zhu Ye (lophatheri herba)?",
+        "question_zh": "淡竹葉（lophatheri herba）的味性是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Warm, bitter, salty", "zh": "溫、苦、鹹", "correct": false},
+          "B": {"en": "Cold, sweet, bland", "zh": "寒、甘、淡", "correct": true},
+          "C": {"en": "Hot, bitter", "zh": "熱、苦", "correct": false},
+          "D": {"en": "Cold, acrid, sweet", "zh": "寒、辛、甘", "correct": false}
+        },
+        "exp_en": "Answer: B — Cold, sweet, bland",
+        "exp_zh": "淡竹葉（lophatheri herba）：寒、甘、淡。寒清心胃熱，甘緩和，淡滲濕，清心火除煩、利尿通淋。"
+      },
+      {
+        "id": 45,
+        "question_en": "What are the entering channels of Huang Bai (phellodendri cortex)?",
+        "question_zh": "黃柏（phellodendri cortex）歸哪些經？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "KI, UB", "zh": "腎、膀胱", "correct": true},
+          "B": {"en": "LV, GB, ST", "zh": "肝、膽、胃", "correct": false},
+          "C": {"en": "HT, SI, UB", "zh": "心、小腸、膀胱", "correct": false},
+          "D": {"en": "HT, LV, ST, LI", "zh": "心、肝、胃、大腸", "correct": false}
+        },
+        "exp_en": "Answer: A — KI, UB",
+        "exp_zh": "黃柏（phellodendri cortex）入腎、膀胱：清下焦濕熱，瀉相火（命門火旺），治骨蒸盜汗、尿道灼熱。"
+      },
+      {
+        "id": 46,
+        "question_en": "Si Shen Wan (Four Miracle Pill) is used for which type of diarrhea?",
+        "question_zh": "四神丸用於治療哪種類型的腹瀉？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Damp-Heat in the lower jiao", "zh": "下焦濕熱", "correct": false},
+          "B": {"en": "Kidney Yang Deficiency", "zh": "腎陽虛", "correct": true},
+          "C": {"en": "External Damp-Cold", "zh": "外感寒濕", "correct": false},
+          "D": {"en": "Spleen Qi Deficiency", "zh": "脾氣虛", "correct": false}
+        },
+        "exp_en": "Answer: B — Kidney Yang Deficiency",
+        "exp_zh": "四神丸主治腎陽虛型腹瀉（五更瀉）：補骨脂溫腎陽，吳茱萸溫胃散寒，肉豆蔻溫脾固腸，五味子澀腸止瀉。"
+      },
+      {
+        "id": 47,
+        "question_en": "Besides treating by syndrome, which of the following herbs can also be used to kill parasites, for fungal infections, scabies, and other skin lesions?",
+        "question_zh": "以下哪味草藥除辨證治療外，也可按部位使用（治療下肢）？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Qin Jiao (gentianae macrophyllae cortex)", "zh": "秦艽（gentianae macrophyllae cortex）", "correct": false},
+          "B": {"en": "Hai Tong Pi (erythrinae cortex)", "zh": "海桐皮（erythrinae cortex）", "correct": true},
+          "C": {"en": "Xi Xian Cao (sigesbeckiae herba)", "zh": "豨薟草（sigesbeckiae herba）", "correct": false},
+          "D": {"en": "Sang Ji Sheng (taxilli herba)", "zh": "桑寄生（taxilli herba）", "correct": false}
+        },
+        "exp_en": "A: ❌ Qin Jiao (gentianae macrophyllae cortex) — Treats bi syndrome and damp-heat jaundice; does not kill parasites or treat skin lesions. | B: ✅ Hai Tong Pi (erythrinae cortex) — Besides expelling wind-dampness for bi syndrome, it kills parasites, and is used topically and internally for fungal infections, scabies, and itchy skin lesions. | C: ❌ Xi Xian Cao (sigesbeckiae herba) — Treats bi syndrom",
+        "exp_zh": "海桐皮（erythrinae cortex）除辨證使用外，也可按部位選用：擅長治療下肢痹症（入腰腿部位）。"
+      },
+      {
+        "id": 48,
+        "question_en": "Which of the following herbs is NOT part of Bu Zhong Yi Qi Tang (Tonify the Middle and Boost the Qi Decoction)?",
+        "question_zh": "以下哪味草藥不是補中益氣湯的組成成分？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Ren Shen (Radix Panacis Ginseng)", "zh": "人參（Radix Panacis Ginseng）", "correct": false},
+          "B": {"en": "Fu Ling (Sclerotium Poria)", "zh": "茯苓（Sclerotium Poria）", "correct": true},
+          "C": {"en": "Bai Zhu (Rhizoma Atractylodis Macrocephalae)", "zh": "白朮（Rhizoma Atractylodis Macrocephalae）", "correct": false},
+          "D": {"en": "Zhi Gan Cao (Radix Glycyrrhizae Praeparata)", "zh": "炙甘草（Radix Glycyrrhizae Praeparata）", "correct": false}
+        },
+        "exp_en": "Answer: B — Fu Ling (Sclerotium Poria)",
+        "exp_zh": "補中益氣湯組成：黃芪、人參、白朮、炙甘草、當歸、陳皮、升麻、柴胡、大棗。不含茯苓（茯苓屬四君子湯）。"
+      },
+      {
+        "id": 49,
+        "question_en": "What precaution should you keep in mind when prescribing Shu Di Huang (rehmanniae radix preparata) to a patient?",
+        "question_zh": "開具熟地黃時應注意什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "It is cold and bitter; it may damage the Spleen", "zh": "性寒苦，可能損傷脾胃", "correct": false},
+          "B": {"en": "It strongly invigorates blood; use caution during pregnancy", "zh": "活血力強，孕婦慎用", "correct": false},
+          "C": {"en": "It is toxic; use a smaller than average dosage", "zh": "有毒性，劑量宜小", "correct": false},
+          "D": {"en": "It is sticky and cloying; it may cause digestion problems", "zh": "性黏膩，可能影響消化", "correct": true}
+        },
+        "exp_en": "Answer: D — It is sticky and cloying; it may cause digestion problems",
+        "exp_zh": "熟地黃（shu di huang）注意事項：性黏膩，易礙脾，可能引起消化問題（腹脹、便溏），脾胃虛弱者宜配陳皮、砂仁使用。"
+      },
+      {
+        "id": 50,
+        "question_en": "Which of the following is the best herb for subduing rebellious Stomach Qi to treat nausea and vomiting?",
+        "question_zh": "以下哪味草藥最適合降胃氣逆（噦逆）？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Gao Liang Jiang (alpiniae officinarum rhizoma)", "zh": "高良薑（alpiniae officinarum rhizoma）", "correct": false},
+          "B": {"en": "Zhi Fu Zi (aconiti radix lateralis preparata)", "zh": "制附子（aconiti radix lateralis preparata）", "correct": false},
+          "C": {"en": "Wu Zhu Yu (evodiae fructus)", "zh": "吳茱萸（evodiae fructus）", "correct": true},
+          "D": {"en": "Xiao Hui Xiang (foeniculi fructus)", "zh": "小茴香（foeniculi fructus）", "correct": false}
+        },
+        "exp_en": "A: ❌ Gao Liang Jiang (alpiniae officinarum rhizoma) — Warms the Stomach and disperses cold; treats cold-type stomach pain and vomiting, but not the best for general rebellious Stomach qi. | B: ❌ Zhi Fu Zi (aconiti radix lateralis preparata) — Rescues devastated yang and warms the interior; not primarily used to descend rebellious Stomach qi. | C: ✅ Wu Zhu Yu (evodiae fructus) — A key herb for subd",
+        "exp_zh": "吳茱萸（evodiae fructus）為降逆止嘔要藥，善治寒飲上逆所致噦逆（呃逆），溫胃散寒降逆，為左金丸等方的核心藥。"
+      },
+      {
+        "id": 51,
+        "question_en": "What is the taste and temperature of Mu Dan Pi (moutan cortex)?",
+        "question_zh": "牡丹皮（moutan cortex）的味性是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Warm, acrid, sweet", "zh": "溫、辛、甘", "correct": false},
+          "B": {"en": "Slightly cold, acrid, bitter", "zh": "微寒、辛、苦", "correct": true},
+          "C": {"en": "Neutral, bitter", "zh": "平、苦", "correct": false},
+          "D": {"en": "Cold, sweet", "zh": "寒、甘", "correct": false}
+        },
+        "exp_en": "Answer: B — Slightly cold, acrid, bitter",
+        "exp_zh": "牡丹皮（moutan cortex）：微寒、辛、苦。辛散血中瘀熱，苦清熱涼血，微寒不傷陽，既涼血又活血。"
+      },
+      {
+        "id": 52,
+        "question_en": "What is the taste and temperature of Dang Gui (angelicae sinensis radix)?",
+        "question_zh": "當歸（angelicae sinensis radix）的味性是？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Slightly warm, bitter, sweet, astringent", "zh": "微溫、苦、甘、澀", "correct": false},
+          "B": {"en": "Warm, sweet, acrid", "zh": "溫、甘、辛", "correct": true},
+          "C": {"en": "Cold, sweet", "zh": "寒、甘", "correct": false},
+          "D": {"en": "Cool, sour, bitter", "zh": "涼、酸、苦", "correct": false}
+        },
+        "exp_en": "Answer: B — Warm, sweet, acrid",
+        "exp_zh": "當歸：溫、甘、辛。溫補血活血，甘養血潤腸，辛行氣血，為補血活血的代表藥，婦科要藥。"
+      },
+      {
+        "id": 53,
+        "question_en": "What is the recommended dosage of Shui Niu Jiao (bubali cornu) when used in decoction?",
+        "question_zh": "水牛角（bubali cornu）替代犀角使用時，推薦劑量是多少？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "0.5–10 grams", "zh": "0.5-10克", "correct": false},
+          "B": {"en": "1–3 grams", "zh": "1-3克", "correct": false},
+          "C": {"en": "30–120 grams", "zh": "30-120克", "correct": true},
+          "D": {"en": "3–9 grams", "zh": "3-9克", "correct": false}
+        },
+        "exp_en": "Answer: C — 30–120 grams",
+        "exp_zh": "水牛角替代犀角時劑量需大：30-120克（犀角常用量1-3克），水牛角藥力較弱，需大劑量方能達到犀角的清熱涼血解毒效果。"
+      },
+      {
+        "id": 54,
+        "question_en": "In order to enhance its ability to tonify Qi, how should Gan Cao (glycyrrhizae radix) be prepared?",
+        "question_zh": "甘草（glycyrrhizae radix）如何炮製以增強補氣功效？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Stir-fry in honey", "zh": "蜂蜜炒（蜜炙）", "correct": true},
+          "B": {"en": "Char until blackened", "zh": "炒至焦黑", "correct": false},
+          "C": {"en": "Stir-fry with ginger", "zh": "薑汁炒", "correct": false},
+          "D": {"en": "Boil 30–60 minutes longer than the rest of the decoction", "zh": "比其他藥先煮30-60分鐘", "correct": false}
+        },
+        "exp_en": "Answer: A — Stir-fry in honey",
+        "exp_zh": "甘草蜜炙（炙甘草）可增強補氣功效，蜂蜜甘潤補中，炙後性由平轉溫，補中益氣力增強。"
+      },
+      {
+        "id": 55,
+        "question_en": "The following herb is used to treat Wind-Cold conditions.",
+        "question_zh": "以下哪味草藥用於治療風寒表證？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Bo He (Herba Menthae)", "zh": "薄荷（Herba Menthae）", "correct": false},
+          "B": {"en": "Ju Hua (Flos Chrysanthemi)", "zh": "菊花（Flos Chrysanthemi）", "correct": false},
+          "C": {"en": "Fang Feng (Radix Saposhnikoviae)", "zh": "防風（Radix Saposhnikoviae）", "correct": true},
+          "D": {"en": "Gan Jiang (Rhizoma Zingiberis Preparatum)", "zh": "乾薑（Rhizoma Zingiberis Preparatum）", "correct": false}
+        },
+        "exp_en": "Answer: C — Fang Feng (Radix Saposhnikoviae)",
+        "exp_zh": "防風（Radix Saposhnikoviae）為治風之要藥，性溫辛甘，發散力緩和，適治風寒表證，且兼除濕，是「風藥之潤劑」。"
+      },
+      {
+        "id": 56,
+        "question_en": "Wen Dan Tang (Warm the Gallbladder Decoction) includes the formula Er Chen Tang (Two Aged Decoction) plus which of the following herb sets?",
+        "question_zh": "溫膽湯在二陳湯基礎上加入了哪兩味草藥？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Jie Geng and Zhi Shi", "zh": "桔梗和枳實", "correct": false},
+          "B": {"en": "Gua Lou Ren and Zhu Ru", "zh": "瓜蔞仁和竹茹", "correct": false},
+          "C": {"en": "Zhu Ru and Zhi Shi", "zh": "竹茹和枳實", "correct": true},
+          "D": {"en": "Jie Geng and Chuan Bei Mu", "zh": "桔梗和川貝母", "correct": false}
+        },
+        "exp_en": "A: ❌ Jie Geng and Zhi Shi — Jie Geng is not part of Wen Dan Tang. | B: ❌ Gua Lou Ren and Zhu Ru — Gua Lou Ren is not in Wen Dan Tang. | C: ✅ Zhu Ru and Zhi Shi — Wen Dan Tang = Er Chen Tang (Ban Xia, Chen Pi, Fu Ling, Gan Cao, Sheng Jiang, Da Zao) + Zhu Ru (clears gallbladder heat, stops vomiting) + Zhi Shi (breaks up qi stagnation, transforms phlegm). These two additions target phlegm-heat distur",
+        "exp_zh": "溫膽湯=二陳湯（半夏、陳皮、茯苓、炙甘草）+竹茹（清熱化痰）+枳實（行氣消痰）+薑棗，共奏清膽化痰之功。"
+      },
+      {
+        "id": 57,
+        "question_en": "How does Du Huo (angelicae pubescentis radix) treat Bi syndrome?",
+        "question_zh": "獨活（angelicae pubescentis radix）通過哪種機制治療痹症？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Clears heat toxicity", "zh": "清熱解毒", "correct": false},
+          "B": {"en": "Tonifies Liver and Kidney yin to strengthen tendon and bone", "zh": "補肝腎陰以強筋骨", "correct": false},
+          "C": {"en": "Expels wind-cold-dampness", "zh": "祛風寒濕", "correct": true},
+          "D": {"en": "Relaxes the sinews and unblocks the channels", "zh": "舒筋通絡", "correct": false}
+        },
+        "exp_en": "Answer: C — Expels wind-cold-dampness",
+        "exp_zh": "獨活治痹症機制：祛風寒濕（散寒除濕通痹），擅長治療下肢和腰部風寒濕痹，為「下部痹症要藥」。"
+      },
+      {
+        "id": 58,
+        "question_en": "Which of the following herbs tonifies original Qi to treat qi collapse, with such symptoms as lethargy, pale complexion, cold extremities, difficult breathing, and deep, weak pulse?",
+        "question_zh": "以下哪味草藥可大補元氣，治療氣脫危症？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Tai Zi Shen", "zh": "太子參", "correct": false},
+          "B": {"en": "Dang Shen", "zh": "黨參", "correct": false},
+          "C": {"en": "Bai Zhu", "zh": "白朮", "correct": false},
+          "D": {"en": "Ren Shen", "zh": "人參", "correct": true}
+        },
+        "exp_en": "Answer: D — Ren Shen",
+        "exp_zh": "人參（Ren Shen）大補元氣，為補氣第一要藥，能治療氣脫危症（大出血、心衰等緊急情況）。黨參、太子參力度不及。"
+      },
+      {
+        "id": 59,
+        "question_en": "Which form of Zhi Zi (gardeniae fructus) is best for stopping bleeding?",
+        "question_zh": "梔子（gardeniae fructus）的哪種炮製形式最適合止血？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Ginger-fried Zhi Zi", "zh": "薑汁炒梔子", "correct": false},
+          "B": {"en": "Zhi Zi peels", "zh": "梔子皮", "correct": false},
+          "C": {"en": "Dry-fried Zhi Zi", "zh": "清炒梔子", "correct": false},
+          "D": {"en": "Charred Zhi Zi", "zh": "梔子炭", "correct": true}
+        },
+        "exp_en": "Answer: D — Charred Zhi Zi",
+        "exp_zh": "梔子炭（炒炭）：炭化後增強收澀止血功效，用於血熱出血，「炒炭存性，增澀止血」。"
+      },
+      {
+        "id": 60,
+        "question_en": "Which herb has the following functions: clears Liver heat and brightens the eyes, moistens the Large Intestine to relieve constipation, lowers high blood pressure and cholesterol?",
+        "question_zh": "以下哪味草藥可清肝熱、明目並潤腸通便？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Jue Ming Zi", "zh": "決明子", "correct": true},
+          "B": {"en": "Shi Gao", "zh": "石膏", "correct": false},
+          "C": {"en": "Dan Zhu Ye", "zh": "淡竹葉", "correct": false},
+          "D": {"en": "Xia Ku Cao", "zh": "夏枯草", "correct": false}
+        },
+        "exp_en": "Answer: A — Jue Ming Zi",
+        "exp_zh": "決明子（cassiae semen）清肝熱明目+潤腸通便，一藥兩用，適合肝熱型便秘兼目赤患者。"
+      },
+      {
+        "id": 61,
+        "question_en": "Which formula is used for Kidney Yang Deficiency with Edema?",
+        "question_zh": "哪個方劑用於治療腎陽虛水腫？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Jin Gui Shen Qi Wan", "zh": "金匱腎氣丸", "correct": false},
+          "B": {"en": "Liu Wei Di Huang Wan", "zh": "六味地黃丸", "correct": false},
+          "C": {"en": "Zhen Wu Tang", "zh": "真武湯", "correct": true},
+          "D": {"en": "Si Ni Tang", "zh": "四逆湯", "correct": false}
+        },
+        "exp_en": "Answer: C — Zhen Wu Tang",
+        "exp_zh": "真武湯（Zhen Wu Tang）治療腎陽虛水腫：附子溫腎陽，白朮健脾利水，茯苓滲濕利水，白芍養陰，生薑溫中。"
+      },
+      {
+        "id": 62,
+        "question_en": "Sang Ji Sheng (taxilli herba) treats Bi syndrome through which method?",
+        "question_zh": "桑寄生（taxilli herba）通過哪種機制治療痹症？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Expels wind-cold-dampness", "zh": "祛風寒濕", "correct": false},
+          "B": {"en": "Invigorates blood", "zh": "活血化瘀", "correct": false},
+          "C": {"en": "Tonifies Liver and Kidney yin to strengthen tendon and bone", "zh": "補肝腎陰以強筋骨", "correct": true},
+          "D": {"en": "Relaxes the sinews and unblocks the channels", "zh": "舒筋通絡", "correct": false}
+        },
+        "exp_en": "A: ❌ Expels wind-cold-dampness — This is the action of herbs like Du Huo or Qin Jiao; Sang Ji Sheng's anti-bi mechanism is different. | B: ❌ Invigorates blood — Sang Ji Sheng does not primarily invigorate blood; it tonifies and nourishes. | C: ✅ Tonifies Liver and Kidney yin to strengthen tendon and bone — Sang Ji Sheng addresses bi syndrome through a tonification strategy: by strengthening the Li",
+        "exp_zh": "桑寄生補肝腎陰強筋骨，適合肝腎虧虛型痹症（腰膝酸軟），非通過祛風散寒發揮作用。"
+      },
+      {
+        "id": 63,
+        "question_en": "Which of the following herbs resolves toxicity and expels pus for sores, carbuncles, and breast abscess?",
+        "question_zh": "以下哪味草藥可解毒排膿，治療瘡癰？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Tian Hua Fen", "zh": "天花粉", "correct": true},
+          "B": {"en": "Zhi Mu", "zh": "知母", "correct": false},
+          "C": {"en": "Zhi Zi", "zh": "梔子", "correct": false},
+          "D": {"en": "Lu Gen", "zh": "蘆根", "correct": false}
+        },
+        "exp_en": "Answer: A — Tian Hua Fen",
+        "exp_zh": "天花粉（Tian Hua Fen）解毒消腫排膿，治療瘡癰腫毒（外科消腫）+清熱生津（消渴），一藥多用。"
+      },
+      {
+        "id": 64,
+        "question_en": "In warming the interior, what is Pao Jiang’s (zingiberis rhizoma preparatum) specialty?",
+        "question_zh": "炮薑（zingiberis rhizoma praeparata）在溫裏方面的特殊功效是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Treats Bi syndrome", "zh": "治療痹症", "correct": false},
+          "B": {"en": "Releases the exterior", "zh": "解表散寒", "correct": false},
+          "C": {"en": "Stops bleeding due to cold", "zh": "溫經止血", "correct": true},
+          "D": {"en": "Treats Shan disorder and hernia pain", "zh": "治疝氣疼痛", "correct": false}
+        },
+        "exp_en": "Answer: C — Stops bleeding due to cold",
+        "exp_zh": "炮薑（溫烤的乾薑）溫經止血，用於虛寒型出血（崩漏、便血、吐血），炮後收澀止血力增強。"
+      },
+      {
+        "id": 65,
+        "question_en": "Which of the following herb pairs harmonizes the Ying (Nutritive) and Wei (Protective)?",
+        "question_zh": "以下哪組草藥配伍可調和營衛？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Ma Huang and Gui Zhi", "zh": "麻黃與桂枝", "correct": false},
+          "B": {"en": "Bai Shao and Gui Zhi", "zh": "白芍與桂枝", "correct": true},
+          "C": {"en": "Huang Qi and Bai Zhu", "zh": "黃芪與白朮", "correct": false},
+          "D": {"en": "Bai Zhu and Fang Feng", "zh": "白朮與防風", "correct": false}
+        },
+        "exp_en": "A: ❌ Ma Huang and Gui Zhi — This pair releases the exterior and promotes sweating; used for Wind-Cold excess (Ma Huang Tang). It opens the exterior but does not specifically harmonize Ying and Wei. | B: ✅ Bai Shao and Gui Zhi — The classic pair from Gui Zhi Tang that harmonizes Ying (nutritive/interior, represented by Bai Shao) and Wei (defensive/exterior, represented by Gui Zhi). Gui Zhi releases",
+        "exp_zh": "白芍+桂枝調和營衛（桂枝湯核心配伍）：桂枝辛溫發汗解表（衛氣），白芍酸斂護陰（營氣），一散一收，調和表衛。"
+      },
+      {
+        "id": 66,
+        "question_en": "Besides treating by syndrome, which of the following herbs can also be used to treat jaundice due to damp-heat?",
+        "question_zh": "以下哪味草藥除辨證治療外，也可按部位使用（治療筋骨疼痛）？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Wu Jia Pi", "zh": "五加皮", "correct": false},
+          "B": {"en": "Qin Jiao", "zh": "秦艽", "correct": true},
+          "C": {"en": "Mu Gua", "zh": "木瓜", "correct": false},
+          "D": {"en": "Xi Xian Cao", "zh": "豨薟草", "correct": false}
+        },
+        "exp_en": "A: ❌ Wu Jia Pi — Expels wind-cold-damp, strengthens tendons and bones; no significant action on jaundice. | B: ✅ Qin Jiao (gentianae macrophyllae cortex) — Besides treating bi syndrome (especially hot bi and deficiency bi), Qin Jiao also clears damp-heat from the liver channel and is used for jaundice due to damp-heat. | C: ❌ Mu Gua — Relaxes sinews and harmonizes the Stomach; no significant antij",
+        "exp_zh": "秦艽（gentianae macrophyllae cortex）除辨證治痹外，可按部位治療下肢疼痛，兼退虛熱，適合寒熱均可的痹症。"
+      },
+      {
+        "id": 67,
+        "question_en": "In which of the following patients is Ma Huang Tang contraindicated?",
+        "question_zh": "以下哪類患者麻黃湯禁忌？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Patient with chills and fever, headache, sweating and body aches", "zh": "惡寒發熱、頭痛、有汗的患者", "correct": false},
+          "B": {"en": "Patient with chills and fever, sore throat, thirst and sweating", "zh": "惡寒發熱、咽痛、口渴的患者", "correct": false},
+          "C": {"en": "Patient with chills and fever, cold limbs, pale tongue and deep, slow pulse", "zh": "惡寒發熱、四肢冷、舌淡白的患者", "correct": false},
+          "D": {"en": "All of the above", "zh": "以上皆是", "correct": true}
+        },
+        "exp_en": "Answer: D — All of the above",
+        "exp_zh": "麻黃湯禁忌：①有汗者（衛氣開）②咽痛口渴（化熱）③四肢冷（陽虛）——以上皆禁忌，麻黃湯為純辛溫發汗劑。"
+      },
+      {
+        "id": 68,
+        "question_en": "Which of the following herbs clears summerheat and generates fluids, for thirst, dark scanty urine, and dry heaves?",
+        "question_zh": "以下哪味草藥可清暑熱、生津止渴（消暑止渴）？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Zhi Mu", "zh": "知母", "correct": false},
+          "B": {"en": "Zhi Zi", "zh": "梔子", "correct": false},
+          "C": {"en": "Xi Gua", "zh": "西瓜", "correct": true},
+          "D": {"en": "Lu Gen", "zh": "蘆根", "correct": false}
+        },
+        "exp_en": "A: ❌ Zhi Mu — Clears heat and nourishes yin; treats excess and deficiency heat but is not classified as a summerheat-clearing herb and does not specifically address dry heaves. | B: ❌ Zhi Zi — Clears heat from all three jiao and cools blood; not specifically a summerheat herb. | C: ✅ Xi Gua (citrulli fructus) — The quintessential summerheat herb: clears summerheat, generates fluids (for thirst), p",
+        "exp_zh": "西瓜（Xi Gua）清暑熱生津，為「天然白虎湯」，清暑退熱、生津止渴、利尿，治暑熱口渴、小便黃。"
+      },
+      {
+        "id": 69,
+        "question_en": "Which of the following herbs enters the Heart channel, treating conditions such as irregular heartbeat and palpitation?",
+        "question_zh": "以下哪味草藥歸心經，可治療心氣虛相關疾患？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Bai Zhu", "zh": "白朮", "correct": false},
+          "B": {"en": "Gan Cao", "zh": "甘草", "correct": true},
+          "C": {"en": "Tai Zi Shen", "zh": "太子參", "correct": false},
+          "D": {"en": "Huang Qi", "zh": "黃芪", "correct": false}
+        },
+        "exp_en": "A: ❌ Bai Zhu — Tonifies Spleen qi and dries dampness; enters SP and ST channels, not the Heart. | B: ✅ Gan Cao (glycyrrhizae radix) — Enters the Heart channel and is specifically used to treat irregular heartbeat and palpitations. Zhi Gan Cao (honey-fried) is the君药 (chief herb) of Zhi Gan Cao Tang, the classical formula for irregular pulse and palpitations. | C: ❌ Tai Zi Shen — Tonifies Lung and S",
+        "exp_zh": "甘草（Gan Cao）入心經，調和諸藥外，還能補益心氣，治心氣虛型心律不整（炙甘草湯中甘草補心氣）。"
+      },
+      {
+        "id": 70,
+        "question_en": "Overdosing on Long Dan Xie Gan Tang often causes the following symptom:",
+        "question_zh": "龍膽瀉肝湯過量常導致哪種症狀？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Bleeding", "zh": "出血", "correct": false},
+          "B": {"en": "Dizziness", "zh": "頭暈", "correct": false},
+          "C": {"en": "Headache", "zh": "頭痛", "correct": false},
+          "D": {"en": "Diarrhea", "zh": "腹瀉", "correct": true}
+        },
+        "exp_en": "A: ❌ Bleeding — Long Dan Xie Gan Tang does not cause bleeding; it is a heat-clearing formula without herbs that damage vessels. | B: ❌ Dizziness — Not the characteristic adverse effect of this formula. | C: ❌ Headache — Not a known consequence of overdosing this formula. | D: ✅ Diarrhea — Long Dan Xie Gan Tang is composed of extremely cold, bitter herbs (Long Dan Cao, Huang Qin, Zhi Zi, etc.). Chr",
+        "exp_zh": "龍膽瀉肝湯大苦大寒，過量敗胃，導致脾胃受損出現腹瀉（苦寒直折，損傷脾胃陽氣）。"
+      },
+      {
+        "id": 71,
+        "question_en": "A patient taking Long Dan Xie Gan Tang develops redness and itching around his genitalia. What is the best modification for the formula?",
+        "question_zh": "服用龍膽瀉肝湯的患者出現外陰紅腫瘙癢，應如何加減？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Remove Mu Tong and add Mu Dan Pi and Zhi Zi", "zh": "去木通，加牡丹皮和梔子", "correct": false},
+          "B": {"en": "Add Mu Xiang and remove Gui Zhi", "zh": "加木香，去桂枝", "correct": false},
+          "C": {"en": "Remove Chai Hu, add Lian Qiao, Huang Lian and Da Huang", "zh": "去柴胡，加連翹、黃連和大黃", "correct": true},
+          "D": {"en": "Add Cang Er Zi and Xin Yi", "zh": "加蒼耳子和辛夷", "correct": false}
+        },
+        "exp_en": "Answer: C — Remove Chai Hu, add Lian Qiao, Huang Lian and Da Huang",
+        "exp_zh": "龍膽瀉肝湯加減：外陰紅腫瘙癢=濕熱下注，去柴胡（升散不宜），加連翹（解毒）+黃連（燥濕）+大黃（通下導濕熱出路）。"
+      },
+      {
+        "id": 72,
+        "question_en": "Which two herbs can be used together to rescue devastated yang?",
+        "question_zh": "哪兩味草藥配伍可回陽救逆？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Rou Gui and Wu Zhu Yu", "zh": "肉桂與吳茱萸", "correct": false},
+          "B": {"en": "Zhi Fu Zi and Gan Jiang", "zh": "制附子與乾薑", "correct": true},
+          "C": {"en": "Zhi Fu Zi and Rou Gui", "zh": "制附子與肉桂", "correct": false},
+          "D": {"en": "Wu Zhu Yu and Xiao Hui Xiang", "zh": "吳茱萸與小茴香", "correct": false}
+        },
+        "exp_en": "A: ❌ Rou Gui and Wu Zhu Yu — Wu Zhu Yu warms the Liver and Stomach but is not used for rescuing devastated yang in collapse patterns. | B: ✅ Zhi Fu Zi and Gan Jiang — The fundamental pair in Si Ni Tang (Frigid Extremities Decoction) to rescue devastated yang: Zhi Fu Zi powerfully restores yang and rescues from collapse; Gan Jiang warms the middle jiao and enhances Fu Zi's yang-rescuing action. Tog",
+        "exp_zh": "制附子+乾薑=回陽救逆的黃金配伍（四逆湯核心），附子大辛大熱回陽，乾薑溫中固守，兩者相須，急救亡陽。"
+      },
+      {
+        "id": 73,
+        "question_en": "Chuan Xiong Cha Tiao San treats headache because it performs which of the following?",
+        "question_zh": "川芎茶調散治療頭痛的機制是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Expels Cold to relieve pain", "zh": "散寒止痛", "correct": false},
+          "B": {"en": "Disperses Wind to relieve pain", "zh": "疏散風邪止痛", "correct": true},
+          "C": {"en": "Soothes the Liver to relieve pain", "zh": "疏肝止痛", "correct": false},
+          "D": {"en": "Nourishes the Blood to relieve pain", "zh": "養血止痛", "correct": false}
+        },
+        "exp_en": "Answer: B — Disperses Wind to relieve pain",
+        "exp_zh": "川芎茶調散：川芎為君，辛溫上行頭面，其餘諸藥均疏散頭面風邪，共奏疏散風邪、止頭痛之功。"
+      },
+      {
+        "id": 74,
+        "question_en": "What is the most likely tongue and pulse presentation for a person needing Ping Wei San (Calm the Stomach Powder)?",
+        "question_zh": "以下哪種舌脈表現最適合使用平胃散治療？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "A swollen tongue with greasy, thick white coating and a moderate or slippery pulse", "zh": "舌胖大苔白厚膩，脈濡", "correct": true},
+          "B": {"en": "A swollen tongue with a greasy, thick yellow coating and a rapid, slippery pulse", "zh": "舌胖大苔黃厚膩，脈滑數", "correct": false},
+          "C": {"en": "A pale tongue with a thin white coating and weak thin pulse", "zh": "舌淡苔薄白，脈弱細", "correct": false},
+          "D": {"en": "A pale purple tongue with a greasy, thick white coating and a slippery, wiry pulse", "zh": "舌淡紫苔白厚膩，脈弦", "correct": false}
+        },
+        "exp_en": "Answer: A — A swollen tongue with greasy, thick white coating and a moderate or slippery pulse",
+        "exp_zh": "平胃散（燥濕化痰）適應舌象：舌胖大苔白厚膩（濕邪）+脈濡（濕脈），提示寒濕阻於中焦。"
+      },
+      {
+        "id": 75,
+        "question_en": "The following formula best addresses which S/Sx: Ge Gen, Huang Qin, Huang Lian?",
+        "question_zh": "以下方劑最能治療哪些症狀？（葛根、黃芩、黃連）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Fever, lack of thirst, foul smelling diarrhea", "zh": "發熱、不口渴、臭穢腹瀉", "correct": true},
+          "B": {"en": "Chills, lack of thirst, neck tension", "zh": "惡寒、不口渴、頸項強直", "correct": false},
+          "C": {"en": "Fever, thirst, loose watery stool", "zh": "發熱、口渴、稀水便", "correct": false},
+          "D": {"en": "Chills, lack of thirst, foul smelling diarrhea", "zh": "惡寒、不口渴、臭穢腹瀉", "correct": false}
+        },
+        "exp_en": "A: ✅ Fever, lack of thirst, foul smelling diarrhea — Ge Gen Huang Qin Huang Lian Tang treats exterior Wind-Cold with interior damp-heat diarrhea. The diarrhea is hot and foul-smelling (damp-heat), fever reflects the pathogen, and \"lack of thirst\" in this context reflects the damp component dominating. (Note: Some versions say \"thirst\"; however among the given options A is most consistent with the ",
+        "exp_zh": "葛根芩連湯（葛根+黃芩+黃連）：葛根清陽明熱退發熱，芩連清熱燥濕，治發熱（非惡寒）+臭穢腹瀉（濕熱）+不口渴（熱在腸而非傷津）。"
+      },
+      {
+        "id": 76,
+        "question_en": "Which two herbs can be used to stabilize the exterior, strengthen the wei qi, and stop sweating?",
+        "question_zh": "哪兩味草藥配伍可固表益氣止汗？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Gan Cao and Da Zao", "zh": "甘草與大棗", "correct": false},
+          "B": {"en": "Ren Shen and Dang Shen", "zh": "人參與黨參", "correct": false},
+          "C": {"en": "Huang Qi and Bai Zhu", "zh": "黃芪與白朮", "correct": true},
+          "D": {"en": "Gan Cao and Yi Tang", "zh": "甘草與飴糖", "correct": false}
+        },
+        "exp_en": "Answer: C — Huang Qi and Bai Zhu",
+        "exp_zh": "黃芪+白朮固表止汗配伍（玉屏風散核心）：黃芪補衛氣固表，白朮健脾益氣，兩者合用益氣固表止汗。"
+      },
+      {
+        "id": 77,
+        "question_en": "Which of the following herbs cools the blood, but also invigorates blood as well?",
+        "question_zh": "以下哪味草藥既能涼血，又能活血？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Xuan Shen (scrophulariae radix)", "zh": "玄參（scrophulariae radix）", "correct": false},
+          "B": {"en": "Mu Dan Pi (moutan cortex)", "zh": "牡丹皮（moutan cortex）", "correct": true},
+          "C": {"en": "Shui Niu Jiao (bubali cornu)", "zh": "水牛角（bubali cornu）", "correct": false},
+          "D": {"en": "Sheng Di Huang (rehmanniae radix)", "zh": "生地黃（rehmanniae radix）", "correct": false}
+        },
+        "exp_en": "Answer: B — Mu Dan Pi (moutan cortex)",
+        "exp_zh": "牡丹皮（moutan cortex）特殊性質：既涼血（清血熱）又活血（散瘀），可治熱入血分+血瘀兩種情況，一藥兼顧。"
+      },
+      {
+        "id": 78,
+        "question_en": "What statement is true of Du Huo (angelicae pubescentis radix)?",
+        "question_zh": "關於獨活（angelicae pubescentis radix），以下哪項陳述正確？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Treats bi syndrome in the upper body", "zh": "治療上肢痹症", "correct": false},
+          "B": {"en": "Treats itching and skin rash due to wind", "zh": "治療風所致的皮膚瘙癢", "correct": false},
+          "C": {"en": "Treats hot bi (re bi)", "zh": "治療熱痹（re bi）", "correct": false},
+          "D": {"en": "Treats bi syndrome in the lower body", "zh": "治療下肢痹症", "correct": true}
+        },
+        "exp_en": "Answer: D — Treats bi syndrome in the lower body",
+        "exp_zh": "獨活辛溫而入下焦，擅長治療下肢及腰部風寒濕痹（相對羌活治上肢），為「下部痹症要藥」。"
+      },
+      {
+        "id": 79,
+        "question_en": "Which of the following herbs softens and comforts the Liver to treat painful spasms, cramping, and contraction?",
+        "question_zh": "以下哪味草藥能柔肝養血，治療腹痛拘急？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Sang Shen (mori fructus)", "zh": "桑椹（mori fructus）", "correct": false},
+          "B": {"en": "Bai Shao (paeoniae radix alba)", "zh": "白芍（paeoniae radix alba）", "correct": true},
+          "C": {"en": "Shu Di Huang (rehmanniae radix preparata)", "zh": "熟地黃（rehmanniae radix preparata）", "correct": false},
+          "D": {"en": "Long Yan Rou (longan arillus)", "zh": "龍眼肉（longan arillus）", "correct": false}
+        },
+        "exp_en": "Answer: B — Bai Shao (paeoniae radix alba)",
+        "exp_zh": "白芍（paeoniae radix alba）柔肝養血、緩急止痛，治療肝血不足所致腹痛拘急、脅肋疼痛，補血不上火。"
+      },
+      {
+        "id": 80,
+        "question_en": "Which of the following herbs calms restless fetus to prevent miscarriage?",
+        "question_zh": "以下哪味草藥可安胎防止流產？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Yi Tang (maltosum)", "zh": "飴糖（maltosum）", "correct": false},
+          "B": {"en": "Gan Cao (glycyrrhizae radix)", "zh": "甘草（glycyrrhizae radix）", "correct": false},
+          "C": {"en": "Ren Shen (ginseng radix)", "zh": "人參（ginseng radix）", "correct": false},
+          "D": {"en": "Bai Zhu (atractylodis macrocephalae rhizoma)", "zh": "白朮（atractylodis macrocephalae rhizoma）", "correct": true}
+        },
+        "exp_en": "Answer: D — Bai Zhu (atractylodis macrocephalae rhizoma)",
+        "exp_zh": "白朮（atractylodis macrocephalae rhizoma）健脾益氣安胎，通過健脾固氣達到安胎目的，為安胎要藥之一（多用於脾虛胎動）。"
+      },
+      {
+        "id": 81,
+        "question_en": "Which of the following herbs is best for clearing heat from the Stomach and Heart?",
+        "question_zh": "以下哪味草藥最擅長清胃熱？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Huang Lian (coptidis rhizoma)", "zh": "黃連（coptidis rhizoma）", "correct": true},
+          "B": {"en": "Long Dan Cao (gentianae radix)", "zh": "龍膽草（gentianae radix）", "correct": false},
+          "C": {"en": "Huang Bai (phellodendri cortex)", "zh": "黃柏（phellodendri cortex）", "correct": false},
+          "D": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩（scutellariae radix）", "correct": false}
+        },
+        "exp_en": "Answer: A — Huang Lian (coptidis rhizoma)",
+        "exp_zh": "黃連（coptidis rhizoma）最擅長清胃火：大苦大寒，清中焦（胃）熱毒，治胃熱嘔吐、消渴、口瘡，為清胃最強藥。"
+      },
+      {
+        "id": 82,
+        "question_en": "What are the entering channels of Dan Zhu Ye (lophatheri herba)?",
+        "question_zh": "淡竹葉（lophatheri herba）歸哪些經？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "KI, UB", "zh": "腎、膀胱", "correct": false},
+          "B": {"en": "LU, ST, KI", "zh": "肺、胃、腎", "correct": false},
+          "C": {"en": "HT, SI, ST", "zh": "心、小腸、胃", "correct": true},
+          "D": {"en": "LU, ST", "zh": "肺、胃", "correct": false}
+        },
+        "exp_en": "Answer: C — HT, SI, ST",
+        "exp_zh": "淡竹葉入心、小腸、胃三經：清心火除煩（心），利尿通淋導熱下行（小腸），清胃熱止渴（胃）。"
+      },
+      {
+        "id": 83,
+        "question_en": "Over-dosage of Qi Regulating herbs can damage the following?",
+        "question_zh": "過量使用理氣藥可能損傷以下哪種物質？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Yang", "zh": "陽", "correct": false},
+          "B": {"en": "Qi", "zh": "氣", "correct": false},
+          "C": {"en": "Yin", "zh": "陰", "correct": false},
+          "D": {"en": "Qi and Yin", "zh": "氣和陰", "correct": true}
+        },
+        "exp_en": "Answer: D — Qi and Yin",
+        "exp_zh": "過量理氣藥（如枳實、厚朴）辛溫燥烈，耗散氣陰，既傷氣（耗散正氣）又傷陰（辛燥傷津），故傷氣與陰（Qi and Yin）。"
+      },
+      {
+        "id": 84,
+        "question_en": "Which of the following herbs kills parasites and stops itching; for genital itching and vaginal discharge?",
+        "question_zh": "以下哪味草藥可殺蟲止癢，用於陰部瘙癢等？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩（scutellariae radix）", "correct": false},
+          "B": {"en": "Qin Pi (fraxini cortex)", "zh": "秦皮（fraxini cortex）", "correct": false},
+          "C": {"en": "Ku Shen  (sohporae flavescentis radix)", "zh": "苦參（sohporae flavescentis radix）", "correct": true},
+          "D": {"en": "Huang Bai (phellodendri cortex)", "zh": "黃柏（phellodendri cortex）", "correct": false}
+        },
+        "exp_en": "Answer: C — Ku Shen  (sohporae flavescentis radix)",
+        "exp_zh": "苦參（Ku Shen）殺蟲止癢，用於外陰濕疹瘙癢、滴蟲感染，外用或內服均可，為治皮膚濕熱瘙癢要藥。"
+      },
+      {
+        "id": 85,
+        "question_en": "A 40-year-old male patient presents with a history of hypertension, bitter taste in the mouth, dark urine, irritability, bloodshot eyes, headache and halitosis. He presents with a red tongue with yellow coating and wiry, rapid pulse. Which formula treats the pattern seen in the patient mentioned above?",
+        "question_zh": "40歲男性，高血壓病史，頭痛眩暈，情緒波動，面紅耳赤，舌紅苔黃，脈弦數。最合適的方劑是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Tian Ma Gou Yin (Gastrodia and Uncaria Decoction)", "zh": "天麻鉤藤飲", "correct": false},
+          "B": {"en": "Liu Di Huang Wan (6 Ingredient Rehmannia Decoction)", "zh": "六味地黃丸", "correct": false},
+          "C": {"en": "Yi Guan Jian (Linking Decoction)", "zh": "一貫煎", "correct": false},
+          "D": {"en": "Long Dan Xie Gan Tang  (Gentiana Decoction to Drain the Liver)", "zh": "龍膽瀉肝湯", "correct": true}
+        },
+        "exp_en": "Answer: D — Long Dan Xie Gan Tang  (Gentiana Decoction to Drain the Liver)",
+        "exp_zh": "高血壓、口苦、頭痛、面紅、舌紅苔黃、脈弦數=肝膽濕熱上擾，龍膽瀉肝湯清瀉肝膽濕熱最合適。"
+      },
+      {
+        "id": 86,
+        "question_en": "What is the thermal nature of Gan Jiang (Rhizoma Zingiberis Preparatum)?",
+        "question_zh": "乾薑（Rhizoma Zingiberis Preparatum）的性質是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Cold", "zh": "寒", "correct": false},
+          "B": {"en": "Neutral", "zh": "平", "correct": false},
+          "C": {"en": "Hot", "zh": "熱", "correct": true},
+          "D": {"en": "Ver hot", "zh": "大熱", "correct": false}
+        },
+        "exp_en": "Answer: C — Hot",
+        "exp_zh": "乾薑性熱（hot），為溫裏散寒要藥，溫中散寒、回陽通脈、溫肺化飲，藥性強烈，與薑的辛熱性質相符。"
+      },
+      {
+        "id": 87,
+        "question_en": "A 48-year-old female patient has been suffering from constipation. She presents in the clinic with feeling of fullness in the lower abdominal area, frequent flatulence and lower abdominal area pain that feels worse when pressed. Her pulse is deep and strong, and her tongue is red with a yellow coating. Which of the six stages is involved in this pattern?",
+        "question_zh": "48歲女性便秘患者（重複），屬於六經辨證哪個階段？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Tai Yang", "zh": "太陽", "correct": false},
+          "B": {"en": "Yang Ming", "zh": "陽明", "correct": true},
+          "C": {"en": "Shao Yang", "zh": "少陽", "correct": false},
+          "D": {"en": "Tai Yin", "zh": "太陰", "correct": false},
+          "E": {"en": "Shao Yin", "zh": "少陰", "correct": false},
+          "F": {"en": "Jue Yin", "zh": "厥陰", "correct": false}
+        },
+        "exp_en": "Answer: B — Yang Ming",
+        "exp_zh": "陽明腑實：便秘+腹部硬塊+苔黃厚+脈沉有力，六經辨證屬陽明病（陽明腑實證）。"
+      },
+      {
+        "id": 88,
+        "question_en": "A 25-year-old female patient presents at clinic with a history of whooping cough for 6 weeks. She exhibits dry cough and breathlessness with a feeling of heat of the skin. Her tongue body is red with thin yellow coating, and her pulse is thin and rapid. Which formula treats the pattern seen in the patient mentioned above?",
+        "question_zh": "25歲女性百日咳患者（重複），最合適的方劑是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Yin Qiao San (Honeysuckle and Forsythia Powder)", "zh": "銀翹散", "correct": false},
+          "B": {"en": "Xie Bai San  (Drain the White Powder)", "zh": "瀉白散", "correct": true},
+          "C": {"en": "Ma Huang Tang (Ephedra Decoction)", "zh": "麻黃湯", "correct": false},
+          "D": {"en": "Gui Zhi Tang (Cinnamon Twig Decoction)", "zh": "桂枝湯", "correct": false}
+        },
+        "exp_en": "Answer: B — Xie Bai San  (Drain the White Powder)",
+        "exp_zh": "百日咳肺熱傷陰（乾咳、舌紅、脈數），瀉白散清肺熱、瀉肺氣而不傷陰，適合肺熱咳嗽（非外感風寒）。"
+      },
+      {
+        "id": 89,
+        "question_en": "Besides warming the interior, what is another important function of Hua Jiao (zanthoxyli pericarpium)?",
+        "question_zh": "胡椒（piperis fructus）除溫裏外，另一重要功效是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Can be applied externally to anchor floating heat", "zh": "外用引火歸元", "correct": false},
+          "B": {"en": "Opens the nasal orifices", "zh": "通鼻竅", "correct": false},
+          "C": {"en": "Kills parasites, such as roundworms and fungal infections", "zh": "殺蟲（蛔蟲和真菌感染）", "correct": true},
+          "D": {"en": "Lower high blood pressure and cholesterol", "zh": "降血壓和膽固醇", "correct": false}
+        },
+        "exp_en": "Answer: C — Kills parasites, such as roundworms and fungal infections",
+        "exp_zh": "胡椒除溫中散寒外，另一功效：殺蟲（如蛔蟲）和抗真菌感染，可外用或少量內服。"
+      },
+      {
+        "id": 90,
+        "question_en": "What do the following herbs have in common? Ai Ye (Folium Artemisiae Officinalis) Bai Ji (Rhizoma Bletillae) San Qi (Radix Notoginsing) Pu Huang (Pollen Typhae)",
+        "question_zh": "以下草藥有何共同點？艾葉（Folium Artemisiae Argyi）、棕櫚炭、地榆炭、仙鶴草、三七",
+        "answer": "B",
+        "options": {
+          "A": {"en": "They all clear Heat from the Blood", "zh": "均清血熱", "correct": false},
+          "B": {"en": "They all stop bleeding", "zh": "均止血", "correct": true},
+          "C": {"en": "They all nourish the Blood", "zh": "均補血", "correct": false},
+          "D": {"en": "They all warm the Blood", "zh": "均溫血", "correct": false}
+        },
+        "exp_en": "Answer: B — They all stop bleeding",
+        "exp_zh": "艾葉、棕櫚炭、地榆炭、仙鶴草、三七共同功效：止血。各自機制不同（溫、澀、涼止），但均具止血作用。"
+      },
+      {
+        "id": 91,
+        "question_en": "The following formula best addresses which S/Sxs: Ge Gen (Radix Puerariae) Huang Qin (Radix Scutellariae) Huang Lian (Rhizoma Coptidis)",
+        "question_zh": "以下方劑（葛根、黃芩、黃連）最能治療哪些症狀？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "fever, lack of thirst, foul smelling diarrhea", "zh": "發熱、不口渴、臭穢腹瀉", "correct": true},
+          "B": {"en": "chills, lack of thirst, neck tension", "zh": "惡寒、不口渴、頸項強直", "correct": false},
+          "C": {"en": "fever, thirst, loose watery stool", "zh": "發熱、口渴、稀水便", "correct": false},
+          "D": {"en": "chills, lack of thirst, foul smelling diarrhea", "zh": "惡寒、不口渴、臭穢腹瀉", "correct": false}
+        },
+        "exp_en": "Answer: A — fever, lack of thirst, foul smelling diarrhea",
+        "exp_zh": "葛根芩連湯：發熱+不口渴（熱在腸非傷津）+臭穢腹瀉（濕熱），與選項A完全吻合。"
+      },
+      {
+        "id": 92,
+        "question_en": "A 40-year-old female patient presents at clinic with history of the abdominal pain and constipation with cold limbs. She presents with a white greasy tongue coating and wiry tight pulse. Which formula treats the pattern seen in the patient mentioned above?",
+        "question_zh": "40歲女性，慢性便秘，舌紅苔黃，脈洪數。最合適方劑是？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Da Cheng Qi Tang (Major Order the Qi Decoction)", "zh": "大承氣湯", "correct": false},
+          "B": {"en": "Xiao Cheng Qi Tang (Minor Order the Qi Decoction)", "zh": "小承氣湯", "correct": false},
+          "C": {"en": "Wen Pi Tang (Warm the Spleen Decoction)", "zh": "溫脾湯", "correct": false},
+          "D": {"en": "Da Huang Fu Zi Tang  (Rhubarb and Prepared Aconite Decoction)", "zh": "大黃附子湯", "correct": true}
+        },
+        "exp_en": "Answer: D — Da Huang Fu Zi Tang  (Rhubarb and Prepared Aconite Decoction)",
+        "exp_zh": "慢性便秘兼陽虛寒象，大黃附子湯溫陽散寒通便（大黃瀉積，附子溫陽，細辛散寒），適合寒積便秘。"
+      },
+      {
+        "id": 93,
+        "question_en": "Which of the following herb categories is NOT appropriate for treating internal Wind?",
+        "question_zh": "以下哪類草藥不適合治療陰虛病症？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Sweet herb", "zh": "甘味藥", "correct": false},
+          "B": {"en": "Heavy herb", "zh": "重質藥", "correct": false},
+          "C": {"en": "Correct", "zh": "辛味藥", "correct": false},
+          "D": {"en": "Pungent herbs", "zh": "苦味藥", "correct": true},
+          "E": {"en": "Bitter herbs", "zh": "Bitter herbs", "correct": false}
+        },
+        "exp_en": "Answer: D — Pungent herbs",
+        "exp_zh": "陰虛患者禁用辛味藥：辛能散能行，辛溫燥熱，直接耗散陰液，加重陰虛症狀（如麻黃、乾薑等）。"
+      },
+      {
+        "id": 94,
+        "question_en": "What is the most likely tongue and pulse presentation for a person needing Ping Wei San (Calm the Stomach Powder)?",
+        "question_zh": "以下哪種舌脈表現最適合使用平胃散治療？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "A swollen tongue with greasy, thick white coating and a moderate or slippery pulse", "zh": "舌胖大苔白厚膩，脈濡", "correct": true},
+          "B": {"en": "A swollen tongue with a greasy, thick yellow coating and a rapid slippery pulse", "zh": "舌胖大苔黃厚膩，脈滑數", "correct": false},
+          "C": {"en": "A pale tongue with a thin white coating and weak thing pulse", "zh": "舌淡苔薄白，脈弱細", "correct": false},
+          "D": {"en": "A pale purple tongue with a greasy, thick white coating and a slippery, wiry pulse", "zh": "舌淡紫苔白厚膩，脈弦", "correct": false}
+        },
+        "exp_en": "Answer: A — A swollen tongue with greasy, thick white coating and a moderate or slippery pulse",
+        "exp_zh": "平胃散（Ping Wei San）舌象：舌胖大苔白厚膩（寒濕中阻）+脈濡緩（濕邪），提示脾虛濕阻中焦。"
+      },
+      {
+        "id": 95,
+        "question_en": "A patient taking Long Dan Xie Gan Tang (Gentiana Decoction to Drain the Liver) for hypertension develops redness and itching around his genitalia. What is the best modification for the formula?",
+        "question_zh": "服用龍膽瀉肝湯患者出現陰部瘙癢，應如何加減？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Remove Mu Tong (Caulis Akebiae) and add Mu Dan Pi (Cx Mouton Radicis) and Zhi Zi (Fr Gardenia)", "zh": "去木通，加牡丹皮和梔子", "correct": false},
+          "B": {"en": "Add Mu Xiang (Rx Aucklandiae) and remove Gui Zhi (Rm Cinnamomi)", "zh": "加木香，去桂枝", "correct": false},
+          "C": {"en": "Remove Chai Hu  (Rx Buplueri)  add Lian Qiao  (Fr Forsythiae),  Huang Lian  (Rh Coptidis) and  Da Huang  (Rx et Rh Rhei)", "zh": "去柴胡，加連翹、黃連和大黃", "correct": true},
+          "D": {"en": "Add Cang Er Zi (Fr Xanthii) and Xin Yi (FI Magnoliae)", "zh": "加蒼耳子和辛夷", "correct": false}
+        },
+        "exp_en": "Answer: C — Remove Chai Hu  (Rx Buplueri)  add Lian Qiao  (Fr Forsythiae),  Huang Lian  (Rh Coptidis) and  Da Huang  (Rx et Rh Rhei)",
+        "exp_zh": "龍膽瀉肝湯加減外陰瘙癢：去柴胡升散，加連翹（清熱解毒）+黃連（清熱燥濕）+大黃（瀉下導熱），增強清下焦濕熱之力。"
+      },
+      {
+        "id": 96,
+        "question_en": "What precaution should you keep in mind when prescribing herbs from the category Herbs that Warm the Interior and Expel Cold?",
+        "question_zh": "開具滋陰類草藥時需注意什麼？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "These herbs are warm, acrid, and drying: use caution in cases of yin deficiency", "zh": "性溫辛燥，陰虛患者慎用", "correct": true},
+          "B": {"en": "These herbs are sticky and cloying: they may cause digestive problems", "zh": "性黏膩，可能影響消化", "correct": false},
+          "C": {"en": "These herbs are cold and bitter; use caution in cases of Spleen qi deficiency", "zh": "性寒苦，脾胃虛弱者慎用", "correct": false},
+          "D": {"en": "These herbs have a strong downward action; contraindicated during pregnancy", "zh": "有強力向下作用，孕婦禁用", "correct": false}
+        },
+        "exp_en": "Answer: A — These herbs are warm, acrid, and drying: use caution in cases of yin deficiency",
+        "exp_zh": "發汗解表藥（如麻黃、桂枝）性溫辛燥，注意：陰虛患者慎用，因辛溫發汗耗陰傷津，加重陰虛。"
+      },
+      {
+        "id": 97,
+        "question_en": "Xiao Qing Long Tang (Minor Bluegreen Dragon Decoction) treats which of the following?",
+        "question_zh": "小青龍湯治療哪種病症？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "External Wind-Cold with Internal Heat", "zh": "外感風寒兼內熱", "correct": false},
+          "B": {"en": "External Wind-Cold with Internal Phlegm-Fluids accumulation", "zh": "外感風寒兼內有痰飲積聚", "correct": true},
+          "C": {"en": "External Wind-Heat with Internal Damp-Heat", "zh": "外感風熱兼內濕熱", "correct": false},
+          "D": {"en": "External Wind-Heat with Internal Qi Stagnation", "zh": "外感風熱兼內氣滯", "correct": false}
+        },
+        "exp_en": "Answer: B — External Wind-Cold with Internal Phlegm-Fluids accumulation",
+        "exp_zh": "小青龍湯主治：外感風寒（表實無汗）兼內有痰飲積聚（痰稀白、胸滿喘咳），麻黃桂枝解表，乾薑半夏化痰飲。"
+      },
+      {
+        "id": 98,
+        "question_en": "Which of the following is a contraindication for the use of Li Zhong Wan (Regulate the Middle Pill)?",
+        "question_zh": "以下哪種情況是理中丸的禁忌？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Qi Deficiency", "zh": "氣虛", "correct": false},
+          "B": {"en": "Yang Deficiency", "zh": "陽虛", "correct": false},
+          "C": {"en": "Yin Deficiency", "zh": "陰虛", "correct": true},
+          "D": {"en": "Pregnancy", "zh": "孕婦", "correct": false}
+        },
+        "exp_en": "Answer: C — Yin Deficiency",
+        "exp_zh": "理中丸（溫中祛寒）禁忌：陰虛患者。理中丸辛熱補陽，陰虛者使用會加重陰液耗損，助熱傷陰。"
+      },
+      {
+        "id": 99,
+        "question_en": "Which of the following herbs clears heat, but also tonifies yin and moistens dryness, meaning it can be used for both excess and deficiency heat?",
+        "question_zh": "以下哪味草藥能清熱，同時又能補陰潤燥？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Zhi Mu  (anemarrhenae rhizoma)", "zh": "知母（anemarrhenae rhizoma）", "correct": true},
+          "B": {"en": "Xia Ku Cao (prunellae spica)", "zh": "夏枯草（prunellae spica）", "correct": false},
+          "C": {"en": "Dan Zhu Ye (lophatheri herba)", "zh": "淡竹葉（lophatheri herba）", "correct": false},
+          "D": {"en": "Shi Gao (gypsum fibrosum)", "zh": "石膏（gypsum fibrosum）", "correct": false}
+        },
+        "exp_en": "Answer: A — Zhi Mu  (anemarrhenae rhizoma)",
+        "exp_zh": "知母（anemarrhenae rhizoma）清熱瀉火（實熱）兼補陰潤燥（陰虛），可用於氣分實熱（白虎湯）和陰虛骨蒸（知柏地黃丸）。"
+      },
+      {
+        "id": 100,
+        "question_en": "Which of the following herbs is neutral in temperature and is especially useful for warm type bi syndrome in the upper extremities?",
+        "question_zh": "以下哪味草藥性質中性，特別適合治療上肢痹症？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Du Huo (angelicae pubescentis radix)", "zh": "獨活", "correct": false},
+          "B": {"en": "Can Sha (bombycis faeces)", "zh": "蠶沙", "correct": false},
+          "C": {"en": "Sang Zhi  (mori ramulus)", "zh": "桑枝", "correct": true},
+          "D": {"en": "Mu Gua (chaenomelis fructus)", "zh": "木瓜", "correct": false}
+        },
+        "exp_en": "Answer: C — Sang Zhi  (mori ramulus)",
+        "exp_zh": "桑枝（mori ramulus）性平，尤適合上肢痹症，溫熱型（熱痹）亦可用，是治上肢風濕痹痛的要藥。"
+      },
+      {
+        "id": 101,
+        "question_en": "Which of the following herbs can descend floating heat, treating such conditions as Kidney and Heart not communicating, heat above with cold below, or false heat with true cold?",
+        "question_zh": "以下哪味草藥可引火歸元（降浮熱），治療上熱下寒等症？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Gan Jiang (zingiberis rhizoma)", "zh": "乾薑（zingiberis rhizoma）", "correct": false},
+          "B": {"en": "Hua Jiao (zanthoxyli pericarpium)", "zh": "花椒（zanthoxyli pericarpium）", "correct": false},
+          "C": {"en": "Rou Gui  (cinnamomi cortex)", "zh": "肉桂（cinnamomi cortex）", "correct": true},
+          "D": {"en": "Xiao Hui Xiang (foeniculi fructus)", "zh": "小茴香（foeniculi fructus）", "correct": false}
+        },
+        "exp_en": "Answer: C — Rou Gui  (cinnamomi cortex)",
+        "exp_zh": "肉桂（cinnamomi cortex）能引火歸元：溫補命門真火，使浮游之陽氣重歸丹田，治上熱下寒（腎陽虛格陽于上）。"
+      },
+      {
+        "id": 102,
+        "question_en": "Besides treating bi syndrome, which of the following herbs can also be used to treat jaundice due to damp-heat?",
+        "question_zh": "以下哪味草藥除治療痹症外，也可用於治療腳氣？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Wu Jia Pi (acanthopanacis cortex)", "zh": "五加皮（acanthopanacis cortex）", "correct": false},
+          "B": {"en": "Qin Jiao  (gentianae macrophylae cortex)", "zh": "秦艽（gentianae macrophylae cortex）", "correct": true},
+          "C": {"en": "Mu Gua (chaenomelis fructus)", "zh": "木瓜（chaenomelis fructus）", "correct": false},
+          "D": {"en": "Xi Xian Cao (siegesbeckiae herba)", "zh": "豨薟草（siegesbeckiae herba）", "correct": false}
+        },
+        "exp_en": "Answer: B — Qin Jiao  (gentianae macrophylae cortex)",
+        "exp_zh": "秦艽（gentianae macrophyllae cortex）除辨證治痹外，也可按症狀部位使用，兼能退骨蒸虛熱（治療關節炎兼發熱）。"
+      },
+      {
+        "id": 103,
+        "question_en": "Which of the following herbs resolves toxicity and expels pus for sores, carbuncles, and breast abscess?",
+        "question_zh": "以下哪味草藥可解毒排膿，治療瘡癰？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Tian Hua Fen  (tricosanthis fructus)", "zh": "天花粉", "correct": true},
+          "B": {"en": "Zhi Mu (anemarrhenae rhizoma)", "zh": "知母", "correct": false},
+          "C": {"en": "Zhi Zi (gardeniae fructus)", "zh": "梔子", "correct": false},
+          "D": {"en": "Lu Gen (phragmitis rhizoma)", "zh": "蘆根", "correct": false}
+        },
+        "exp_en": "Answer: A — Tian Hua Fen  (tricosanthis fructus)",
+        "exp_zh": "天花粉（Tian Hua Fen）解毒排膿消腫，治療瘡癰腫毒，促進膿液排出，同時清熱生津（治消渴）。"
+      },
+      {
+        "id": 104,
+        "question_en": "What is the taste and temperature of Xuan Shen (scrophulariae radix)?",
+        "question_zh": "玄參（scrophulariae radix）的味性是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Cool, acrid, sweet", "zh": "涼、辛、甘", "correct": false},
+          "B": {"en": "Cold, salty, sweet, bitter", "zh": "寒、鹹、甘、苦", "correct": true},
+          "C": {"en": "Warm, acrid", "zh": "溫、辛", "correct": false},
+          "D": {"en": "Neutral, bitter, sweet", "zh": "平、苦、甘", "correct": false}
+        },
+        "exp_en": "Answer: B — Cold, salty, sweet, bitter",
+        "exp_zh": "玄參（scrophulariae radix）：寒、鹹、甘、苦。寒清熱，鹹軟堅散結（治癭瘤），甘滋陰，苦涼血解毒，四性兼備。"
+      },
+      {
+        "id": 105,
+        "question_en": "A patient taking Long Dan Xie Gan Tang (Gentiana Decoction to Drain the Liver) for hypertension develops redness and itching around his genitalia. What is the best modification for the formula?",
+        "question_zh": "服用龍膽瀉肝湯患者出現外陰紅腫瘙癢（重複），應如何加減？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Remove Mu Tong (Caulis Akebiae) and add Mu Dan Pi (Cx Mouton Radicis) and Zhi Zi (Fr Gardenia)", "zh": "去木通，加牡丹皮和梔子", "correct": false},
+          "B": {"en": "Add Mu Xiang (Rx Aucklandiae) and remove Gui Zhi (Rm Cinnamomi)", "zh": "加木香，去桂枝", "correct": false},
+          "C": {"en": "Remove Chai Hu  (Rx Buplueri) add Lian Qiao (Fr Forsythiae), Huang Lian (Rh Coptidis) and Da Huang (Rx et Rh Rhei)", "zh": "去柴胡，加連翹、黃連和大黃", "correct": true},
+          "D": {"en": "Add Cang Er Zi (Fr Xanthii) and Xin Yi (FI Magnoliae)", "zh": "加蒼耳子和辛夷", "correct": false}
+        },
+        "exp_en": "Answer: C — Remove Chai Hu  (Rx Buplueri) add Lian Qiao (Fr Forsythiae), Huang Lian (Rh Coptidis) and Da Huang (Rx et Rh Rhei)",
+        "exp_zh": "龍膽瀉肝湯外陰紅腫瘙癢：同Q74，去柴胡，加連翹+黃連+大黃，清下焦濕熱解毒。"
+      },
+      {
+        "id": 106,
+        "question_en": "Which of the following conditions calls for a formula that stabilizes and astringes?",
+        "question_zh": "以下哪種情況需要使用收澀固脫方劑？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Diarrhea due to Damp-Heat in the lower jiao?", "zh": "下焦濕熱所致腹瀉", "correct": false},
+          "B": {"en": "Sweating due to full-heat in Yang Ming", "zh": "陽明實熱所致出汗", "correct": false},
+          "C": {"en": "Leucorrhea due to Spleen Qi Deficiency", "zh": "脾氣虛所致帶下", "correct": true},
+          "D": {"en": "Menorrhagia due to Liver Fire", "zh": "肝火所致月經過多", "correct": false}
+        },
+        "exp_en": "Answer: C — Leucorrhea due to Spleen Qi Deficiency",
+        "exp_zh": "收澀固脫方劑適應症：脾氣虛型白帶（帶脈不固，濕邪下注），需固攝帶脈、健脾止帶。濕熱腹瀉和肝火出血均需清法，非收澀。"
+      },
+      {
+        "id": 107,
+        "question_en": "Which of the following herbs is best for clearing heat from the Stomach and Heart?",
+        "question_zh": "以下哪味草藥最擅長清胃熱？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Huang Lian  (coptidis rhizoma)", "zh": "黃連", "correct": true},
+          "B": {"en": "Long Dan Cao (gentianae radix)", "zh": "龍膽草", "correct": false},
+          "C": {"en": "Huang Bai (phellodendri cortex)", "zh": "黃柏", "correct": false},
+          "D": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩", "correct": false}
+        },
+        "exp_en": "Answer: A — Huang Lian  (coptidis rhizoma)",
+        "exp_zh": "黃連（coptidis rhizoma）清胃熱最強：大苦大寒，直清中焦胃火，為清胃要藥，治胃熱嘔吐、牙痛、口瘡。"
+      },
+      {
+        "id": 108,
+        "question_en": "Which formula best treats nasal sinusitis?",
+        "question_zh": "哪個方劑最適合治療鼻竇炎？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Cang Er Zi Tang  (Xanthium Powder)", "zh": "蒼耳子湯", "correct": true},
+          "B": {"en": "Sang Ju Yin (Morus and Chrysanthemum Decocotion)", "zh": "桑菊飲", "correct": false},
+          "C": {"en": "Yin Qiao San (Lonicera and Forsythia Powder)", "zh": "銀翹散", "correct": false},
+          "D": {"en": "Ma Huang Tang (Ephedra Powder)", "zh": "麻黃湯", "correct": false}
+        },
+        "exp_en": "Answer: A — Cang Er Zi Tang  (Xanthium Powder)",
+        "exp_zh": "蒼耳子湯（Cang Er Zi Tang）：蒼耳子+辛夷+白芷+薄荷，宣通鼻竅為主，是治療鼻竇炎（鼻淵）的专方。"
+      },
+      {
+        "id": 109,
+        "question_en": "Which of the following statements best describes the action of Long Yan Rou (longan arillus)?",
+        "question_zh": "以下哪項最能描述龍眼肉（longan arillus）的功效？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Tonifies Liver blood to nourish the tendons", "zh": "補肝血以養筋", "correct": false},
+          "B": {"en": "Tonifies Kidney yin", "zh": "補腎陰", "correct": false},
+          "C": {"en": "Tonifies Kidney essence and darkens the hair", "zh": "補腎精烏髮", "correct": false},
+          "D": {"en": "Tonifies Heart blood to calm Shen", "zh": "補心血安神", "correct": true}
+        },
+        "exp_en": "Answer: D — Tonifies Heart blood to calm Shen",
+        "exp_zh": "龍眼肉（longan arillus）補心血安神，適合心血虛型心悸失眠健忘，「補益心脾，養血安神」。"
+      },
+      {
+        "id": 110,
+        "question_en": "Which two herbs can be used to stabilize the exterior, strengthen the wei qi, and stop sweating?",
+        "question_zh": "哪兩味草藥配伍可固表益氣止汗？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Gan Cao and Da Zao (glycyrrhizae radix and jujube fructus)", "zh": "甘草與大棗", "correct": false},
+          "B": {"en": "Ren Shen and Dang Shen (ginseng radix and codonopsis radix)", "zh": "人參與黨參", "correct": false},
+          "C": {"en": "Huang Qi and Bai Zhu  (astragali radix and atractylodis macrocephalae rhizoma)", "zh": "黃芪與白朮", "correct": true},
+          "D": {"en": "Gan Cao and Yi Tang (glycyrrhizae radix and maltosum)", "zh": "甘草與飴糖", "correct": false}
+        },
+        "exp_en": "Answer: C — Huang Qi and Bai Zhu  (astragali radix and atractylodis macrocephalae rhizoma)",
+        "exp_zh": "黃芪+白朮（玉屏風散）固表止汗：黃芪補衛氣固表（為君），白朮健脾益氣（培土生金），相須配伍增強止汗效果。"
+      },
+      {
+        "id": 111,
+        "question_en": "What is the function of Xia Ku Cao (prunellae spica)?",
+        "question_zh": "夏枯草（prunellae spica）的功效是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Clears summer heat; for thirst, difficult urination, and dry heaving", "zh": "清暑熱，治口渴尿難", "correct": false},
+          "B": {"en": "Clears Heat; Generates body fluids; for thirst and irritability", "zh": "清熱生津，治口渴煩躁", "correct": false},
+          "C": {"en": "Clears phlegm-fire and dissipates nodules; for goiter, scrofula, lipoma, or swollen glands", "zh": "清痰火散結，治甲狀腺腫、淋巴結腫大", "correct": true},
+          "D": {"en": "Clear Heat; Moistens the Large Intestine; for constipation due to dryness", "zh": "清熱潤腸，治便秘", "correct": false}
+        },
+        "exp_en": "Answer: C — Clears phlegm-fire and dissipates nodules; for goiter, scrofula, lipoma, or swollen glands",
+        "exp_zh": "夏枯草（prunellae spica）清痰火散結：清肝熱、散鬱結，治甲狀腺腫（癭瘤）、淋巴結腫大（瘰癧），為消腫散結要藥。"
+      },
+      {
+        "id": 112,
+        "question_en": "Which of the following is the best herb for subduing rebellious Stomach qi to treat nausea and vomiting?",
+        "question_zh": "以下哪味草藥最適合降胃氣逆？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Gao Liang Jiang (alpiniae officarum rhizoma)", "zh": "高良薑", "correct": false},
+          "B": {"en": "Zhi Fu Zi (aconiti radix lateralis preparata)", "zh": "制附子", "correct": false},
+          "C": {"en": "Xiao Hui Xiang (foeniculi fructus)", "zh": "小茴香", "correct": false},
+          "D": {"en": "Wu Zhu Yu  (evodiae fructus)", "zh": "吳茱萸", "correct": true}
+        },
+        "exp_en": "Answer: D — Wu Zhu Yu  (evodiae fructus)",
+        "exp_zh": "吳茱萸為降逆止嘔要藥，尤其針對寒性嘔吐噦逆，溫胃散寒，引熱下行，是治療寒性噦逆最佳選擇。"
+      },
+      {
+        "id": 113,
+        "question_en": "Which of the following herbs clears heat from all three jiao; for heat in the chest causing irritability, heat due to Liver constraint, jaundice and lin syndrome due to damp-heat, and bleeding due to heat in the blood?",
+        "question_zh": "以下哪味草藥可清三焦熱，治療熱毒瘡癰？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Zhi Zi  (gardeniae fructus)", "zh": "梔子（gardeniae fructus）", "correct": true},
+          "B": {"en": "Zhi Mu (anemarrhenae rhizoma)", "zh": "知母（anemarrhenae rhizoma）", "correct": false},
+          "C": {"en": "Shi Gao (gypsum fibrosum)", "zh": "石膏（gypsum fibrosum）", "correct": false},
+          "D": {"en": "Xi Gua (citrulli fructus)", "zh": "西瓜（citrulli fructus）", "correct": false}
+        },
+        "exp_en": "Answer: A — Zhi Zi  (gardeniae fructus)",
+        "exp_zh": "梔子（gardeniae fructus）清三焦熱：上焦（瀉心肺火）、中焦（清胃熱）、下焦（清膀胱濕熱），且涼血解毒，用途廣泛。"
+      },
+      {
+        "id": 114,
+        "question_en": "Which of the following herbs clears Heat due to Kidney Yin deficiency; for night sweats, steaming bones, tidal fever, or spermatorrhea?",
+        "question_zh": "在補血方面，枸杞子（lycii fructus）的特殊功效是什麼？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Dang Gui (angelicae sinensis radix)", "zh": "當歸（angelicae sinensis radix）", "correct": false},
+          "B": {"en": "Gou Qi Zi (lycii fructus)", "zh": "枸杞子（lycii fructus）", "correct": false},
+          "C": {"en": "E Jiao  (asini corii colla)", "zh": "阿膠（asini corii colla）", "correct": true},
+          "D": {"en": "Shu Di Huang (rehmanniae radix preparata)", "zh": "熟地黃（rehmanniae radix preparata）", "correct": false}
+        },
+        "exp_en": "Answer: C — E Jiao  (asini corii colla)",
+        "exp_zh": "E Jiao（阿膠）補血兼滋陰，同時能清虛熱、止血，而非主要清腎陰虛熱（黃柏才是）。此題考查辨別。"
+      },
+      {
+        "id": 115,
+        "question_en": "Fred, aged 5, was diagnosed with mumps. His face is still swollen beneath the ears, with local heat and tenderness. His temperature is 38 degrees Celsius. He complains of slight thirst and a sore throat. His tongue is red with yellow coating, his pulse is rapid and floating. Which of the following formulas is most appropriate for this child?",
+        "question_zh": "5歲Fred腮腺炎（重複），最合適的方劑是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Yin Qiao San (Honeysuckle and Forsythia Powder)", "zh": "銀翹散", "correct": true},
+          "B": {"en": "Sang Ju Yin (Mulberry Leaf and Chrysanthemum Drink)", "zh": "桑菊飲", "correct": false},
+          "C": {"en": "Ma Huang Tang (Ephedra Decoction)", "zh": "麻黃湯", "correct": false},
+          "D": {"en": "Huang Lian Jie Du Tang (Coptis Relieve Toxicity Decoction)", "zh": "黃連解毒湯", "correct": false}
+        },
+        "exp_en": "A: ✅ Yin Qiao San (Honeysuckle and Forsythia Powder) — Mumps = Wind-Heat toxin invading Shaoyang. Yin Qiao San disperses Wind-Heat, clears heat toxicity, and is appropriate for the early stage with floating rapid pulse, red tongue, yellow coat, sore throat, and fever. | B: ❌ Sang Ju Yin — Primarily for mild Wind-Heat with cough; less potent in clearing heat toxicity. Insufficient for mumps with sw",
+        "exp_zh": "Fred腮腺炎（風熱毒邪，腮部腫痛）用銀翹散：疏散風熱+清熱解毒消腫，是溫病初起風熱的代表方。"
+      },
+      {
+        "id": 116,
+        "question_en": "Which of the following herbs clears heat from all three jiao; for heat in the chest causing irritability, heat due to Liver constraint, jaundice and lin syndrome due to damp-heat, and bleeding due to heat in the blood?",
+        "question_zh": "以下哪味草藥可清三焦熱？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Zhi Zi (gardeniae fructus)", "zh": "梔子", "correct": true},
+          "B": {"en": "Zhi Mu (anemarrhenae rhizoma)", "zh": "知母", "correct": false},
+          "C": {"en": "Shi Gao (gypsum fibrosum)", "zh": "石膏", "correct": false},
+          "D": {"en": "Xi Gua (citrulli fructus)", "zh": "西瓜", "correct": false}
+        },
+        "exp_en": "Answer: A — Zhi Zi (gardeniae fructus)",
+        "exp_zh": "梔子清三焦之熱，能瀉心、肺、胃、膀胱之火，適用於熱毒熾盛多個部位的熱毒瘡癰。"
+      },
+      {
+        "id": 117,
+        "question_en": "Which category is Shan Zha (Fructus Crataegi) from?",
+        "question_zh": "山楂（Fructus Crataegi）屬於哪一類草藥？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Qi Regulating Herbs", "zh": "理氣藥", "correct": false},
+          "B": {"en": "Digestive Herbs", "zh": "消食藥", "correct": true},
+          "C": {"en": "Tonic Herbs", "zh": "補益藥", "correct": false},
+          "D": {"en": "Aromatic Damp-Dissolving Herbs", "zh": "芳香化濕藥", "correct": false}
+        },
+        "exp_en": "Answer: B — Digestive Herbs",
+        "exp_zh": "山楂（Fructus Crataegi）屬消食藥，善消肉食積滯（油膩肉食），活血化瘀（治產後血瘀腹痛），是消導類代表藥。"
+      },
+      {
+        "id": 118,
+        "question_en": "A 47 years old female patient complains of menopausal symptoms. She presents with uncomfortable hot flashes from deep inside, weight loss, dizziness and night sweats. Her tongue body is red with scanty coating and her pulse is thready and rapid. Which formula treats the pattern seen in the patient mentioned above?",
+        "question_zh": "47歲女性更年期症狀，潮熱盜汗，腰膝酸軟，舌紅少苔，脈細數。最合適方劑是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Qing Gu San (Cool the Bones Powder)", "zh": "清骨散", "correct": true},
+          "B": {"en": "Zuo Jin Wan (Left Metal Pill)", "zh": "左金丸", "correct": false},
+          "C": {"en": "Liu Wei Di Huang Wan (6 Ingredient Rehmannia Pill)", "zh": "六味地黃丸", "correct": false},
+          "D": {"en": "Jia Wei Xiao Yao San (Augmented Rambling Powder)", "zh": "加味逍遙散", "correct": false}
+        },
+        "exp_en": "A: ✅ Qing Gu San (Cool the Bones Powder) — Hot flashes from deep inside, steaming bone sensation, weight loss, night sweats, red tongue with scanty coating, thready rapid pulse = yin deficiency with vigorous fire / steaming bone syndrome. Qing Gu San specifically clears deficiency heat and steaming bone fever. | B: ❌ Zuo Jin Wan — Clears Liver fire and harmonizes the Stomach; for acid reflux, irri",
+        "exp_zh": "更年期潮熱盜汗（腎陰虛虛熱）+無汗（非真陰虛骨蒸那麼嚴重），清骨散（青蒿、地骨皮）清退虛熱、退骨蒸最合適。"
+      },
+      {
+        "id": 119,
+        "question_en": "Which of the following herbs clears heat due to Kidney yin deficiency; for night sweats, steaming bones, tidal fever, or spermatorrhea?",
+        "question_zh": "以下哪味草藥可清腎陰虛之熱？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩", "correct": false},
+          "B": {"en": "Huang Bai (phellodendri cortex)", "zh": "黃柏", "correct": true},
+          "C": {"en": "Qin Pi (fraxini cortex)", "zh": "秦皮", "correct": false},
+          "D": {"en": "Huang Lian (coptidis rhizoma)", "zh": "黃連", "correct": false}
+        },
+        "exp_en": "Answer: B — Huang Bai (phellodendri cortex)",
+        "exp_zh": "黃柏清腎陰虛相火（虛熱），入腎膀胱，是治療陰虛火旺（骨蒸盜汗、遺精、帶下黃稠）的要藥。"
+      },
+      {
+        "id": 120,
+        "question_en": "Which formula is used for Kidney Yang Deficiency with Edema?",
+        "question_zh": "哪個方劑用於治療腎陽虛水腫？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Jin Gui Shen Qi Wan (Golden Cabinet Kidney Qi Pill)", "zh": "金匱腎氣丸", "correct": false},
+          "B": {"en": "Liu Wei Di Huang Wan (6 Ingredient Rehmanniae Pill)", "zh": "六味地黃丸", "correct": false},
+          "C": {"en": "Zhen Wu Tang (True Warrior Decoction)", "zh": "真武湯", "correct": true},
+          "D": {"en": "Si Ni Tang (Frigid Limbs Decoction)", "zh": "四逆湯", "correct": false}
+        },
+        "exp_en": "Answer: C — Zhen Wu Tang (True Warrior Decoction)",
+        "exp_zh": "真武湯（Zhen Wu Tang）溫腎利水：附子溫腎陽，白朮+茯苓健脾利水，白芍護陰，治腎陽虛水腫。"
+      },
+      {
+        "id": 121,
+        "question_en": "Which herb has the following functions: clears Liver heat and brightens the eyes, moistens the Large Intestine to relieve constipation, lowers high blood pressure and cholesterol?",
+        "question_zh": "以下哪味草藥可清肝熱、明目並潤腸？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Jue Ming Zi (cassiae semen)", "zh": "決明子", "correct": true},
+          "B": {"en": "Shi Gao (gypsum fibrosum)", "zh": "石膏", "correct": false},
+          "C": {"en": "Dan Zhu Ye (lohpatheri herba)", "zh": "淡竹葉", "correct": false},
+          "D": {"en": "Xia Ku Cao (prunellae spica)", "zh": "夏枯草", "correct": false}
+        },
+        "exp_en": "Answer: A — Jue Ming Zi (cassiae semen)",
+        "exp_zh": "決明子清肝熱明目+潤腸通便，善治肝熱目赤、頭痛和習慣性便秘，為兩用要藥。"
+      },
+      {
+        "id": 122,
+        "question_en": "What is the taste and temperature of Wei Ling Xian (clematidis radix)?",
+        "question_zh": "威靈仙（clematidis radix）的味性是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Warm, acrid, salty", "zh": "溫、辛、鹹", "correct": true},
+          "B": {"en": "Neutral, sweet, bitter", "zh": "平、甘、苦", "correct": false},
+          "C": {"en": "Warm, sour", "zh": "溫、酸", "correct": false},
+          "D": {"en": "Cool, acrid, bitter", "zh": "涼、辛、苦", "correct": false}
+        },
+        "exp_en": "A: ✅ Warm, acrid, salty — Wei Ling Xian (Clematis root) is warm in temperature, acrid and salty in taste. The acrid quality disperses and moves; the salty quality softens hardness. It strongly unblocks channels, expels wind-cold-dampness, and is famous for treating fish bone stuck in the throat (using its salty softening action). | B: ❌ Neutral, sweet, bitter — Incorrect temperature and tastes; We",
+        "exp_zh": "威靈仙（clematidis radix）：溫、辛、鹹。辛散風寒，溫通經絡，鹹軟化骨鯁（特殊功效），善治各種痹症和骨刺。"
+      },
+      {
+        "id": 123,
+        "question_en": "Ba Zhen Tang (Eight Precious Decoction) is a combination of which of the following formulae?",
+        "question_zh": "八珍湯是哪兩個方劑的組合？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Si Shen Wan (4 Miracle Pill) and Si Miao Wan (4 Miracle Pill)", "zh": "四神丸與四妙丸", "correct": false},
+          "B": {"en": "Wu Ji San (5 Accumulation Powder) and San Ren Tang (Three Nut Decoction)", "zh": "五積散與三仁湯", "correct": false},
+          "C": {"en": "Er Xian Tang (2 Immortal Decoction) and Liu Wei Di Huang Wan (6 Ingredient Rehmannia Pill)", "zh": "二仙湯與六味地黃丸", "correct": false},
+          "D": {"en": "Si Wu Tang (4 substance decoction) and Si Jun Zi Tang (4 Gentleman Decoction)", "zh": "四物湯與四君子湯", "correct": true}
+        },
+        "exp_en": "Answer: D — Si Wu Tang (4 substance decoction) and Si Jun Zi Tang (4 Gentleman Decoction)",
+        "exp_zh": "八珍湯=四物湯（補血：熟地、當歸、白芍、川芎）+四君子湯（補氣：人參/黨參、白朮、茯苓、炙甘草），氣血雙補。"
+      },
+      {
+        "id": 124,
+        "question_en": "Which of the following herbs enters the Heart channel, treating conditions such as irregular heartbeat and palpitation?",
+        "question_zh": "以下哪味草藥歸心經，可治療心律不整？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Bai Zhu (atractylodis macrocephalae rhizoma)", "zh": "白朮", "correct": false},
+          "B": {"en": "Gan Cao (glycyrrhizae radix)", "zh": "甘草", "correct": true},
+          "C": {"en": "Tai Zi Shen (pseudostellariae radix)", "zh": "太子參", "correct": false},
+          "D": {"en": "Huang Qi (astragali radix)", "zh": "黃芪", "correct": false}
+        },
+        "exp_en": "Answer: B — Gan Cao (glycyrrhizae radix)",
+        "exp_zh": "甘草入心經，補益心氣，治心氣虛型心律不整（炙甘草湯），同時調和諸藥，是中藥中唯一能廣泛調和的藥。"
+      },
+      {
+        "id": 125,
+        "question_en": "Which of the following statements best describes the action of Long Yan Rou (longan arillus)?",
+        "question_zh": "以下哪項最能描述龍眼肉的功效？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Tonifies Liver blood to nourish the tendons", "zh": "補肝血以養筋", "correct": false},
+          "B": {"en": "Tonifies Kidney yin", "zh": "補腎陰", "correct": false},
+          "C": {"en": "Tonifies Kidney essence and darkens the hair", "zh": "補腎精烏髮", "correct": false},
+          "D": {"en": "Tonifies Heart blood to calm shen", "zh": "補心血安神", "correct": true}
+        },
+        "exp_en": "Answer: D — Tonifies Heart blood to calm shen",
+        "exp_zh": "龍眼肉（longan arillus）補心血安神，歸脾湯的重要組成，治療心脾兩虛型失眠、健忘、心悸。"
+      },
+      {
+        "id": 126,
+        "question_en": "What are the entering channels of Shi Gao (gypsum fibrosum)?",
+        "question_zh": "石膏（gypsum fibrosum）歸哪些經？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "LU, ST", "zh": "肺、胃", "correct": true},
+          "B": {"en": "SP, ST, LI", "zh": "脾、胃、大腸", "correct": false},
+          "C": {"en": "KI, UB", "zh": "腎、膀胱", "correct": false},
+          "D": {"en": "HT, SI, ST", "zh": "心、小腸、胃", "correct": false}
+        },
+        "exp_en": "Answer: A — LU, ST",
+        "exp_zh": "石膏（gypsum fibrosum）入肺、胃兩經：清肺熱（退熱止咳）+清胃火（止牙痛頭痛渴），為清氣分熱要藥。"
+      },
+      {
+        "id": 127,
+        "question_en": "Which of the following is best for drying Damp in the middle warmer?",
+        "question_zh": "以下哪個方劑最擅長燥化中焦濕邪？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Wu Ling San (Five Fungus Powder)", "zh": "五苓散", "correct": false},
+          "B": {"en": "Zhu Ling Tang (Polyporis Decoction)", "zh": "豬苓湯", "correct": false},
+          "C": {"en": "Zhen Wu Tang (True Warrior Decoction)", "zh": "真武湯", "correct": false},
+          "D": {"en": "Ping Wei San (Calm the Stomach Powder)", "zh": "平胃散", "correct": true}
+        },
+        "exp_en": "Answer: D — Ping Wei San (Calm the Stomach Powder)",
+        "exp_zh": "平胃散（蒼朮、厚朴、陳皮、炙甘草）燥濕化痰，最擅長燥化中焦（脾胃）濕邪，用於濕阻中焦（脘腹脹滿、苔白膩）。"
+      },
+      {
+        "id": 128,
+        "question_en": "What is the recommended dosage of Shui Niu Jiao (bubali cornu) when used in decoction?",
+        "question_zh": "水牛角替代犀角的推薦劑量是多少？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "0.5-1.0 grams", "zh": "0.5-1.0克", "correct": false},
+          "B": {"en": "1-3 grams", "zh": "1-3克", "correct": false},
+          "C": {"en": "30-120 grams", "zh": "30-120克", "correct": true},
+          "D": {"en": "3-9 grams", "zh": "3-9克", "correct": false}
+        },
+        "exp_en": "Answer: C — 30-120 grams",
+        "exp_zh": "水牛角替代犀角需大劑量：30-120克，因水牛角藥效遠弱於犀角（1-3克），須增量10-30倍方可。"
+      },
+      {
+        "id": 129,
+        "question_en": "What are the entering channels of Mu Gua (chaenomelis fructus)?",
+        "question_zh": "木瓜（chaenomelis fructus）歸哪些經？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "KI, LV", "zh": "腎、肝", "correct": false},
+          "B": {"en": "KI, UB", "zh": "腎、膀胱", "correct": false},
+          "C": {"en": "LV, KI, HT", "zh": "肝、腎、心", "correct": false},
+          "D": {"en": "LV, SP", "zh": "肝、脾", "correct": true}
+        },
+        "exp_en": "Answer: D — LV, SP",
+        "exp_zh": "木瓜（chaenomelis fructus）入肝、脾兩經：肝主筋（舒筋活絡止痙攣），脾主肌肉（化濕和中），治痹症和腳氣水腫。"
+      },
+      {
+        "id": 130,
+        "question_en": "Which of the following signs and symptoms are typically associated with Xue-Level (aka Blood-Level) heat?",
+        "question_zh": "以下哪組症狀與氣分熱（陽明經熱）相關？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Big fever, big sweat, big thirst, and a rapid, surging pulse", "zh": "大熱、大汗、大渴、脈洪大", "correct": false},
+          "B": {"en": "Fever, abdominal pain that worsens with pressure, constipation, and a rapid pulse", "zh": "發熱、腹痛拒按、便秘", "correct": false},
+          "C": {"en": "Alternating fever and chills, nausea, bitter taste in the mouth, ribside pain, and a wiry pulse", "zh": "寒熱往來、噁心、口苦", "correct": false},
+          "D": {"en": "Irritability, delirium, maculopapular rash, bleeding (nosebleed, vomiting blood, etc), and a scarlet tongue", "zh": "煩躁、神昏、斑疹、出血", "correct": true}
+        },
+        "exp_en": "Answer: D — Irritability, delirium, maculopapular rash, bleeding (nosebleed, vomiting blood, etc), and a scarlet tongue",
+        "exp_zh": "熱入營血分（營分/血分），出現煩躁神昏、斑疹、出血，為溫病後期熱毒深陷血分的表現（四大症為氣分熱）。"
+      },
+      {
+        "id": 131,
+        "question_en": "Which of the following herbs tonifies blood and also invigorates blood?",
+        "question_zh": "以下哪味草藥既能補血又能活血？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "E Jiao (asini corii colla)", "zh": "阿膠（asini corii colla）", "correct": false},
+          "B": {"en": "Dang Gui (angelicae sinensis radix)", "zh": "當歸（angelicae sinensis radix）", "correct": true},
+          "C": {"en": "Bai Shao (paeoniae radix alba)", "zh": "白芍（paeoniae radix alba）", "correct": false},
+          "D": {"en": "Zhi He Shou Wu (polygoni multiflori radix preparata)", "zh": "制何首烏（polygoni multiflori radix preparata）", "correct": false}
+        },
+        "exp_en": "Answer: B — Dang Gui (angelicae sinensis radix)",
+        "exp_zh": "當歸（angelicae sinensis radix）補血兼活血：既能補益（熟用補血）又能行血（酒炒活血），是補血活血的雙重要藥。"
+      },
+      {
+        "id": 132,
+        "question_en": "What is the taste and temperature of Bai Shao (paeoniae radix alba)?",
+        "question_zh": "白芍（paeoniae radix alba）的味性是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "warm, sweet, acrid", "zh": "溫、甘、辛", "correct": false},
+          "B": {"en": "neutral, sweet, bitter", "zh": "平、甘、苦", "correct": false},
+          "C": {"en": "cool, sweet", "zh": "涼、甘", "correct": false},
+          "D": {"en": "cool, bitter, sour", "zh": "涼、苦、酸", "correct": true}
+        },
+        "exp_en": "Answer: D — cool, bitter, sour",
+        "exp_zh": "白芍（paeoniae radix alba）：涼、苦、酸。涼清肝熱，苦燥濕，酸收斂（斂陰止汗、緩急止痛），是柔肝斂陰要藥。"
+      },
+      {
+        "id": 133,
+        "question_en": "Which of the following herbs warms the Lung, treating cough with thin, watery, white mucus?",
+        "question_zh": "以下哪味草藥能溫肺，治療稀白痰咳嗽？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Wu Zhu Yu (evodiae fructus)", "zh": "吳茱萸（evodiae fructus）", "correct": false},
+          "B": {"en": "Hua Jiao (zanthoxyli pericarpium)", "zh": "花椒（zanthoxyli pericarpium）", "correct": false},
+          "C": {"en": "Gan Jiang (zingiberis rhizoma)", "zh": "乾薑（zingiberis rhizoma）", "correct": true},
+          "D": {"en": "Rou Gui (cinnamomi cortex)", "zh": "肉桂（cinnamomi cortex）", "correct": false}
+        },
+        "exp_en": "Answer: C — Gan Jiang (zingiberis rhizoma)",
+        "exp_zh": "乾薑（zingiberis rhizoma）溫肺化飲：溫化肺中寒飲（痰稀白泡沫），治寒飲咳嗽（小青龍湯中乾薑的作用）。"
+      },
+      {
+        "id": 134,
+        "question_en": "What are the entering channels of Xia Ku Cao (prunellae spica)?",
+        "question_zh": "夏枯草（prunellae spica）歸哪些經？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "KI, UB", "zh": "腎、膀胱", "correct": false},
+          "B": {"en": "LU, ST, KI", "zh": "肺、胃、腎", "correct": false},
+          "C": {"en": "HT, SI, ST", "zh": "心、小腸、胃", "correct": false},
+          "D": {"en": "LV, GB", "zh": "肝、膽", "correct": true}
+        },
+        "exp_en": "Answer: D — LV, GB",
+        "exp_zh": "夏枯草（prunellae spica）入肝、膽兩經：清肝膽熱、散鬱結（肝主筋，膽主決斷），治肝火型目赤、淋巴結腫。"
+      },
+      {
+        "id": 135,
+        "question_en": "What function is related to Dan Zhu Ye (lophatheri herba)?",
+        "question_zh": "淡竹葉（lophatheri herba）的功效是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Clears lower-jiao damp heat; for yellow, foul-smelling vaginal discharge", "zh": "清下焦濕熱，治黃色惡臭排泄物", "correct": false},
+          "B": {"en": "Clears HT and ST heat; for irritability, mouth sores, and urination problems", "zh": "清心胃熱，治心煩、口瘡、牙齦腫痛", "correct": true},
+          "C": {"en": "Clears deficiency heat; for night sweats and tidal fever due to yin deficiency", "zh": "清虛熱，治盜汗潮熱", "correct": false},
+          "D": {"en": "Clears LU and ST heat; for thirst, dryness, and cough with yellow phlegm", "zh": "清肺胃熱，治口渴、乾燥、咳嗽", "correct": false}
+        },
+        "exp_en": "Answer: B — Clears HT and ST heat; for irritability, mouth sores, and urination problems",
+        "exp_zh": "淡竹葉清心胃熱，治心煩（心火上炎）+口瘡（胃火）+牙齦腫痛，導熱下行從小便排出。"
+      },
+      {
+        "id": 136,
+        "question_en": "In clearing heat, what is Qin Pis (fraxini cortexs) specialty?",
+        "question_zh": "秦皮（fraxini cortex）在清熱方面的特殊功效是什麼？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Treats diarrhea and dysentery due to damp-heat", "zh": "治療濕熱腹瀉和痢疾", "correct": true},
+          "B": {"en": "Clears Heart heat to calm shen", "zh": "清心熱安神", "correct": false},
+          "C": {"en": "Cools the blood to stop bleeding", "zh": "涼血止血", "correct": false},
+          "D": {"en": "Calms restless fetus due to heat", "zh": "安胎（熱所致）", "correct": false}
+        },
+        "exp_en": "Answer: A — Treats diarrhea and dysentery due to damp-heat",
+        "exp_zh": "秦皮（fraxini cortex）清大腸濕熱，治濕熱腹瀉和痢疾（膿血便），為清腸止痢的要藥，也可清肝明目。"
+      },
+      {
+        "id": 137,
+        "question_en": "Beth, aged 62, has had lower back pain for about 6 years. The pain was stable but seems worse on cold or rainy days. She uses a heating pad to relieve the pain. She reports weakness in the knees and has heart palpitations. Her tongue is pale, coated white. Her pulse is thin and feeble. The diagnosis of Bi syndrome is due to which pattern?",
+        "question_zh": "Beth，62歲，腰痛6年，受寒加重，舌紅苔黃膩，脈濡數。診斷是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "External Wind-Damp, with Internal Yang Deficiency", "zh": "外感風濕兼內陽虛", "correct": false},
+          "B": {"en": "External Damp-Heat with Cold in the Liver channel", "zh": "外感濕熱兼肝寒", "correct": false},
+          "C": {"en": "External Wind-Cold invasion with Kidney Yin deficiency", "zh": "外感風寒兼腎陰虛", "correct": false},
+          "D": {"en": "Damp-Cold with Blood and Qi, Liver and Kidney deficiency", "zh": "寒濕兼氣血、肝腎虛", "correct": true}
+        },
+        "exp_en": "Answer: D — Damp-Cold with Blood and Qi, Liver and Kidney deficiency",
+        "exp_zh": "Beth腰痛+症狀複雜（寒熱交錯、舌紅苔黃膩、脈濡數），診斷為寒濕兼血氣虧虛、肝腎不足型痹症，需複法治療。"
+      },
+      {
+        "id": 138,
+        "question_en": "What are the signs and symptoms associated with Yang Ming channel disease?",
+        "question_zh": "陽明經病的症狀是什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Fever, constipation, and abdominal pain that worsens with pressure", "zh": "發熱、便秘、腹痛拒按", "correct": false},
+          "B": {"en": "Simultaneous fever and chills, body ache, presence of sweating, and a floating, moderate pulse", "zh": "發熱惡寒同時、體痛、苔白", "correct": false},
+          "C": {"en": "Alternating fever and chills, ribside pain, bitter taste in the mouth, nausea, and a wiry pulse", "zh": "寒熱往來、脅痛、口苦", "correct": false},
+          "D": {"en": "Great fever, great sweating, great thirst and vexation, and a large, surging pulse", "zh": "壯熱、大汗、大渴、煩躁、脈洪大", "correct": true}
+        },
+        "exp_en": "Answer: D — Great fever, great sweating, great thirst and vexation, and a large, surging pulse",
+        "exp_zh": "陽明經證（白虎湯證）：壯熱、大汗、大渴、脈洪大（四大症），熱盛于陽明經，未入腑（無便秘）。"
+      },
+      {
+        "id": 139,
+        "question_en": "Which is true of Gui Zhi Tang (Cinnamon Twig Decoction) and Ma Huang Tang (Ephedra Decoction)?",
+        "question_zh": "關於桂枝湯和麻黃湯，以下哪項正確？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "One treats external Wind-Cold the other Wind-Heat", "zh": "一治外感風寒，一治風熱", "correct": false},
+          "B": {"en": "One is used for no sweating, the other treats mild sweating", "zh": "一用於無汗，一用於微汗", "correct": true},
+          "C": {"en": "One contains gui zhi (Rm Cinnamomi Cassiae), the other does not", "zh": "一含桂枝，一不含", "correct": false},
+          "D": {"en": "One treats cough, the other chills and fever", "zh": "一治咳嗽，一治惡寒發熱", "correct": false}
+        },
+        "exp_en": "Answer: B — One is used for no sweating, the other treats mild sweating",
+        "exp_zh": "桂枝湯（有汗，微汗惡風）vs 麻黃湯（無汗，惡寒重）：一治有汗表虛，一治無汗表實，均治外感風寒但出汗情況不同。"
+      },
+      {
+        "id": 140,
+        "question_en": "Besides tonifying blood, what is another important function of Shu Di Huang (rehmanniae radix preparata)?",
+        "question_zh": "熟地黃除補血外，另一重要功效是什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Invigorates blood", "zh": "活血化瘀", "correct": false},
+          "B": {"en": "Cools the blood", "zh": "涼血", "correct": false},
+          "C": {"en": "Stops bleeding", "zh": "止血", "correct": false},
+          "D": {"en": "Tonifies yin", "zh": "補陰", "correct": true}
+        },
+        "exp_en": "Answer: D — Tonifies yin",
+        "exp_zh": "熟地黃（rehmanniae radix preparata）除補血外，另一重要功效：填精補陰（腎陰），治腎陰不足（骨蒸、腰膝酸軟）。"
+      },
+      {
+        "id": 141,
+        "question_en": "What is that taste and temperature of Dan Zhu Ye (lophatheri herba)?",
+        "question_zh": "淡竹葉的味性是？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Warm, bitter, salty", "zh": "溫、苦、鹹", "correct": false},
+          "B": {"en": "Cold, sweet, bland", "zh": "寒、甘、淡", "correct": true},
+          "C": {"en": "Hot, bitter", "zh": "熱、苦", "correct": false},
+          "D": {"en": "Cold, acrid, sweet", "zh": "寒、辛、甘", "correct": false}
+        },
+        "exp_en": "Answer: B — Cold, sweet, bland",
+        "exp_zh": "淡竹葉：寒、甘、淡。三個性質缺一不可，寒清熱，甘和緩，淡滲利水，是清心利水的典型藥。"
+      },
+      {
+        "id": 142,
+        "question_en": "Which form of Zhi Zi (gardeniae fructus) is best for stopping bleeding?",
+        "question_zh": "梔子的哪種炮製形式最適合止血？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Ginger-fried Zhi Zi (Jiang Shan Zhi)", "zh": "薑汁炒梔子", "correct": false},
+          "B": {"en": "Zhi Zi peels (Shan Zhi Pi)", "zh": "梔子皮", "correct": false},
+          "C": {"en": "Dry-fried Zhi Zi (Chao Shan Zhi Zi)", "zh": "清炒梔子", "correct": false},
+          "D": {"en": "Charred Zhi Zi (Shan Zhi Zi Tan)", "zh": "梔子炭", "correct": true}
+        },
+        "exp_en": "Answer: D — Charred Zhi Zi (Shan Zhi Zi Tan)",
+        "exp_zh": "梔子炭增強收澀止血之力，用於血熱出血，「炒炭存性」——保留清熱但增強止血收澀，是止血的最佳炮製形式。"
+      },
+      {
+        "id": 143,
+        "question_en": "Which of the following herb categories is NOT appropriate for treating Internal Wind?",
+        "question_zh": "以下哪類草藥不適合治療陰虛病症？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Sweet herbs", "zh": "甘味藥", "correct": false},
+          "B": {"en": "Heavy herbs", "zh": "重質藥", "correct": false},
+          "C": {"en": "Pungent herbs", "zh": "辛味藥", "correct": false},
+          "D": {"en": "Bitter herbs", "zh": "苦味藥", "correct": true}
+        },
+        "exp_en": "Answer: D — Bitter herbs",
+        "exp_zh": "陰虛患者忌用辛味藥：辛能散能行，辛溫燥烈直傷陰液，苦味藥雖苦燥但可清熱，辛味藥更直接耗陰。"
+      },
+      {
+        "id": 144,
+        "question_en": "How does Mu Gua (chaenomelis fructus) address bi syndrome?",
+        "question_zh": "木瓜（chaenomelis fructus）如何治療痹症？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Warms the interior", "zh": "溫裏", "correct": false},
+          "B": {"en": "Tonifies Liver and Kidney yin to strengthen tendon and bone", "zh": "補肝腎陰以強筋骨", "correct": false},
+          "C": {"en": "Expels wind-cold-dampness", "zh": "祛風寒濕", "correct": false},
+          "D": {"en": "Relaxes the sinews and unblocks the channels", "zh": "舒筋通絡", "correct": true}
+        },
+        "exp_en": "Answer: D — Relaxes the sinews and unblocks the channels",
+        "exp_zh": "木瓜治痹症：舒筋活絡通痹，柔筋緩急止痙，治療痹症引起的肌肉筋脈攣縮，尤其適合筋脈拘急型。"
+      },
+      {
+        "id": 145,
+        "question_en": "Which of the following herbs clears Lung heat; for fever, thirst, and cough with thick, yellow sputum?",
+        "question_zh": "以下哪味草藥能清肺熱，治療發熱、口渴、咳嗽？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Huang Qin (scutellariae radix)", "zh": "黃芩（scutellariae radix）", "correct": true},
+          "B": {"en": "Huang Bai (phellodendri cortex)", "zh": "黃柏（phellodendri cortex）", "correct": false},
+          "C": {"en": "Huang Lian (coptidis rhizoma)", "zh": "黃連（coptidis rhizoma）", "correct": false},
+          "D": {"en": "Qin Pi (fraxini cortex)", "zh": "秦皮（fraxini cortex）", "correct": false}
+        },
+        "exp_en": "Answer: A — Huang Qin (scutellariae radix)",
+        "exp_zh": "黃芩（scutellariae radix）清肺熱：入肺，清上焦肺熱，治肺熱咳嗽（黃痰、發熱、口渴），為清肺要藥之一。"
+      },
+      {
+        "id": 146,
+        "question_en": "What organs/channels does the following formula act on? Tian Ma + Gou Teng + Shi Jue Ming + Ye Jiao Teng + Sang Ji Sheng",
+        "question_zh": "以下方劑（天麻+鉤藤+石決明等）作用於哪些臟腑/經絡？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "HT/LR", "zh": "心/肝", "correct": false},
+          "B": {"en": "LV/GB", "zh": "肝/膽", "correct": false},
+          "C": {"en": "KI/LR", "zh": "腎/肝", "correct": true},
+          "D": {"en": "KI/HT", "zh": "腎/心", "correct": false}
+        },
+        "exp_en": "Answer: C — KI/LR",
+        "exp_zh": "天麻鉤藤飲作用臟腑：腎（腎陰不足）+肝（肝陽化風），KI/LR（腎/肝），滋腎陰以潛肝陽，平肝息風。"
+      },
+      {
+        "id": 147,
+        "question_en": "What is the thermal nature of Gan Cao (Radix Glycyrrhizae)?",
+        "question_zh": "甘草（Radix Glycyrrhizae）的性質是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Cool", "zh": "涼", "correct": false},
+          "B": {"en": "Neutral", "zh": "平", "correct": true},
+          "C": {"en": "Warm", "zh": "溫", "correct": false},
+          "D": {"en": "Hot", "zh": "熱", "correct": false}
+        },
+        "exp_en": "Answer: B — Neutral",
+        "exp_zh": "甘草（Radix Glycyrrhizae）生用性平，炙用性溫。生甘草清熱解毒（平），炙甘草補氣（溫），此題考查生甘草——平。"
+      },
+      {
+        "id": 148,
+        "question_en": "In tonifying blood, what is Gou Qi Zi's (lycii fructus) specialty?",
+        "question_zh": "在補血方面，枸杞子（lycii fructus）的特殊功效是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Moistens the Large Intestine", "zh": "潤腸通便", "correct": false},
+          "B": {"en": "Brightens the eyes", "zh": "明目", "correct": true},
+          "C": {"en": "Treats rash due to blood deficiency", "zh": "治療血虛皮疹", "correct": false},
+          "D": {"en": "Calms shen", "zh": "安神", "correct": false}
+        },
+        "exp_en": "Answer: B — Brightens the eyes",
+        "exp_zh": "枸杞子（lycii fructus）在補血方面特殊功效：明目。補肝腎之陰，以滋養目竅，治療肝腎虧虛所致視力減退。"
+      },
+      {
+        "id": 149,
+        "question_en": "What is the taste and temperature of Shui Niu Jiao (bubali cornu)?",
+        "question_zh": "水牛角（bubali cornu）的味性是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Cool, acrid, sweet", "zh": "涼、辛、甘", "correct": false},
+          "B": {"en": "Warm, bitter, sweet", "zh": "溫、苦、甘", "correct": false},
+          "C": {"en": "Cold, bitter, salty", "zh": "寒、苦、鹹", "correct": true},
+          "D": {"en": "Neutral, sweet", "zh": "平、甘", "correct": false}
+        },
+        "exp_en": "Answer: C — Cold, bitter, salty",
+        "exp_zh": "水牛角（bubali cornu）：寒、苦、鹹。寒清熱，苦涼血，鹹入血分，直清血分熱毒，為涼血解毒要藥。"
+      },
+      {
+        "id": 150,
+        "question_en": "What is the thermal nature of Gan Jiang (Rhizoma Zingiberis Preparatum)?",
+        "question_zh": "乾薑（Rhizoma Zingiberis Preparatum）的性質是？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Cold", "zh": "寒", "correct": false},
+          "B": {"en": "Neutral", "zh": "平", "correct": false},
+          "C": {"en": "Hot", "zh": "熱", "correct": true},
+          "D": {"en": "Very Hot", "zh": "大熱", "correct": false}
+        },
+        "exp_en": "Answer: C — Hot",
+        "exp_zh": "乾薑性熱（hot），溫中散寒回陽，藥性比鮮薑更強烈，是溫裏藥的代表，治脾胃虛寒、亡陽厥逆。"
+      },
+      {
+        "id": 151,
+        "question_en": "Which herbal modification would you use to augment Da Huang Fu Zi Tang to treat constipation with abdominal pain?",
+        "question_zh": "大黃附子湯的加減方法（增強其溫腸通便功效）是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Add Mu Dan Pi and Zhi Zi", "zh": "加牡丹皮和梔子", "correct": false},
+          "B": {"en": "Add Mu Xiang and Hou Po", "zh": "加木香和厚朴", "correct": true},
+          "C": {"en": "Add Dang Shen and Yu Jin", "zh": "加黨參和鬱金", "correct": false},
+          "D": {"en": "Add Sheng Di Huang and Ren Shen", "zh": "加生地黃和人參", "correct": false}
+        },
+        "exp_en": "Answer: B — Add Mu Xiang and Hou Po",
+        "exp_zh": "大黃附子湯加木香（理氣）+厚朴（消積）：增強行氣通腑消積作用，強化其溫下寒積的效果。"
+      },
+      {
+        "id": 152,
+        "question_en": "Which herb clears heat, tonifies yin, moistens dryness—used for both excess and deficiency heat?",
+        "question_zh": "哪味草藥能清熱、補陰、潤燥，可用於外感和內傷？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Zhi Mu (anemarrhenae rhizoma)", "zh": "知母（anemarrhenae rhizoma）", "correct": true},
+          "B": {"en": "Xia Ku Cao", "zh": "夏枯草", "correct": false},
+          "C": {"en": "Dan Zhu Ye", "zh": "淡竹葉", "correct": false},
+          "D": {"en": "Shi Gao", "zh": "石膏", "correct": false}
+        },
+        "exp_en": "Answer: A — Zhi Mu (anemarrhenae rhizoma)",
+        "exp_zh": "知母（anemarrhenae rhizoma）清熱補陰潤燥，可治外感實熱（白虎湯）和內傷陰虛（知柏地黃丸），為兼能清補的特殊藥。"
+      },
+      {
+        "id": 153,
+        "question_en": "Which herb is neutral in temperature and especially useful for warm type bi syndrome in the upper extremities?",
+        "question_zh": "哪味草藥性質中性，特別適用於溫熱型痹症？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Du Huo", "zh": "獨活", "correct": false},
+          "B": {"en": "Can Sha", "zh": "蠶沙", "correct": false},
+          "C": {"en": "Sang Zhi (mori ramulus)", "zh": "桑枝", "correct": true},
+          "D": {"en": "Mu Gua", "zh": "木瓜", "correct": false}
+        },
+        "exp_en": "Answer: C — Sang Zhi (mori ramulus)",
+        "exp_zh": "桑枝（mori ramulus）性平偏涼，適合溫熱型痹症（熱痹），不偏寒熱，上肢風濕疼痛熱象者最宜。"
+      },
+      {
+        "id": 154,
+        "question_en": "Which herb enters the Heart channel, treating irregular heartbeat and palpitation?",
+        "question_zh": "哪味草藥歸心經，可治療心律不整和心氣虛？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Bai Zhu", "zh": "白朮", "correct": false},
+          "B": {"en": "Gan Cao (glycyrrhizae radix)", "zh": "甘草", "correct": true},
+          "C": {"en": "Tai Zi Shen", "zh": "太子參", "correct": false},
+          "D": {"en": "Huang Qi", "zh": "黃芪", "correct": false}
+        },
+        "exp_en": "Answer: B — Gan Cao (glycyrrhizae radix)",
+        "exp_zh": "甘草入心，補益心氣，治療心氣虛型心律不整（炙甘草湯），同時緩和藥性，調和諸藥。"
+      },
+      {
+        "id": 155,
+        "question_en": "What statement is true of Du Huo (angelicae pubescentis radix)?",
+        "question_zh": "關於獨活，以下哪項陳述正確？（重複）",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Treats bi syndrome in the upper body", "zh": "治療上肢痹症", "correct": false},
+          "B": {"en": "Treats itching and skin rash due to wind", "zh": "治療風所致皮膚瘙癢", "correct": false},
+          "C": {"en": "Treats hot bi", "zh": "治療熱痹", "correct": false},
+          "D": {"en": "Treats bi syndrome in the lower body", "zh": "治療下肢痹症", "correct": true}
+        },
+        "exp_en": "Answer: D — Treats bi syndrome in the lower body",
+        "exp_zh": "獨活「治下部痹症」：辛溫下行，善治腰膝腿部寒濕痹症，與羌活（治上）形成上下分工。"
+      },
+      {
+        "id": 156,
+        "question_en": "Which herb has the following functions: clears Liver heat, brightens the eyes, moistens the Large Intestine to relieve constipation, lowers high blood pressure and cholesterol?",
+        "question_zh": "哪味草藥能清肝熱、明目、潤腸？（重複）",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Jue Ming Zi (cassiae semen)", "zh": "決明子", "correct": true},
+          "B": {"en": "Shi Gao", "zh": "石膏", "correct": false},
+          "C": {"en": "Dan Zhu Ye", "zh": "淡竹葉", "correct": false},
+          "D": {"en": "Xia Ku Cao", "zh": "夏枯草", "correct": false}
+        },
+        "exp_en": "Answer: A — Jue Ming Zi (cassiae semen)",
+        "exp_zh": "決明子清肝明目+潤腸通便，「一藥兩用」，為肝熱便秘患者理想選擇，兼明目防眼疾。"
+      },
+      {
+        "id": 157,
+        "question_en": "Which herb clears summerheat and generates fluids; for thirst, dark scanty urine, and dry heaves?",
+        "question_zh": "哪味草藥能清暑熱、生津，治療口渴、尿黃？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Zhi Mu", "zh": "知母", "correct": false},
+          "B": {"en": "Zhi Zi", "zh": "梔子", "correct": false},
+          "C": {"en": "Xi Gua (citrulli fructus)", "zh": "西瓜", "correct": true},
+          "D": {"en": "Lu Gen", "zh": "蘆根", "correct": false}
+        },
+        "exp_en": "Answer: C — Xi Gua (citrulli fructus)",
+        "exp_zh": "西瓜（Xi Gua）天然清暑飲料，清暑熱生津，治夏季暑熱口渴、尿黃、煩躁，「天然白虎湯」。"
+      },
+      {
+        "id": 158,
+        "question_en": "Besides tonifying qi, what is another important function of Shan Yao (dioscorea rhizoma)?",
+        "question_zh": "山藥（dioscorae rhizoma）除補氣外，另一重要功效是什麼？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Tonifies Heart blood to calm shen", "zh": "補心血安神", "correct": false},
+          "B": {"en": "Secures Kidney essence; for frequent urination, seminal emission, vaginal discharge", "zh": "固腎澀精，治療尿頻、遺精", "correct": true},
+          "C": {"en": "Clears heat toxicity", "zh": "清熱解毒", "correct": false},
+          "D": {"en": "Clears Summerheat", "zh": "清暑熱", "correct": false}
+        },
+        "exp_en": "Answer: B — Secures Kidney essence; for frequent urination, seminal emission, vaginal discharge",
+        "exp_zh": "山藥（dioscorae rhizoma）除補氣外另一功效：固腎澀精，治療腎氣不固型尿頻、遺精、帶下，補而不滯。"
+      },
+      {
+        "id": 159,
+        "question_en": "What is the taste and temperature of Dang Gui (angelicae sinensis radix)?",
+        "question_zh": "當歸（angelicae sinensis radix）的味性是？（重複）",
+        "answer": "B",
+        "options": {
+          "A": {"en": "slightly warm, bitter, sweet, astringent", "zh": "微溫、苦、甘、澀", "correct": false},
+          "B": {"en": "warm, sweet, acid", "zh": "溫、甘、酸", "correct": true},
+          "C": {"en": "cold, sweet", "zh": "寒、甘", "correct": false},
+          "D": {"en": "cool, sour, bitter", "zh": "涼、酸、苦", "correct": false}
+        },
+        "exp_en": "Answer: B — warm, sweet, acid",
+        "exp_zh": "當歸：溫、甘、酸（或辛）。此題選B（warm, sweet, acid）——考查當歸的酸味，酸斂養血。"
+      },
+      {
+        "id": 160,
+        "question_en": "Fred, age 5, mumps with swollen face, local heat, tenderness, fever 38°C, slight thirst, sore throat, red tongue with yellow coating, rapid floating pulse. Correct treatment principle?",
+        "question_zh": "5歲Fred腮腺炎（重複），正確治療原則是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "release external Wind-Heat, circulate Lung Qi to stop cough", "zh": "疏散風熱、宣肺止咳", "correct": false},
+          "B": {"en": "disperse Wind-Heat, clear Heat and detoxify", "zh": "疏散風熱、清熱解毒", "correct": true},
+          "C": {"en": "release external Cold and stop wheezing", "zh": "解表散寒、止咳平喘", "correct": false},
+          "D": {"en": "clear internal Heat and detoxify", "zh": "清裏熱解毒", "correct": false}
+        },
+        "exp_en": "Answer: B — disperse Wind-Heat, clear Heat and detoxify",
+        "exp_zh": "腮腺炎（溫毒風熱）治則：疏散風熱+清熱解毒消腫，銀翹散加減是標準治法。"
+      },
+      {
+        "id": 161,
+        "question_en": "Which herb clears damp-heat from the skin; for skin lesions, diaper rash, vaginal itching, burns?",
+        "question_zh": "哪味草藥能清皮膚濕熱，治療皮疹、尿布疹？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Zi Cao", "zh": "紫草", "correct": false},
+          "B": {"en": "Shui Niu Jiao", "zh": "水牛角", "correct": false},
+          "C": {"en": "Sheng Di Huang", "zh": "生地黃", "correct": false},
+          "D": {"en": "Mu Dan Pi (moutan cortex)", "zh": "牡丹皮", "correct": true}
+        },
+        "exp_en": "Answer: D — Mu Dan Pi (moutan cortex)",
+        "exp_zh": "牡丹皮清皮膚濕熱：涼血活血，清熱解毒，治皮膚濕熱性皮疹（滲出型、紅腫型），清血分熱從肌膚透出。"
+      },
+      {
+        "id": 162,
+        "question_en": "Overdosage of Qi Regulating herbs can damage the following?",
+        "question_zh": "過量使用理氣藥可能損傷以下哪種物質？（重複）",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Yang", "zh": "陽", "correct": false},
+          "B": {"en": "Qi", "zh": "氣", "correct": false},
+          "C": {"en": "Yin", "zh": "陰", "correct": true}
+        },
+        "exp_en": "Answer: C — Yin",
+        "exp_zh": "理氣藥（如枳實、厚朴、木香）辛燥，過量則耗散氣陰，以傷陰為主（辛燥傷陰液），此題答案為陰（Yin）。"
+      },
+      {
+        "id": 163,
+        "question_en": "Claire, age 65, skin itching for 3 years, worse in evening, very dry skin with scabs. Which formula?",
+        "question_zh": "Claire，65歲，皮膚瘙癢3年，傍晚加重，皮膚極乾，舌淡，脈細弱。最合適方劑是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Xiaofeng San", "zh": "消風散", "correct": false},
+          "B": {"en": "Long Dan Xie Gan Tang", "zh": "龍膽瀉肝湯", "correct": false},
+          "C": {"en": "Si Wu Tang", "zh": "四物湯", "correct": true},
+          "D": {"en": "Er Chen Tang", "zh": "二陳湯", "correct": false}
+        },
+        "exp_en": "A: ❌ Xiaofeng San — Disperses wind, clears heat, eliminates dampness; best for acute eczema/urticaria with weeping, oozing lesions and itching due to wind-heat or wind-damp. Not appropriate for chronic dry, scabbed skin in an elderly patient. | B: ❌ Long Dan Xie Gan Tang — Clears Liver-Gallbladder fire and damp-heat; for acute damp-heat patterns with red, weeping, inflamed skin. This patient has a",
+        "exp_zh": "Claire皮膚瘙癢（血虛生風）：皮膚乾燥、傍晚加重（陰血不足）、舌淡脈細，四物湯補血養血、熄風止癢。"
+      },
+      {
+        "id": 164,
+        "question_en": "Which herb has the following functions: clears heat and cools the blood, nourishes yin, softens hardness and dissipates nodules?",
+        "question_zh": "以下哪味草藥能清熱涼血、滋陰（重複）？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Sheng Di Huang", "zh": "生地黃", "correct": false},
+          "B": {"en": "Xuan Shen (scrophulariae radix)", "zh": "玄參", "correct": true},
+          "C": {"en": "Mu Dan Pi", "zh": "牡丹皮", "correct": false},
+          "D": {"en": "Zi Cao", "zh": "紫草", "correct": false}
+        },
+        "exp_en": "Answer: B — Xuan Shen (scrophulariae radix)",
+        "exp_zh": "玄參（scrophulariae radix）清熱涼血+滋陰解毒，善治血分熱毒（斑疹、咽喉腫毒），寒鹹苦，清而兼補。"
+      },
+      {
+        "id": 165,
+        "question_en": "A 38-year-old male with chronic diarrhea, daily diarrhea, continuous abdominal pain, poor appetite, cold extremities, pale tongue, thin deep pulse. Which formula?",
+        "question_zh": "38歲男性，慢性腹瀉（重複），最合適方劑是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Shen Ling Bai Zhu San", "zh": "參苓白朮散", "correct": false},
+          "B": {"en": "Tong Xie Yao Fang", "zh": "痛瀉要方", "correct": false},
+          "C": {"en": "Ge Gen Huang Lian Tang", "zh": "葛根黃連湯", "correct": false},
+          "D": {"en": "Li Zhong Wan", "zh": "理中丸", "correct": true}
+        },
+        "exp_en": "Answer: D — Li Zhong Wan",
+        "exp_zh": "38歲男性慢性腹瀉、完谷不化、肢冷（陽虛），理中丸（乾薑+人參+白朮+甘草）溫中健脾，治脾胃虛寒腹瀉。"
+      },
+      {
+        "id": 166,
+        "question_en": "A 25-year-old female with whooping cough for 6 weeks, dry cough, breathlessness, heat of skin, red tongue, thin yellow coating, thin rapid pulse. Which formula?",
+        "question_zh": "25歲女性百日咳（重複），最合適方劑是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Yin Qiao San", "zh": "銀翹散", "correct": false},
+          "B": {"en": "Xie Bai San", "zh": "瀉白散", "correct": true},
+          "C": {"en": "Ma Huang Tang", "zh": "麻黃湯", "correct": false},
+          "D": {"en": "Gui Zhi Tang", "zh": "桂枝湯", "correct": false}
+        },
+        "exp_en": "Answer: B — Xie Bai San",
+        "exp_zh": "百日咳（Lung Heat）後期陰傷，乾咳、舌紅、脈數，瀉白散清肺熱瀉肺氣，治肺熱咳嗽。"
+      },
+      {
+        "id": 167,
+        "question_en": "Which formula best treats diarrhea caused by Damp stagnation due to Spleen Qi Deficiency?",
+        "question_zh": "哪個方劑最能治療脾虛濕停所致腹瀉？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Bu Zhong Yi Qi Tang", "zh": "補中益氣湯", "correct": false},
+          "B": {"en": "Shen Ling Bai Zhu San", "zh": "參苓白朮散", "correct": true},
+          "C": {"en": "Gui Pi Tang", "zh": "歸脾湯", "correct": false},
+          "D": {"en": "Zhi Gan Cao Tang", "zh": "炙甘草湯", "correct": false}
+        },
+        "exp_en": "Answer: B — Shen Ling Bai Zhu San",
+        "exp_zh": "參苓白朮散（Shen Ling Bai Zhu San）健脾益氣化濕，專治脾虛濕停型腹瀉（食少、腹脹、大便稀溏）。"
+      },
+      {
+        "id": 168,
+        "question_en": "Besides clearing heat, what is another important function of Sheng Di Huang (rehmanniae radix)?",
+        "question_zh": "生地黃除清熱外，另一重要功效是什麼？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Invigorates blood", "zh": "活血化瘀", "correct": false},
+          "B": {"en": "Promotes urination to treat edema", "zh": "利水消腫", "correct": false},
+          "C": {"en": "Treats damp-heat related skin problems", "zh": "治療濕熱相關皮膚病", "correct": false},
+          "D": {"en": "Nourishes yin and generates fluids", "zh": "滋陰生津", "correct": true}
+        },
+        "exp_en": "Answer: D — Nourishes yin and generates fluids",
+        "exp_zh": "生地黃除清熱涼血外，另一重要功效：滋陰生津（清熱養陰），治熱病傷陰+糖尿病（消渴），補陰不助濕邪。"
+      }
+    ]
+  },
+  "diagnosis": {
+    "title": "TCM Diagnosis",
+    "name_zh": "診斷學",
+    "icon": "🔍",
+    "questions": [
+      {
+        "id": 1,
+        "question_en": "John, 50, male, developed symptoms of influenza: fever (37.5°C), aversion to cold, no sweat, cough with heavy voice, headache, muscle aching, thin-white coating and superficial-tight pulse. Which is the correct diagnosis according to the six stages differentiation?",
+        "question_zh": "John，50歲男性，出現流感症狀：發熱37.5°C、惡寒、無汗、咳嗽聲重、頭痛、肌肉酸痛、苔薄白、浮緊脈。六經辨證診斷是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Tai Yang Wind syndrome", "zh": "太陽中風證", "correct": false},
+          "B": {"en": "Tai Yang Cold syndrome", "zh": "太陽傷寒證", "correct": true},
+          "C": {"en": "Yang Ming Jing syndrome", "zh": "陽明經證", "correct": false},
+          "D": {"en": "Yang Ming Fu syndrome", "zh": "陽明腑證", "correct": false}
+        },
+        "exp_en": "Tai Yang Cold syndrome (Shang Han) is characterized by fever, aversion to cold, NO sweating, headache, body aching, and a superficial-tight (floating-tight) pulse with thin white coating. The absence of sweating and the tight pulse distinguish it from Tai Yang Wind syndrome (which has sweating and a floating-loose pulse). Yang Ming syndromes involve high fever without chills, thirst, and interior ",
+        "exp_zh": "太陽傷寒證（Shang Han）特徵：發熱、惡寒、無汗、浮緊脈。中風證有浮緩脈和出汗。"
+      },
+      {
+        "id": 2,
+        "question_en": "John, 50, male, developed symptoms of influenza: fever (37.5°C), aversion to cold, no sweat, cough with heavy voice, headache, muscle aching, thin-white coating and superficial-tight pulse. Which pair of points is most effective for reducing the fever?",
+        "question_zh": "John（Q1同案）。主要針灸穴位應是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "BL13 and LU9", "zh": "BL13和LU9", "correct": false},
+          "B": {"en": "DU14 and LI11", "zh": "DU14和LI11", "correct": true},
+          "C": {"en": "LI4 and LU7", "zh": "LI4和LU7", "correct": false},
+          "D": {"en": "GB20 and BL12", "zh": "GB20和BL12", "correct": false}
+        },
+        "exp_en": "For Wind-Cold exterior syndrome with fever, DU14 (Da Zhui) is the meeting point of all Yang meridians and is the primary point to clear exterior heat and release the exterior. LI11 (Qu Chi) clears heat and is especially effective for fever. Together they are the classic pair for reducing fever in exterior conditions. | DU14 + LI11: DU14 is the master point for fever reduction (meeting of all Yang ",
+        "exp_zh": "太陽表寒證取大椎（DU14，六陽經交匯，退熱）和曲池（LI11，疏散外邪）。"
+      },
+      {
+        "id": 3,
+        "question_en": "John, 50, male (from Q1). Three days later the patient coughs more with higher fever (38.5°C). He coughs with fast breathing and roaring sound, red tongue and yellow coating and rapid pulse. Which formula should be adopted based on the new condition?",
+        "question_zh": "John（Q1同案）3天後咳嗽加重，有黃痰，高熱，口渴，舌紅苔黃，脈數。方劑選擇？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Bai Hu Tang (White Tiger Decoction)", "zh": "白虎湯", "correct": false},
+          "B": {"en": "Xiao Cheng Qi Tang (Minor Order the Qi Decoction)", "zh": "小承氣湯", "correct": false},
+          "C": {"en": "Xiao Chai Hu Tang (Minor Bupleurum Decoction)", "zh": "小柴胡湯", "correct": false},
+          "D": {"en": "Ma Xing Shi Gan Tang (Ephedra, Apricot Kernel, Gypsum and Licorice Decoction)", "zh": "麻杏石甘湯", "correct": true}
+        },
+        "exp_en": "Three days after a Tai Yang Cold syndrome, the condition has progressed inward. The new symptoms — high fever (38.5°C), fast breathing, roaring cough sound, red tongue, yellow coating, rapid pulse — indicate heat has entered the Lung (Lung Heat pattern). Ma Xing Shi Gan Tang clears Lung heat, stops wheezing, and promotes descent of Lung Qi. | Ma Xing Shi Gan Tang (Ephedra, Apricot Kernel, Gypsum, ",
+        "exp_zh": "太陽傷寒3天後內傳化熱，出現肺熱症狀（黃痰、高熱、口渴），麻杏石甘湯清肺熱止咳喘。"
+      },
+      {
+        "id": 4,
+        "question_en": "Jeff, 60, male, has been suffering from asthma for 20 years. Symptoms: panting asthma with wheezing sound, profuse white sputum, stuffiness in the chest, poor appetite, tiredness, nausea, swollen tongue with thick greasy coating and a slippery pulse. Which formula is most suitable?",
+        "question_zh": "Jeff，60歲男性，哮喘20年，白色泡沫痰、氣喘、食慾差、大便稀、舌胖大苔白膩、脈濡。哪個方劑最合適？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Qing Qi Hua Tan Wan", "zh": "清氣化痰丸", "correct": false},
+          "B": {"en": "Chen Xia Liu Jun Zi Tang", "zh": "陳夏六君子湯", "correct": true},
+          "C": {"en": "Su Zi Jiang Qi Wan", "zh": "蘇子降氣丸", "correct": false},
+          "D": {"en": "Ding Chuan Tang", "zh": "定喘湯", "correct": false}
+        },
+        "exp_en": "Jeff's pattern is Spleen deficiency generating Phlegm-Damp, which then obstructs the Lung (the 'root' is Spleen, the 'branch' is Lung). Chen Xia Liu Jun Zi Tang (Six Gentlemen with Chen Pi and Ban Xia) tonifies Spleen Qi and resolves Phlegm-Damp — treating both root and branch. The white profuse sputum, thick greasy coating, swollen tongue, poor appetite, tiredness, and nausea all point to Spleen-",
+        "exp_zh": "脾虛生痰濕，痰濕阻肺，陳夏六君子湯健脾化痰，治本（脾虛）。"
+      },
+      {
+        "id": 5,
+        "question_en": "Jeff, 60, male, has been suffering from asthma for 20 years. Symptoms: panting asthma with wheezing sound, profuse white sputum, stuffiness in the chest, poor appetite, tiredness, nausea, swollen tongue with thick greasy coating and a slippery pulse. What is the correct treatment principle?",
+        "question_zh": "Jeff（Q4同案）。治療原則是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Resolve phlegm-heat", "zh": "化痰熱", "correct": false},
+          "B": {"en": "Resolve phlegm-cold", "zh": "化寒痰", "correct": false},
+          "C": {"en": "Resolve phlegm-damp", "zh": "化痰濕", "correct": true},
+          "D": {"en": "Resolve phlegm-toxic", "zh": "化痰毒", "correct": false}
+        },
+        "exp_en": "Jeff's symptoms — white profuse sputum, swollen tongue with thick greasy coating, slippery pulse, poor appetite, nausea — all indicate Phlegm-Damp accumulation. The Spleen is the source of Phlegm production ('Spleen is the source of Phlegm, Lung is the container'). The treatment principle is to resolve Phlegm-Damp by strengthening the Spleen. | Phlegm-Damp: white profuse sputum, thick greasy coati",
+        "exp_zh": "白色泡沫痰、舌胖大苔白膩、脈濡為痰濕（寒痰）的典型表現，治療原則為化痰濕。"
+      },
+      {
+        "id": 6,
+        "question_en": "Jeff, 60, male, has been suffering from asthma for 20 years. Symptoms: panting asthma with wheezing sound, profuse white sputum, stuffiness in the chest, poor appetite, tiredness, nausea, swollen tongue with thick greasy coating and a slippery pulse. Which pair of Back Shu / Source point combination is for treating the root for this case?",
+        "question_zh": "Jeff（Q4同案）。主要背俞穴配原穴應是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "BL13 and LU9", "zh": "BL13和LU9", "correct": false},
+          "B": {"en": "BL20 and SP3", "zh": "BL20和SP3", "correct": true},
+          "C": {"en": "BL23 and KI3", "zh": "BL23和KI3", "correct": false},
+          "D": {"en": "BL15 and HT7", "zh": "BL15和HT7", "correct": false}
+        },
+        "exp_en": "In chronic asthma with Spleen deficiency as the root (as in Jeff's case), the Back-Shu/Source point combination should address the ROOT organ. The Spleen is the source of Phlegm production. BL20 is the Back-Shu of Spleen; SP3 is the Source (Yuan) point of the Spleen meridian. Together they strongly tonify Spleen Qi and address the root cause. | BL20 (Back-Shu of Spleen) + SP3 (Source of Spleen): d",
+        "exp_zh": "慢性哮喘脾虛為本，取脾俞（BL20）補脾化痰，配太白（SP3，脾原穴）。"
+      },
+      {
+        "id": 7,
+        "question_en": "Which pair of points should be prescribed for all kinds of hemorrhoids?",
+        "question_zh": "哪對穴位適合治療各種類型的痔瘡？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "CV12, ST36", "zh": "CV12、ST36", "correct": false},
+          "B": {"en": "BL25, ST25", "zh": "BL25、ST25", "correct": false},
+          "C": {"en": "LI4, BL57", "zh": "LI4、BL57", "correct": false},
+          "D": {"en": "DU1, SP10", "zh": "DU1、SP10", "correct": true}
+        },
+        "exp_en": "DU1 (Chang Qiang) is located at the tip of the coccyx near the anus and is a local point for all anorectal conditions. SP10 (Xue Hai) cools Blood, resolves Blood stasis, and stops bleeding. Together they address both the local condition and the underlying Blood pathology common to all types of hemorrhoids. | DU1 (local point at anus, activates Du Mai, lifts Yang) + SP10 (cools Blood, stops bleedin",
+        "exp_zh": "長強（DU1）為局部穴（近肛門），血海（SP10）涼血止血。此對穴為痔瘡的標準配穴。"
+      },
+      {
+        "id": 8,
+        "question_en": "A patient has dizziness, a feeling of distention in the eyes, headache, irritability, flushed face, red tongue with no coating, and a wiry and floating pulse. What is the correct diagnosis?",
+        "question_zh": "患者眩暈、眼脹、頭痛，伴有輕度耳鳴和肢體麻木，舌紅，脈弦細。診斷是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Excess Liver Fire", "zh": "肝火上炎", "correct": false},
+          "B": {"en": "Liver Yang rising", "zh": "肝陽上亢", "correct": true},
+          "C": {"en": "Liver Phlegm-Wind disturbance", "zh": "肝痰風擾動", "correct": false},
+          "D": {"en": "Liver stirring Wind", "zh": "肝風內動", "correct": false}
+        },
+        "exp_en": "Liver Yang Rising arises from Yin deficiency failing to anchor Yang, causing Yang to rise upward. Key distinguishing features: dizziness with distension in the eyes (Yang rising to the head), headache, irritability, flushed face — but the tongue is RED with NO COATING (indicating underlying Yin deficiency) and the pulse is wiry-FLOATING (Yang rising upward). This distinguishes it from Excess Liver",
+        "exp_zh": "肝陽上亢：陰虛不能固攝陽氣，陽氣上亢；弦細脈（陰虛+肝）、舌紅為陰虛；肢體麻木提示筋脈失養。"
+      },
+      {
+        "id": 9,
+        "question_en": "Mrs. Liang, 30, was diagnosed with Chronic Fatigue Syndrome four years ago. Now she comes to see you because she is feeling more exhausted and has not been sleeping well since she gave birth one month ago. She reports that she lost quite a bit of blood during the delivery. She has shortness of breath, spontaneous sweating, dizziness, headaches, poor memory, palpitations, poor appetite with tastelessness, dry stools and pale complexion. Her tongue is pale with thin white coating and her pulse is deep, thin and forceless. Please make a pattern diagnosis for her:",
+        "question_zh": "梁女士，30歲，被診斷為慢性疲勞症候群4年，產後出血史，月經不規律，失眠，心悸，面色蒼白，食慾差，舌淡，脈細弱。診斷是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Spleen Qi Deficiency and Lung Qi Deficiency", "zh": "脾氣虛兼肺氣虛", "correct": false},
+          "B": {"en": "Heart Yin and Blood Deficiency", "zh": "心陰血虛", "correct": false},
+          "C": {"en": "Spleen Qi Deficiency and Liver Blood Deficiency", "zh": "脾氣虛兼肝血虛", "correct": false},
+          "D": {"en": "Heart Blood Deficiency and Spleen Qi Deficiency", "zh": "心血虛兼脾氣虛", "correct": true}
+        },
+        "exp_en": "Mrs. Liang has two concurrent patterns: (1) Blood deficiency from postpartum blood loss → palpitations, insomnia, dizziness, pale complexion, headaches, poor memory; (2) Spleen Qi deficiency (pre-existing CFS) → shortness of breath, spontaneous sweating, poor appetite, dry stools, tastelessness, forceless pulse. Heart governs Blood and houses the Mind — Blood deficiency affects the Heart most dire",
+        "exp_zh": "心血虛（失眠、心悸、面蒼白）+脾氣虛（食慾差、疲勞、脈弱），為心血虛兼脾氣虛。"
+      },
+      {
+        "id": 10,
+        "question_en": "Mrs. Liang (same case as Q9). Please establish your treatment principles:",
+        "question_zh": "梁女士（Q9同案）。治療原則是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Tonify Spleen Qi and Lung Qi", "zh": "補脾氣兼補肺氣", "correct": false},
+          "B": {"en": "Tonify Spleen Qi and Nourish Heart Blood", "zh": "補脾氣兼養心血", "correct": true},
+          "C": {"en": "Nourish Heart Blood and Heart Yin", "zh": "養心血兼養心陰", "correct": false},
+          "D": {"en": "Tonify Spleen Qi and Nourish Liver Blood", "zh": "補脾氣兼養肝血", "correct": false}
+        },
+        "exp_en": "Given the pattern of Heart Blood Deficiency + Spleen Qi Deficiency, the treatment principle must address both: tonify Spleen Qi (to produce more Blood and Qi) and nourish Heart Blood (to resolve palpitations, insomnia, poor memory). This corresponds to the action of Gui Pi Tang, the classical formula for this combination. | Tonify Spleen Qi + Nourish Heart Blood: directly addresses both confirmed ",
+        "exp_zh": "心血虛+脾氣虛的治療原則：補脾氣兼養心血（歸脾湯）。"
+      },
+      {
+        "id": 11,
+        "question_en": "Obesity, fatigue, shortness of breath, pale complexion, sensitivity to cold, and a tendency to lie with knees drawn up are associated with which of the following syndromes?",
+        "question_zh": "肥胖、疲倦、氣短、面色蒼白、怕冷、水腫。體質是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Yang/Qi deficiency", "zh": "陽/氣虛", "correct": true},
+          "B": {"en": "Yin/Blood deficiency", "zh": "陰/血虛", "correct": false},
+          "C": {"en": "Vital essence deficiency", "zh": "精氣虧虛", "correct": false},
+          "D": {"en": "Body fluid deficiency", "zh": "津液不足", "correct": false}
+        },
+        "exp_en": "Yang/Qi deficiency leads to failure of warming and transformation — resulting in accumulation of fluids (Phlegm-Damp → obesity), lack of Qi to sustain activity (fatigue, shortness of breath), failure to warm the body surface (pale complexion, cold sensitivity), and the characteristic posture of drawing up the knees to conserve warmth (Yang deficiency cold pattern). | Yang/Qi deficiency: obesity (f",
+        "exp_zh": "陽/氣虛：陽氣不足無法溫化，導致體重增加（水濕停聚）、怕冷、疲倦、氣短、面色蒼白、水腫。"
+      },
+      {
+        "id": 12,
+        "question_en": "Jane, female, 35, suffering from insomnia for 2 months after losing her job. Symptoms: sleeplessness and dream-disturbed sleep, feeling stressful, irritability, frequent sighs, red face and bitter taste in the mouth, thirsty, hypochondriac distension, poor appetite, red tongue with thin yellow coating, wiry and rapid pulse. Which formula is most suitable?",
+        "question_zh": "Jane，35歲女性，失業後失眠2個月，心煩易怒，胸脅脹悶，心悸，口乾口苦，大便乾，舌紅苔薄黃，脈弦細數。最合適方劑？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Tian Wang Bu Xin Dan (Emperor of Heavens Special Pill to Tonify the Heart)", "zh": "天王補心丹", "correct": false},
+          "B": {"en": "Dan Zhi Xiao Yao San (Rambling powder with Mu Dan Pi and Zhi Zi)", "zh": "丹梔逍遙散", "correct": true},
+          "C": {"en": "Gui Pi Tang (Restore the Spleen Decoction)", "zh": "歸脾湯", "correct": false},
+          "D": {"en": "Ding Zhi Wan (Calming Pill)", "zh": "定志丸", "correct": false}
+        },
+        "exp_en": "Jane's insomnia stems from Liver Qi stagnation transforming into Fire, which disturbs the Heart/Mind. The pattern is Liver Fire insulting the Heart. Dan Zhi Xiao Yao San (Xiao Yao San + Mu Dan Pi + Zhi Zi) soothes Liver Qi, clears Liver Fire, and relieves constraint — the ideal formula for this presentation. | Dan Zhi Xiao Yao San: Xiao Yao San soothes Liver Qi and tonifies Spleen; Mu Dan Pi + Zhi",
+        "exp_zh": "肝氣鬱結化火，擾動心神致失眠。丹梔逍遙散疏肝解鬱清熱安神，最為合適。"
+      },
+      {
+        "id": 13,
+        "question_en": "Jane, female, 35, suffering from insomnia for 2 months after losing her job. Symptoms: sleeplessness and dream-disturbed sleep, feeling stressful, irritability, frequent sighs, red face and bitter taste in the mouth, thirsty, hypochondriac distension, poor appetite, red tongue with thin yellow coating, wiry and rapid pulse. Which of the following best describes the key pathogenesis of chief complaint in this case?",
+        "question_zh": "Jane（Q12同案）。病機是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Heart fire due to kidney yin deficiency", "zh": "腎陰虛心火旺", "correct": false},
+          "B": {"en": "Liver yang rise due to yin deficiency", "zh": "陰虛肝陽上亢", "correct": false},
+          "C": {"en": "Liver qi stagnation turned into fire", "zh": "肝氣鬱結化火", "correct": true},
+          "D": {"en": "Liver blood deficiency", "zh": "肝血虛", "correct": false}
+        },
+        "exp_en": "Jane lost her job → emotional stress → Liver Qi stagnation. Prolonged stagnation generates Heat/Fire. This Fire disturbs the Heart/Mind → insomnia. Evidence: irritability, frequent sighs (Liver Qi stagnation), bitter taste, flushed face, red tongue with yellow coating, wiry-RAPID pulse (Qi stagnation turned Fire). The chief complaint (insomnia) is directly caused by Liver Fire disturbing the Heart",
+        "exp_zh": "失業→情志壓力→肝氣鬱結→鬱而化火→擾動心神（失眠心煩）。"
+      },
+      {
+        "id": 14,
+        "question_en": "Jane, female, 35, suffering from insomnia for 2 months after losing her job. Symptoms: sleeplessness and dream-disturbed sleep, irritability, red face, bitter taste, red tongue, wiry rapid pulse. What herbs should be added to address severe hypochondriac pain?",
+        "question_zh": "Jane（Q12同案）。治療脅肋脹痛和煩躁，應加用哪組草藥？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Yuan Zhi and Shi Chang Pu", "zh": "遠志和石菖蒲", "correct": false},
+          "B": {"en": "Ren Shen and Huang Qi", "zh": "人參和黃芪", "correct": false},
+          "C": {"en": "Mu Xiang and Chen Pi", "zh": "木香和陳皮", "correct": false},
+          "D": {"en": "Yu Jin and Xiang Fu", "zh": "鬱金和香附", "correct": true}
+        },
+        "exp_en": "Hypochondriac (chest/rib-side) pain and distension are the primary domain of the Liver meridian. Yu Jin (Radix Curcumae) moves Qi and Blood in the Liver/Gallbladder area, relieves hypochondriac pain, and clears Liver Heat. Xiang Fu (Rhizoma Cyperi) is the primary herb for moving Liver Qi stagnation and relieving hypochondriac/epigastric pain. Together they specifically target Liver Qi stagnation w",
+        "exp_zh": "脅肋脹痛+煩躁=肝氣鬱滯。鬱金（活血行氣止痛）+香附（疏肝理氣），是肝氣鬱滯疼痛的經典配伍。"
+      },
+      {
+        "id": 15,
+        "question_en": "Susan, 40, female, suffering from sinusitis for 3 years. Symptoms: nasal congestion with large amount of sticky yellow discharge, distension in sinus region, loss of smell, frontal headache with heavy sensation, dizziness, fatigue, poor appetite, loose and sluggish stools, swollen and red nasal mucous membrane, red tongue with greasy yellow coating, slippery and rapid pulse. Which of the following point combination is most relevant to treat the nasal symptoms?",
+        "question_zh": "Susan，40歲女性，鼻竇炎3年，黃濁鼻涕，頭額脹痛，嗅覺減退，舌紅苔黃膩，脈弦數。主要針灸穴位？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "SI3 and BL62", "zh": "SI3和BL62", "correct": false},
+          "B": {"en": "LI4 and LI20", "zh": "LI4和LI20", "correct": true},
+          "C": {"en": "SJ5 and GB41", "zh": "SJ5和GB41", "correct": false},
+          "D": {"en": "LU7 and LI6", "zh": "LU7和LI6", "correct": false}
+        },
+        "exp_en": "Susan has Damp-Heat in the Lung/Stomach/Spleen pattern affecting the nose (sinusitis with yellow discharge). For nasal symptoms, the key points are on the Large Intestine meridian: LI4 (He Gu) — the command point for the face and head, clears heat, opens the nose; LI20 (Ying Xiang) — the local point directly at the nostril, the primary point to open nasal congestion and restore smell. | LI4 (dista",
+        "exp_zh": "鼻竇炎（肺胃脾濕熱）取合谷（LI4，面口合谷收）和迎香（LI20，局部通鼻竅）。"
+      },
+      {
+        "id": 16,
+        "question_en": "Susan, 40, female, suffering from sinusitis for 3 years. Symptoms: nasal congestion with large amount of sticky yellow discharge, distension in sinus region, loss of smell, frontal headache with heavy sensation, dizziness, fatigue, poor appetite, loose and sluggish stools, swollen and red nasal mucous membrane, red tongue with greasy yellow coating, slippery and rapid pulse. What is the most suitable diet advice for this patient?",
+        "question_zh": "Susan（Q15同案）。飲食建議是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Avoid drinking cold water", "zh": "避免飲冷水", "correct": false},
+          "B": {"en": "Take ginger juice with honey", "zh": "服用薑汁蜂蜜", "correct": false},
+          "C": {"en": "Avoid spicy and greasy food", "zh": "避免辛辣油膩食物", "correct": true},
+          "D": {"en": "Change coffee to green tea", "zh": "將咖啡換為綠茶", "correct": false}
+        },
+        "exp_en": "Susan's sinusitis is driven by Damp-Heat (yellow sticky discharge, greasy yellow coating, slippery-rapid pulse). Damp-Heat is produced and worsened by spicy food (generates Heat) and greasy/oily food (produces Damp). This dietary advice directly reduces the pathological factors sustaining her condition. | Avoid spicy and greasy food: spicy food generates Heat (worsening the 'Heat' aspect), greasy ",
+        "exp_zh": "Susan的鼻竇炎由濕熱驅動，辛辣和油膩食物會加重濕熱，應避免。"
+      },
+      {
+        "id": 17,
+        "question_en": "Ms. Tang, 34, complains of epigastric and abdominal pain for the past 5 years. The pain is dull and vague, comes and goes, and is not fixed in a specific area, and sometimes radiates to the sides of chest and even shoulders. She often feels bloated and burps with heartburn. Her appetite is okay. Her stools are not dry but small round-like pebbles. Her tongue is darkish and slightly purplish with thin white coating. Her pulse is wiry. In history, she has been taking antidepressant drug for long time. What is your TCM disease diagnosis?",
+        "question_zh": "唐女士，34歲，過去3個月胃脘和腹部疼痛，疼痛因情緒刺激加重，伴噯氣、泛酸，大便稀。最合適的中醫病名是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Abdominal Distension (Fu Zhang) and Abdominal Pain (Fu Tong)", "zh": "腹脹（Fu Zhang）和腹痛（Fu Tong）", "correct": false},
+          "B": {"en": "Abdominal Pain (Fu Tong) and Epigastric Pain (Wei Tong)", "zh": "腹痛（Fu Tong）和胃痛（Wei Tong）", "correct": true},
+          "C": {"en": "Epigastric Pain (Wei Tong) and Acid Reflux (Fan Suan)", "zh": "胃痛（Wei Tong）和泛酸（Fan Suan）", "correct": false},
+          "D": {"en": "Abdominal Distension (Fu Zhang) and Acid Reflux (Fan Suan)", "zh": "腹脹（Fu Zhang）和泛酸（Fan Suan）", "correct": false}
+        },
+        "exp_en": "Ms. Tang has epigastric pain (Wei Tong — pain centered in the epigastric region) AND abdominal pain (Fu Tong — pain extending to the abdomen/umbilical area). These are two distinct TCM disease categories (病名) that are both present. The radiation to the chest sides and shoulders is a secondary symptom, not a separate disease. The heartburn (acid) is a symptom within the stomach disease, not a separ",
+        "exp_zh": "胃脘疼痛（Wei Tong，位於劍突下）+泛酸（Fan Suan），符合肝胃不和的表現。"
+      },
+      {
+        "id": 18,
+        "question_en": "Ms. Tang, 34, complains of epigastric and abdominal pain for the past 5 years. The pain is dull and vague, comes and goes, and is not fixed in a specific area, and sometimes radiates to the sides of chest and even shoulders. She often feels bloated and burps with heartburn. Her appetite is okay. Her stools are not dry but small round-like pebbles. Her tongue is darkish and slightly purplish with thin white coating. Her pulse is wiry. In history, she has been taking antidepressant drug for long time. Please select an herbal formula:",
+        "question_zh": "唐女士（Q17同案）。最合適方劑是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Bao He Wan / Preserve Harmony Pill", "zh": "保和丸", "correct": false},
+          "B": {"en": "Xiao Jian Zhong Tang / Minor Construct the Middle Decoction", "zh": "小建中湯", "correct": false},
+          "C": {"en": "Ping Wei San / Pacify Stomach Powder", "zh": "平胃散", "correct": false},
+          "D": {"en": "Chai Hu Shu Gan Tang / Bupleurum Soothing the Liver Decoction", "zh": "柴胡疏肝湯", "correct": true}
+        },
+        "exp_en": "Ms. Tang's pattern is Liver Qi stagnation affecting the Stomach/abdomen (Liver overacting on Spleen/Stomach). The darkish-purplish tongue suggests some Blood stasis from chronic Qi stagnation. The wiry pulse confirms Liver involvement. Chai Hu Shu Gan Tang specifically soothes Liver Qi, regulates Qi flow, and relieves pain in the hypochondriac and epigastric regions. | Chai Hu Shu Gan Tang: Chai H",
+        "exp_zh": "肝氣鬱結犯胃（因情緒加重、噯氣泛酸），柴胡疏肝湯疏肝和胃止痛最為合適。"
+      },
+      {
+        "id": 19,
+        "question_en": "Mr. Wu, 50, has had a stressful life and now feels as though there is a foreign body stuck in his throat for 3 months. He has seen many doctors for help but no improvement. At the beginning, he was able to swallow down soft food. Now, he vomits any food or drink that he tries to swallow. He feels pain in the middle chest and stomach area. His body is getting emaciated and skin dry scaly. He also has dry stools and constipation. His tongue is purplish and pulse thin and choppy. What is your possible disease diagnosis?",
+        "question_zh": "吳先生，50歲，壓力大，咽喉有異物感，進行性吞嚥困難（從固體食物到液體），體重減輕，舌紫暗苔薄，脈澀。診斷是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Esophageal tumor", "zh": "食道腫瘤", "correct": false},
+          "B": {"en": "Depression – Plum Pit Qi (Mei He Qi)", "zh": "抑鬱——梅核氣（梅核氣）", "correct": false},
+          "C": {"en": "Dysphagia Occlusion Syndrome (Ye Ge)", "zh": "噎膈（Ye Ge）", "correct": true},
+          "D": {"en": "Esophageal neurosis", "zh": "食道神經症", "correct": false}
+        },
+        "exp_en": "Mr. Wu's progressive dysphagia (from soft food → complete inability to swallow) combined with emaciation, dry scaly skin, dry stools, purplish tongue, and thin-choppy pulse indicates Ye Ge (噎膈, Dysphagia-Occlusion Syndrome) — a serious condition involving Blood stasis, Yin deficiency, and obstruction of the esophagus. This is distinct from the benign Plum Pit Qi (Mei He Qi) which does not cause ac",
+        "exp_zh": "進行性加重的吞嚥困難（從固體到液體）、體重減輕、舌紫脈澀=噎膈（Ye Ge），需排除惡性腫瘤。梅核氣無進行性加重或體重減輕。"
+      },
+      {
+        "id": 20,
+        "question_en": "Mr. Wu, 50, has had a stressful life and now feels as though there is a foreign body stuck in his throat for 3 months. He has seen many doctors for help but no improvement. At the beginning, he was able to swallow down soft food. Now, he vomits any food or drink that he tries to swallows. He feels pain in the middle chest and stomach area. His body is getting emaciated and skin dry scaly. He also has dry stools and constipation. His tongue is purplish and pulse thin and choppy. What herbal formula should be given to him?",
+        "question_zh": "吳先生（Q19同案）。最合適方劑是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Tong You Tang / Open the Pyloric Sphincter Decoction", "zh": "通幽湯", "correct": false},
+          "B": {"en": "Qi Ge San / Open the Diaphragm Powder", "zh": "啟膈散", "correct": true},
+          "C": {"en": "Ban Xia Hou Po Tang / Pinellia and Magnolia Decoction", "zh": "半夏厚朴湯", "correct": false},
+          "D": {"en": "Wu Zhi An Zhong Yin / Five Juices To Calm the Middle", "zh": "五汁安中飲", "correct": false}
+        },
+        "exp_en": "Mr. Wu's Ye Ge involves Blood stasis (purplish tongue, choppy pulse), fluid depletion (dry scaly skin, emaciation, dry stools), and Phlegm-stasis obstruction in the esophagus. Qi Ge San opens the diaphragm, breaks Blood stasis, nourishes Blood and fluids, and descends rebellious Stomach Qi — specifically designed for Ye Ge pattern with stasis and deficiency. | Qi Ge San (Open the Diaphragm Powder)",
+        "exp_zh": "噎膈（血瘀+津虧）用通幽湯——活血潤燥通關。半夏厚朴湯用於梅核氣（無血瘀）。"
+      },
+      {
+        "id": 21,
+        "question_en": "Mr. Wu, 50, has had a stressful life and now feels as though there is a foreign body stuck in his throat for 3 months. Symptoms: vomiting any food, pain in middle chest, emaciated, dry stools, purplish tongue, thin choppy pulse. In acupuncture prescription, you have chosen CV22, CV17 and CV14 and should combine what other points?",
+        "question_zh": "吳先生（Q19同案）。針灸治療加用哪組穴位（配合CV22、CV17、CV14）？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "PC6, PC5, LR3, ST40", "zh": "PC6、PC5、LR3、ST40", "correct": false},
+          "B": {"en": "CV12, CV6, ST36, SP3", "zh": "CV12、CV6、ST36、SP3", "correct": false},
+          "C": {"en": "ST36, SP6, KI6, ST44", "zh": "ST36、SP6、KI6、ST44", "correct": false},
+          "D": {"en": "BL17, SP10, PC6, ST36", "zh": "BL17、SP10、PC6、ST36", "correct": true}
+        },
+        "exp_en": "The chosen points CV22, CV17, CV14 address the local obstruction along the Ren Mai (throat, chest, epigastric). The additional points should address the underlying pattern of Blood stasis with Yin/fluid deficiency. BL17 (influential point for Blood, breaks stasis), SP10 (moves Blood, stops stasis), PC6 (opens the chest, descends rebellious Qi), ST36 (tonifies Qi and Blood, supports the Middle Jiao",
+        "exp_zh": "噎膈血瘀取膈俞（BL17）、血海（SP10）活血化瘀；內關（PC6）調心胸；足三里（ST36）扶正。"
+      },
+      {
+        "id": 22,
+        "question_en": "Mr. Chen, 30, comes to see you because of multiple gastrointestinal symptoms: irritability, thirst, abdominal bloating, nausea, dry vomiting, severe abdominal pain, tenesmus, frequent diarrhea with bloody and white mucus, burning anus, scanty dark urine, red tongue with thick yellow coating, slippery rapid pulse. Please diagnose his disease and pattern:",
+        "question_zh": "陳先生，30歲，多種胃腸道症狀：急性腹痛、膿血便（白多血少）、裡急後重、肛門灼熱、發熱、舌紅苔黃膩、脈滑數。診斷是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Acute Diarrhea – Damp-Heat in the Intestines", "zh": "急性腹瀉——腸道濕熱", "correct": false},
+          "B": {"en": "Abdominal Distension – Phlegm-Dampness Accumulation", "zh": "腹脹——痰濕積聚", "correct": false},
+          "C": {"en": "Dysentery – Damp-Heat in the Large Intestine", "zh": "痢疾——大腸濕熱", "correct": true},
+          "D": {"en": "Abdominal Pain – Heat Invasion to Stomach and Intestines", "zh": "腹痛——熱侵胃腸", "correct": false}
+        },
+        "exp_en": "Mr. Chen has bloody and white mucus stools (pus and blood), tenesmus, burning anus, and urgent/frequent defecation — this is the classic presentation of Dysentery (痢疾, Li Ji), not simple diarrhea. The Damp-Heat location is the Large Intestine specifically (causing the bloody mucus and tenesmus). | Dysentery – Damp-Heat in the Large Intestine: bloody and white mucus stools (pus + blood = Damp-Heat ",
+        "exp_zh": "膿血便（白多）、裡急後重、肛門灼熱=濕熱痢疾（大腸濕熱）的典型表現。"
+      },
+      {
+        "id": 23,
+        "question_en": "Mr. Chen, 30 (same case as Q22). Main acupuncture points?",
+        "question_zh": "陳先生（Q22同案）。主要針灸穴位？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "LI11, ST44, ST25, BL40", "zh": "LI11、ST44、ST25、BL40", "correct": false},
+          "B": {"en": "SP9, ST40, CV12, ST36", "zh": "SP9、ST40、CV12、ST36", "correct": false},
+          "C": {"en": "CV6, CV12, SP3, ST36", "zh": "CV6、CV12、SP3、ST36", "correct": false},
+          "D": {"en": "ST25, CV12, LI4, ST37", "zh": "ST25、CV12、LI4、ST37", "correct": true}
+        },
+        "exp_en": "For Damp-Heat Dysentery, the standard acupuncture prescription focuses on clearing Damp-Heat from the Large Intestine and stopping dysentery. ST25 (Front-Mu of LI — directly regulates LI), CV12 (Front-Mu of Stomach — harmonizes Middle Jiao), LI4 (clears Heat from the LI and Face), ST37 (Lower He-Sea of LI — the most important point to treat LI disorders including dysentery). | ST25 (Front-Mu of LI",
+        "exp_zh": "濕熱痢疾：天樞（ST25，大腸募穴）、中脘（CV12）、合谷（LI4）、上巨虛（ST37，大腸下合穴）——清熱化濕止痢。"
+      },
+      {
+        "id": 24,
+        "question_en": "Mr. Chen, 30 (same case as Q22). Please select an herbal formula:",
+        "question_zh": "陳先生（Q22同案）。方劑選擇？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Shao Yao Tang", "zh": "芍藥湯", "correct": true},
+          "B": {"en": "Ping Wei San", "zh": "平胃散", "correct": false},
+          "C": {"en": "Ge Gen Qin Lian Tang", "zh": "葛根芩連湯", "correct": false},
+          "D": {"en": "Huang Qin Tang", "zh": "黃芩湯", "correct": false}
+        },
+        "exp_en": "Shao Yao Tang (Peony Decoction) is the classical formula for Damp-Heat Dysentery. It clears Heat, resolves Damp, moves Qi and Blood (addressing tenesmus), and stops dysentery. The combination of Bai Shao (relieves tenesmus, stops pain), Huang Lian + Huang Qin (clear Damp-Heat), Mu Xiang + Bing Lang (move Qi, relieve tenesmus), Da Huang (purges Heat), Dang Gui + Rou Gui (move Blood, prevent overcoo",
+        "exp_zh": "芍藥湯是濕熱痢疾（膿血便）的經典方，清熱燥濕、行氣和血止痢。"
+      },
+      {
+        "id": 25,
+        "question_en": "Mr. Zhao, 37, visited a TCM clinic in the summer time for his urgent diarrhea. He said the night before he ate a big seafood meal at dinner and started to feel pain in the tummy at midnight and then had strong urge to use the bathroom. So far, he had had more than 10 bowel movements with watery dark brown smelly stools. And he had a fever of 38.5 degree Celsius, abdominal pain that was better after bowel movements, aversion to food, borborygmi, burning sensation in the anus, thirst, scanty yellow urine, yellow thick tongue coating, slippery and rapid pulse. What is the TCM syndrome diagnosis?",
+        "question_zh": "趙先生，37歲，夏季急性腹瀉（水樣稀便色暗臭穢），進食海鮮後發病，腹痛，尿黃，舌紅苔黃膩，脈滑數。診斷是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Damp-Heat Invasion into Spleen and Stomach", "zh": "脾胃濕熱入侵", "correct": false},
+          "B": {"en": "Food Retention in the Stomach with Heat Invasion", "zh": "食積胃中兼熱入", "correct": false},
+          "C": {"en": "Damp-Heat Invasion into Large and Small Intestines", "zh": "大小腸濕熱入侵", "correct": true},
+          "D": {"en": "Liver Qi Stagnation Overacting on Spleen and Stomach", "zh": "肝氣鬱結犯脾胃", "correct": false}
+        },
+        "exp_en": "The summer timing, seafood meal (common Damp-Heat food), watery dark smelly stools, fever 38.5°C, burning anus, scanty yellow urine, yellow thick coating, slippery-rapid pulse — all indicate Damp-Heat. The Large Intestine AND Small Intestine are both involved (watery stools + heat signs throughout the intestinal tract), making 'Damp-Heat invasion into Large and Small Intestines' the most precise d",
+        "exp_zh": "夏季+海鮮（濕熱食物）+水樣臭穢大便+苔黃膩+脈滑數=大腸濕熱入侵（急性胃腸炎）。"
+      },
+      {
+        "id": 26,
+        "question_en": "Mr. Zhao, 37 (same case as Q25). Please prescribe an herbal formula to treat Mr. Zhao:",
+        "question_zh": "趙先生（Q25同案）。方劑選擇？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Ge Gen Qin Lian Tang / Pueraria Scutellaria Coptis Decoction", "zh": "葛根芩連湯", "correct": true},
+          "B": {"en": "Huo Xiang Zheng Qi San / Agastache Powder to Rectify the Qi", "zh": "藿香正氣散", "correct": false},
+          "C": {"en": "Shao Yao Tang / Peony Decoction", "zh": "芍藥湯", "correct": false},
+          "D": {"en": "Tong Xie Yao Fang / Important Formula for Painful Diarrhea", "zh": "痛瀉要方", "correct": false}
+        },
+        "exp_en": "Ge Gen Qin Lian Tang (Kudzu, Coptis, Scutellaria Decoction) clears Damp-Heat from the intestines, relieves diarrhea, and stops fever. Ge Gen raises clear Qi and relieves diarrhea; Huang Lian + Huang Qin clear Damp-Heat from the intestines; Zhi Gan Cao harmonizes. It is specifically designed for acute Damp-Heat diarrhea with fever. | Ge Gen Qin Lian Tang: directly clears intestinal Damp-Heat, reduc",
+        "exp_zh": "葛根芩連湯清解大腸濕熱，治療下焦熱性腹瀉（水樣臭穢便、舌紅苔黃、脈數）。"
+      },
+      {
+        "id": 27,
+        "question_en": "Mr. Zhao, 37 (same case as Q25). If Mr. Zhao had higher fever, tenesmus and diarrhea with lots of blood and mucus (red-white) in stools, what herbs should you add to your formula?",
+        "question_zh": "趙先生（Q25同案）。若有更高熱、裡急後重、脈洪數，應加用哪些草藥？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Wu Wei Zi (Fructus Schisandrae) 18g and Bu Gu Zhi (Fructus Psoraleae) 12g", "zh": "五味子18g和補骨脂", "correct": false},
+          "B": {"en": "Bai Tou Weng (Radix Pulsatillae) 30g and Jin Yin Hua (Flos Lonicerae) 18g", "zh": "白頭翁30g和金銀花", "correct": true},
+          "C": {"en": "Huang Qi (Radix Astragali seu Hedysari) 30g and Sheng Ma (Rhizoma Cimicifugae) 9g", "zh": "黃芪30g和升麻", "correct": false},
+          "D": {"en": "Gan Jiang (Rhizoma Zingiberis) 15g and Chao Fu Zi (Radix Aconiti Praeparata) 9g", "zh": "乾薑15g和炮附子", "correct": false}
+        },
+        "exp_en": "When Damp-Heat diarrhea progresses to dysentery (bloody mucus stools, high fever, tenesmus), it indicates that Heat has intensified and is damaging the intestinal Blood vessels. Bai Tou Weng specifically clears Heat-toxin and cools Blood to stop dysentery (it is the chief herb of Bai Tou Weng Tang, the classical dysentery formula). Jin Yin Hua clears Heat-toxin and is anti-inflammatory. | Bai Tou ",
+        "exp_zh": "濕熱腹瀉加重為痢疾（脈洪數、高熱、裡急後重），加白頭翁（清熱解毒止痢）和金銀花（清熱解毒）。"
+      },
+      {
+        "id": 28,
+        "question_en": "Mr. Zhao, 37 (same case as Q25). What acupuncture technique is proper for Mr. Zhao?",
+        "question_zh": "趙先生（Q25同案）。針灸手法應選用哪種？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Reinforcing and Even", "zh": "補法兼平補平瀉", "correct": false},
+          "B": {"en": "Reinforcing and Moxa", "zh": "補法兼灸", "correct": false},
+          "C": {"en": "Reducing and Moxa", "zh": "瀉法兼灸", "correct": false},
+          "D": {"en": "Reducing and Even", "zh": "瀉法兼平補平瀉", "correct": false}
+        },
+        "exp_en": "Mr. Zhao has acute Damp-Heat diarrhea (excess-Heat pattern). Acupuncture technique must be Reducing (瀉法) to clear the excess Damp-Heat. Moxa (灸法) is warming and would aggravate the Heat condition — therefore it must be excluded. 'Even' (平補平瀉) is neutral and also less appropriate than pure Reducing for an acute excess pattern. The correct technique is Reducing without Moxa, combined with Even techn",
+        "exp_zh": "急性濕熱腹瀉為實熱證，應用瀉法清熱化濕，不宜用灸或補法。"
+      },
+      {
+        "id": 29,
+        "question_en": "Mrs. Zhou, 40, complains of vomiting with frequent belching for 3 days. Upon the consultation, you find that she had had an argument with her neighbour 10 days ago and then started to feel upset in the stomach. She also has nausea, heartburn, distension in the chest and hypochondriac region, bitter taste in the mouth, constipation with dry stools, red tongue with thin yellowish coating, wiry pulse that is slightly rapid. What is her pattern diagnosis?",
+        "question_zh": "周女士，40歲，嘔吐頻繁噯氣3天，與伴侶爭吵後加重，口苦，脅肋脹痛，舌紅苔薄黃，脈弦數。診斷是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Liver Qi Stagnation Overacting on the Spleen", "zh": "肝氣鬱結犯脾", "correct": false},
+          "B": {"en": "Damp-Heat Accumulation in the Stomach and Spleen", "zh": "脾胃濕熱積聚", "correct": false},
+          "C": {"en": "Food Stagnation in the Stomach with Yin Deficiency", "zh": "食積胃中兼陰虛", "correct": false},
+          "D": {"en": "Liver Qi Transformed to Heat and Overacting on the Stomach", "zh": "肝氣化火犯胃", "correct": true}
+        },
+        "exp_en": "Mrs. Zhou's argument → emotional stress → Liver Qi stagnation → Liver overacting on Stomach → Stomach Qi rebels upward (vomiting, belching, nausea). Prolonged stagnation generates Heat (bitter taste, heartburn, red tongue with yellow coating, slightly rapid pulse). The pattern is Liver Qi transformed into Heat overacting on the Stomach — the key distinguishing feature from simple Liver-Spleen dish",
+        "exp_zh": "爭吵→情緒壓力→肝氣鬱結化火→犯胃，出現嘔吐噯氣、口苦、脅肋脹痛、脈弦數。"
+      },
+      {
+        "id": 30,
+        "question_en": "Mrs. Zhou, 40, complains of vomiting with frequent belching for 3 days. Upon the consultation, you find that she had had an argument with her neighbour 10 days ago and then started to feel upset in the stomach. She also has nausea, heartburn, distension in the chest and hypochondriac region, bitter taste in the mouth, constipation with dry stools, red tongue with thin yellowish coating, wiry pulse that is slightly rapid. Please select the herbal formula to treat Mrs. Zhou:",
+        "question_zh": "周女士（Q29同案）。最合適方劑是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Xiao Yao San / Rambling Powder plus Si Jun Zi Tang / Four Gentleman Decoction", "zh": "逍遙散加四君子湯", "correct": false},
+          "B": {"en": "Chai Hu Shu Gan Tang / Bupleurum Soothing the Liver Decoction plus Er Chen Tang / Two Aged Herb Decoction", "zh": "柴胡疏肝湯", "correct": false},
+          "C": {"en": "Ban Xia Hou Po Tang / Pinellia and Magnolia Bark Decoction plus Zuo Jin Wan / Left Metal Pill", "zh": "半夏厚朴湯", "correct": true},
+          "D": {"en": "Bao He Wan / Preserve Harmony Pill plus Yu Nu Jian / Jade Woman Decoction", "zh": "保和丸加玉女煎", "correct": false}
+        },
+        "exp_en": "Mrs. Zhou's pattern is Liver Qi turned Heat overacting on the Stomach. The formula should soothe Liver Qi, clear Heat, and harmonize the Stomach. Ban Xia Hou Po Tang soothes Qi stagnation and resolves Phlegm (good for Plum Pit Qi and nausea); Zuo Jin Wan (Huang Lian + Wu Zhu Yu) specifically clears Liver Fire and directs Stomach Qi downward, stopping vomiting and heartburn. Together they address L",
+        "exp_zh": "肝氣化火犯胃（嘔吐、口苦、脅痛、脈弦數）用柴胡疏肝湯加清熱藥（如丹皮、梔子）疏肝清熱降胃。"
+      },
+      {
+        "id": 31,
+        "question_en": "Mrs. Zhou, 40 (same case as Q29-30). In your acupuncture prescription, which pair of points must be selected according to the pattern diagnosis?",
+        "question_zh": "周女士（Q29-30同案）。針灸處方中，以下哪對穴位最關鍵？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "CV12 and ST44", "zh": "CV12和ST44", "correct": false},
+          "B": {"en": "SP3 and ST36", "zh": "SP3和ST36", "correct": false},
+          "C": {"en": "SP4 and CV21", "zh": "SP4和CV21", "correct": false},
+          "D": {"en": "PC6 and LR3", "zh": "PC6和LR3", "correct": true}
+        },
+        "exp_en": "For Mrs. Zhou's Liver Qi transformed to Heat overacting on the Stomach pattern, the acupuncture prescription must address both the Liver (source of stagnation and Heat) and the Stomach (affected organ). PC6 (Nei Guan) — opens the chest, harmonizes the Stomach, stops vomiting and nausea, calms the Mind; LR3 (Tai Chong) — Source point of Liver, soothes Liver Qi, clears Liver Fire. This pair treats t",
+        "exp_zh": "內關（PC6）和太衝（LR3）是治療肝氣犯胃的核心配對：PC6降胃氣止嘔，LR3疏肝理氣清熱。"
+      },
+      {
+        "id": 32,
+        "question_en": "Mrs. Zhou, 40 (same case as Q29-30). Which herbs may be added to her base formula to address constipation?",
+        "question_zh": "周女士（Q29-30同案）。可加用哪組草藥治療便秘乾燥？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Da Huang and Zhi Shi", "zh": "大黃和枳實", "correct": true},
+          "B": {"en": "Mu Dan Pi and Sheng Di Huang", "zh": "牡丹皮和生地黃", "correct": false},
+          "C": {"en": "Tao Ren and Xing Ren", "zh": "桃仁和杏仁", "correct": false},
+          "D": {"en": "Huang Qi and Bai Zhu", "zh": "黃芪和白朮", "correct": false}
+        },
+        "exp_en": "Mrs. Zhou has constipation with dry stools alongside Liver Heat overacting on the Stomach. The constipation is due to Heat drying the stools and Qi stagnation failing to move the bowels. Da Huang (purges Heat, promotes bowel movement) and Zhi Shi (breaks Qi stagnation, reduces distension, promotes bowel movement) directly address Heat-constipation and Qi stagnation. | Da Huang (clears Heat, purges",
+        "exp_zh": "便秘乾燥（腸熱傷津）加大黃（通便瀉熱）和枳實（行氣消脹），增強瀉熱通便之力。"
+      },
+      {
+        "id": 33,
+        "question_en": "Mrs. Zhou, 40 (same case as Q29-30). What are your treatment principles for the case?",
+        "question_zh": "周女士（Q29-30同案）。治療原則是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Soothe the Liver Qi and Tonify the Spleen Qi", "zh": "疏肝氣、健脾氣", "correct": false},
+          "B": {"en": "Soothe the Liver Qi, Harmonize the Stomach and Clear off the Heat", "zh": "疏肝氣、和胃、清熱", "correct": true},
+          "C": {"en": "Clear off the Damp-Heat, Harmonize the Stomach and Regulate the Spleen", "zh": "清濕熱、和胃、調氣機", "correct": false},
+          "D": {"en": "Resolve the Stagnant Food, Harmonize the Stomach and Nourish Yin", "zh": "消食積、和胃、滋陰", "correct": false}
+        },
+        "exp_en": "Based on Mrs. Zhou's pattern (Liver Qi transformed to Heat overacting on the Stomach), the treatment principles must: (1) Soothe/regulate the Liver Qi, (2) Harmonize the Stomach and direct rebellious Qi downward (stop vomiting/belching), (3) Clear the Heat generated from Qi stagnation. Option B addresses all three components precisely. | Soothe Liver Qi + Harmonize Stomach + Clear Heat: addresses ",
+        "exp_zh": "周女士的病機：肝氣化火犯胃。治則：疏肝氣、和胃降逆、清熱（去肝火）。"
+      },
+      {
+        "id": 34,
+        "question_en": "Anna, 50, female, complained about chest stuffiness and sometimes feeling pain radiating to the back. She has this symptom for six months. The pain becomes worse with cold. She has shortness of breath, pale complexion, cold limbs, pale tongue white coating, and weak pulse. What is the most possible pulse of this patient in addition to weakness?",
+        "question_zh": "Anna，50歲女性，胸悶、偶有胸痛，天冷加重，面色蒼白、四肢不溫、舌淡紫、苔白。脈象最可能是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Wiry", "zh": "弦脈", "correct": false},
+          "B": {"en": "Slippery", "zh": "滑脈", "correct": false},
+          "C": {"en": "Tight", "zh": "緊脈", "correct": false},
+          "D": {"en": "Choppy", "zh": "澀脈", "correct": false}
+        },
+        "exp_en": "Anna has chest pain worse with cold (Cold obstruction), pale complexion, cold limbs (Yang deficiency/Cold), pale tongue with white coating (Cold pattern). The pain is in the chest radiating to the back — this is Xiong Bi (chest painful obstruction), classically associated with Cold constricting the Heart vessels. The additional pulse to weakness would reflect the Cold obstruction. Files show confl",
+        "exp_zh": "胸痛遇冷加重（寒邪）+舌淡紫（血瘀）=寒凝血瘀，脈澀（血瘀，如刀刮竹）最為合適。"
+      },
+      {
+        "id": 35,
+        "question_en": "Anna, 50, female, complained about chest stuffiness and sometimes feeling pain radiating to the back. She has this symptom for six months. The pain becomes worse with cold. She has shortness of breath, pale complexion, cold limbs, pale tongue white coating, and weak pulse. Which point is most relevant for treating the symptom of chest stuffiness in this case?",
+        "question_zh": "Anna（Q34同案）。最主要的心包經穴位是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "HT7", "zh": "HT7", "correct": false},
+          "B": {"en": "HT8", "zh": "HT8", "correct": false},
+          "C": {"en": "PC8", "zh": "PC8", "correct": false},
+          "D": {"en": "PC6", "zh": "PC6", "correct": true}
+        },
+        "exp_en": "PC6 (Nei Guan) is the primary point for chest stuffiness (胸悶) in TCM acupuncture. It opens the chest (通胸), regulates Heart Qi, calms the Mind, and descends rebellious Qi. As the master point of the Yin Wei Mai (which governs the interior/chest), it is the first-choice point for any chest discomfort including stuffiness, palpitations, and angina-like pain. | PC6 (Nei Guan): opens the chest, regulat",
+        "exp_zh": "內關（PC6）是治療胸悶的首選穴位，八脈交會穴（通陰維脈），寬胸理氣、止胸痛。"
+      },
+      {
+        "id": 36,
+        "question_en": "Constipation, clear profuse urine, preference for warmth, intolerance to cold – most likely condition?",
+        "question_zh": "便秘、尿多清長、喜溫怕冷、腰膝痠軟、舌胖淡苔白滑、脈沉遲。診斷是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Qi and Yin deficiency", "zh": "氣陰兩虛", "correct": false},
+          "B": {"en": "Cold accumulation from Yang deficiency", "zh": "寒積（陽虛）", "correct": true},
+          "C": {"en": "Yin and Yang deficiency", "zh": "陰陽兩虛", "correct": false},
+          "D": {"en": "Qi and Blood deficiency", "zh": "氣血兩虛", "correct": false}
+        },
+        "exp_en": "Constipation with clear profuse urine (Yang deficiency failing to warm and transform fluids — excess clear urine), preference for warmth, and intolerance to cold all indicate Yang deficiency leading to internal Cold, which slows intestinal movement (Cold accumulation causing constipation). | Cold accumulation from Yang deficiency: Yang deficiency fails to warm the intestines → constipation from Co",
+        "exp_zh": "便秘+尿多清長（陽虛不溫化）+怕冷（陽虛）+舌胖淡+脈沉遲=陽虛寒凝，寒積便秘。"
+      },
+      {
+        "id": 37,
+        "question_en": "Fixed chest pain for ten years, palpitations, insomnia, dark-red tongue with dark spots, choppy pulse – diagnosis?",
+        "question_zh": "固定胸痛10年、心悸、失眠、舌暗紅有瘀點、脈澀。診斷是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Heart Blood stasis", "zh": "心血瘀阻", "correct": true},
+          "B": {"en": "Heart Qi deficiency", "zh": "心氣虛", "correct": false},
+          "C": {"en": "Heart Blood deficiency", "zh": "心血虛", "correct": false},
+          "D": {"en": "Phlegm blocking the Heart", "zh": "痰阻心竅", "correct": false}
+        },
+        "exp_en": "Fixed chest pain (fixed = Blood stasis, not Qi stagnation which is moveable), 10-year duration (chronic = Blood stasis), dark-red tongue with dark spots (pathognomonic for Blood stasis), choppy pulse (classic Blood stasis pulse indicating impeded Blood flow). Palpitations and insomnia result from the stasis disturbing the Heart. | Heart Blood Stasis: fixed pain (stasis), 10 years duration (chronic",
+        "exp_zh": "固定刺痛（不移=血瘀）+10年（慢性）+舌暗有瘀點+脈澀=心血瘀阻（血瘀阻礙心脈）。"
+      },
+      {
+        "id": 38,
+        "question_en": "Which is NOT associated with uterine bleeding?",
+        "question_zh": "以下哪項與子宮出血（崩漏）無關？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Heat in the blood", "zh": "血熱", "correct": false},
+          "B": {"en": "Qi deficiency", "zh": "氣虛", "correct": false},
+          "C": {"en": "Blood stasis", "zh": "血瘀", "correct": false},
+          "D": {"en": "Cold stagnation", "zh": "寒凝", "correct": true}
+        },
+        "exp_en": "Uterine bleeding (崩漏) is caused by factors that either force Blood out of vessels or fail to hold Blood in vessels. Heat in Blood (forces blood to move recklessly), Qi deficiency (fails to hold Blood in vessels), and Blood stasis (stasis blocks new blood from returning to vessels, causing overflow) all cause uterine bleeding. Cold stagnation causes stagnation and PAIN — it typically inhibits bleed",
+        "exp_zh": "子宮出血（崩漏）病因：血熱迫血妄行、氣虛不固（脾不統血）、血瘀（舊血不去新血不歸）。寒凝主要引起月經不調（遲或痛），不直接引起崩漏。"
+      },
+      {
+        "id": 39,
+        "question_en": "Which is NOT related to a menstrual disorder?",
+        "question_zh": "以下哪項與月經不調無關？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Liver Qi stagnation", "zh": "肝氣鬱結", "correct": false},
+          "B": {"en": "Blood stasis", "zh": "血瘀", "correct": false},
+          "C": {"en": "Damp-heat in lower Jiao", "zh": "下焦濕熱", "correct": false},
+          "D": {"en": "Spleen and kidney deficiency", "zh": "脾腎兩虛", "correct": false}
+        },
+        "exp_en": "All of A, B, and D are well-established causes of menstrual disorders. Liver Qi stagnation → delayed/irregular periods; Blood stasis → painful periods, fixed pain; Spleen and Kidney deficiency → scanty/delayed periods, weakness. Damp-Heat in the Lower Jiao is primarily associated with leukorrhea (vaginal discharge), urinary tract disorders, and pelvic inflammatory disease — it is NOT a primary cau",
+        "exp_zh": "選項A（肝氣鬱結）、B（血瘀）、D（脾腎兩虛）均是月經不調的常見病因。下焦濕熱主要引起帶下、尿路問題，不是月經不調的主要病因。"
+      },
+      {
+        "id": 40,
+        "question_en": "A female patient reports that she experiences headaches three to four days after her period starts. She also has cramps that occur after the onset of the period. Bleeding is generally scanty and light-colored without clots. She has cold limbs, slight pale complexion, slight pain on deep pressure around the umbilicus, pale tongue with tooth marks on the edges, weak pulse. What is the correct diagnosis?",
+        "question_zh": "女性患者，月經後3-4天出現頭痛（非月經前），月經量少，面色蒼白，脈細弱。病機是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Blood stasis", "zh": "血瘀", "correct": false},
+          "B": {"en": "Qi stagnation", "zh": "氣滯", "correct": false},
+          "C": {"en": "Blood heat", "zh": "血熱", "correct": false},
+          "D": {"en": "Qi and Blood deficiency", "zh": "氣血兩虛", "correct": true}
+        },
+        "exp_en": "Headache 3-4 days AFTER period starts (not before — rules out premenstrual pattern), cramps AFTER onset, scanty light-colored blood WITHOUT clots (not stasis which has clots), cold limbs, pale complexion, pain RELIEVED by deep pressure (deficiency pattern — excess pain is worse with pressure), pale tongue with tooth marks (Spleen Qi deficiency), weak pulse. All signs point to deficiency, specifica",
+        "exp_zh": "月經後3-4天頭痛（非月經前）+月經量少+面色蒼白+脈細弱=氣血兩虛（血虛不能上榮清竅）。"
+      },
+      {
+        "id": 41,
+        "question_en": "Which of the following applies to a patient with fever, extreme thirst, red and dry tongue body, with yellow coating?",
+        "question_zh": "以下哪項適用於高熱、極度口渴、大汗出、脈洪大的患者？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Excess cold", "zh": "實寒", "correct": false},
+          "B": {"en": "Deficient cold", "zh": "虛寒", "correct": false},
+          "C": {"en": "Excess heat", "zh": "實熱", "correct": true},
+          "D": {"en": "Deficient heat", "zh": "虛熱", "correct": false}
+        },
+        "exp_en": "Fever (objective high temperature), EXTREME thirst (active fluid consumption by excess Heat), red and DRY tongue body (Heat consuming fluids), yellow coating (Heat) — all are objective signs of EXCESS pathogenic Heat actively present in the body. The combination of all four signs confirms excess (shi) rather than deficiency heat. | Excess Heat: high fever + extreme thirst + red dry tongue body + y",
+        "exp_zh": "高熱+極度口渴+大汗+脈洪大=四大症，是陽明實熱（氣分熱）的典型表現，屬實熱。"
+      },
+      {
+        "id": 42,
+        "question_en": "Alternating chills and fever, bitter taste, thin white coating, wiry pulse – stage of disease?",
+        "question_zh": "寒熱往來、口苦、苔薄白、脈弦，病位在？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Early stage of exterior", "zh": "表證早期", "correct": false},
+          "B": {"en": "Exterior", "zh": "表證", "correct": false},
+          "C": {"en": "Half exterior and interior", "zh": "半表半裡", "correct": true},
+          "D": {"en": "Interior", "zh": "裡證", "correct": false}
+        },
+        "exp_en": "Alternating chills and fever (寒熱往來) is the pathognomonic sign of Shao Yang syndrome — when the pathogen is located BETWEEN the exterior and interior (半表半裡). The pathogen fights with Wei Qi at the Shao Yang level, causing alternating chills (pathogen wins) and fever (Wei Qi fights back). Bitter taste, wiry pulse, and thin white coating are other classic Shao Yang signs. | Half exterior and interior",
+        "exp_zh": "寒熱往來是少陽證（Shao Yang）的特徵性症狀，病位在半表半裡——外邪在表裡之間爭鬥。"
+      },
+      {
+        "id": 43,
+        "question_en": "Which meridian is most likely affected in a patient with alternating chills and fever, a bitter taste, a thin white tongue coating, and a wiry pulse?",
+        "question_zh": "患者寒熱往來、口苦、苔薄白，最可能受累的是哪條經絡？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Taiyang meridian", "zh": "太陽經", "correct": false},
+          "B": {"en": "Shaoyang meridian", "zh": "少陽經", "correct": true},
+          "C": {"en": "Yangming meridian", "zh": "陽明經", "correct": false},
+          "D": {"en": "Taiyin meridian", "zh": "太陰經", "correct": false}
+        },
+        "exp_en": "Alternating chills and fever, bitter taste (Gallbladder Heat), thin white coating, and wiry pulse are the classic signs of Shao Yang syndrome in the Six Stages system. The Shao Yang meridians are the Gallbladder (Foot Shao Yang) and San Jiao (Hand Shao Yang). The Gallbladder/San Jiao occupies the half-exterior, half-interior position. | Shaoyang meridian (Gallbladder + San Jiao): governs the half-",
+        "exp_zh": "寒熱往來+口苦（膽熱）+脈弦=少陽病（膽經），少陽主半表半裡，故取少陽經（膽經）治療。"
+      },
+      {
+        "id": 44,
+        "question_en": "Cough for two days, slight fever and chill, slight thirst, thin white coating, floating rapid pulse – diagnosis?",
+        "question_zh": "咳嗽2天，輕微發熱惡寒、輕微口渴、苔薄白，脈浮數。診斷是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Exterior Wind-Cold syndrome", "zh": "外感風寒證", "correct": false},
+          "B": {"en": "Exterior Wind-Heat at early stage", "zh": "外感風熱早期", "correct": false},
+          "C": {"en": "Exterior Wind-Cold which has become constrained into Heat", "zh": "外感風寒化熱入裡", "correct": true},
+          "D": {"en": "Lung Heat syndrome", "zh": "肺熱證", "correct": false}
+        },
+        "exp_en": "Cough for 2 days (acute), slight fever AND chill simultaneously (exterior not yet resolved), slight thirst (beginning of heat transformation), thin WHITE coating (originally Cold), floating RAPID pulse (rapid indicates beginning of heat). The initial pathogen was Wind-Cold (aversion to cold, white coating), but the rapid pulse and slight thirst indicate that the Cold is being constrained and begin",
+        "exp_zh": "輕微發熱惡寒（同時存在=表證）+口渴（微熱傷津）+脈浮數=外感風熱早期，尚未完全化熱。"
+      },
+      {
+        "id": 45,
+        "question_en": "Dyspnea marked by slow weak breathing, relatively easier exhalation and harder inhalation that is worsened with exertion indicates:",
+        "question_zh": "氣喘，呼吸緩慢無力，相對呼氣容易、吸氣困難，動則氣喘加重，舌淡、脈弱。診斷是？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "External Wind-Cold attacking the Lung", "zh": "外感風寒犯肺", "correct": false},
+          "B": {"en": "Lung and Kidney deficiency", "zh": "肺腎兩虛", "correct": true},
+          "C": {"en": "Phlegm obstructing the Lung", "zh": "痰阻肺", "correct": false},
+          "D": {"en": "External Wind-Dry attacking the Lung", "zh": "外感風燥犯肺", "correct": false}
+        },
+        "exp_en": "The specific combination of: slow weak breathing (deficiency pattern), EASIER exhalation and HARDER inhalation, worsened with exertion — defines Kidney failing to grasp Qi (腎不納氣). The Kidney's function is to receive and anchor the Qi sent down by the Lung. When Kidney is deficient, it cannot anchor Qi → inhalation is difficult (Qi cannot be pulled down to the Kidney) while exhalation is relatively",
+        "exp_zh": "呼慢弱（虛）+呼出易吸入難（腎不納氣）+動則加重（虛性呼吸困難）=腎不納氣，屬肺腎兩虛。"
+      },
+      {
+        "id": 46,
+        "question_en": "In which syndrome is insomnia usually not found?",
+        "question_zh": "哪種證型通常不出現失眠？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Heart Yin deficiency", "zh": "心陰虛", "correct": false},
+          "B": {"en": "Gallbladder Fire", "zh": "膽火", "correct": false},
+          "C": {"en": "Disharmony between Heart and Kidney", "zh": "心腎不交", "correct": false},
+          "D": {"en": "Kidney Qi deficiency", "zh": "腎氣虛", "correct": true}
+        },
+        "exp_en": "Insomnia occurs when the Heart or Mind is disturbed. Kidney Qi deficiency primarily manifests as urinary symptoms (frequent urination, incontinence), lower back weakness, and fatigue — it does NOT directly disturb the Heart/Mind or cause insomnia. In contrast, Heart Yin deficiency, Gallbladder Fire, and Heart-Kidney disharmony all directly affect the Mind/spirit and cause insomnia. | Kidney Qi def",
+        "exp_zh": "失眠源於心神受擾。腎氣虛主要表現為尿頻、腰痛、精力不足，不直接擾亂心神，故失眠不常見。"
+      },
+      {
+        "id": 47,
+        "question_en": "Which of the following meridians most relates to headache in the occiput, neck, and upper back?",
+        "question_zh": "以下哪條經絡與枕部頭痛最相關？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Yang Ming of Hand", "zh": "手陽明", "correct": false},
+          "B": {"en": "Shao Yang of Foot", "zh": "足少陽", "correct": false},
+          "C": {"en": "Tai Yang of Foot", "zh": "足太陽", "correct": true},
+          "D": {"en": "Jue Yin of Hand", "zh": "手厥陰", "correct": false}
+        },
+        "exp_en": "The Bladder (Tai Yang of Foot) meridian runs up the posterior neck, over the occiput, and down the upper back — directly corresponding to the anatomical location of occipital, neck, and upper back headache. This is the most commonly tested meridian-headache location association. | Tai Yang of Foot (Urinary Bladder meridian): runs from the inner canthus, over the occiput, down the neck and upper ba",
+        "exp_zh": "膀胱經（足太陽）循行頸後、枕部，枕部頭痛是太陽經循行部位的疾患。"
+      },
+      {
+        "id": 48,
+        "question_en": "Which of the following meridians is associated with temple headache?",
+        "question_zh": "以下哪條經絡與太陽穴頭痛相關？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Gallbladder", "zh": "膽", "correct": true},
+          "B": {"en": "Stomach", "zh": "胃", "correct": false},
+          "C": {"en": "Urinary Bladder", "zh": "膀胱", "correct": false},
+          "D": {"en": "Large Intestine", "zh": "大腸", "correct": false}
+        },
+        "exp_en": "The Gallbladder meridian (Foot Shao Yang) runs along the lateral side of the head, through the temples. Temple headache is therefore in the territory of the Gallbladder meridian. This is a fundamental meridian-headache distribution association in TCM. | Gallbladder (Foot Shao Yang): runs along the lateral side of the head and temple region → temple headache. Classic association.",
+        "exp_zh": "膽經（足少陽）循行顳側（太陽穴），側頭痛（偏頭痛）是膽經病變或少陽證的典型表現。"
+      },
+      {
+        "id": 49,
+        "question_en": "Which herb is often used for the symptom of nasal congestion?",
+        "question_zh": "以下哪味草藥常用於治療鼻塞症狀？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Cang Er Zi (Fructus Xanthii)", "zh": "蒼耳子（Fructus Xanthii）", "correct": true},
+          "B": {"en": "Bai Zhu (White atractylodes)", "zh": "白朮", "correct": false},
+          "C": {"en": "Huang Qin (Radix Scutellariae)", "zh": "黃芩", "correct": false},
+          "D": {"en": "Ju Hua (Flos Chrysanthemi)", "zh": "菊花", "correct": false}
+        },
+        "exp_en": "Cang Er Zi (Xanthium fruit) is the primary Chinese herb for nasal congestion. It opens nasal passages (通鼻竅), dispels Wind, and is used as the principal herb in Cang Er Zi San, the classical formula for sinusitis and nasal congestion. It has a specific affinity for the nasal passages. | Cang Er Zi (Fructus Xanthii): the primary herb to open the nose and relieve nasal congestion. Chief herb of Cang ",
+        "exp_zh": "蒼耳子是治療鼻竅不通（鼻塞）的首選中藥，能宣通鼻竅、散風寒濕邪，常用於鼻炎、鼻竇炎。"
+      },
+      {
+        "id": 50,
+        "question_en": "A 28-year-old male presents with cold limbs, pale complexion, and an indistinct pulse after a very high fever and profuse sweating. Which of the following is correct?",
+        "question_zh": "28歲男性，四肢冰冷、面色蒼白，發熱後大汗淋漓，現煩躁、口渴，伴感染徵象，舌紅少苔，脈細數。診斷是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Heat transforming into cold", "zh": "熱轉化為寒", "correct": false},
+          "B": {"en": "Cold transforming into heat", "zh": "寒轉化為熱", "correct": false},
+          "C": {"en": "Real heat with false cold", "zh": "真熱假寒", "correct": false},
+          "D": {"en": "Real cold with false heat", "zh": "真寒假熱", "correct": false}
+        },
+        "exp_en": "High fever followed by profuse sweating causes massive fluid and Yang Qi loss. The resulting cold limbs, pale complexion, and indistinct pulse indicate that the Heat pathogen has exhausted the body's Yang Qi — the condition has TRANSFORMED from Heat to Cold (亡陽). This is Heat transforming into Cold (熱極生寒 / 熱轉寒): the extreme heat has damaged Yang to the point of collapse, causing a cold pattern.",
+        "exp_zh": "高熱大汗後（真熱）→大量汗出耗傷津液和陽氣→四肢冰冷（假寒外象）。核心是實熱，四肢冷是熱邪盛極、格陽於外的假寒表現（真熱假寒）。"
+      },
+      {
+        "id": 51,
+        "question_en": "A 70-year-old man presents with a flushed face. He is warmly dressed in spite of a feverish sensation, thirst but drinking hot soup, and clear urine and loose stools. His tongue is pale with white moist coat and his pulse is floating and slow.",
+        "question_zh": "70歲男性，面色紅赤，但穿衣很多、身覺寒冷，下肢冰冷，口渴欲飲熱水，舌淡水滑，脈沉微。診斷是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Real cold and false heat", "zh": "真寒假熱", "correct": true},
+          "B": {"en": "Real heat and false cold", "zh": "真熱假寒", "correct": false},
+          "C": {"en": "Real deficiency and false excess", "zh": "真虛假實", "correct": false},
+          "D": {"en": "Real excess and false deficiency", "zh": "真實假虛", "correct": false}
+        },
+        "exp_en": "The 70-year-old has flushed face (false heat sign) but: warmly dressed despite feverish sensation (prefers warmth = Cold underneath), thirst but drinks HOT soup (true thirst = fluid needed, but Cold nature means hot liquid is preferred), clear urine and loose stools (Cold signs of Yang deficiency), pale tongue with white MOIST coat (Cold-Damp = Yang deficiency), floating SLOW pulse (slow = Cold). ",
+        "exp_zh": "真寒假熱：本質是陰寒極盛（舌淡水滑、脈沉微、四肢冷、欲飲熱水），陽氣浮越於外出現假熱象（面紅赤）。"
+      },
+      {
+        "id": 52,
+        "question_en": "Which of the following pulses is most likely to be felt after a heavy menstrual period?",
+        "question_zh": "大量月經出血後，最可能觸及的脈象是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Deep", "zh": "沉脈", "correct": false},
+          "B": {"en": "Slow", "zh": "遲脈", "correct": false},
+          "C": {"en": "Tight", "zh": "緊脈", "correct": false},
+          "D": {"en": "Weak", "zh": "弱脈", "correct": true}
+        },
+        "exp_en": "After heavy menstrual bleeding, there is significant loss of Blood. Blood deficiency leads to the vessels being insufficiently filled → the pulse becomes weak (deficient, forceless). A weak pulse is the direct consequence of Blood deficiency from blood loss. | Weak pulse (虛脈): Blood loss → Blood deficiency → insufficient Blood to fill vessels → pulse becomes weak, soft, and forceless. The direct a",
+        "exp_zh": "大量失血後血虛，脈道空虛，脈象為弱脈（細弱無力）或芤脈（浮而中空）。"
+      },
+      {
+        "id": 53,
+        "question_en": "What pattern does a thin and small tongue indicate?",
+        "question_zh": "舌體細小提示哪種病症？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Yin deficiency", "zh": "陰虛", "correct": false},
+          "B": {"en": "Qi and Blood deficiency", "zh": "氣血兩虛", "correct": true},
+          "C": {"en": "Yang deficiency", "zh": "陽虛", "correct": false},
+          "D": {"en": "Damp-Cold", "zh": "寒濕", "correct": false}
+        },
+        "exp_en": "Tongue body size reflects the state of Qi and Blood. A thin and small tongue indicates that there is insufficient Qi and Blood to nourish and fill the tongue — classic Qi and Blood deficiency. A thin tongue specifically (without redness) points to Qi and Blood deficiency rather than pure Yin deficiency (which would be thin but red/dry). | Qi and Blood deficiency: insufficient Qi (fails to fill and",
+        "exp_zh": "舌體細小提示氣血兩虛——氣血不足，無以充養舌體，舌體失於充盈而細小。"
+      },
+      {
+        "id": 54,
+        "question_en": "Burning stomach, gastric discomfort, acid regurgitation, hunger, lack of appetite, bad breath, weak rapid pulse are associated with which syndrome?",
+        "question_zh": "胃脘灼熱不適、泛酸、飢餓感、食慾差、口臭，舌紅少苔，脈細數。診斷是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Liver Qi overacting on Stomach", "zh": "肝氣犯胃", "correct": false},
+          "B": {"en": "Stomach Yin deficiency", "zh": "胃陰虛", "correct": false},
+          "C": {"en": "Stomach Damp-Heat accumulation", "zh": "胃腸濕熱", "correct": true},
+          "D": {"en": "Excess Stomach Fire", "zh": "胃火旺盛", "correct": false}
+        },
+        "exp_en": "Burning stomach + acid regurgitation + hunger + lack of appetite + bad breath are the cluster of symptoms indicating active Heat in the Stomach with Damp. The combination of hunger (Heat consuming food rapidly) AND lack of appetite (Damp impairing Stomach reception) is the key differentiator: this is Damp-Heat — not pure Yin deficiency (which would have more prominent dryness and no bad breath/gre",
+        "exp_zh": "胃灼熱+泛酸+飢餓但食慾差+口臭+舌紅少苔+脈細數=胃陰虛（陰虛熱擾，無法滋潤胃腑）。"
+      },
+      {
+        "id": 55,
+        "question_en": "Which point should be selected first for any type of diarrhea?",
+        "question_zh": "治療任何類型腹瀉應首選哪個穴位？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "ST36", "zh": "ST36", "correct": false},
+          "B": {"en": "LI11", "zh": "LI11", "correct": false},
+          "C": {"en": "ST25", "zh": "ST25", "correct": true},
+          "D": {"en": "SP9", "zh": "SP9", "correct": false}
+        },
+        "exp_en": "ST25 (Tian Shu) is the Front-Mu (募穴) of the Large Intestine and is located bilaterally on the abdomen, directly adjacent to the intestines. As the Front-Mu point, it directly regulates Large Intestine function and is the primary and most important point for ALL types of diarrhea, regardless of pattern (Damp-Heat, Cold, deficiency, food stagnation, etc.). | ST25 (Tian Shu): Front-Mu of the Large In",
+        "exp_zh": "天樞（ST25）是大腸募穴，位於臍旁兩側，是治療腹瀉的首選穴位，直接作用於大腸功能。"
+      },
+      {
+        "id": 56,
+        "question_en": "Tremors and convulsions are associated with:",
+        "question_zh": "震顫和抽搐與哪種中醫病邪相關？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Wind", "zh": "風", "correct": true},
+          "B": {"en": "Cold", "zh": "寒", "correct": false},
+          "C": {"en": "Heat", "zh": "熱", "correct": false},
+          "D": {"en": "Dampness", "zh": "濕", "correct": false}
+        },
+        "exp_en": "In TCM, Wind (風) is characterized by movement, change, and upward/outward direction. Tremors and convulsions are involuntary abnormal movements — these are classified as manifestations of Wind (either external Wind-Cold invasion causing muscle spasm, or internal Liver Wind causing tremors/convulsions). 'Wind causes movement' (風善動) is a fundamental principle. | Wind: 'Wind causes shaking and moveme",
+        "exp_zh": "中醫中風（Wind）的特徵是運動性、變化性，震顫抽搐（動）屬風的特性——「風主動搖」。"
+      },
+      {
+        "id": 57,
+        "question_en": "Which of the following pulse qualities indicates phlegm?",
+        "question_zh": "以下哪種脈象提示痰？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Thready", "zh": "細脈", "correct": false},
+          "B": {"en": "Strong", "zh": "強脈", "correct": false},
+          "C": {"en": "Slippery", "zh": "滑脈", "correct": true},
+          "D": {"en": "Wiry", "zh": "弦脈", "correct": false}
+        },
+        "exp_en": "The slippery pulse (滑脈) has a rolling, smooth quality 'like pearls rolling on a plate.' It indicates that fluids are in excess and rolling through the vessels — classically associated with Phlegm-Damp, food stagnation, and pregnancy (excess nourishment). Phlegm is the most common pathological association with the slippery pulse. | Slippery pulse: rolling, smooth quality indicating excess fluids or",
+        "exp_zh": "滑脈（如珠滾盤）是痰濕的典型脈象，也可見於妊娠。細脈主血虛，弦脈主肝病。"
+      },
+      {
+        "id": 58,
+        "question_en": "A 57-year-old home mover comes to your office with lower back pain for 4 months. The pain gets worse when the patient holds heavy things and is relieved by rest. The radiological test is negative. What is the syndrome?",
+        "question_zh": "57歲搬運工人，腰痛3年，舉重物時加重、休息後緩解，腰膝酸軟，舌淡苔白，脈弱。診斷是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Deficiency of Kidney Qi", "zh": "腎氣虛", "correct": true},
+          "B": {"en": "Deficiency of Kidney Yin", "zh": "腎陰虛", "correct": false},
+          "C": {"en": "Qi and Blood Stagnation", "zh": "氣血瘀阻", "correct": false},
+          "D": {"en": "Wind-Damp-Cold invasion", "zh": "風寒濕入侵", "correct": false}
+        },
+        "exp_en": "The key features are: worse when HOLDING HEAVY THINGS (physical exertion) and relieved by REST, with a NEGATIVE radiological test (ruling out structural damage). This is a functional, deficiency-type lower back pain — specifically Kidney Qi deficiency, as the Kidney governs the lower back (腰為腎之府). The pain from lifting/straining exhausts the deficient Kidney Qi, while rest allows partial recovery.",
+        "exp_zh": "勞累（舉重）加重+休息後緩解+腰膝酸軟+脈弱=腎氣虛（腎主腰，腎氣不足則腰痛疲勞加重）。"
+      },
+      {
+        "id": 59,
+        "question_en": "A patient has hypochondriac pain, irregular menstruation with a pale tongue and wiry thready pulse. This disease is likely due to:",
+        "question_zh": "患者脅肋疼痛、月經不調（舌淡脈細），伴疲倦、面色蒼白。診斷是？",
+        "answer": "D",
+        "options": {
+          "A": {"en": "Liver Qi stagnation damaging Spleen", "zh": "肝氣鬱結犯脾", "correct": false},
+          "B": {"en": "Liver Blood and Yin deficiency", "zh": "肝血陰虛", "correct": false},
+          "C": {"en": "Liver Heat and Dampness accumulation", "zh": "肝熱兼濕積聚", "correct": false},
+          "D": {"en": "Liver Qi stagnation with Blood deficiency", "zh": "肝氣鬱結兼血虛", "correct": true}
+        },
+        "exp_en": "Hypochondriac pain (Liver meridian territory), irregular menstruation (Liver governs Blood and menstruation), pale tongue (Blood deficiency), and wiry-thready pulse (wiry = Liver involvement; thready = Blood deficiency) together indicate BOTH Liver Qi stagnation (hypochondriac pain, wiry pulse) AND Blood deficiency (pale tongue, thready pulse, irregular menstruation). This combination points to Li",
+        "exp_zh": "脅肋痛（肝）+月經不調（肝血虛）+舌淡脈細+面色蒼白（血虛）=肝氣鬱結兼血虛。"
+      },
+      {
+        "id": 60,
+        "question_en": "Allan, male, 20, came to the student clinic seeking for TCM treatment. His chief complaint was about chronic palpitations and anxiety. The palpitations are easily induced by fright and worsened by fatigue. He often has dream-disturbed sleep and is often startled and vaguely afraid. He looks very tired and lacking self-confidence. He has pale tongue with white coating, and thread-wiry pulse. Which formula is the most suitable for this condition?",
+        "question_zh": "Allan，20歲男性，心悸，因驚嚇誘發，疲勞加重，心跳有停頓感，膽小，舌淡苔白，脈細弱。最合適方劑？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Xiao Yao San (Rambling powder)", "zh": "逍遙散", "correct": false},
+          "B": {"en": "Gui Pi Tang (Restore the Spleen Decoction)", "zh": "歸脾湯", "correct": false},
+          "C": {"en": "Ding Zhi Wan (Calming Pill)", "zh": "定志丸", "correct": true},
+          "D": {"en": "Zhu Sha An Shen Wan (Cinnabar Pill to Calm the Spirit)", "zh": "朱砂安神丸", "correct": false}
+        },
+        "exp_en": "Allan's palpitations are triggered by FRIGHT and worsened by fatigue, with startling, vague fear, timidity, dream-disturbed sleep, tired appearance, lacking self-confidence, pale tongue with white coating, thready-wiry pulse. This pattern specifically points to Heart Qi deficiency combined with Gallbladder Qi deficiency (膽氣虛) — the Gallbladder governs decisiveness and courage; its deficiency cause",
+        "exp_zh": "因驚恐誘發+膽小怯弱+脈細弱=心氣虛兼膽氣虛，定志丸補心益智、鎮靜安神最合適。"
+      },
+      {
+        "id": 61,
+        "question_en": "Allan, male, 20 (same case as Q60). What is the key pathogenesis of timidity?",
+        "question_zh": "Allan（Q60同案）。心悸膽怯的主要病機是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Heart Qi and Heart Blood deficiency", "zh": "心氣虛兼心血虛", "correct": false},
+          "B": {"en": "Heart Blood and Spleen Qi deficiency", "zh": "心血虛兼脾氣虛", "correct": false},
+          "C": {"en": "Heart Qi and Gall Bladder Qi deficiency", "zh": "心氣虛兼膽氣虛", "correct": true},
+          "D": {"en": "Heart Fire and Kidney Yin deficiency", "zh": "心火旺兼腎陰虛", "correct": false}
+        },
+        "exp_en": "The key pathogenesis of Allan's timidity and fright-induced palpitations is Heart Qi deficiency (Heart Qi cannot stabilize the Mind) combined with Gallbladder Qi deficiency (Gallbladder governs decisiveness and courage — its deficiency leads to timidity, fright, easily startled). The combination of these two organ deficiencies explains both the palpitations (Heart) and the psychological component ",
+        "exp_zh": "因驚恐觸發+膽小怯懦=心氣虛（心神不安）+膽氣虛（膽不決斷），故心氣虛兼膽氣虛為主要病機。"
+      },
+      {
+        "id": 62,
+        "question_en": "Allan, male, 20 (same case as Q60). What profession is most suitable for initiating an inter-professional collaboration for this patient?",
+        "question_zh": "Allan（Q60同案）。哪種療法最適合輔助治療？",
+        "answer": "B",
+        "options": {
+          "A": {"en": "Massage therapy", "zh": "按摩療法", "correct": false},
+          "B": {"en": "Psychotherapy", "zh": "心理治療", "correct": true},
+          "C": {"en": "Chiropractic therapy", "zh": "整脊療法", "correct": false},
+          "D": {"en": "Physiotherapy", "zh": "物理治療", "correct": false}
+        },
+        "exp_en": "Allan has chronic anxiety, palpitations, timidity, lack of self-confidence, and a pattern rooted in psychological/emotional distress (fright, fear). The most appropriate inter-professional referral is Psychotherapy — this addresses the psychological and emotional roots of his anxiety, builds coping strategies, and complements TCM treatment. The other options address physical/structural issues not ",
+        "exp_zh": "Allan有慢性焦慮、心悸、膽怯、缺乏自信，心理治療（psychotherapy）有助於處理情緒根源，配合中醫治療效果更佳。"
+      },
+      {
+        "id": 63,
+        "question_en": "What is most likely related to white-puffy-lustreless complexion?",
+        "question_zh": "白色虛浮無光澤的面色最可能與哪項相關？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Qi deficiency", "zh": "氣虛", "correct": false},
+          "B": {"en": "Blood deficiency", "zh": "血虛", "correct": false},
+          "C": {"en": "Deficiency Cold", "zh": "虛寒", "correct": false},
+          "D": {"en": "Kidney Essence deficiency", "zh": "腎精虧虛", "correct": false}
+        },
+        "exp_en": "White-puffy-lustreless complexion (白色虛浮無光澤) combines three features: white (lack of Blood/Yang to colour), puffy/swollen (fluid accumulation from Yang failing to transform Damp), and lustreless (no Yang warmth/vitality). This triad is pathognomonic for Deficiency Cold (Yang deficiency leading to Cold and fluid retention). Pure Qi deficiency may give pale-white, but not the puffiness. Blood deficie",
+        "exp_zh": "白色虛浮（腫脹=水濕/陽虛）+無光澤（氣血不足）三個特徵結合，最符合虛寒（陽虛）或氣虛水濕型。"
+      },
+      {
+        "id": 64,
+        "question_en": "60-year-old male, cold for 12 days, now cough with yellow phlegm, chest fullness, rapid breathing, red tongue with thick yellow greasy coating, slippery wiry pulse – diagnosis?",
+        "question_zh": "60歲男性，感冒12天，現咳嗽黃痰、胸悶、高熱、口渴，舌紅苔黃膩，脈滑數。診斷是？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Liver fire attacking the Lung", "zh": "肝火犯肺", "correct": false},
+          "B": {"en": "Wind-heat invade the Lung", "zh": "風熱犯肺", "correct": false},
+          "C": {"en": "Phlegm heat in the Lung", "zh": "痰熱壅肺", "correct": true},
+          "D": {"en": "Damp phlegm in the Lung", "zh": "痰濕阻肺", "correct": false}
+        },
+        "exp_en": "Patient had a cold (exterior) for 12 days — the pathogen has progressed to the interior, lodging in the Lung as Phlegm-Heat. Yellow phlegm (Heat), chest fullness (Phlegm obstruction), rapid breathing (Lung Qi obstructed), red tongue with thick YELLOW GREASY coating (Phlegm-Heat), slippery-wiry pulse (Phlegm + constriction). This is interior Phlegm-Heat obstructing the Lung. | Phlegm-Heat in the Lu",
+        "exp_zh": "感冒12天（外邪入裡）+黃痰+高熱口渴+苔黃膩脈滑數=痰熱壅肺（外邪入裡化熱，灼津為痰）。"
+      },
+      {
+        "id": 65,
+        "question_en": "Mrs. Sun, 72, suffers from hiatus hernia for many years. Yesterday after eating a piece of chocolate cake, she started to feel sour regurgitating that was worse at bed time. She now also has mild dull pain in the epigastric and hypochondriac regions, hunger but no desire for eating, dry throat with hoarse voice, malar flush, irritability, constipation, dry red tongue with little coating, and thin wiry rapid pulse. Please make a pattern diagnosis for her:",
+        "question_zh": "孫女士，72歲，食道裂孔疝多年，昨晚吃辛辣食物後，胸骨後輕微鈍痛，泛酸，輕微口苦，大便正常，舌偏紅苔薄，脈弦。診斷是？",
+        "answer": "A",
+        "options": {
+          "A": {"en": "Liver and Stomach Yin Deficiency", "zh": "肝胃陰虛", "correct": true},
+          "B": {"en": "Liver Qi Stagnation Overacting on the Stomach", "zh": "肝氣鬱結犯胃", "correct": false},
+          "C": {"en": "Food Stagnation Changing to Heat in the Stomach", "zh": "食積化熱於胃", "correct": false},
+          "D": {"en": "Damp-Heat Accumulation in the Stomach", "zh": "胃腸濕熱積聚", "correct": false}
+        },
+        "exp_en": "Mrs. Sun has: sour regurgitation (Stomach acid — fluid domain), MILD dull epigastric and hypochondriac pain (Yin deficiency — dull, not sharp), hunger but NO desire to eat (Stomach Yin deficiency — Stomach needs fluid but cannot receive food), dry throat with hoarse voice (Yin deficiency failing to moisten), malar flush + irritability (Liver Yin deficiency with Heat), constipation (Yin deficiency ",
+        "exp_zh": "泛酸（胃液上逆）+輕微口苦（膽熱）+脈弦（肝）+辛辣食物誘發=肝胃陰虛或肝氣犯胃；輕微症狀和脈弦更提示肝胃不和（肝氣犯胃）。"
+      },
+      {
+        "id": 66,
+        "question_en": "Alternating dry and loose stool indicate:",
+        "question_zh": "大便時乾時稀（交替出現）提示哪種證型？",
+        "answer": "C",
+        "options": {
+          "A": {"en": "Lung and Kidney Qi deficiency", "zh": "肺腎氣虛", "correct": false},
+          "B": {"en": "Spleen and Stomach Qi deficiency", "zh": "脾胃氣虛", "correct": false},
+          "C": {"en": "Liver Qi stagnation with Spleen deficiency", "zh": "肝氣鬱結兼脾虛", "correct": true},
+          "D": {"en": "Damp-Heat in Lung and Large Intestine", "zh": "肺和大腸濕熱", "correct": false}
+        },
+        "exp_en": "Alternating dry and loose stools (sometimes constipated, sometimes loose) indicates inconsistency in intestinal Qi movement — the hallmark of Liver Qi stagnation overacting on the Spleen. When Liver Qi stagnates and attacks the Spleen, Spleen's transportation function becomes erratic → sometimes over-active (loose stools) and sometimes under-active (dry/constipated stools). This is the Tong Xie Ya",
+        "exp_zh": "大便時乾時稀（便秘與腹瀉交替）是肝鬱脾虛的典型表現：肝氣鬱結時腸道緊縮（便秘），脾虛時運化失職（腹瀉），兩者交替出現。"
+      }
+    ]
+  }
+};
