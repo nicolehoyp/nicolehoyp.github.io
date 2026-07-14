@@ -20,9 +20,9 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--tx);min-
 .hd p{font-size:11px;color:var(--dm);font-family:monospace}
 
 /* ── TABS ── */
-.tabs{background:var(--sf);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;position:sticky;top:55px;z-index:200;scrollbar-width:none}
+.tabs{background:var(--sf);border-bottom:1px solid var(--bd);display:flex;flex-wrap:wrap;position:sticky;top:55px;z-index:200}
 .tabs::-webkit-scrollbar{display:none}
-.tab{padding:10px 14px;font-size:12px;color:var(--dm);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:monospace;display:flex;align-items:center;gap:4px;flex-shrink:0;user-select:none;transition:all .15s}
+.tab{padding:10px 14px;font-size:12px;color:var(--dm);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:monospace;display:flex;align-items:center;gap:4px;user-select:none;transition:all .15s}
 .tab:hover{color:var(--tx);background:var(--sf2)}
 .tab.on{color:var(--gold);border-bottom-color:var(--gold)}
 .tab .n{font-size:10px;background:var(--sf2);padding:1px 5px;border-radius:8px}
